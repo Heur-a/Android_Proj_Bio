@@ -19,11 +19,15 @@ import android.bluetooth.le.ScanResult;
 import android.content.pm.PackageManager;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.work.Data;
+import androidx.work.OneTimeWorkRequest;
+import androidx.work.WorkManager;
 
 import java.util.Arrays;
 import java.util.List;
@@ -52,6 +56,8 @@ public class MainActivity extends AppCompatActivity {
     private boolean isScanning = false;
 
     public TextView showMajor;
+    public Button enviarPostPrueba;
+    public Button EncenderEnvioPost;
 
 
 
@@ -252,6 +258,27 @@ public class MainActivity extends AppCompatActivity {
     // --------------------------------------------------------------
     // --------------------------------------------------------------
 
+    public void botonEnviarPostPrueba(View v) {
+        Log.d(ETIQUETA_LOG, " boton Enviar Post Pulsado");
+        this.enviarPostPrueba();
+    }
+
+    //----------------------------------------------------------------
+    //----------------------------------------------------------------
+
+    private void enviarPostPrueba() {
+        Data inputData = new Data.Builder()
+                .putString(PeticionarioRESTWorker.KEY_METHOD, "POST")
+                .putString(PeticionarioRESTWorker.KEY_URL, "http://192.168.1.2:80/mediciones")
+                .putString(PeticionarioRESTWorker.KEY_BODY, "{ \"medida\": 50.5, \"lugar\": \"Zona Industrial\", \"tipo_gas\": \"CO2\", \"hora\": \"2024-09-26 14:30:00\" }")
+                .build();
+        // Start the Worker to make the request
+        OneTimeWorkRequest workRequest = new OneTimeWorkRequest.Builder(PeticionarioRESTWorker.class)
+                .setInputData(inputData)
+                .build();
+
+        WorkManager.getInstance(this).enqueue(workRequest);
+    }
 
 
     @Override
@@ -261,6 +288,10 @@ public class MainActivity extends AppCompatActivity {
 
         //SET XML VARIABLES
         showMajor = findViewById(R.id.showMajor);
+        enviarPostPrueba = findViewById(R.id.enviarPostPrueba);
+        EncenderEnvioPost = findViewById(R.id.ToggleEnviarPost);
+
+        enviarPostPrueba.setOnClickListener(this::botonEnviarPostPrueba);
 
         //SET SCANNER
         BluetoothAdapter elAdaptadorBT = BluetoothAdapter.getDefaultAdapter();
