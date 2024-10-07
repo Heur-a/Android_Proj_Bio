@@ -43,5 +43,7 @@ dependencies {
     implementation ("mysql:mysql-connector-java:8.0.32")
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation ("com.google.code.gson:gson:2.8.9")
+
 
 }
