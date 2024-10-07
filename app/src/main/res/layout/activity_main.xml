@@ -31,4 +31,16 @@
         android:layout_height="wrap_content"
         />
 
+    <Button
+        android:id="@+id/buttonMajor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show ppm/major" />
+
+    <TextView
+        android:id="@+id/showMajor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
 </android.widget.LinearLayout>

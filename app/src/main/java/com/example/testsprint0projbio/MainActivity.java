@@ -15,18 +15,17 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.le.BluetoothLeScanner;
 import android.bluetooth.le.ScanCallback;
-import android.bluetooth.le.ScanFilter;
 import android.bluetooth.le.ScanResult;
-import android.bluetooth.le.ScanSettings;
 import android.content.pm.PackageManager;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
@@ -46,7 +45,15 @@ public class MainActivity extends AppCompatActivity {
 
     private ScanCallback callbackDelEscaneo = null;
 
-    private final String sensorName = "We love Jaen yey";
+    private final String uuidString = "We love Jaen yey";
+    private TramaIBeacon tib;
+
+    // Variable per a seguir l'estat de l'escaneig
+    private boolean isScanning = false;
+
+    public TextView showMajor;
+
+
 
     // --------------------------------------------------------------
     // --------------------------------------------------------------
@@ -110,13 +117,6 @@ public class MainActivity extends AppCompatActivity {
         Log.d(ETIQUETA_LOG, " nombre = " + bluetoothDevice.getName());
         Log.d(ETIQUETA_LOG, " toString = " + bluetoothDevice);
 
-        /*
-        ParcelUuid[] puuids = bluetoothDevice.getUuids();
-        if ( puuids.length >= 1 ) {
-            //Log.d(ETIQUETA_LOG, " uuid = " + puuids[0].getUuid());
-           // Log.d(ETIQUETA_LOG, " uuid = " + puuids[0].toString());
-        }*/
-
         Log.d(ETIQUETA_LOG, " dirección = " + bluetoothDevice.getAddress());
         Log.d(ETIQUETA_LOG, " rssi = " + rssi);
 
@@ -153,19 +153,17 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        // Crear un filtre pel dispositiu amb nom "AAaagh"
-        ScanFilter filter = new ScanFilter.Builder().setDeviceName(sensorName).build();
-        List<ScanFilter> filters = new ArrayList<>();
-        filters.add(filter);
+
 
         this.callbackDelEscaneo = new ScanCallback() {
             @Override
             public void onScanResult(int callbackType, ScanResult resultado) {
                 super.onScanResult(callbackType, resultado);
                 byte[] bytes = Objects.requireNonNull(resultado.getScanRecord()).getBytes();
-                TramaIBeacon tib  = new TramaIBeacon(bytes);
-                if ( sensorName.equals(Utilidades.bytesToString(tib.getUUID())) ) {
+                tib = new TramaIBeacon(bytes);
+                if ( uuidString.equals(Utilidades.bytesToString(tib.getUUID())) ) {
                     mostrarInformacionDispositivoBTLE(resultado);
+                    showMajor();
                 }
             }
 
@@ -190,10 +188,11 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        ScanSettings settings = new ScanSettings.Builder().setScanMode(ScanSettings.SCAN_MODE_BALANCED).build();
-
         // Iniciar escaneig amb filtre
         this.elEscanner.startScan(this.callbackDelEscaneo);
+
+        // Know if the sensor scan is running
+        isScanning = true;
     } // ()
 
     // --------------------------------------------------------------
@@ -210,6 +209,23 @@ public class MainActivity extends AppCompatActivity {
         this.elEscanner.stopScan(this.callbackDelEscaneo);
         this.callbackDelEscaneo = null;
 
+    } // ()
+
+    // --------------------------------------------------------------
+    // --------------------------------------------------------------
+    private void showMajor() {
+        Log.d(ETIQUETA_LOG, " showMajor()");
+
+        // Comprovar si s'està escanejant
+        if (isScanning) {
+
+            String display = getString(R.string.ppm) + (Arrays.toString(tib.getMajor()));
+            Log.d(ETIQUETA_LOG, " Major: " + display);
+            showMajor.setText(display);
+
+        } else {
+            Log.d(ETIQUETA_LOG, " No s'està escanejant.");
+        }
     } // ()
 
     // --------------------------------------------------------------
@@ -235,16 +251,25 @@ public class MainActivity extends AppCompatActivity {
 
     // --------------------------------------------------------------
     // --------------------------------------------------------------
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //SET XML VARIABLES
+        showMajor = findViewById(R.id.showMajor);
+
+        //SET SCANNER
         BluetoothAdapter elAdaptadorBT = BluetoothAdapter.getDefaultAdapter();
         this.elEscanner = elAdaptadorBT.getBluetoothLeScanner();
 
     } // ()
 
+    //----------------------------------------------------------------
+    //----------------------------------------------------------------
 
     private final ActivityResultLauncher<String> requestPermissionLuancher =
             registerForActivityResult(new RequestPermission(), isGranted ->
