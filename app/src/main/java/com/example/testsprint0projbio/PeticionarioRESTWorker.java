@@ -2,6 +2,7 @@ package com.example.testsprint0projbio;
 
 import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.work.Data;
@@ -16,81 +17,133 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-
+/**
+ * Worker for making REST requests to the measurements API.
+ */
 public class PeticionarioRESTWorker extends Worker {
 
+    // Key for the HTTP method (GET, POST, etc.)
     public static final String KEY_METHOD = "KEY_METHOD";
+
+    // Key for the URL destination
     public static final String KEY_URL = "KEY_URL";
+
+    // Key for the request body (e.g., the JSON payload)
     public static final String KEY_BODY = "KEY_BODY";
+
+    // Key for the response code of the HTTP request
     public static final String KEY_RESPONSE_CODE = "KEY_RESPONSE_CODE";
+
+    // Key for the response body (e.g., the response JSON)
     public static final String KEY_RESPONSE_BODY = "KEY_RESPONSE_BODY";
 
+    private final Context context;
+
+    /**
+     * Constructor for the Worker.
+     *
+     * @param context The application context
+     * @param params Parameters for the Worker
+     */
     public PeticionarioRESTWorker(@NonNull Context context, @NonNull WorkerParameters params) {
         super(context, params);
+        this.context = context;
     }
 
+    /**
+     * Executes the Worker task, which is making a REST request.
+     *
+     * @return Result of the execution (success or failure)
+     */
     @NonNull
     @Override
     public Result doWork() {
-        String elMetodo = getInputData().getString(KEY_METHOD);
-        String urlDestino = getInputData().getString(KEY_URL);
-        String elCuerpo = getInputData().getString(KEY_BODY);
+        // Retrieve dynamic values passed at runtime through Data
+        String method = getInputData().getString(KEY_METHOD); // HTTP method
+        String urlDestination = getInputData().getString(KEY_URL); // API URL
+        String requestBody = getInputData().getString(KEY_BODY); // Request body (payload)
 
-        int codigoRespuesta;
-        String cuerpoRespuesta = "";
+        int responseCode;
+        String responseBody = "";
 
-        try
-        {
-            HttpURLConnection connection = getHttpURLConnection(urlDestino, elMetodo, elCuerpo);
+        try {
+            // Create HTTP connection and send request
+            HttpURLConnection connection = getHttpURLConnection(urlDestination, method, requestBody);
 
-            codigoRespuesta = connection.getResponseCode();
-            StringBuilder acumulador = new StringBuilder();
-            try
-            {
+            // Get response code and body
+            responseCode = connection.getResponseCode();
+            StringBuilder responseAccumulator = new StringBuilder();
+            try {
                 InputStream is = connection.getInputStream();
                 BufferedReader br = new BufferedReader(new InputStreamReader(is));
-                String linea;
-                while ((linea = br.readLine()) != null) {
-                    acumulador.append(linea);
+                String line;
+                while ((line = br.readLine()) != null) {
+                    responseAccumulator.append(line);
                 }
-                cuerpoRespuesta = acumulador.toString();
+                responseBody = responseAccumulator.toString();
                 connection.disconnect();
+            } catch (IOException ex) {
+                Log.d("PeticionarioRESTWorker", "No response body.");
             }
-            catch (IOException ex)
-            {
-                Log.d("PeticionarioRESTWorker", "No hi ha cos en la resposta.");
+
+            // Show a Toast depending on the response code
+            if (responseCode == 201) { // Successful creation
+                showToast("Measurement sent successfully!");
+            } else if (responseCode == 400) { // Bad request
+                showToast("Error: Invalid measurement data.");
+            } else {
+                showToast("Unexpected response: " + responseCode);
             }
-        }
-        catch (Exception e)
-        {
-            Log.d("PeticionarioRESTWorker", "Ocurrio alguna excepcion: " + e.getMessage());
+
+        } catch (Exception e) {
+            Log.d("PeticionarioRESTWorker", "An exception occurred: " + e.getMessage());
+            showToast("Failed to send measurement: " + e.getMessage());
             return Result.failure();
         }
 
-        // Retornem el codi de resposta i el cos de la resposta
+        // Returning the response code and body as output data
         Data outputData = new Data.Builder()
-                .putInt(KEY_RESPONSE_CODE, codigoRespuesta)
-                .putString(KEY_RESPONSE_BODY, cuerpoRespuesta)
+                .putInt(KEY_RESPONSE_CODE, responseCode)
+                .putString(KEY_RESPONSE_BODY, responseBody)
                 .build();
 
         return Result.success(outputData);
     }
 
-    private static @NonNull HttpURLConnection getHttpURLConnection(String urlDestino, String elMetodo, String elCuerpo) throws IOException {
-        URL url = new URL(urlDestino);
+    /**
+     * Configures the HTTP connection for the REST request.
+     *
+     * @param urlDestination Destination URL
+     * @param method HTTP method (GET, POST, etc.)
+     * @param requestBody Request body (for POST or PUT methods)
+     * @return Configured HttpURLConnection
+     * @throws IOException If there is a connection issue
+     */
+    private static @NonNull HttpURLConnection getHttpURLConnection(String urlDestination, String method, String requestBody) throws IOException {
+        URL url = new URL(urlDestination);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-        connection.setRequestProperty("Content-Type", "application/json; charset-utf-8");
-        connection.setRequestMethod(elMetodo);
+        connection.setRequestProperty("Content-Type", "application/json; charset=utf-8");
+        connection.setRequestMethod(method);
         connection.setDoInput(true);
 
-        if (!"GET".equals(elMetodo) && elCuerpo != null) {
+        // If the method is not GET, add the request body
+        if (!"GET".equals(method) && requestBody != null) {
             connection.setDoOutput(true);
             DataOutputStream dos = new DataOutputStream(connection.getOutputStream());
-            dos.writeBytes(elCuerpo);
+            dos.writeBytes(requestBody);
             dos.flush();
             dos.close();
         }
         return connection;
     }
-}
 
+    /**
+     * Shows a Toast message in the UI thread.
+     *
+     * @param message The message to show in the Toast
+     */
+    private void showToast(final String message) {
+        // Ensuring the Toast is run on the UI thread
+        new android.os.Handler(android.os.Looper.getMainLooper()).post(() -> Toast.makeText(context, message, Toast.LENGTH_SHORT).show());
+    }
+}

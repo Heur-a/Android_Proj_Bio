@@ -19,11 +19,16 @@ import android.bluetooth.le.ScanResult;
 import android.content.pm.PackageManager;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.work.Data;
+import androidx.work.OneTimeWorkRequest;
+import androidx.work.WorkManager;
 
 import java.util.Arrays;
 import java.util.List;
@@ -45,13 +50,15 @@ public class MainActivity extends AppCompatActivity {
 
     private ScanCallback callbackDelEscaneo = null;
 
-    private final String uuidString = "We love Jaen yey";
+    private final String uuidString = "quierocafecafeee";
     private TramaIBeacon tib;
 
     // Variable per a seguir l'estat de l'escaneig
     private boolean isScanning = false;
 
     public TextView showMajor;
+    public Button enviarPostPrueba;
+    public Button EncenderEnvioPost;
 
 
 
@@ -160,9 +167,10 @@ public class MainActivity extends AppCompatActivity {
             public void onScanResult(int callbackType, ScanResult resultado) {
                 super.onScanResult(callbackType, resultado);
                 byte[] bytes = Objects.requireNonNull(resultado.getScanRecord()).getBytes();
-                tib = new TramaIBeacon(bytes);
-                if ( uuidString.equals(Utilidades.bytesToString(tib.getUUID())) ) {
+                TramaIBeacon scan = new TramaIBeacon(bytes);
+                if ( uuidString.equals(Utilidades.bytesToString(scan.getUUID())) ) {
                     mostrarInformacionDispositivoBTLE(resultado);
+                    tib = scan;
                     showMajor();
                 }
             }
@@ -252,6 +260,59 @@ public class MainActivity extends AppCompatActivity {
     // --------------------------------------------------------------
     // --------------------------------------------------------------
 
+    public void botonEnviarPostPrueba(View v) {
+        Log.d(ETIQUETA_LOG, " boton Enviar Post Pulsado");
+        this.enviarPostPrueba();
+    }
+
+    //----------------------------------------------------------------
+    //----------------------------------------------------------------
+
+    public void botonEnviarLastMajor(View v) {
+        Log.d(ETIQUETA_LOG, " boton Enviar Last Major Pulsado");
+        this.enviarLastMajor();
+    }
+
+    //---------------------------------------------------------------
+    //---------------------------------------------------------------
+
+    private void enviarPostPrueba() {
+        Data inputData = new Data.Builder()
+                .putString(PeticionarioRESTWorker.KEY_METHOD, "POST")
+                .putString(PeticionarioRESTWorker.KEY_URL, "http://192.168.18.2:80/mediciones")
+                .putString(PeticionarioRESTWorker.KEY_BODY, "{ \"medida\": 50.5, \"lugar\": \"Zona Industrial\", \"tipo_gas\": \"CO2\", \"hora\": \"2024-09-26 14:30:00\" }")
+                .build();
+        // Start the Worker to make the request
+        OneTimeWorkRequest workRequest = new OneTimeWorkRequest.Builder(PeticionarioRESTWorker.class)
+                .setInputData(inputData)
+                .build();
+
+        WorkManager.getInstance(this).enqueue(workRequest);
+    }
+
+    //--------------------------------------------------------------
+    //--------------------------------------------------------------
+    private void enviarLastMajor() {
+        if(tib == null) {
+            Toast.makeText(this, "No hay datos disponibles", Toast.LENGTH_SHORT).show();
+            return;
+
+        }
+        Medicion medicion = new Medicion( Utilidades.bytesToIntOK(tib.getMajor()), "Zona Industrial", "CO2");
+        Log.d(ETIQUETA_LOG, " Medicion: " + medicion.toString());
+        String json = medicion.toJson();
+        Log.d(ETIQUETA_LOG, " JSON: " + json);
+        Data inputData = new Data.Builder()
+                .putString(PeticionarioRESTWorker.KEY_METHOD, "POST")
+                .putString(PeticionarioRESTWorker.KEY_URL, "http://192.168.18.2:80/mediciones")
+                .putString(PeticionarioRESTWorker.KEY_BODY, json)
+                .build();
+        OneTimeWorkRequest workRequest = new OneTimeWorkRequest.Builder(PeticionarioRESTWorker.class)
+                .setInputData(inputData)
+                .build();
+
+        WorkManager.getInstance(this).enqueue(workRequest);
+    }
 
 
     @Override
@@ -261,6 +322,11 @@ public class MainActivity extends AppCompatActivity {
 
         //SET XML VARIABLES
         showMajor = findViewById(R.id.showMajor);
+        enviarPostPrueba = findViewById(R.id.enviarPostPrueba);
+        EncenderEnvioPost = findViewById(R.id.ToggleEnviarPost);
+
+        enviarPostPrueba.setOnClickListener(this::botonEnviarPostPrueba);
+        EncenderEnvioPost.setOnClickListener(this::botonEnviarLastMajor);
 
         //SET SCANNER
         BluetoothAdapter elAdaptadorBT = BluetoothAdapter.getDefaultAdapter();
