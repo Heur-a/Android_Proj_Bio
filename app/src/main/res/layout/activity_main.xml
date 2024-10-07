@@ -32,10 +32,16 @@
         />
 
     <Button
-        android:id="@+id/buttonMajor"
+        android:id="@+id/enviarPostPrueba"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Show ppm/major" />
+        android:text="Enviar Post Prueba" />
+
+    <Button
+        android:id="@+id/ToggleEnviarPost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="On/Off Enviar Post Mediciones" />
 
     <TextView
         android:id="@+id/showMajor"

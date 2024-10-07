@@ -123,6 +123,16 @@ public class Utilidades {
 
     // -------------------------------------------------------------------------------
     // -------------------------------------------------------------------------------
+
+    public static int majorToUnisgnedInt( byte[] bytes ) {
+        if (bytes.length != 2 ) {
+            return 1;
+        }
+        int result = ((bytes[0] & 0xFF) << 8) | (bytes[1] & 0xFF);
+        return result;
+    }
+
+
     public static String bytesToHexString( byte[] bytes ) {
 
         if (bytes == null ) {
