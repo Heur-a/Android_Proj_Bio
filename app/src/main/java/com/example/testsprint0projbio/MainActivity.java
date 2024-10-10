@@ -49,15 +49,16 @@ public class MainActivity extends AppCompatActivity {
 
     // --------------------------------------------------------------
     // --------------------------------------------------------------
-    private BluetoothLeScanner elEscanner;
+    public BluetoothLeScanner elEscanner;
 
-    private ScanCallback callbackDelEscaneo = null;
+    ScanCallback callbackDelEscaneo = null;
 
     private final String uuidString = "holaMundoNosVemo";
-    private TramaIBeacon tib;
+    TramaIBeacon tib;
 
     // Variable per a seguir l'estat de l'escaneig
-    private boolean isScanning = false;
+    boolean isScanningOurBeacon = false;
+    boolean isScanning = false;
 
     public TextView showMajor;
     public Button enviarPostPrueba;
@@ -67,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
     // --------------------------------------------------------------
     // --------------------------------------------------------------
-    private void buscarTodosLosDispositivosBTLE() {
+    void buscarTodosLosDispositivosBTLE() {
         Log.d(ETIQUETA_LOG, " buscarTodosLosDispositivosBTL(): empieza ");
 
         Log.d(ETIQUETA_LOG, " buscarTodosLosDispositivosBTL(): instalamos scan callback ");
@@ -104,6 +105,8 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         this.elEscanner.startScan(this.callbackDelEscaneo);
+
+        isScanning = true;
 
     } // ()
 
@@ -203,7 +206,7 @@ public class MainActivity extends AppCompatActivity {
         this.elEscanner.startScan(this.callbackDelEscaneo);
 
         // Know if the sensor scan is running
-        isScanning = true;
+        isScanningOurBeacon = true;
     } // ()
 
     // --------------------------------------------------------------
@@ -224,11 +227,11 @@ public class MainActivity extends AppCompatActivity {
 
     // --------------------------------------------------------------
     // --------------------------------------------------------------
-    private void showMajor() {
+    void showMajor() {
         Log.d(ETIQUETA_LOG, " showMajor()");
 
         // Comprovar si s'està escanejant
-        if (isScanning) {
+        if (isScanningOurBeacon) {
 
             String display = getString(R.string.ppm) + (Arrays.toString(tib.getMajor()));
             Log.d(ETIQUETA_LOG, " Major: " + display);
@@ -286,7 +289,7 @@ public class MainActivity extends AppCompatActivity {
     private void POST_TEST_200() {
         Data inputData = new Data.Builder()
                 .putString(PeticionarioRESTWorker.KEY_METHOD, "POST")
-                .putString(PeticionarioRESTWorker.KEY_URL, "http://192.168.18.133:3000/mediciones")
+                .putString(PeticionarioRESTWorker.KEY_URL, "http://192.168.18.136:80/mediciones")
                 .putString(PeticionarioRESTWorker.KEY_BODY, "{ \"medida\": 50.5, \"lugar\": \"Zona Industrial\", \"tipo_gas\": \"CO2\", \"hora\": \"2024-09-26 14:30:00\" }")
                 .build();
         // Start the Worker to make the request
@@ -328,7 +331,7 @@ public class MainActivity extends AppCompatActivity {
     //----------------------------------------------------------------
     //----------------------------------------------------------------
 
-    private final ActivityResultLauncher<String> requestPermissionLuancher =
+    final ActivityResultLauncher<String> requestPermissionLuancher =
             registerForActivityResult(new RequestPermission(), isGranted ->
             {
                 if (isGranted) {

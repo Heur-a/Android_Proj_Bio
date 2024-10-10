@@ -9,6 +9,11 @@
 
 package com.example.testsprint0projbio.pojo;
 
+import androidx.annotation.Size;
+
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Range;
+
 import java.util.Arrays;
 
 /**
@@ -194,7 +199,8 @@ public class TramaIBeacon {
      * This constructor takes the raw byte array from a Bluetooth LE scan and extracts
      * relevant iBeacon data fields such as the prefix, UUID, major, minor, and TX power.
      */
-    public TramaIBeacon(byte[] bytes) {
+
+    public TramaIBeacon(byte @NotNull [] bytes) {
         this.losBytes = bytes;
 
         // Extracting the iBeacon fields from the byte array

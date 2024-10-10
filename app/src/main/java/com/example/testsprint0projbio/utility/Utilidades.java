@@ -53,23 +53,6 @@ public class Utilidades {
         return result;
     }
 
-    /**
-     * @brief Converts a UUID into a String.
-     * @param uuid The UUID to convert.
-     * @return The corresponding String representation of the UUID.
-     */
-    public static String uuidToString(UUID uuid) {
-        return bytesToString(dosLongToBytes(uuid.getMostSignificantBits(), uuid.getLeastSignificantBits()));
-    }
-
-    /**
-     * @brief Converts a UUID into a hexadecimal String.
-     * @param uuid The UUID to convert.
-     * @return The corresponding hexadecimal String representation of the UUID.
-     */
-    public static String uuidToHexString(UUID uuid) {
-        return bytesToHexString(dosLongToBytes(uuid.getMostSignificantBits(), uuid.getLeastSignificantBits()));
-    }
 
     /**
      * @brief Converts a byte array into a String.
