@@ -1,4 +1,6 @@
-package com.example.testsprint0projbio;
+package com.example.testsprint0projbio.api;
+
+import static com.example.testsprint0projbio.MainActivity.ETIQUETA_LOG;
 
 import android.content.Context;
 import android.util.Log;
@@ -6,8 +8,14 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.work.Data;
+import androidx.work.OneTimeWorkRequest;
+import androidx.work.WorkManager;
 import androidx.work.Worker;
 import androidx.work.WorkerParameters;
+
+import com.example.testsprint0projbio.pojo.Medicion;
+import com.example.testsprint0projbio.pojo.TramaIBeacon;
+import com.example.testsprint0projbio.utility.Utilidades;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -36,6 +44,7 @@ public class PeticionarioRESTWorker extends Worker {
 
     // Key for the response body (e.g., the response JSON)
     public static final String KEY_RESPONSE_BODY = "KEY_RESPONSE_BODY";
+    public static final String URL = "http://192.168.146.90:80/mediciones";
 
     private final Context context;
 
@@ -145,5 +154,27 @@ public class PeticionarioRESTWorker extends Worker {
     private void showToast(final String message) {
         // Ensuring the Toast is run on the UI thread
         new android.os.Handler(android.os.Looper.getMainLooper()).post(() -> Toast.makeText(context, message, Toast.LENGTH_SHORT).show());
+    }
+
+    public static void POST(TramaIBeacon tib, Context context) {
+        if(tib == null) {
+            Toast.makeText(context, "No hay datos disponibles", Toast.LENGTH_SHORT).show();
+            return;
+
+        }
+        Medicion medicion = new Medicion( Utilidades.bytesToIntOK(tib.getMajor()), "Zona Industrial", "CO2");
+        Log.d(ETIQUETA_LOG, " Medicion: " + medicion.toString());
+        String json = medicion.toJson();
+        Log.d(ETIQUETA_LOG, " JSON: " + json);
+        Data inputData = new Data.Builder()
+                .putString(PeticionarioRESTWorker.KEY_METHOD, "POST")
+                .putString(PeticionarioRESTWorker.KEY_URL, URL)
+                .putString(PeticionarioRESTWorker.KEY_BODY, json)
+                .build();
+        OneTimeWorkRequest workRequest = new OneTimeWorkRequest.Builder(PeticionarioRESTWorker.class)
+                .setInputData(inputData)
+                .build();
+
+        WorkManager.getInstance(context).enqueue(workRequest);
     }
 }

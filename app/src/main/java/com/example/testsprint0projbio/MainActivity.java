@@ -30,6 +30,11 @@ import androidx.work.Data;
 import androidx.work.OneTimeWorkRequest;
 import androidx.work.WorkManager;
 
+import com.example.testsprint0projbio.api.PeticionarioRESTWorker;
+import com.example.testsprint0projbio.pojo.Medicion;
+import com.example.testsprint0projbio.pojo.TramaIBeacon;
+import com.example.testsprint0projbio.utility.Utilidades;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
@@ -42,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
     // --------------------------------------------------------------
     // --------------------------------------------------------------
-    private static final String ETIQUETA_LOG = ">>>>";
+    public static final String ETIQUETA_LOG = ">>>>";
 
     // --------------------------------------------------------------
     // --------------------------------------------------------------
@@ -50,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ScanCallback callbackDelEscaneo = null;
 
-    private final String uuidString = "quierocafecafeee";
+    private final String uuidString = "holaMundoNosVemo";
     private TramaIBeacon tib;
 
     // Variable per a seguir l'estat de l'escaneig
@@ -279,7 +284,7 @@ public class MainActivity extends AppCompatActivity {
     private void enviarPostPrueba() {
         Data inputData = new Data.Builder()
                 .putString(PeticionarioRESTWorker.KEY_METHOD, "POST")
-                .putString(PeticionarioRESTWorker.KEY_URL, "http://192.168.18.2:80/mediciones")
+                .putString(PeticionarioRESTWorker.KEY_URL, "http://192.168.18.133:3000/mediciones")
                 .putString(PeticionarioRESTWorker.KEY_BODY, "{ \"medida\": 50.5, \"lugar\": \"Zona Industrial\", \"tipo_gas\": \"CO2\", \"hora\": \"2024-09-26 14:30:00\" }")
                 .build();
         // Start the Worker to make the request
@@ -293,26 +298,10 @@ public class MainActivity extends AppCompatActivity {
     //--------------------------------------------------------------
     //--------------------------------------------------------------
     private void enviarLastMajor() {
-        if(tib == null) {
-            Toast.makeText(this, "No hay datos disponibles", Toast.LENGTH_SHORT).show();
-            return;
-
-        }
-        Medicion medicion = new Medicion( Utilidades.bytesToIntOK(tib.getMajor()), "Zona Industrial", "CO2");
-        Log.d(ETIQUETA_LOG, " Medicion: " + medicion.toString());
-        String json = medicion.toJson();
-        Log.d(ETIQUETA_LOG, " JSON: " + json);
-        Data inputData = new Data.Builder()
-                .putString(PeticionarioRESTWorker.KEY_METHOD, "POST")
-                .putString(PeticionarioRESTWorker.KEY_URL, "http://192.168.18.2:80/mediciones")
-                .putString(PeticionarioRESTWorker.KEY_BODY, json)
-                .build();
-        OneTimeWorkRequest workRequest = new OneTimeWorkRequest.Builder(PeticionarioRESTWorker.class)
-                .setInputData(inputData)
-                .build();
-
-        WorkManager.getInstance(this).enqueue(workRequest);
+        PeticionarioRESTWorker.POST(tib, this);
     }
+
+
 
 
     @Override

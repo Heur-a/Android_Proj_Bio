@@ -1,24 +1,31 @@
-package com.example.testsprint0projbio;
+package com.example.testsprint0projbio.utility;
 
 
 import java.math.BigInteger;
 import java.nio.ByteBuffer;
 import java.util.UUID;
 
-// -----------------------------------------------------------------------------------
-// @author: Jordi Bataller i Mascarell
-// -----------------------------------------------------------------------------------
+/**
+ * Clase Utilidades que contiene métodos estáticos para la manipulación de datos.
+ */
 public class Utilidades {
 
-    // -------------------------------------------------------------------------------
-    // -------------------------------------------------------------------------------
+    /**
+     * Convierte un String en un array de bytes.
+     * @param texto El String a convertir.
+     * @return El array de bytes correspondiente al String.
+     */
     public static byte[] stringToBytes ( String texto ) {
         return texto.getBytes();
         // byte[] b = string.getBytes(StandardCharsets.UTF_8); // Ja
     } // ()
 
-    // -------------------------------------------------------------------------------
-    // -------------------------------------------------------------------------------
+    /**
+     * Convierte un String en un UUID.
+     * @param uuid El String a convertir.
+     * @return El UUID correspondiente al String.
+     * @throws Error si el String no tiene 16 caracteres.
+     */
     public static UUID stringToUUID(String uuid ) {
         if ( uuid.length() != 16 ) {
             throw new Error( "stringUUID: string no tiene 16 caracteres ");
@@ -36,20 +43,29 @@ public class Utilidades {
         return res;
     } // ()
 
-    // -------------------------------------------------------------------------------
-    // -------------------------------------------------------------------------------
+    /**
+     * Convierte un UUID en un String.
+     * @param uuid El UUID a convertir.
+     * @return El String correspondiente al UUID.
+     */
     public static String uuidToString ( UUID uuid ) {
         return bytesToString( dosLongToBytes( uuid.getMostSignificantBits(), uuid.getLeastSignificantBits() ) );
     } // ()
 
-    // -------------------------------------------------------------------------------
-    // -------------------------------------------------------------------------------
+    /**
+     * Convierte un UUID en un String en formato hexadecimal.
+     * @param uuid El UUID a convertir.
+     * @return El String en formato hexadecimal correspondiente al UUID.
+     */
     public static String uuidToHexString ( UUID uuid ) {
         return bytesToHexString( dosLongToBytes( uuid.getMostSignificantBits(), uuid.getLeastSignificantBits() ) );
     } // ()
 
-    // -------------------------------------------------------------------------------
-    // -------------------------------------------------------------------------------
+    /**
+     * Convierte un array de bytes en un String.
+     * @param bytes El array de bytes a convertir.
+     * @return El String correspondiente al array de bytes.
+     */
     public static String bytesToString( byte[] bytes ) {
         if (bytes == null ) {
             return "";
@@ -62,8 +78,12 @@ public class Utilidades {
         return sb.toString();
     }
 
-    // -------------------------------------------------------------------------------
-    // -------------------------------------------------------------------------------
+    /**
+     * Convierte dos longs en un array de bytes.
+     * @param masSignificativos El primer long a convertir.
+     * @param menosSignificativos El segundo long a convertir.
+     * @return El array de bytes correspondiente a los dos longs.
+     */
     public static byte[] dosLongToBytes( long masSignificativos, long menosSignificativos ) {
         ByteBuffer buffer = ByteBuffer.allocate( 2 * Long.BYTES );
         buffer.putLong( masSignificativos );
@@ -71,20 +91,32 @@ public class Utilidades {
         return buffer.array();
     }
 
-    // -------------------------------------------------------------------------------
-    // -------------------------------------------------------------------------------
+    /**
+     * Convierte un array de bytes en un int.
+     * @param bytes El array de bytes a convertir.
+     * @return El int correspondiente al array de bytes.
+     */
     public static int bytesToInt( byte[] bytes ) {
+
         return new BigInteger(bytes).intValue();
     }
 
-    // -------------------------------------------------------------------------------
-    // -------------------------------------------------------------------------------
+    /**
+     * Convierte un array de bytes en un long.
+     * @param bytes El array de bytes a convertir.
+     * @return El long correspondiente al array de bytes.
+     */
     public static long bytesToLong( byte[] bytes ) {
+
         return new BigInteger(bytes).longValue();
     }
 
-    // -------------------------------------------------------------------------------
-    // -------------------------------------------------------------------------------
+    /**
+     * Convierte un array de bytes en un int.
+     * @param bytes El array de bytes a convertir.
+     * @return El int correspondiente al array de bytes.
+     * @throws Error si el array de bytes tiene más de 4 bytes.
+     */
     public static int bytesToIntOK( byte[] bytes ) {
         if (bytes == null ) {
             return 0;
@@ -121,9 +153,18 @@ public class Utilidades {
         return res;
     } // ()
 
-    // -------------------------------------------------------------------------------
-    // -------------------------------------------------------------------------------
-
+    /**
+     * @brief Convierte un array de bytes en un número entero sin signo.
+     *
+     * Esta función convierte un array de dos bytes en un número entero sin signo
+     * de 16 bits. Si el array no contiene exactamente dos bytes, devuelve 1.
+     *
+     * @param bytes Array de bytes que contiene los datos a convertir.
+     *              Debe tener una longitud de exactamente 2.
+     *
+     * @return El valor entero sin signo correspondiente a los dos bytes
+     *         proporcionados. Si el array no tiene longitud 2, devuelve 1.
+     */
     public static int majorToUnisgnedInt( byte[] bytes ) {
         if (bytes.length != 2 ) {
             return 1;
@@ -131,8 +172,11 @@ public class Utilidades {
         int result = ((bytes[0] & 0xFF) << 8) | (bytes[1] & 0xFF);
         return result;
     }
-
-
+    /**
+     * Convierte un array de bytes en un String en formato hexadecimal.
+     * @param bytes El array de bytes a convertir.
+     * @return El String en formato hexadecimal correspondiente al array de bytes.
+     */
     public static String bytesToHexString( byte[] bytes ) {
 
         if (bytes == null ) {

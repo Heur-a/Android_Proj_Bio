@@ -1,5 +1,5 @@
 
-package com.example.testsprint0projbio;
+package com.example.testsprint0projbio.pojo;
 // -----------------------------------------------------------------------------------
 import java.util.Arrays;
 

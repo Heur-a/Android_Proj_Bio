@@ -1,8 +1,7 @@
-package com.example.testsprint0projbio;
+package com.example.testsprint0projbio.pojo;
 
 import androidx.annotation.NonNull;
 
-import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
 import java.text.SimpleDateFormat;
