@@ -1,10 +1,32 @@
+/**
+ * @file MedicionTest.java
+ * @brief Unit tests for the Medicion class.
+ *
+ * This file contains unit tests for the Medicion class, focusing on its constructor,
+ * getter and setter methods, JSON conversion, and string representation.
+ */
+
 package com.example.testsprint0projbio.pojo;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+/**
+ * @class MedicionTest
+ * @brief Unit tests for the Medicion class.
+ *
+ * This class contains tests to verify the functionality of the Medicion class,
+ * including testing the constructor, setters and getters, JSON serialization,
+ * and string representation.
+ */
 public class MedicionTest {
 
+    /**
+     * @brief Test the Medicion class constructor.
+     *
+     * This test verifies that the Medicion object is created correctly with
+     * the specified measure, place, and gas type, and that the time is not null.
+     */
     @Test
     public void testMedicionConstructor() {
         // Arrange
@@ -22,6 +44,12 @@ public class MedicionTest {
         assertNotNull(medicion.getHora()); // Hora should not be null
     }
 
+    /**
+     * @brief Test the setters and getters of the Medicion class.
+     *
+     * This test verifies that the setter methods correctly update the values
+     * of the Medicion object's properties.
+     */
     @Test
     public void testSettersAndGetters() {
         // Arrange
@@ -38,6 +66,12 @@ public class MedicionTest {
         assertEquals("NO2", medicion.getTipo_gas());
     }
 
+    /**
+     * @brief Test the JSON serialization of the Medicion class.
+     *
+     * This test verifies that the toJson method produces the expected JSON
+     * representation of the Medicion object.
+     */
     @Test
     public void testToJson() {
         // Arrange
@@ -53,6 +87,12 @@ public class MedicionTest {
         assertTrue(json.contains("\"hora\":\"")); // Hora will contain the current time, just check its existence
     }
 
+    /**
+     * @brief Test the string representation of the Medicion class.
+     *
+     * This test verifies that the toString method produces a meaningful
+     * string representation of the Medicion object.
+     */
     @Test
     public void testToString() {
         // Arrange
