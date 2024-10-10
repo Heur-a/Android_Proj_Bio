@@ -1,0 +1,208 @@
+\doxysection{com.\+example.\+testsprint0projbio.\+pojo.\+Trama\+IBeacon Class Reference}
+\hypertarget{classcom_1_1example_1_1testsprint0projbio_1_1pojo_1_1_trama_i_beacon}{}\label{classcom_1_1example_1_1testsprint0projbio_1_1pojo_1_1_trama_i_beacon}\index{com.example.testsprint0projbio.pojo.TramaIBeacon@{com.example.testsprint0projbio.pojo.TramaIBeacon}}
+
+
+Class representing an i\+Beacon frame extracted from BLE scan data.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classcom_1_1example_1_1testsprint0projbio_1_1pojo_1_1_trama_i_beacon_a08bdf9ab3f7402f692cefb3928b37b1c}{get\+Prefijo}} ()
+\begin{DoxyCompactList}\small\item\em Gets the i\+Beacon prefix. \end{DoxyCompactList}\item 
+byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classcom_1_1example_1_1testsprint0projbio_1_1pojo_1_1_trama_i_beacon_a52ccef524c9df2e782ecd63e902814ef}{get\+UUID}} ()
+\begin{DoxyCompactList}\small\item\em Gets the i\+Beacon UUID. \end{DoxyCompactList}\item 
+byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classcom_1_1example_1_1testsprint0projbio_1_1pojo_1_1_trama_i_beacon_a8ab46df002b84bdd1abb843a7d8fd355}{get\+Major}} ()
+\begin{DoxyCompactList}\small\item\em Gets the i\+Beacon major value. \end{DoxyCompactList}\item 
+byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classcom_1_1example_1_1testsprint0projbio_1_1pojo_1_1_trama_i_beacon_ac596ecb77ecb6740a035a9383b09b8ca}{get\+Minor}} ()
+\begin{DoxyCompactList}\small\item\em Gets the i\+Beacon minor value. \end{DoxyCompactList}\item 
+byte \mbox{\hyperlink{classcom_1_1example_1_1testsprint0projbio_1_1pojo_1_1_trama_i_beacon_a206c96e0f787d46549841fc1b57ec725}{get\+Tx\+Power}} ()
+\begin{DoxyCompactList}\small\item\em Gets the i\+Beacon transmission power. \end{DoxyCompactList}\item 
+byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classcom_1_1example_1_1testsprint0projbio_1_1pojo_1_1_trama_i_beacon_a68faf6984c34693ca8c85b092de12fea}{get\+Los\+Bytes}} ()
+\begin{DoxyCompactList}\small\item\em Gets the complete byte array containing the i\+Beacon frame. \end{DoxyCompactList}\item 
+byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classcom_1_1example_1_1testsprint0projbio_1_1pojo_1_1_trama_i_beacon_a189e4be1c37642774bdf701c5c7a4a36}{get\+Adv\+Flags}} ()
+\begin{DoxyCompactList}\small\item\em Gets the advertising flags from the BLE scan. \end{DoxyCompactList}\item 
+byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classcom_1_1example_1_1testsprint0projbio_1_1pojo_1_1_trama_i_beacon_aa97e068038f2e4600242b9e297ee2a91}{get\+Adv\+Header}} ()
+\begin{DoxyCompactList}\small\item\em Gets the advertising header containing length and type. \end{DoxyCompactList}\item 
+byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classcom_1_1example_1_1testsprint0projbio_1_1pojo_1_1_trama_i_beacon_a442933919ee03c94f9f4211c405acc9e}{get\+Company\+ID}} ()
+\begin{DoxyCompactList}\small\item\em Gets the company identifier (usually 2 bytes). \end{DoxyCompactList}\item 
+byte \mbox{\hyperlink{classcom_1_1example_1_1testsprint0projbio_1_1pojo_1_1_trama_i_beacon_a41b40cf2c1a2f50255b8ac75301e8497}{geti\+Beacon\+Type}} ()
+\begin{DoxyCompactList}\small\item\em Gets the i\+Beacon type. \end{DoxyCompactList}\item 
+byte \mbox{\hyperlink{classcom_1_1example_1_1testsprint0projbio_1_1pojo_1_1_trama_i_beacon_a27592380c990a0bd42976acdf433f2de}{geti\+Beacon\+Length}} ()
+\begin{DoxyCompactList}\small\item\em Gets the length of the i\+Beacon data. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1example_1_1testsprint0projbio_1_1pojo_1_1_trama_i_beacon_aebb60d056b09ec8fc1d55285cb310e95}{Trama\+IBeacon}} (byte\mbox{[}$\,$\mbox{]} bytes)
+\begin{DoxyCompactList}\small\item\em Constructor to parse the byte array and extract i\+Beacon fields. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class representing an i\+Beacon frame extracted from BLE scan data. 
+
+This class parses the byte array from a Bluetooth LE scan to extract the i\+Beacon fields like UUID, major, minor, and TX power. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classcom_1_1example_1_1testsprint0projbio_1_1pojo_1_1_trama_i_beacon_aebb60d056b09ec8fc1d55285cb310e95}\index{com.example.testsprint0projbio.pojo.TramaIBeacon@{com.example.testsprint0projbio.pojo.TramaIBeacon}!TramaIBeacon@{TramaIBeacon}}
+\index{TramaIBeacon@{TramaIBeacon}!com.example.testsprint0projbio.pojo.TramaIBeacon@{com.example.testsprint0projbio.pojo.TramaIBeacon}}
+\doxysubsubsection{\texorpdfstring{TramaIBeacon()}{TramaIBeacon()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1testsprint0projbio_1_1pojo_1_1_trama_i_beacon_aebb60d056b09ec8fc1d55285cb310e95} 
+com.\+example.\+testsprint0projbio.\+pojo.\+Trama\+IBeacon.\+Trama\+IBeacon (\begin{DoxyParamCaption}\item[{byte\mbox{[}$\,$\mbox{]}}]{bytes}{}\end{DoxyParamCaption})}
+
+
+
+Constructor to parse the byte array and extract i\+Beacon fields. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bytes} & The byte array containing the BLE scan data.\\
+\hline
+\end{DoxyParams}
+This constructor takes the raw byte array from a Bluetooth LE scan and extracts relevant i\+Beacon data fields such as the prefix, UUID, major, minor, and TX power. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcom_1_1example_1_1testsprint0projbio_1_1pojo_1_1_trama_i_beacon_a189e4be1c37642774bdf701c5c7a4a36}\index{com.example.testsprint0projbio.pojo.TramaIBeacon@{com.example.testsprint0projbio.pojo.TramaIBeacon}!getAdvFlags@{getAdvFlags}}
+\index{getAdvFlags@{getAdvFlags}!com.example.testsprint0projbio.pojo.TramaIBeacon@{com.example.testsprint0projbio.pojo.TramaIBeacon}}
+\doxysubsubsection{\texorpdfstring{getAdvFlags()}{getAdvFlags()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1testsprint0projbio_1_1pojo_1_1_trama_i_beacon_a189e4be1c37642774bdf701c5c7a4a36} 
+byte\mbox{[}$\,$\mbox{]} com.\+example.\+testsprint0projbio.\+pojo.\+Trama\+IBeacon.\+get\+Adv\+Flags (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Gets the advertising flags from the BLE scan. 
+
+\begin{DoxyReturn}{Returns}
+A byte array representing the advertising flags (3 bytes). 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1testsprint0projbio_1_1pojo_1_1_trama_i_beacon_aa97e068038f2e4600242b9e297ee2a91}\index{com.example.testsprint0projbio.pojo.TramaIBeacon@{com.example.testsprint0projbio.pojo.TramaIBeacon}!getAdvHeader@{getAdvHeader}}
+\index{getAdvHeader@{getAdvHeader}!com.example.testsprint0projbio.pojo.TramaIBeacon@{com.example.testsprint0projbio.pojo.TramaIBeacon}}
+\doxysubsubsection{\texorpdfstring{getAdvHeader()}{getAdvHeader()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1testsprint0projbio_1_1pojo_1_1_trama_i_beacon_aa97e068038f2e4600242b9e297ee2a91} 
+byte\mbox{[}$\,$\mbox{]} com.\+example.\+testsprint0projbio.\+pojo.\+Trama\+IBeacon.\+get\+Adv\+Header (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Gets the advertising header containing length and type. 
+
+\begin{DoxyReturn}{Returns}
+A byte array representing the advertising header (2 bytes). 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1testsprint0projbio_1_1pojo_1_1_trama_i_beacon_a442933919ee03c94f9f4211c405acc9e}\index{com.example.testsprint0projbio.pojo.TramaIBeacon@{com.example.testsprint0projbio.pojo.TramaIBeacon}!getCompanyID@{getCompanyID}}
+\index{getCompanyID@{getCompanyID}!com.example.testsprint0projbio.pojo.TramaIBeacon@{com.example.testsprint0projbio.pojo.TramaIBeacon}}
+\doxysubsubsection{\texorpdfstring{getCompanyID()}{getCompanyID()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1testsprint0projbio_1_1pojo_1_1_trama_i_beacon_a442933919ee03c94f9f4211c405acc9e} 
+byte\mbox{[}$\,$\mbox{]} com.\+example.\+testsprint0projbio.\+pojo.\+Trama\+IBeacon.\+get\+Company\+ID (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Gets the company identifier (usually 2 bytes). 
+
+\begin{DoxyReturn}{Returns}
+A byte array representing the company ID (2 bytes). 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1testsprint0projbio_1_1pojo_1_1_trama_i_beacon_a27592380c990a0bd42976acdf433f2de}\index{com.example.testsprint0projbio.pojo.TramaIBeacon@{com.example.testsprint0projbio.pojo.TramaIBeacon}!getiBeaconLength@{getiBeaconLength}}
+\index{getiBeaconLength@{getiBeaconLength}!com.example.testsprint0projbio.pojo.TramaIBeacon@{com.example.testsprint0projbio.pojo.TramaIBeacon}}
+\doxysubsubsection{\texorpdfstring{getiBeaconLength()}{getiBeaconLength()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1testsprint0projbio_1_1pojo_1_1_trama_i_beacon_a27592380c990a0bd42976acdf433f2de} 
+byte com.\+example.\+testsprint0projbio.\+pojo.\+Trama\+IBeacon.\+geti\+Beacon\+Length (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Gets the length of the i\+Beacon data. 
+
+\begin{DoxyReturn}{Returns}
+A byte representing the length of the i\+Beacon data. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1testsprint0projbio_1_1pojo_1_1_trama_i_beacon_a41b40cf2c1a2f50255b8ac75301e8497}\index{com.example.testsprint0projbio.pojo.TramaIBeacon@{com.example.testsprint0projbio.pojo.TramaIBeacon}!getiBeaconType@{getiBeaconType}}
+\index{getiBeaconType@{getiBeaconType}!com.example.testsprint0projbio.pojo.TramaIBeacon@{com.example.testsprint0projbio.pojo.TramaIBeacon}}
+\doxysubsubsection{\texorpdfstring{getiBeaconType()}{getiBeaconType()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1testsprint0projbio_1_1pojo_1_1_trama_i_beacon_a41b40cf2c1a2f50255b8ac75301e8497} 
+byte com.\+example.\+testsprint0projbio.\+pojo.\+Trama\+IBeacon.\+geti\+Beacon\+Type (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Gets the i\+Beacon type. 
+
+\begin{DoxyReturn}{Returns}
+A byte representing the i\+Beacon type. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1testsprint0projbio_1_1pojo_1_1_trama_i_beacon_a68faf6984c34693ca8c85b092de12fea}\index{com.example.testsprint0projbio.pojo.TramaIBeacon@{com.example.testsprint0projbio.pojo.TramaIBeacon}!getLosBytes@{getLosBytes}}
+\index{getLosBytes@{getLosBytes}!com.example.testsprint0projbio.pojo.TramaIBeacon@{com.example.testsprint0projbio.pojo.TramaIBeacon}}
+\doxysubsubsection{\texorpdfstring{getLosBytes()}{getLosBytes()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1testsprint0projbio_1_1pojo_1_1_trama_i_beacon_a68faf6984c34693ca8c85b092de12fea} 
+byte\mbox{[}$\,$\mbox{]} com.\+example.\+testsprint0projbio.\+pojo.\+Trama\+IBeacon.\+get\+Los\+Bytes (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Gets the complete byte array containing the i\+Beacon frame. 
+
+\begin{DoxyReturn}{Returns}
+A byte array representing the entire i\+Beacon frame. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1testsprint0projbio_1_1pojo_1_1_trama_i_beacon_a8ab46df002b84bdd1abb843a7d8fd355}\index{com.example.testsprint0projbio.pojo.TramaIBeacon@{com.example.testsprint0projbio.pojo.TramaIBeacon}!getMajor@{getMajor}}
+\index{getMajor@{getMajor}!com.example.testsprint0projbio.pojo.TramaIBeacon@{com.example.testsprint0projbio.pojo.TramaIBeacon}}
+\doxysubsubsection{\texorpdfstring{getMajor()}{getMajor()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1testsprint0projbio_1_1pojo_1_1_trama_i_beacon_a8ab46df002b84bdd1abb843a7d8fd355} 
+byte\mbox{[}$\,$\mbox{]} com.\+example.\+testsprint0projbio.\+pojo.\+Trama\+IBeacon.\+get\+Major (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Gets the i\+Beacon major value. 
+
+\begin{DoxyReturn}{Returns}
+A byte array representing the i\+Beacon major value (2 bytes). 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1testsprint0projbio_1_1pojo_1_1_trama_i_beacon_ac596ecb77ecb6740a035a9383b09b8ca}\index{com.example.testsprint0projbio.pojo.TramaIBeacon@{com.example.testsprint0projbio.pojo.TramaIBeacon}!getMinor@{getMinor}}
+\index{getMinor@{getMinor}!com.example.testsprint0projbio.pojo.TramaIBeacon@{com.example.testsprint0projbio.pojo.TramaIBeacon}}
+\doxysubsubsection{\texorpdfstring{getMinor()}{getMinor()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1testsprint0projbio_1_1pojo_1_1_trama_i_beacon_ac596ecb77ecb6740a035a9383b09b8ca} 
+byte\mbox{[}$\,$\mbox{]} com.\+example.\+testsprint0projbio.\+pojo.\+Trama\+IBeacon.\+get\+Minor (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Gets the i\+Beacon minor value. 
+
+\begin{DoxyReturn}{Returns}
+A byte array representing the i\+Beacon minor value (2 bytes). 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1testsprint0projbio_1_1pojo_1_1_trama_i_beacon_a08bdf9ab3f7402f692cefb3928b37b1c}\index{com.example.testsprint0projbio.pojo.TramaIBeacon@{com.example.testsprint0projbio.pojo.TramaIBeacon}!getPrefijo@{getPrefijo}}
+\index{getPrefijo@{getPrefijo}!com.example.testsprint0projbio.pojo.TramaIBeacon@{com.example.testsprint0projbio.pojo.TramaIBeacon}}
+\doxysubsubsection{\texorpdfstring{getPrefijo()}{getPrefijo()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1testsprint0projbio_1_1pojo_1_1_trama_i_beacon_a08bdf9ab3f7402f692cefb3928b37b1c} 
+byte\mbox{[}$\,$\mbox{]} com.\+example.\+testsprint0projbio.\+pojo.\+Trama\+IBeacon.\+get\+Prefijo (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Gets the i\+Beacon prefix. 
+
+\begin{DoxyReturn}{Returns}
+A byte array representing the i\+Beacon prefix (9 bytes). 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1testsprint0projbio_1_1pojo_1_1_trama_i_beacon_a206c96e0f787d46549841fc1b57ec725}\index{com.example.testsprint0projbio.pojo.TramaIBeacon@{com.example.testsprint0projbio.pojo.TramaIBeacon}!getTxPower@{getTxPower}}
+\index{getTxPower@{getTxPower}!com.example.testsprint0projbio.pojo.TramaIBeacon@{com.example.testsprint0projbio.pojo.TramaIBeacon}}
+\doxysubsubsection{\texorpdfstring{getTxPower()}{getTxPower()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1testsprint0projbio_1_1pojo_1_1_trama_i_beacon_a206c96e0f787d46549841fc1b57ec725} 
+byte com.\+example.\+testsprint0projbio.\+pojo.\+Trama\+IBeacon.\+get\+Tx\+Power (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Gets the i\+Beacon transmission power. 
+
+\begin{DoxyReturn}{Returns}
+A byte representing the i\+Beacon transmission power (TX Power). 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1testsprint0projbio_1_1pojo_1_1_trama_i_beacon_a52ccef524c9df2e782ecd63e902814ef}\index{com.example.testsprint0projbio.pojo.TramaIBeacon@{com.example.testsprint0projbio.pojo.TramaIBeacon}!getUUID@{getUUID}}
+\index{getUUID@{getUUID}!com.example.testsprint0projbio.pojo.TramaIBeacon@{com.example.testsprint0projbio.pojo.TramaIBeacon}}
+\doxysubsubsection{\texorpdfstring{getUUID()}{getUUID()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1testsprint0projbio_1_1pojo_1_1_trama_i_beacon_a52ccef524c9df2e782ecd63e902814ef} 
+byte\mbox{[}$\,$\mbox{]} com.\+example.\+testsprint0projbio.\+pojo.\+Trama\+IBeacon.\+get\+UUID (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Gets the i\+Beacon UUID. 
+
+\begin{DoxyReturn}{Returns}
+A byte array representing the i\+Beacon UUID (16 bytes). 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+app/src/main/java/com/example/testsprint0projbio/pojo/\mbox{\hyperlink{_trama_i_beacon_8java}{Trama\+IBeacon.\+java}}\end{DoxyCompactItemize}

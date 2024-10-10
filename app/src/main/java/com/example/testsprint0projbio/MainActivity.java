@@ -21,7 +21,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,7 +30,6 @@ import androidx.work.OneTimeWorkRequest;
 import androidx.work.WorkManager;
 
 import com.example.testsprint0projbio.api.PeticionarioRESTWorker;
-import com.example.testsprint0projbio.pojo.Medicion;
 import com.example.testsprint0projbio.pojo.TramaIBeacon;
 import com.example.testsprint0projbio.utility.Utilidades;
 
@@ -282,6 +280,10 @@ public class MainActivity extends AppCompatActivity {
     //---------------------------------------------------------------
 
     private void enviarPostPrueba() {
+        POST_TEST_200();
+    }
+
+    private void POST_TEST_200() {
         Data inputData = new Data.Builder()
                 .putString(PeticionarioRESTWorker.KEY_METHOD, "POST")
                 .putString(PeticionarioRESTWorker.KEY_URL, "http://192.168.18.133:3000/mediciones")
