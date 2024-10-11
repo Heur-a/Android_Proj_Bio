@@ -1,0 +1,219 @@
+\doxysection{com.\+example.\+testsprint0projbio.\+utility.\+Utilidades Class Reference}
+\hypertarget{classcom_1_1example_1_1testsprint0projbio_1_1utility_1_1_utilidades}{}\label{classcom_1_1example_1_1testsprint0projbio_1_1utility_1_1_utilidades}\index{com.example.testsprint0projbio.utility.Utilidades@{com.example.testsprint0projbio.utility.Utilidades}}
+
+
+Utility class containing static methods for data conversion.  
+
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classcom_1_1example_1_1testsprint0projbio_1_1utility_1_1_utilidades_a43407a9ca141bf0a3ada43615063c366}{string\+To\+Bytes}} (String texto)
+\begin{DoxyCompactList}\small\item\em Converts a String into a byte array. \end{DoxyCompactList}\item 
+static UUID \mbox{\hyperlink{classcom_1_1example_1_1testsprint0projbio_1_1utility_1_1_utilidades_a5450334080146985bead3f57f6d7a9b8}{string\+To\+UUID}} (String uuid)
+\begin{DoxyCompactList}\small\item\em Converts a String into a UUID. \end{DoxyCompactList}\item 
+static String \mbox{\hyperlink{classcom_1_1example_1_1testsprint0projbio_1_1utility_1_1_utilidades_a1589ada81028b27d56e490086cdd4f14}{bytes\+To\+String}} (byte\mbox{[}$\,$\mbox{]} bytes)
+\begin{DoxyCompactList}\small\item\em Converts a byte array into a String. \end{DoxyCompactList}\item 
+static byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classcom_1_1example_1_1testsprint0projbio_1_1utility_1_1_utilidades_ad46b95571a53e09725b0606a53307c5a}{dos\+Long\+To\+Bytes}} (long most\+Significant, long least\+Significant)
+\begin{DoxyCompactList}\small\item\em Converts two long values into a byte array. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{classcom_1_1example_1_1testsprint0projbio_1_1utility_1_1_utilidades_a85670821719b2ee71124dc3f8ea84d08}{bytes\+To\+Int}} (byte\mbox{[}$\,$\mbox{]} bytes)
+\begin{DoxyCompactList}\small\item\em Converts a byte array into an integer. \end{DoxyCompactList}\item 
+static long \mbox{\hyperlink{classcom_1_1example_1_1testsprint0projbio_1_1utility_1_1_utilidades_a071bb0c9c38c558f6c00c40a59255075}{bytes\+To\+Long}} (byte\mbox{[}$\,$\mbox{]} bytes)
+\begin{DoxyCompactList}\small\item\em Converts a byte array into a long value. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{classcom_1_1example_1_1testsprint0projbio_1_1utility_1_1_utilidades_aada36b5cd79da6136fd7a04d791256f0}{bytes\+To\+Int\+OK}} (byte\mbox{[}$\,$\mbox{]} bytes)
+\begin{DoxyCompactList}\small\item\em Converts a byte array into an integer (with safety checks). \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{classcom_1_1example_1_1testsprint0projbio_1_1utility_1_1_utilidades_af0c9b13f99dd91e50cd0fc37aa6687dd}{major\+To\+Unsigned\+Int}} (byte\mbox{[}$\,$\mbox{]} bytes)
+\begin{DoxyCompactList}\small\item\em Converts a byte array into an unsigned integer. \end{DoxyCompactList}\item 
+static String \mbox{\hyperlink{classcom_1_1example_1_1testsprint0projbio_1_1utility_1_1_utilidades_a8e564e134d9f3caf402dc12e7b98fb09}{bytes\+To\+Hex\+String}} (byte\mbox{[}$\,$\mbox{]} bytes)
+\begin{DoxyCompactList}\small\item\em Converts a byte array into a hexadecimal String. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Utility class containing static methods for data conversion. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcom_1_1example_1_1testsprint0projbio_1_1utility_1_1_utilidades_a8e564e134d9f3caf402dc12e7b98fb09}\index{com.example.testsprint0projbio.utility.Utilidades@{com.example.testsprint0projbio.utility.Utilidades}!bytesToHexString@{bytesToHexString}}
+\index{bytesToHexString@{bytesToHexString}!com.example.testsprint0projbio.utility.Utilidades@{com.example.testsprint0projbio.utility.Utilidades}}
+\doxysubsubsection{\texorpdfstring{bytesToHexString()}{bytesToHexString()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1testsprint0projbio_1_1utility_1_1_utilidades_a8e564e134d9f3caf402dc12e7b98fb09} 
+static String com.\+example.\+testsprint0projbio.\+utility.\+Utilidades.\+bytes\+To\+Hex\+String (\begin{DoxyParamCaption}\item[{byte\mbox{[}$\,$\mbox{]}}]{bytes}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Converts a byte array into a hexadecimal String. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bytes} & The byte array to convert. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The corresponding hexadecimal String for the byte array. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1testsprint0projbio_1_1utility_1_1_utilidades_a85670821719b2ee71124dc3f8ea84d08}\index{com.example.testsprint0projbio.utility.Utilidades@{com.example.testsprint0projbio.utility.Utilidades}!bytesToInt@{bytesToInt}}
+\index{bytesToInt@{bytesToInt}!com.example.testsprint0projbio.utility.Utilidades@{com.example.testsprint0projbio.utility.Utilidades}}
+\doxysubsubsection{\texorpdfstring{bytesToInt()}{bytesToInt()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1testsprint0projbio_1_1utility_1_1_utilidades_a85670821719b2ee71124dc3f8ea84d08} 
+static int com.\+example.\+testsprint0projbio.\+utility.\+Utilidades.\+bytes\+To\+Int (\begin{DoxyParamCaption}\item[{byte\mbox{[}$\,$\mbox{]}}]{bytes}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Converts a byte array into an integer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bytes} & The byte array to convert. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The corresponding integer for the byte array. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1testsprint0projbio_1_1utility_1_1_utilidades_aada36b5cd79da6136fd7a04d791256f0}\index{com.example.testsprint0projbio.utility.Utilidades@{com.example.testsprint0projbio.utility.Utilidades}!bytesToIntOK@{bytesToIntOK}}
+\index{bytesToIntOK@{bytesToIntOK}!com.example.testsprint0projbio.utility.Utilidades@{com.example.testsprint0projbio.utility.Utilidades}}
+\doxysubsubsection{\texorpdfstring{bytesToIntOK()}{bytesToIntOK()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1testsprint0projbio_1_1utility_1_1_utilidades_aada36b5cd79da6136fd7a04d791256f0} 
+static int com.\+example.\+testsprint0projbio.\+utility.\+Utilidades.\+bytes\+To\+Int\+OK (\begin{DoxyParamCaption}\item[{byte\mbox{[}$\,$\mbox{]}}]{bytes}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Converts a byte array into an integer (with safety checks). 
+
+This method converts a byte array into an integer while checking if the array contains more than 4 bytes, in which case an error is thrown.
+
+
+\begin{DoxyParams}{Parameters}
+{\em bytes} & The byte array to convert. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The corresponding integer for the byte array. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Error} & if the byte array contains more than 4 bytes. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classcom_1_1example_1_1testsprint0projbio_1_1utility_1_1_utilidades_a071bb0c9c38c558f6c00c40a59255075}\index{com.example.testsprint0projbio.utility.Utilidades@{com.example.testsprint0projbio.utility.Utilidades}!bytesToLong@{bytesToLong}}
+\index{bytesToLong@{bytesToLong}!com.example.testsprint0projbio.utility.Utilidades@{com.example.testsprint0projbio.utility.Utilidades}}
+\doxysubsubsection{\texorpdfstring{bytesToLong()}{bytesToLong()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1testsprint0projbio_1_1utility_1_1_utilidades_a071bb0c9c38c558f6c00c40a59255075} 
+static long com.\+example.\+testsprint0projbio.\+utility.\+Utilidades.\+bytes\+To\+Long (\begin{DoxyParamCaption}\item[{byte\mbox{[}$\,$\mbox{]}}]{bytes}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Converts a byte array into a long value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bytes} & The byte array to convert. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The corresponding long value for the byte array. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1testsprint0projbio_1_1utility_1_1_utilidades_a1589ada81028b27d56e490086cdd4f14}\index{com.example.testsprint0projbio.utility.Utilidades@{com.example.testsprint0projbio.utility.Utilidades}!bytesToString@{bytesToString}}
+\index{bytesToString@{bytesToString}!com.example.testsprint0projbio.utility.Utilidades@{com.example.testsprint0projbio.utility.Utilidades}}
+\doxysubsubsection{\texorpdfstring{bytesToString()}{bytesToString()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1testsprint0projbio_1_1utility_1_1_utilidades_a1589ada81028b27d56e490086cdd4f14} 
+static String com.\+example.\+testsprint0projbio.\+utility.\+Utilidades.\+bytes\+To\+String (\begin{DoxyParamCaption}\item[{byte\mbox{[}$\,$\mbox{]}}]{bytes}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Converts a byte array into a String. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bytes} & The byte array to convert. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The corresponding String representation of the byte array. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1testsprint0projbio_1_1utility_1_1_utilidades_ad46b95571a53e09725b0606a53307c5a}\index{com.example.testsprint0projbio.utility.Utilidades@{com.example.testsprint0projbio.utility.Utilidades}!dosLongToBytes@{dosLongToBytes}}
+\index{dosLongToBytes@{dosLongToBytes}!com.example.testsprint0projbio.utility.Utilidades@{com.example.testsprint0projbio.utility.Utilidades}}
+\doxysubsubsection{\texorpdfstring{dosLongToBytes()}{dosLongToBytes()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1testsprint0projbio_1_1utility_1_1_utilidades_ad46b95571a53e09725b0606a53307c5a} 
+static byte\mbox{[}$\,$\mbox{]} com.\+example.\+testsprint0projbio.\+utility.\+Utilidades.\+dos\+Long\+To\+Bytes (\begin{DoxyParamCaption}\item[{long}]{most\+Significant}{, }\item[{long}]{least\+Significant}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Converts two long values into a byte array. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em most\+Significant} & The first long value (most significant bits). \\
+\hline
+{\em least\+Significant} & The second long value (least significant bits). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The corresponding byte array for the two long values. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1testsprint0projbio_1_1utility_1_1_utilidades_af0c9b13f99dd91e50cd0fc37aa6687dd}\index{com.example.testsprint0projbio.utility.Utilidades@{com.example.testsprint0projbio.utility.Utilidades}!majorToUnsignedInt@{majorToUnsignedInt}}
+\index{majorToUnsignedInt@{majorToUnsignedInt}!com.example.testsprint0projbio.utility.Utilidades@{com.example.testsprint0projbio.utility.Utilidades}}
+\doxysubsubsection{\texorpdfstring{majorToUnsignedInt()}{majorToUnsignedInt()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1testsprint0projbio_1_1utility_1_1_utilidades_af0c9b13f99dd91e50cd0fc37aa6687dd} 
+static int com.\+example.\+testsprint0projbio.\+utility.\+Utilidades.\+major\+To\+Unsigned\+Int (\begin{DoxyParamCaption}\item[{byte\mbox{[}$\,$\mbox{]}}]{bytes}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Converts a byte array into an unsigned integer. 
+
+This function converts a byte array of two bytes into a 16-\/bit unsigned integer. If the byte array does not contain exactly two bytes, it returns 1.
+
+
+\begin{DoxyParams}{Parameters}
+{\em bytes} & The byte array to convert (must have a length of 2). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The corresponding unsigned integer for the two bytes, or 1 if invalid length. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1testsprint0projbio_1_1utility_1_1_utilidades_a43407a9ca141bf0a3ada43615063c366}\index{com.example.testsprint0projbio.utility.Utilidades@{com.example.testsprint0projbio.utility.Utilidades}!stringToBytes@{stringToBytes}}
+\index{stringToBytes@{stringToBytes}!com.example.testsprint0projbio.utility.Utilidades@{com.example.testsprint0projbio.utility.Utilidades}}
+\doxysubsubsection{\texorpdfstring{stringToBytes()}{stringToBytes()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1testsprint0projbio_1_1utility_1_1_utilidades_a43407a9ca141bf0a3ada43615063c366} 
+static byte\mbox{[}$\,$\mbox{]} com.\+example.\+testsprint0projbio.\+utility.\+Utilidades.\+string\+To\+Bytes (\begin{DoxyParamCaption}\item[{String}]{texto}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Converts a String into a byte array. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em texto} & The String to convert. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The corresponding byte array for the given String. 
+\end{DoxyReturn}
+\Hypertarget{classcom_1_1example_1_1testsprint0projbio_1_1utility_1_1_utilidades_a5450334080146985bead3f57f6d7a9b8}\index{com.example.testsprint0projbio.utility.Utilidades@{com.example.testsprint0projbio.utility.Utilidades}!stringToUUID@{stringToUUID}}
+\index{stringToUUID@{stringToUUID}!com.example.testsprint0projbio.utility.Utilidades@{com.example.testsprint0projbio.utility.Utilidades}}
+\doxysubsubsection{\texorpdfstring{stringToUUID()}{stringToUUID()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1testsprint0projbio_1_1utility_1_1_utilidades_a5450334080146985bead3f57f6d7a9b8} 
+static UUID com.\+example.\+testsprint0projbio.\+utility.\+Utilidades.\+string\+To\+UUID (\begin{DoxyParamCaption}\item[{String}]{uuid}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Converts a String into a UUID. 
+
+This method converts a 16-\/character String into a UUID by splitting it into two parts and constructing the UUID from its most and least significant bits.
+
+
+\begin{DoxyParams}{Parameters}
+{\em uuid} & The String to convert. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The corresponding UUID for the given String. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Error} & if the String does not have exactly 16 characters. \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+app/src/main/java/com/example/testsprint0projbio/utility/\mbox{\hyperlink{_utilidades_8java}{Utilidades.\+java}}\end{DoxyCompactItemize}
