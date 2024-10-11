@@ -21,7 +21,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,41 +29,74 @@ import androidx.work.Data;
 import androidx.work.OneTimeWorkRequest;
 import androidx.work.WorkManager;
 
+import com.example.testsprint0projbio.api.PeticionarioRESTWorker;
+import com.example.testsprint0projbio.pojo.TramaIBeacon;
+import com.example.testsprint0projbio.utility.Utilidades;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
+// ------------------------------------------------------------------
+// Header for MainActivity class
+/**
+ * @file MainActivity.java
+ * @brief Main activity for Bluetooth LE scanning application.
+ * @author Alex Escrivá Caravaca
+ * @date 30/09/2024
+ *
+ * This class handles Bluetooth LE scanning, device detection,
+ * and communication with a REST API for sending data.
+ */
+// ------------------------------------------------------------------
 
 // ------------------------------------------------------------------
 // ------------------------------------------------------------------
 
+/**
+ * @class MainActivity
+ * @brief Activity class that manages Bluetooth LE scanning and interaction.
+ *
+ * This activity is responsible for scanning Bluetooth Low Energy (LE)
+ * devices, processing scan results, and communicating with a REST API.
+ */
 public class MainActivity extends AppCompatActivity {
 
     // --------------------------------------------------------------
     // --------------------------------------------------------------
-    private static final String ETIQUETA_LOG = ">>>>";
+    public static final String ETIQUETA_LOG = ">>>>"; ///< Log tag for logging output
 
     // --------------------------------------------------------------
     // --------------------------------------------------------------
-    private BluetoothLeScanner elEscanner;
+    public BluetoothLeScanner elEscanner; ///< Bluetooth LE scanner instance
 
-    private ScanCallback callbackDelEscaneo = null;
+    ScanCallback callbackDelEscaneo = null; ///< Callback for Bluetooth scan results
 
-    private final String uuidString = "quierocafecafeee";
-    private TramaIBeacon tib;
+    private final String uuidString = "holaMundoNosVemo"; ///< UUID to filter scanned device
+    TramaIBeacon tib; ///< Object to hold iBeacon data
 
     // Variable per a seguir l'estat de l'escaneig
-    private boolean isScanning = false;
+    boolean isScanningOurBeacon = false; ///< Indicates if our specific beacon is being scanned
+    boolean isScanning = false; ///< General scanning status
 
-    public TextView showMajor;
-    public Button enviarPostPrueba;
-    public Button EncenderEnvioPost;
+    public TextView showMajor;  ///< TextView for displaying the major value
+    public Button enviarPostPrueba; ///< Button for sending test POST request
+    public Button EncenderEnvioPost; ///< Button for enabling post sending
 
 
 
     // --------------------------------------------------------------
     // --------------------------------------------------------------
-    private void buscarTodosLosDispositivosBTLE() {
+    /**
+     * @brief Starts scanning for Bluetooth LE devices.
+     *
+     * This method initializes the scan callback and starts scanning
+     * for Bluetooth LE devices. It checks for necessary permissions
+     * and logs the results.
+     *
+     * @return void
+     */
+    void buscarTodosLosDispositivosBTLE() {
         Log.d(ETIQUETA_LOG, " buscarTodosLosDispositivosBTL(): empieza ");
 
         Log.d(ETIQUETA_LOG, " buscarTodosLosDispositivosBTL(): instalamos scan callback ");
@@ -102,9 +134,21 @@ public class MainActivity extends AppCompatActivity {
         }
         this.elEscanner.startScan(this.callbackDelEscaneo);
 
+        isScanning = true;
+
     } // ()
 
     // --------------------------------------------------------------
+    /**
+     * @brief Displays information about detected Bluetooth LE device.
+     *
+     * This method logs information about the detected device, including
+     * its name, address, RSSI, and iBeacon data.
+     *
+     * @param resultado The ScanResult containing the detected device's information.
+     *
+     * @return void
+     */
     // --------------------------------------------------------------
     private void mostrarInformacionDispositivoBTLE(ScanResult resultado) {
 
@@ -133,33 +177,38 @@ public class MainActivity extends AppCompatActivity {
         TramaIBeacon tib = new TramaIBeacon(bytes);
 
         Log.d(ETIQUETA_LOG, " ----------------------------------------------------");
-        Log.d(ETIQUETA_LOG, " prefijo  = " + Utilidades.bytesToHexString(tib.getPrefijo()));
-        Log.d(ETIQUETA_LOG, "          advFlags = " + Utilidades.bytesToHexString(tib.getAdvFlags()));
-        Log.d(ETIQUETA_LOG, "          advHeader = " + Utilidades.bytesToHexString(tib.getAdvHeader()));
-        Log.d(ETIQUETA_LOG, "          companyID = " + Utilidades.bytesToHexString(tib.getCompanyID()));
-        Log.d(ETIQUETA_LOG, "          iBeacon type = " + Integer.toHexString(tib.getiBeaconType()));
+        Log.d(ETIQUETA_LOG, " prefijo  = " + Utilidades.bytesToHexString(tib.getPrefijo())); // Log the prefix
+        Log.d(ETIQUETA_LOG, "          advFlags = " + Utilidades.bytesToHexString(tib.getAdvFlags())); // Log advertising flags
+        Log.d(ETIQUETA_LOG, "          advHeader = " + Utilidades.bytesToHexString(tib.getAdvHeader())); // Log advertising header
+        Log.d(ETIQUETA_LOG, "          companyID = " + Utilidades.bytesToHexString(tib.getCompanyID())); // Log company ID
+        Log.d(ETIQUETA_LOG, "          iBeacon type = " + Integer.toHexString(tib.getiBeaconType())); // Log iBeacon type
         Log.d(ETIQUETA_LOG, "          iBeacon length 0x = " + Integer.toHexString(tib.getiBeaconLength()) + " ( "
-                + tib.getiBeaconLength() + " ) ");
-        Log.d(ETIQUETA_LOG, " uuid  = " + Utilidades.bytesToHexString(tib.getUUID()));
-        Log.d(ETIQUETA_LOG, " uuid  = " + Utilidades.bytesToString(tib.getUUID()));
+                + tib.getiBeaconLength() + " ) ");  // Log iBeacon length
+        Log.d(ETIQUETA_LOG, " uuid  = " + Utilidades.bytesToHexString(tib.getUUID())); // Log UUID
+        Log.d(ETIQUETA_LOG, " uuid  = " + Utilidades.bytesToString(tib.getUUID())); // Log UUID as string
         Log.d(ETIQUETA_LOG, " major  = " + Utilidades.bytesToHexString(tib.getMajor()) + "( "
-                + Utilidades.bytesToInt(tib.getMajor()) + " ) ");
+                + Utilidades.bytesToInt(tib.getMajor()) + " ) "); // Log major value
         Log.d(ETIQUETA_LOG, " minor  = " + Utilidades.bytesToHexString(tib.getMinor()) + "( "
-                + Utilidades.bytesToInt(tib.getMinor()) + " ) ");
+                + Utilidades.bytesToInt(tib.getMinor()) + " ) "); // Log minor value
         Log.d(ETIQUETA_LOG, " txPower  = " + Integer.toHexString(tib.getTxPower()) + " ( " + tib.getTxPower() + " )");
-        Log.d(ETIQUETA_LOG, " ******************");
+        Log.d(ETIQUETA_LOG, " ******************"); // Log txPower value
 
     } // ()
     // --------------------------------------------------------------
+    /**
+     * @brief Scans for a specific Bluetooth LE device.
+     *
+     * This method initializes the scan callback for scanning a specific
+     * Bluetooth LE device identified by the uuidString. It logs the results
+     * and retrieves the corresponding iBeacon information if found.
+     *
+     * @return void
+     */
     // --------------------------------------------------------------
     private void buscarEsteDispositivoBTLE() {
         Log.d(ETIQUETA_LOG, " buscarEsteDispositivoBTLE(): empieza ");
 
         Log.d(ETIQUETA_LOG, "  buscarEsteDispositivoBTLE(): instalamos scan callback ");
-
-
-
-
 
 
         this.callbackDelEscaneo = new ScanCallback() {
@@ -200,10 +249,18 @@ public class MainActivity extends AppCompatActivity {
         this.elEscanner.startScan(this.callbackDelEscaneo);
 
         // Know if the sensor scan is running
-        isScanning = true;
+        isScanningOurBeacon = true;
     } // ()
 
     // --------------------------------------------------------------
+    /**
+     * @brief Shows the major value of the detected iBeacon.
+     *
+     * This method updates the TextView to display the major value
+     * of the detected iBeacon, if available.
+     *
+     * @return void
+     */
     // --------------------------------------------------------------
     private void detenerBusquedaDispositivosBTLE() {
 
@@ -220,14 +277,25 @@ public class MainActivity extends AppCompatActivity {
     } // ()
 
     // --------------------------------------------------------------
+    /**
+     * @brief Updates the display with the major value of the detected iBeacon.
+     *
+     * This method checks if the scanning for the specific iBeacon is active.
+     * If so, it retrieves the major value from the `tib` object, converts it
+     * to an integer, and updates the `showMajor` TextView to display this value.
+     * If scanning is not active, it logs a message indicating that scanning
+     * is not currently taking place.
+     *
+     * @return void
+     */
     // --------------------------------------------------------------
-    private void showMajor() {
+    void showMajor() {
         Log.d(ETIQUETA_LOG, " showMajor()");
 
         // Comprovar si s'està escanejant
-        if (isScanning) {
+        if (isScanningOurBeacon) {
 
-            String display = getString(R.string.ppm) + (Arrays.toString(tib.getMajor()));
+            String display = getString(R.string.ppm) + (Utilidades.bytesToInt(tib.getMajor()));
             Log.d(ETIQUETA_LOG, " Major: " + display);
             showMajor.setText(display);
 
@@ -237,6 +305,17 @@ public class MainActivity extends AppCompatActivity {
     } // ()
 
     // --------------------------------------------------------------
+    /**
+     * @brief Handles the button click event for searching Bluetooth LE devices.
+     *
+     * This method is called when the button for searching Bluetooth LE devices
+     * is pressed. It logs the button press event and initiates the scanning
+     * process by calling the `buscarTodosLosDispositivosBTLE()` method.
+     *
+     * @param v The View that was clicked, typically the button.
+     *
+     * @return void
+     */
     // --------------------------------------------------------------
     public void botonBuscarDispositivosBTLEPulsado(View v) {
         Log.d(ETIQUETA_LOG, " boton buscar dispositivos BTLE Pulsado");
@@ -245,6 +324,18 @@ public class MainActivity extends AppCompatActivity {
 
     // --------------------------------------------------------------
     // --------------------------------------------------------------
+    /**
+     * @brief Handles the button click event for searching a specific Bluetooth LE device.
+     *
+     * This method is called when the button for searching a specific Bluetooth LE device
+     * is pressed. It logs the button press event and initiates the scanning process
+     * for the specific device by calling the `buscarEsteDispositivoBTLE()` method.
+     *
+     * @param v The View that was clicked, typically the button.
+     *
+     * @return void
+     */
+    // --------------------------------------------------------------
     public void botonBuscarNuestroDispositivoBTLEPulsado(View v) {
         Log.d(ETIQUETA_LOG, " boton nuestro dispositivo BTLE Pulsado");
         this.buscarEsteDispositivoBTLE();
@@ -252,12 +343,35 @@ public class MainActivity extends AppCompatActivity {
 
     // --------------------------------------------------------------
     // --------------------------------------------------------------
+    /**
+     * @brief Handles the button click event for stopping the Bluetooth LE device search.
+     *
+     * This method is called when the button for stopping the search for Bluetooth LE
+     * devices is pressed. It logs the button press event and calls the
+     * `detenerBusquedaDispositivosBTLE()` method to stop the scanning process.
+     *
+     * @param v The View that was clicked, typically the button.
+     *
+     * @return void
+     */
+    // --------------------------------------------------------------
     public void botonDetenerBusquedaDispositivosBTLEPulsado(View v) {
         Log.d(ETIQUETA_LOG, " boton detener busqueda dispositivos BTLE Pulsado");
         this.detenerBusquedaDispositivosBTLE();
     } // ()
 
     // --------------------------------------------------------------
+    /**
+     * @brief Handles the button click event for sending a test POST request.
+     *
+     * This method is called when the button for sending a test POST request is pressed.
+     * It logs the button press event and invokes the `enviarPostPrueba()` method
+     * to initiate the sending of the test data.
+     *
+     * @param v The View that was clicked, typically the button.
+     *
+     * @return void
+     */
     // --------------------------------------------------------------
 
     public void botonEnviarPostPrueba(View v) {
@@ -274,12 +388,47 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //---------------------------------------------------------------
+    /**
+     * @brief Handles the button click event for sending the last detected major value.
+     *
+     * This method is invoked when the button for sending the last detected major value
+     * is pressed. It logs the button press event and calls the `enviarLastMajor()`
+     * method to send the last major data to the server.
+     *
+     * @param v The View that was clicked, typically the button.
+     *
+     * @return void
+     */
     //---------------------------------------------------------------
 
+    /**
+     * @brief Initiates the process of sending a test POST request.
+     *
+     * This private method is called to start the POST request sequence.
+     * It invokes the `POST_TEST_200()` method, which constructs the request
+     * and sends it to the specified URL.
+     *
+     * @return void
+     */
     private void enviarPostPrueba() {
+        POST_TEST_200();
+    }
+
+    // --------------------------------------------------------------
+    /**
+     * @brief Constructs and enqueues a OneTimeWorkRequest for sending test data.
+     *
+     * This private method builds the input data required for the POST request,
+     * including the HTTP method, URL, and body containing the measurement details.
+     * It then creates a OneTimeWorkRequest and enqueues it with the WorkManager
+     * to perform the network operation asynchronously.
+     *
+     * @return void
+     */
+    private void POST_TEST_200() {
         Data inputData = new Data.Builder()
                 .putString(PeticionarioRESTWorker.KEY_METHOD, "POST")
-                .putString(PeticionarioRESTWorker.KEY_URL, "http://192.168.18.2:80/mediciones")
+                .putString(PeticionarioRESTWorker.KEY_URL, "http://192.168.18.136:80/mediciones")
                 .putString(PeticionarioRESTWorker.KEY_BODY, "{ \"medida\": 50.5, \"lugar\": \"Zona Industrial\", \"tipo_gas\": \"CO2\", \"hora\": \"2024-09-26 14:30:00\" }")
                 .build();
         // Start the Worker to make the request
@@ -293,27 +442,20 @@ public class MainActivity extends AppCompatActivity {
     //--------------------------------------------------------------
     //--------------------------------------------------------------
     private void enviarLastMajor() {
-        if(tib == null) {
-            Toast.makeText(this, "No hay datos disponibles", Toast.LENGTH_SHORT).show();
-            return;
-
-        }
-        Medicion medicion = new Medicion( Utilidades.bytesToIntOK(tib.getMajor()), "Zona Industrial", "CO2");
-        Log.d(ETIQUETA_LOG, " Medicion: " + medicion.toString());
-        String json = medicion.toJson();
-        Log.d(ETIQUETA_LOG, " JSON: " + json);
-        Data inputData = new Data.Builder()
-                .putString(PeticionarioRESTWorker.KEY_METHOD, "POST")
-                .putString(PeticionarioRESTWorker.KEY_URL, "http://192.168.18.2:80/mediciones")
-                .putString(PeticionarioRESTWorker.KEY_BODY, json)
-                .build();
-        OneTimeWorkRequest workRequest = new OneTimeWorkRequest.Builder(PeticionarioRESTWorker.class)
-                .setInputData(inputData)
-                .build();
-
-        WorkManager.getInstance(this).enqueue(workRequest);
+        PeticionarioRESTWorker.POST(tib, this);
     }
 
+    /**
+     * @brief Sets up the activity and initializes UI components.
+     *
+     * This method is called when the activity is created. It sets
+     * the content view, initializes UI components, and sets up button
+     * click listeners for sending data to the server.
+     *
+     * @param savedInstanceState Bundle object containing activity state.
+     *
+     * @return void
+     */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -335,9 +477,20 @@ public class MainActivity extends AppCompatActivity {
     } // ()
 
     //----------------------------------------------------------------
+    /**
+     * @brief Launcher for requesting permissions at runtime.
+     *
+     * This final variable holds an instance of `ActivityResultLauncher` that
+     * is responsible for requesting a specific permission from the user.
+     * The result of the permission request is handled through a callback.
+     *
+     * @note This is initialized with `registerForActivityResult()` and uses
+     * the `RequestPermission` contract to handle the permission request.
+     * When the user responds, it logs whether the permission was granted or denied.
+     */
     //----------------------------------------------------------------
 
-    private final ActivityResultLauncher<String> requestPermissionLuancher =
+    final ActivityResultLauncher<String> requestPermissionLuancher =
             registerForActivityResult(new RequestPermission(), isGranted ->
             {
                 if (isGranted) {
