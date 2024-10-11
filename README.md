@@ -1,99 +1,86 @@
-<div align="center" id="top"> 
-  <img src="./.github/app.gif" alt="Your_project_name" />
+<div align="center" id="top"> <img src="./.github/app.gif" alt="Mobile Gas Detector Project" />
 
-  &#xa0;
+&#xa0; </div>
 
-  <!-- <a href="https://yourprojectdemo.com">Demo</a> -->
-</div>
+<h1 align="center">Mobile Gas Detector Project</h1>
 
-<h1 align="center">Your_project_name</h1>
+<p align="center"> <img alt="Github top language" src="https://img.shields.io/github/languages/top/tu_usuario/nombre_proyecto?color=56BEB8"> <img alt="Github language count" src="https://img.shields.io/github/languages/count/tu_usuario/nombre_proyecto?color=56BEB8"> <img alt="Repository size" src="https://img.shields.io/github/repo-size/tu_usuario/nombre_proyecto?color=56BEB8"> <img alt="License" src="https://img.shields.io/github/license/tu_usuario/nombre_proyecto?color=56BEB8"> </p>
 
-<p align="center">
-  <img alt="Github top language" src="https://img.shields.io/github/languages/top/YourUsername/your_project_name?color=56BEB8">
-  <img alt="Github language count" src="https://img.shields.io/github/languages/count/YourUsername/your_project_name?color=56BEB8">
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/YourUsername/your_project_name?color=56BEB8">
-  <img alt="License" src="https://img.shields.io/github/license/YourUsername/your_project_name?color=56BEB8">
-</p>
-
-<p align="center">
-  <a href="#dart-about">About</a> &#xa0; | &#xa0; 
-  <a href="#sparkles-features">Features</a> &#xa0; | &#xa0;
-  <a href="#rocket-technologies">Technologies</a> &#xa0; | &#xa0;
-  <a href="#white_check_mark-requirements">Requirements</a> &#xa0; | &#xa0;
-  <a href="#checkered_flag-starting">Starting</a> &#xa0; | &#xa0;
-  <a href="#memo-license">License</a> &#xa0; | &#xa0;
-  <a href="#test">Tests</a> &#xa0; | &#xa0;
-  <a href="https://github.com/YourUsername" target="_blank">Author</a>
-</p>
+<p align="center"> <a href="#dart-about">About</a> &#xa0; | &#xa0; <a href="#sparkles-features">Features</a> &#xa0; | &#xa0; <a href="#rocket-technologies">Technologies</a> &#xa0; | &#xa0; <a href="#white_check_mark-requirements">Requirements</a> &#xa0; | &#xa0; <a href="#checkered_flag-starting">Starting</a> &#xa0; | &#xa0; <a href="#memo-testing">Testing</a> &#xa0; | &#xa0; <a href="#memo-license">License</a> &#xa0; | &#xa0; <a href="https://github.com/tu_usuario" target="_blank">Author</a> </p>
 
 <br>
 
-## :dart: About ##
+:dart: About
+This project is an Android application designed to scan Bluetooth LE devices, process data from iBeacons, and send the gathered information to a REST API server.
 
-This project is a brief description of what your project does. 
+:sparkles: Features
+Scan and identify Bluetooth LE devices
 
-## :sparkles: Features ##
+Parse iBeacon data
 
-- List your project's features here
-- Feature one
-- Feature two
-- Feature three
+Send measurement data to a REST API
 
-## :rocket: Technologies 
+Real-time display of measurement values
 
+:rocket: Technologies
 The following tools were used in this project:
 
-- [Your Technology 1](https://link-to-technology1.com/)
-- [Your Technology 2](https://link-to-technology2.com/)
-- [Your Technology 3](https://link-to-technology3.com/)
+Android
 
-## :white_check_mark: Requirements 
+JUnit
 
-Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) and [Docker](https://www.docker.com/) installed.
+Mockito
 
-A ``` .env ``` needs to be created in the root folder of the project to configure the environment variables.
+Robolectric
 
-## :checkered_flag: Starting 
+:white_check_mark: Requirements
+Before starting, you need to have Git and Android Studio installed.
 
-```bash
+:checkered_flag: Starting
+bash
+
+Copiar
 # Clone this project
-$ git clone https://github.com/YourUsername/your_project_name
+$ git clone https://github.com/tu_usuario/nombre_proyecto
 
-# Access the project directory
-$ cd your_project_name
+# Access
+$ cd nombre_proyecto
 
-# Create the .env file with the required parameters
-$ <text-editor> .env
+# Open the project in Android Studio
 
 # Build the project
-$ docker compose build
 
-# Run the project
-$ docker compose up
+# Run the project on an emulator or physical device
+:memo: Testing
+To run the unit tests and ensure everything is working correctly:
 
-# The application will initialize at <http://localhost:PORT>
+Unit Tests: The project includes various unit tests to validate the functionality of the different components. To execute these tests:
 
-:test_tube: Tests
-To ensure the quality and functionality of the project, unit tests have been implemented. Follow the steps below to execute the tests:
+Open Android Studio.
 
-    Setup Testing Environment: Ensure that you have the required dependencies installed in your project.
+Navigate to the Project pane.
 
-    Run Tests: You can run the tests using the following command:
+Expand the src/test/java directory.
 
-    bash
+Right-click on any test class (e.g., MedicionTest, TramaIBeaconTest) and select Run.
 
-    # Run tests
-    $ ./gradlew test
+Instrumented Tests: To run tests that require an Android device or emulator:
 
-    This command will execute all the tests defined in your project.
+Ensure an Android device/emulator is connected and running.
 
-    View Results: After running the tests, you will see the results in your terminal. If any tests fail, the output will provide details on what went wrong.
+Navigate to the Project pane in Android Studio.
+
+Expand the src/androidTest/java directory.
+
+Right-click on any instrumented test class (e.g., ExampleInstrumentedTest) and select Run.
+
+For more details on running tests, refer to the Android Testing documentation.
 
 :memo: License
+This project is under license from MIT. For more details, see the LICENSE file.
 
-This project is licensed under the MIT License. For more details, see the LICENSE file.
+Made with :heart: by <a href="https://github.com/tu_usuario" target="_blank">Your Name</a>
 
-Made with :heart: by <a href="https://github.com/Heur-a target="_blank">Alex Escrivá Caravaca</a>
+&#xa0;
 
- 
 <a href="#top">Back to top</a>
