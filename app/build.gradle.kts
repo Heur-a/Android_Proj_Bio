@@ -53,6 +53,7 @@ dependencies {
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation ("com.google.code.gson:gson:2.8.9")
+    implementation ("com.journeyapps:zxing-android-embedded:4.3.0") //leer qr
     testImplementation("org.mockito:mockito-core:3.12.4")
     testImplementation("androidx.work:work-testing:2.7.1")
     testImplementation("junit:junit:4.13.2")
