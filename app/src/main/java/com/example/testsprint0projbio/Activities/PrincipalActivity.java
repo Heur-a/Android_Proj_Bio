@@ -1,4 +1,4 @@
-package com.example.testsprint0projbio.pojo;
+package com.example.testsprint0projbio.Activities;
 
 import android.os.Bundle;
 

@@ -37,8 +37,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".pojo.PrincipalActivity"/>
-        <activity android:name=".pojo.LoginActivity"/>
+        <activity android:name=".Activities.PrincipalActivity"/>
+        <activity android:name=".Activities.LoginActivity"/>
     </application>
 
 </manifest>

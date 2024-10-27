@@ -60,8 +60,14 @@ dependencies {
     testImplementation ("androidx.test:core:1.4.0")
     testImplementation ("androidx.test.ext:junit-ktx:1.1.5")
     testImplementation ("org.robolectric:robolectric:4.9")
+    // Retrofit per al client HTTP
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 
-
-
-
+    // OkHttp per al logging de peticions i respostes HTTP
+    implementation("com.squareup.okhttp3:logging-interceptor:4.9.0")
 }
+
+
+
+

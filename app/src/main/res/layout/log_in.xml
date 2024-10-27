@@ -63,11 +63,11 @@
         android:text="Contraseña*"
         android:textColor="@color/verdeOscuro"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/contraseñaInput"
+        app:layout_constraintStart_toStartOf="@+id/contrasenyaInput"
         app:layout_constraintTop_toBottomOf="@+id/correoInput" />
 
     <EditText
-        android:id="@+id/contraseñaInput"
+        android:id="@+id/contrasenyaInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -97,7 +97,7 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/contraseñaInput" />
+        app:layout_constraintTop_toBottomOf="@+id/contrasenyaInput" />
 
     <TextView
         android:id="@+id/olvidarContraseña"

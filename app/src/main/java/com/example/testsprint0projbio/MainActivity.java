@@ -35,14 +35,13 @@ import androidx.work.WorkManager;
 
 
 import com.example.testsprint0projbio.api.PeticionarioRESTWorker;
-import com.example.testsprint0projbio.pojo.LoginActivity;
+import com.example.testsprint0projbio.Activities.LoginActivity;
 import com.example.testsprint0projbio.utility.Utilidades;
-import com.example.testsprint0projbio.pojo.PrincipalActivity;
+import com.example.testsprint0projbio.Activities.PrincipalActivity;
 import com.example.testsprint0projbio.pojo.TramaIBeacon;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import androidx.annotation.Nullable;
@@ -50,15 +49,6 @@ import androidx.annotation.Nullable;
 
 // ------------------------------------------------------------------
 // Header for MainActivity class
-/**
- * @file MainActivity.java
- * @brief Main activity for Bluetooth LE scanning application.
- * @author Alex Escrivá Caravaca
- * @date 30/09/2024
- *
- * This class handles Bluetooth LE scanning, device detection,
- * and communication with a REST API for sending data.
- */
 // ------------------------------------------------------------------
 
 // ------------------------------------------------------------------
@@ -67,8 +57,7 @@ import androidx.annotation.Nullable;
 /**
  * @class MainActivity
  * @brief Activity class that manages Bluetooth LE scanning and interaction.
- *
- * This activity is responsible for scanning Bluetooth Low Energy (LE)
+ * This apctivity is responsible for scanning Bluetooth Low Energy (LE)
  * devices, processing scan results, and communicating with a REST API.
  */
 public class MainActivity extends AppCompatActivity {
@@ -83,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
 
     ScanCallback callbackDelEscaneo = null; ///< Callback for Bluetooth scan results
 
-    private final String uuidString = "holaMundoNosVemo"; ///< UUID to filter scanned device
+    ///< UUID to filter scanned device
     TramaIBeacon tib; ///< Object to hold iBeacon data
 
     // Variable per a seguir l'estat de l'escaneig
@@ -107,7 +96,6 @@ public class MainActivity extends AppCompatActivity {
      * for Bluetooth LE devices. It checks for necessary permissions
      * and logs the results.
      *
-     * @return void
      */
     void buscarTodosLosDispositivosBTLE() {
         Log.d(ETIQUETA_LOG, " buscarTodosLosDispositivosBTL(): empieza ");
@@ -160,7 +148,6 @@ public class MainActivity extends AppCompatActivity {
      *
      * @param resultado The ScanResult containing the detected device's information.
      *
-     * @return void
      */
     // --------------------------------------------------------------
     private void mostrarInformacionDispositivoBTLE(ScanResult resultado) {
@@ -215,7 +202,6 @@ public class MainActivity extends AppCompatActivity {
      * Bluetooth LE device identified by the uuidString. It logs the results
      * and retrieves the corresponding iBeacon information if found.
      *
-     * @return void
      */
     // --------------------------------------------------------------
     private void buscarEsteDispositivoBTLE() {
@@ -295,7 +281,6 @@ public class MainActivity extends AppCompatActivity {
      * This method updates the TextView to display the major value
      * of the detected iBeacon, if available.
      *
-     * @return void
      */
     // --------------------------------------------------------------
     private void detenerBusquedaDispositivosBTLE() {
@@ -322,7 +307,6 @@ public class MainActivity extends AppCompatActivity {
      * If scanning is not active, it logs a message indicating that scanning
      * is not currently taking place.
      *
-     * @return void
      */
     // --------------------------------------------------------------
     void showMajor() {
@@ -350,7 +334,6 @@ public class MainActivity extends AppCompatActivity {
      *
      * @param v The View that was clicked, typically the button.
      *
-     * @return void
      */
     // --------------------------------------------------------------
     public void botonBuscarDispositivosBTLEPulsado(View v) {
@@ -369,7 +352,6 @@ public class MainActivity extends AppCompatActivity {
      *
      * @param v The View that was clicked, typically the button.
      *
-     * @return void
      */
     // --------------------------------------------------------------
     public void botonBuscarNuestroDispositivoBTLEPulsado(View v) {
@@ -388,7 +370,6 @@ public class MainActivity extends AppCompatActivity {
      *
      * @param v The View that was clicked, typically the button.
      *
-     * @return void
      */
     // --------------------------------------------------------------
     public void botonDetenerBusquedaDispositivosBTLEPulsado(View v) {
@@ -406,7 +387,6 @@ public class MainActivity extends AppCompatActivity {
      *
      * @param v The View that was clicked, typically the button.
      *
-     * @return void
      */
     // --------------------------------------------------------------
 
@@ -424,17 +404,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //---------------------------------------------------------------
-    /**
-     * @brief Handles the button click event for sending the last detected major value.
-     *
-     * This method is invoked when the button for sending the last detected major value
-     * is pressed. It logs the button press event and calls the enviarLastMajor()
-     * method to send the last major data to the server.
-     *
-     * @param v The View that was clicked, typically the button.
-     *
-     * @return void
-     */
     //---------------------------------------------------------------
 
     /**
@@ -444,7 +413,6 @@ public class MainActivity extends AppCompatActivity {
      * It invokes the POST_TEST_200() method, which constructs the request
      * and sends it to the specified URL.
      *
-     * @return void
      */
     private void enviarPostPrueba() {
         POST_TEST_200();
@@ -459,7 +427,6 @@ public class MainActivity extends AppCompatActivity {
      * It then creates a OneTimeWorkRequest and enqueues it with the WorkManager
      * to perform the network operation asynchronously.
      *
-     * @return void
      */
     private void POST_TEST_200() {
         Data inputData = new Data.Builder()
@@ -490,7 +457,6 @@ public class MainActivity extends AppCompatActivity {
      *
      * @param savedInstanceState Bundle object containing activity state.
      *
-     * @return void
      */
 
     @Override
@@ -499,12 +465,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Button loginButton = findViewById(R.id.login);
-        loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                startActivity(intent);
-            }
+        loginButton.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent);
         });
 
         //qr
@@ -552,11 +515,8 @@ public class MainActivity extends AppCompatActivity {
                     qrResult = qrContent;
 
                     // Esperar 5 segundos (5000 ms) antes de comenzar a escanear el beacon
-                    new Handler().postDelayed(() -> {
-                        // Aquí inicias el escaneo del beacon
-                        comenzarEscaneoBeacon();
-
-                    }, 5000);  // Tiempo de espera en milisegundos (5 segundos en este caso)
+                    // Aquí inicias el escaneo del beacon
+                    new Handler().postDelayed(this::comenzarEscaneoBeacon, 5000);  // Tiempo de espera en milisegundos (5 segundos en este caso)
 
                 } else {
                     // Si no tiene 16 caracteres, muestra un mensaje de QR no válido
@@ -581,7 +541,7 @@ public class MainActivity extends AppCompatActivity {
      * is responsible for requesting a specific permission from the user.
      * The result of the permission request is handled through a callback.
      *
-     * @note This is initialized with registerForActivityResult() and uses
+     * &#064;note  This is initialized with registerForActivityResult() and uses
      * the RequestPermission contract to handle the permission request.
      * When the user responds, it logs whether the permission was granted or denied.
      */
