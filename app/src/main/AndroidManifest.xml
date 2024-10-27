@@ -39,6 +39,9 @@
         </activity>
         <activity android:name=".Activities.PrincipalActivity"/>
         <activity android:name=".Activities.LoginActivity"/>
+        <service
+            android:name=".ForegroundService"
+            android:foregroundServiceType="location"/>
     </application>
 
 </manifest>
