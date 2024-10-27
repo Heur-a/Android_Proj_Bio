@@ -39,6 +39,9 @@
         </activity>
         <activity android:name=".pojo.PrincipalActivity"/>
         <activity android:name=".pojo.LoginActivity"/>
+        <service
+            android:name=".ForegroundService"
+            android:foregroundServiceType="location"/>
     </application>
 
 </manifest>
