@@ -10,7 +10,7 @@ import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 
-public interface AuthService {
+public interface AuthService extends ApiService {
     @POST("/auth/login")
     Call<ResponseBody> login(@Body UserLogin userLogin);
 
