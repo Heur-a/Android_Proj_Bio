@@ -10,6 +10,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.testsprint0projbio.MainActivity;
 import com.example.testsprint0projbio.R;
 import com.example.testsprint0projbio.api.AuthClient;
 import com.example.testsprint0projbio.pojo.UserLogin;
@@ -59,8 +60,9 @@ public class LoginActivity extends AppCompatActivity {
 
                                     // Verificar el contenido de la respuesta
                                     if (responseBody.contains("OK")) {
+                                        Toast.makeText(LoginActivity.this,"Sesión iniciada correctamente",Toast.LENGTH_SHORT).show();
                                         // Cambiar de actividad si el login es exitoso
-                                        Intent intent = new Intent(LoginActivity.this, PrincipalActivity.class);
+                                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                         startActivity(intent);
                                     } else {
                                         Log.e("Login", "Respuesta inesperada: " + responseBody);

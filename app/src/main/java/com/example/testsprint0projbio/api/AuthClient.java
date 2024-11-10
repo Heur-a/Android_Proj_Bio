@@ -6,7 +6,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class AuthClient {
-    private static final String BASE_URL = "http://192.168.1.107";
+    private static final String BASE_URL = "http://192.168.200.90";
     private static AuthClient instance;
     private final AuthService authService;
 
