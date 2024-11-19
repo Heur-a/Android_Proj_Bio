@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Sombra interior -->
+    <item android:right="2dp" android:left="2dp" android:top="2dp" android:bottom="2dp">
+        <shape android:shape="oval"> <!-- Cambiamos a 'oval' para hacerla redonda -->
+            <solid android:color="@color/verdeOscuro" /> <!-- Color de la sombra -->
+            <padding android:left="4dp" android:top="4dp" android:right="4dp" android:bottom="4dp" />
+        </shape>
+    </item>
+
+    <!-- Capa del botón redondo -->
+    <item>
+        <shape android:shape="oval"> <!-- Usamos 'oval' para el botón redondo -->
+            <solid android:color="@color/verdeOscuro" /> <!-- Color de fondo del botón -->
+            <corners android:radius="300dp" /> <!-- Radio para el botón redondeado -->
+        </shape>
+    </item>
+
+</layer-list>
