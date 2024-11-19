@@ -5,33 +5,32 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class AuthClient {
+public class OzoneApiClient {
     private static final String BASE_URL = "http://192.168.200.90";
-    private static AuthClient instance;
-    private final AuthService authService;
+    private static OzoneApiClient instance;
+    private final Retrofit retrofit;
 
-    private AuthClient() {
+    private OzoneApiClient() {
         OkHttpClient client = new OkHttpClient.Builder()
                 .addInterceptor(new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
                 .build();
 
-        Retrofit retrofit = new Retrofit.Builder()
+        retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-
-        authService = retrofit.create(AuthService.class);
     }
 
-    public static synchronized AuthClient getInstance() {
+    public static synchronized OzoneApiClient getInstance() {
         if (instance == null) {
-            instance = new AuthClient();
+            instance = new OzoneApiClient();
         }
         return instance;
     }
 
-    public AuthService getAuthService() {
-        return authService;
+    // Mètode genèric per obtindre qualsevol servei
+    public <T extends ApiService> T createService(Class<T> serviceClass) {
+        return retrofit.create(serviceClass);
     }
 }

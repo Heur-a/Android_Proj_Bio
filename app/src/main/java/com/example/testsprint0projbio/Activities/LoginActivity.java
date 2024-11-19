@@ -12,7 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.testsprint0projbio.MainActivity;
 import com.example.testsprint0projbio.R;
-import com.example.testsprint0projbio.api.AuthClient;
+import com.example.testsprint0projbio.api.AuthService;
+import com.example.testsprint0projbio.api.OzoneApiClient;
 import com.example.testsprint0projbio.pojo.UserLogin;
 
 import okhttp3.ResponseBody;
@@ -49,7 +50,7 @@ public class LoginActivity extends AppCompatActivity {
             email = email.trim();
 
             // Enviar email y password al servidor
-            AuthClient.getInstance().getAuthService().login(new UserLogin(email, password))
+            OzoneApiClient.getInstance().createService(AuthService.class).login(new UserLogin(email, password))
                     .enqueue(new Callback<ResponseBody>() {
                         @Override
                         public void onResponse(@NonNull Call<ResponseBody> call, @NonNull Response<ResponseBody> response) {
