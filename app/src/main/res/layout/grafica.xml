@@ -6,16 +6,120 @@
     android:layout_height="match_parent"
     android:background="@drawable/fondo_graficabien">
 
+    <ImageButton
+        android:id="@+id/iconanuncio3"
+        android:layout_width="61dp"
+        android:layout_height="66dp"
+        android:adjustViewBounds="true"
+        android:backgroundTint="@color/verdeOscuro"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.977"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.01"
+        app:srcCompat="@drawable/ondas_sonoras_de_megafono__3_" />
+
+    <ImageButton
+        android:id="@+id/iconGrafica4"
+        android:layout_width="61dp"
+        android:layout_height="66dp"
+        android:adjustViewBounds="true"
+        android:backgroundTint="@color/verdeOscuro"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.005"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.993"
+        app:srcCompat="@drawable/estadisticas" />
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="61dp"
+        android:layout_height="66dp"
+        android:adjustViewBounds="true"
+        android:backgroundTint="@color/verdeOscuro"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.262"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.993"
+        app:srcCompat="@drawable/ubicacion_de_la_capa_terrestre" />
+
+    <ImageButton
+        android:id="@+id/iconagenda4"
+        android:layout_width="61dp"
+        android:layout_height="66dp"
+        android:adjustViewBounds="true"
+        android:backgroundTint="@color/verdeOscuro"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.993"
+        app:srcCompat="@drawable/directorio" />
+
+    <ImageButton
+        android:id="@+id/iconHome3"
+        android:layout_width="61dp"
+        android:layout_height="66dp"
+        android:layout_marginEnd="172dp"
+        android:adjustViewBounds="true"
+        android:backgroundTint="@color/verdeOscuro"
+        android:contentDescription="Botón de inicio"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.993"
+        app:srcCompat="@drawable/casa_en_blanco" />
+
+    <ImageButton
+        android:id="@+id/iconAjustess3"
+        android:layout_width="61dp"
+        android:layout_height="66dp"
+        android:adjustViewBounds="true"
+        android:backgroundTint="@color/verdeOscuro"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.993"
+        app:srcCompat="@drawable/alt_administrador" />
+
+    <ImageButton
+        android:id="@+id/logo4"
+        android:layout_width="178dp"
+        android:layout_height="143dp"
+        android:layout_marginEnd="260dp"
+        android:layout_marginBottom="624dp"
+        android:adjustViewBounds="true"
+        android:backgroundTint="#003A5335"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/logotipo_modoclaro" />
+
     <Button
         android:id="@+id/boton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_marginStart="64dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="64dp"
-        android:layout_marginBottom="80dp"
         android:background="@drawable/boton"
+        android:backgroundTint="@color/verdeBoton"
+        android:drawableTint="@color/verdeClaro"
         android:text="Ver Histórico de Datos"
         android:textAllCaps="false"
         android:textColorLink="@color/verdeOscuro"
@@ -24,7 +128,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/contraseñaInput" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.87" />
 
     <Button
         android:id="@+id/boton2"
@@ -39,7 +144,7 @@
         android:text="Cambiar Objetivo Diario"
         android:textAllCaps="false"
         android:textColorLink="@color/verdeOscuro"
-        android:textSize="12sp"
+        android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -95,108 +200,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.497" />
 
-    <ImageButton
-        android:id="@+id/iconanuncio3"
-        android:layout_width="50dp"
-        android:layout_height="61dp"
-        android:adjustViewBounds="true"
-        android:backgroundTint="@color/verdeOscuro"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.969"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/ondas_sonoras_de_megafono__3_" />
-
-    <ImageButton
-        android:id="@+id/iconGrafica4"
-        android:layout_width="57dp"
-        android:layout_height="56dp"
-        android:adjustViewBounds="true"
-        android:backgroundTint="@color/verdeOscuro"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.005"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.993"
-        app:srcCompat="@drawable/estadisticas" />
-
-    <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
-        android:adjustViewBounds="true"
-        android:backgroundTint="@color/verdeOscuro"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.262"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.993"
-        app:srcCompat="@drawable/ubicacion_de_la_capa_terrestre" />
-
-    <ImageButton
-        android:id="@+id/iconagenda4"
-        android:layout_width="56dp"
-        android:layout_height="55dp"
-        android:adjustViewBounds="true"
-        android:backgroundTint="@color/verdeOscuro"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.75"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.993"
-        app:srcCompat="@drawable/directorio" />
-
-    <ImageButton
-        android:id="@+id/iconHome3"
-        android:layout_width="57dp"
-        android:layout_height="56dp"
-        android:layout_marginEnd="172dp"
-        android:adjustViewBounds="true"
-        android:backgroundTint="@color/verdeOscuro"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.993"
-        app:srcCompat="@drawable/casa_en_blanco" />
-
-    <ImageButton
-        android:id="@+id/iconAjustess3"
-        android:layout_width="52dp"
-        android:layout_height="57dp"
-        android:adjustViewBounds="true"
-        android:backgroundTint="@color/verdeOscuro"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.993"
-        app:srcCompat="@drawable/alt_administrador" />
-
-    <ImageButton
-        android:id="@+id/logo4"
-        android:layout_width="178dp"
-        android:layout_height="143dp"
-        android:layout_marginEnd="264dp"
-        android:layout_marginBottom="632dp"
-        android:adjustViewBounds="true"
-        android:backgroundTint="#003A5335"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/logotipo_modoclaro" />
-
     <TextView
         android:id="@+id/textView21"
         android:layout_width="wrap_content"
@@ -217,13 +220,14 @@
         android:layout_height="wrap_content"
         android:text="Ubicación"
         android:textColor="@color/verdeOscuro"
+        android:textColorLink="@color/verdeOscuro"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.118" />
+        app:layout_constraintVertical_bias="0.126" />
 
     <TextView
         android:id="@+id/textView22"
@@ -352,4 +356,28 @@
         android:layout_height="169dp"
         tools:layout_editor_absoluteX="68dp"
         tools:layout_editor_absoluteY="157dp" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="15dp"
+        android:layout_height="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.171"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.475"
+        app:srcCompat="@drawable/marcador" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="15dp"
+        android:layout_height="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.174"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.504"
+        app:srcCompat="@drawable/marcadorverdeoscuro" />
 </androidx.constraintlayout.widget.ConstraintLayout>
