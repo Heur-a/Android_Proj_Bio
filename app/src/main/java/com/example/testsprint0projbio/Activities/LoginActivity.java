@@ -1,5 +1,7 @@
 package com.example.testsprint0projbio.Activities;
 
+import static android.content.ContentValues.TAG;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.testsprint0projbio.MainActivity;
 import com.example.testsprint0projbio.R;
 import com.example.testsprint0projbio.api.AuthService;
+import com.example.testsprint0projbio.api.CookieManager;
 import com.example.testsprint0projbio.api.OzoneApiClient;
 import com.example.testsprint0projbio.pojo.UserLogin;
 
@@ -50,7 +53,7 @@ public class LoginActivity extends AppCompatActivity {
             email = email.trim();
 
             // Enviar email y password al servidor
-            OzoneApiClient.getInstance().createService(AuthService.class).login(new UserLogin(email, password))
+            OzoneApiClient.getInstance(this).createService(AuthService.class).login(new UserLogin(email, password))
                     .enqueue(new Callback<ResponseBody>() {
                         @Override
                         public void onResponse(@NonNull Call<ResponseBody> call, @NonNull Response<ResponseBody> response) {
@@ -61,9 +64,16 @@ public class LoginActivity extends AppCompatActivity {
 
                                     // Verificar el contenido de la respuesta
                                     if (responseBody.contains("OK")) {
+                                        // Emmagatzemar la cookie de sessió
+                                        String sessionCookie = response.headers().get("Set-Cookie");
+                                        if (sessionCookie != null) {
+                                            CookieManager.saveSessionCookie(sessionCookie,getApplicationContext()); // Guardar a SharedPreferences
+                                            Log.d(TAG, "onResponse: Session Cookie " + sessionCookie);
+                                        }
+
                                         Toast.makeText(LoginActivity.this,"Sesión iniciada correctamente",Toast.LENGTH_SHORT).show();
                                         // Cambiar de actividad si el login es exitoso
-                                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                        Intent intent = new Intent(LoginActivity.this, EscanearQrActivity.class);
                                         startActivity(intent);
                                     } else {
                                         Log.e("Login", "Respuesta inesperada: " + responseBody);
@@ -87,4 +97,5 @@ public class LoginActivity extends AppCompatActivity {
                     });
         });
     }
+
 }

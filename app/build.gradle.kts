@@ -72,6 +72,10 @@ dependencies {
 
     // OkHttp per al logging de peticions i respostes HTTP
     implementation("com.squareup.okhttp3:logging-interceptor:4.9.0")
+
+    //implementacion huella biometrica
+    implementation ("androidx.biometric:biometric:1.1.0")
+
 }
 
 

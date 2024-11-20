@@ -9,6 +9,11 @@ public class Node {
         this.user = user;
     }
 
+    public Node(String uuid) {
+        this.uuid = uuid;
+        this.user = 0;
+    }
+
     public String getUuid() {
         return uuid;
     }

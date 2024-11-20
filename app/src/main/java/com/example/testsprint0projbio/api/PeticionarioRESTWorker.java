@@ -21,7 +21,6 @@ import androidx.work.WorkManager;
 import androidx.work.Worker;
 import androidx.work.WorkerParameters;
 
-import com.example.testsprint0projbio.mock.HttpConnectionFactory;
 import com.example.testsprint0projbio.pojo.Medicion;
 import com.example.testsprint0projbio.pojo.TramaIBeacon;
 import com.example.testsprint0projbio.utility.Utilidades;
@@ -183,7 +182,7 @@ public class PeticionarioRESTWorker extends Worker {
             return;
         }
         Medicion medicion = new Medicion(Utilidades.bytesToIntOK(tib.getMajor()), "Industrial Zone", "CO2");
-        Log.d(ETIQUETA_LOG, " Measurement: " + medicion.toString());
+        Log.d(ETIQUETA_LOG, " Measurement: " + medicion);
         String json = medicion.toJson();
         Log.d(ETIQUETA_LOG, " JSON: " + json);
         Data inputData = new Data.Builder()
