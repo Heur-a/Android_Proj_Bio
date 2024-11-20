@@ -53,7 +53,7 @@ public class TramaIBeacon {
     /**
      * @brief The complete byte array containing the iBeacon data.
      */
-    private byte[] losBytes;
+    private final byte[] losBytes;
 
     /**
      * @brief Advertising flags from the BLE scan (3 bytes).

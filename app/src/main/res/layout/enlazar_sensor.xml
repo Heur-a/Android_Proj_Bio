@@ -82,6 +82,7 @@
         tools:layout_editor_absoluteX="194dp" />
 
     <Button
+        android:id="@+id/enlazarSensor"
         android:layout_width="136dp"
         android:layout_height="133dp"
         android:background="@drawable/boton_redondo"

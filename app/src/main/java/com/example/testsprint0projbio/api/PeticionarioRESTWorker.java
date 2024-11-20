@@ -183,7 +183,7 @@ public class PeticionarioRESTWorker extends Worker {
             return;
         }
         Medicion medicion = new Medicion(Utilidades.bytesToIntOK(tib.getMajor()), "Industrial Zone", "CO2");
-        Log.d(ETIQUETA_LOG, " Measurement: " + medicion.toString());
+        Log.d(ETIQUETA_LOG, " Measurement: " + medicion);
         String json = medicion.toJson();
         Log.d(ETIQUETA_LOG, " JSON: " + json);
         Data inputData = new Data.Builder()

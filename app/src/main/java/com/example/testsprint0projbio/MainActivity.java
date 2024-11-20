@@ -34,6 +34,7 @@ import androidx.work.OneTimeWorkRequest;
 import androidx.work.WorkManager;
 
 
+import com.example.testsprint0projbio.Activities.EscanearQr;
 import com.example.testsprint0projbio.api.PeticionarioRESTWorker;
 import com.example.testsprint0projbio.Activities.LoginActivity;
 import com.example.testsprint0projbio.utility.Utilidades;
@@ -44,6 +45,7 @@ import com.google.zxing.integration.android.IntentResult;
 
 import java.util.List;
 import java.util.Objects;
+
 import androidx.annotation.Nullable;
 
 
@@ -86,16 +88,15 @@ public class MainActivity extends AppCompatActivity {
     private String qrResult;
 
 
+    // --------------------------------------------------------------
+    // --------------------------------------------------------------
 
-    // --------------------------------------------------------------
-    // --------------------------------------------------------------
     /**
      * @brief Starts scanning for Bluetooth LE devices.
-     *
+     * <p>
      * This method initializes the scan callback and starts scanning
      * for Bluetooth LE devices. It checks for necessary permissions
      * and logs the results.
-     *
      */
     void buscarTodosLosDispositivosBTLE() {
         Log.d(ETIQUETA_LOG, " buscarTodosLosDispositivosBTL(): empieza ");
@@ -140,14 +141,13 @@ public class MainActivity extends AppCompatActivity {
     } // ()
 
     // --------------------------------------------------------------
+
     /**
+     * @param resultado The ScanResult containing the detected device's information.
      * @brief Displays information about detected Bluetooth LE device.
-     *
+     * <p>
      * This method logs information about the detected device, including
      * its name, address, RSSI, and iBeacon data.
-     *
-     * @param resultado The ScanResult containing the detected device's information.
-     *
      */
     // --------------------------------------------------------------
     private void mostrarInformacionDispositivoBTLE(ScanResult resultado) {
@@ -195,13 +195,13 @@ public class MainActivity extends AppCompatActivity {
 
     } // ()
     // --------------------------------------------------------------
+
     /**
      * @brief Scans for a specific Bluetooth LE device.
-     *
+     * <p>
      * This method initializes the scan callback for scanning a specific
      * Bluetooth LE device identified by the uuidString. It logs the results
      * and retrieves the corresponding iBeacon information if found.
-     *
      */
     // --------------------------------------------------------------
     private void buscarEsteDispositivoBTLE() {
@@ -237,7 +237,7 @@ public class MainActivity extends AppCompatActivity {
                             }
                         });
                     } catch (SecurityException e) {
-                        Log.e(TAG, "onScanResult: ",e);
+                        Log.e(TAG, "onScanResult: ", e);
                     }
 
                     // Mostrar un Toast cuando se detecta el beacon con el UUID específico
@@ -275,12 +275,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // --------------------------------------------------------------
+
     /**
      * @brief Shows the major value of the detected iBeacon.
-     *
+     * <p>
      * This method updates the TextView to display the major value
      * of the detected iBeacon, if available.
-     *
      */
     // --------------------------------------------------------------
     private void detenerBusquedaDispositivosBTLE() {
@@ -298,15 +298,15 @@ public class MainActivity extends AppCompatActivity {
     } // ()
 
     // --------------------------------------------------------------
+
     /**
      * @brief Updates the display with the major value of the detected iBeacon.
-     *
+     * <p>
      * This method checks if the scanning for the specific iBeacon is active.
      * If so, it retrieves the major value from the tib object, converts it
      * to an integer, and updates the showMajor TextView to display this value.
      * If scanning is not active, it logs a message indicating that scanning
      * is not currently taking place.
-     *
      */
     // --------------------------------------------------------------
     void showMajor() {
@@ -325,15 +325,14 @@ public class MainActivity extends AppCompatActivity {
     } // ()
 
     // --------------------------------------------------------------
+
     /**
+     * @param v The View that was clicked, typically the button.
      * @brief Handles the button click event for searching Bluetooth LE devices.
-     *
+     * <p>
      * This method is called when the button for searching Bluetooth LE devices
      * is pressed. It logs the button press event and initiates the scanning
      * process by calling the buscarTodosLosDispositivosBTLE() method.
-     *
-     * @param v The View that was clicked, typically the button.
-     *
      */
     // --------------------------------------------------------------
     public void botonBuscarDispositivosBTLEPulsado(View v) {
@@ -343,15 +342,14 @@ public class MainActivity extends AppCompatActivity {
 
     // --------------------------------------------------------------
     // --------------------------------------------------------------
+
     /**
+     * @param v The View that was clicked, typically the button.
      * @brief Handles the button click event for searching a specific Bluetooth LE device.
-     *
+     * <p>
      * This method is called when the button for searching a specific Bluetooth LE device
      * is pressed. It logs the button press event and initiates the scanning process
      * for the specific device by calling the buscarEsteDispositivoBTLE() method.
-     *
-     * @param v The View that was clicked, typically the button.
-     *
      */
     // --------------------------------------------------------------
     public void botonBuscarNuestroDispositivoBTLEPulsado(View v) {
@@ -361,15 +359,14 @@ public class MainActivity extends AppCompatActivity {
 
     // --------------------------------------------------------------
     // --------------------------------------------------------------
+
     /**
+     * @param v The View that was clicked, typically the button.
      * @brief Handles the button click event for stopping the Bluetooth LE device search.
-     *
+     * <p>
      * This method is called when the button for stopping the search for Bluetooth LE
      * devices is pressed. It logs the button press event and calls the
      * detenerBusquedaDispositivosBTLE() method to stop the scanning process.
-     *
-     * @param v The View that was clicked, typically the button.
-     *
      */
     // --------------------------------------------------------------
     public void botonDetenerBusquedaDispositivosBTLEPulsado(View v) {
@@ -378,18 +375,16 @@ public class MainActivity extends AppCompatActivity {
     } // ()
 
     // --------------------------------------------------------------
+
     /**
+     * @param v The View that was clicked, typically the button.
      * @brief Handles the button click event for sending a test POST request.
-     *
+     * <p>
      * This method is called when the button for sending a test POST request is pressed.
      * It logs the button press event and invokes the enviarPostPrueba() method
      * to initiate the sending of the test data.
-     *
-     * @param v The View that was clicked, typically the button.
-     *
      */
     // --------------------------------------------------------------
-
     public void botonEnviarPostPrueba(View v) {
         Log.d(ETIQUETA_LOG, " boton Enviar Post Pulsado");
         this.enviarPostPrueba();
@@ -408,25 +403,24 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * @brief Initiates the process of sending a test POST request.
-     *
+     * <p>
      * This private method is called to start the POST request sequence.
      * It invokes the POST_TEST_200() method, which constructs the request
      * and sends it to the specified URL.
-     *
      */
     private void enviarPostPrueba() {
         POST_TEST_200();
     }
 
     // --------------------------------------------------------------
+
     /**
      * @brief Constructs and enqueues a OneTimeWorkRequest for sending test data.
-     *
+     * <p>
      * This private method builds the input data required for the POST request,
      * including the HTTP method, URL, and body containing the measurement details.
      * It then creates a OneTimeWorkRequest and enqueues it with the WorkManager
      * to perform the network operation asynchronously.
-     *
      */
     private void POST_TEST_200() {
         Data inputData = new Data.Builder()
@@ -449,14 +443,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
+     * @param savedInstanceState Bundle object containing activity state.
      * @brief Sets up the activity and initializes UI components.
-     *
+     * <p>
      * This method is called when the activity is created. It sets
      * the content view, initializes UI components, and sets up button
      * click listeners for sending data to the server.
-     *
-     * @param savedInstanceState Bundle object containing activity state.
-     *
      */
 
     @Override
@@ -473,9 +465,12 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        //qr
+        //qr ahora va a activity qr (temporal)
         Button buttonQR = findViewById(R.id.button_qr);
-        buttonQR.setOnClickListener(v -> openQRCodeScanner());
+        buttonQR.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, EscanearQr.class);
+            startActivity(intent);
+        });
 
         //SET XML VARIABLES
         showMajor = findViewById(R.id.showMajor);
@@ -491,6 +486,8 @@ public class MainActivity extends AppCompatActivity {
 
     } // ()
 
+    //empieza codigo enlazar qr
+
     private void openQRCodeScanner() {
         IntentIntegrator integrator = new IntentIntegrator(this);
         integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE);
@@ -500,6 +497,7 @@ public class MainActivity extends AppCompatActivity {
         integrator.setBarcodeImageEnabled(true);
         integrator.initiateScan();
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
@@ -539,11 +537,11 @@ public class MainActivity extends AppCompatActivity {
     //----------------------------------------------------------------
     /**
      * @brief Launcher for requesting permissions at runtime.
-     *
+     * <p>
      * This final variable holds an instance of ActivityResultLauncher that
      * is responsible for requesting a specific permission from the user.
      * The result of the permission request is handled through a callback.
-     *
+     * <p>
      * &#064;note  This is initialized with registerForActivityResult() and uses
      * the RequestPermission contract to handle the permission request.
      * When the user responds, it logs whether the permission was granted or denied.
