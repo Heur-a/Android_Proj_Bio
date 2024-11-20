@@ -12,7 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.testsprint0projbio.MainActivity;
 import com.example.testsprint0projbio.R;
 import com.example.testsprint0projbio.api.NodeService;
 import com.example.testsprint0projbio.api.OzoneApiClient;
@@ -22,7 +21,7 @@ import com.example.testsprint0projbio.utility.BluetoothNodeManager;
 import com.example.testsprint0projbio.utility.QRCodeService;
 import com.example.testsprint0projbio.utility.Utilidades;
 
-import okhttp3.Response;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 
@@ -70,15 +69,15 @@ public class EscanearQrActivity extends AppCompatActivity {
                         //TODO: Enlazar sensor
                         Log.d(TAG, "onDeviceFound: initiate add Node");
                         OzoneApiClient.getInstance(getApplicationContext()).createService(NodeService.class).createNode(new Node(Utilidades.bytesToString(device.getUUID())))
-                                .enqueue(new Callback<Response>() {
+                                .enqueue(new Callback<ResponseBody>() {
 
                                     @Override
-                                    public void onResponse(@NonNull Call<Response> call, @NonNull retrofit2.Response<Response> response) {
+                                    public void onResponse(@NonNull Call<ResponseBody> call, @NonNull retrofit2.Response<ResponseBody> response) {
                                         // Handle the response
                                         if (response.isSuccessful()) {
                                             Toast.makeText(getApplicationContext(), "Dispositivo añadido", Toast.LENGTH_LONG).show();
-                                            Intent intent = new Intent(EscanearQrActivity.this, MainActivity.class);
-                                            startActivity(intent);
+//                                            Intent intent = new Intent(EscanearQrActivity.this, MainActivity.class);
+//                                            startActivity(intent);
 
                                         } else if (response.code() == 400) {
                                             Toast.makeText(getApplicationContext(), "Datos incorrectos", Toast.LENGTH_LONG).show();
@@ -88,7 +87,7 @@ public class EscanearQrActivity extends AppCompatActivity {
                                     }
 
                                     @Override
-                                    public void onFailure(@NonNull Call<Response> call, @NonNull Throwable t) {
+                                    public void onFailure(@NonNull Call<ResponseBody> call, @NonNull Throwable t) {
                                         Toast.makeText(getApplicationContext(), "Dispositivo no añadido, error servidor", Toast.LENGTH_LONG).show();
                                     }
                                 });

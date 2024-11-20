@@ -37,9 +37,11 @@ import androidx.work.WorkManager;
 import com.example.testsprint0projbio.Activities.EscanearQrActivity;
 import com.example.testsprint0projbio.api.PeticionarioRESTWorker;
 import com.example.testsprint0projbio.Activities.LoginActivity;
+import com.example.testsprint0projbio.utility.BiometricUtil;
 import com.example.testsprint0projbio.utility.Utilidades;
 import com.example.testsprint0projbio.Activities.PrincipalActivity;
 import com.example.testsprint0projbio.pojo.TramaIBeacon;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
@@ -456,6 +458,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //huella biométrica
+        // Verificar soporte biométrico
+        if (BiometricUtil.isBiometricAvailable(this)) {
+            BiometricUtil.attemptBiometricAuth(this);
+        } else {
+            Toast.makeText(this, "No Biometric Sensor available/registered", Toast.LENGTH_SHORT).show();
+        }
+        
         Intent serviceIntent = new Intent(this, ForegroundService.class);
         startService(serviceIntent);
 
