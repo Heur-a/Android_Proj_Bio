@@ -76,8 +76,8 @@ public class EscanearQrActivity extends AppCompatActivity {
                                         // Handle the response
                                         if (response.isSuccessful()) {
                                             Toast.makeText(getApplicationContext(), "Dispositivo añadido", Toast.LENGTH_LONG).show();
-//                                            Intent intent = new Intent(EscanearQrActivity.this, MainActivity.class);
-//                                            startActivity(intent);
+                                            startActivity(new Intent(EscanearQrActivity.this,HomeActivity.class));
+                                            finish();
 
                                         } else if (response.code() == 400) {
                                             Toast.makeText(getApplicationContext(), "Datos incorrectos", Toast.LENGTH_LONG).show();

@@ -10,33 +10,42 @@ import androidx.core.content.ContextCompat;
 
 import java.util.concurrent.Executor;
 
+import android.content.Context;
+
+import androidx.annotation.NonNull;
+import androidx.biometric.BiometricPrompt;
+import androidx.core.content.ContextCompat;
+
+import java.util.concurrent.Executor;
+
 public class BiometricUtil {
 
-    /**
-     * Verifica si la autenticación biométrica está disponible y es utilizable.
-     *
-     * @param context Contexto actual
-     * @return Verdadero si está disponible, falso de lo contrario
-     */
+    public interface AuthCallback {
+        void onSuccess();
+        void onFailure();
+    }
+
     public static boolean isBiometricAvailable(Context context) {
         BiometricManager biometricManager = BiometricManager.from(context);
         return biometricManager.canAuthenticate(BiometricManager.Authenticators.BIOMETRIC_STRONG)
                 == BiometricManager.BIOMETRIC_SUCCESS;
     }
 
+
     /**
-     * Intenta iniciar la autenticación biométrica.
+     * Inicia la autenticación biométrica y bloquea el uso hasta que sea exitosa.
      *
-     * @param context Contexto actual
+     * @param context     Contexto actual
      */
-    public static void attemptBiometricAuth(Context context) {
+    public static void attemptBiometricAuthWithBlock(Context context, BiometricPrompt.AuthenticationCallback callback) {
         Executor executor = ContextCompat.getMainExecutor(context);
-        BiometricPrompt.AuthenticationCallback callback = getAuthenticationCallback(context);
-        BiometricPrompt biometricPrompt = new BiometricPrompt((AppCompatActivity) context, executor, callback);
+        BiometricPrompt biometricPrompt = new BiometricPrompt(
+                (AppCompatActivity) context,
+                executor, callback);
 
         BiometricPrompt.PromptInfo promptInfo = getPromptInfo("Biometric Authentication",
-                "Please login to get into the app",
-                "This app is using Biometric Authentication to recognize user", true);
+                "Please authenticate to use the app",
+                "Authentication is mandatory to access the application.", true);
 
         biometricPrompt.authenticate(promptInfo);
     }
@@ -57,33 +66,5 @@ public class BiometricUtil {
                 .setDescription(description)
                 .setDeviceCredentialAllowed(isDeviceCredentialAllowed)
                 .build();
-    }
-
-    /**
-     * Obtiene el callback de autenticación para manejar los eventos de autenticación.
-     *
-     * @param context Contexto actual
-     * @return Instancia de AuthenticationCallback
-     */
-    private static BiometricPrompt.AuthenticationCallback getAuthenticationCallback(Context context) {
-        return new BiometricPrompt.AuthenticationCallback() {
-            @Override
-            public void onAuthenticationError(int errorCode, @NonNull CharSequence errString) {
-                Toast.makeText(context, "Authentication error", Toast.LENGTH_SHORT).show();
-                super.onAuthenticationError(errorCode, errString);
-            }
-
-            @Override
-            public void onAuthenticationSucceeded(@NonNull BiometricPrompt.AuthenticationResult result) {
-                Toast.makeText(context, "Authentication successful", Toast.LENGTH_SHORT).show();
-                super.onAuthenticationSucceeded(result);
-            }
-
-            @Override
-            public void onAuthenticationFailed() {
-                Toast.makeText(context, "Authentication failed", Toast.LENGTH_SHORT).show();
-                super.onAuthenticationFailed();
-            }
-  };
 }
 }

@@ -27,7 +27,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.biometric.BiometricPrompt;
 import androidx.core.app.ActivityCompat;
 import androidx.work.Data;
 import androidx.work.OneTimeWorkRequest;
@@ -459,13 +461,35 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //huella biométrica
+        //huella biométrica
         // Verificar soporte biométrico
+        // Requerir autenticación biométrica antes de continuar
         if (BiometricUtil.isBiometricAvailable(this)) {
-            BiometricUtil.attemptBiometricAuth(this);
+            BiometricUtil.attemptBiometricAuthWithBlock(this, new BiometricPrompt.AuthenticationCallback() {
+                @Override
+                public void onAuthenticationError(int errorCode, @NonNull CharSequence errString) {
+                    Toast.makeText(getApplicationContext(), "Authentication error: " + errString, Toast.LENGTH_SHORT).show();
+                    finish(); // Cierra la actividad si hay un error de autenticación
+                    super.onAuthenticationError(errorCode, errString);
+                }
+
+                @Override
+                public void onAuthenticationSucceeded(@NonNull BiometricPrompt.AuthenticationResult result) {
+                    Toast.makeText(getApplicationContext(), "Authentication succeeded", Toast.LENGTH_SHORT).show();
+                    super.onAuthenticationSucceeded(result);
+                }
+
+                @Override
+                public void onAuthenticationFailed() {
+                    super.onAuthenticationFailed();
+                }
+            });
         } else {
             Toast.makeText(this, "No Biometric Sensor available/registered", Toast.LENGTH_SHORT).show();
+            finish(); // Cierra la actividad si no hay autenticación disponible
         }
-        
+
+
         Intent serviceIntent = new Intent(this, ForegroundService.class);
         startService(serviceIntent);
 
@@ -495,6 +519,8 @@ public class MainActivity extends AppCompatActivity {
         this.elEscanner = elAdaptadorBT.getBluetoothLeScanner();
 
     } // ()
+
+
 
     //empieza codigo enlazar qr
 
