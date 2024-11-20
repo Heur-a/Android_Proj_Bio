@@ -8,22 +8,28 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.testsprint0projbio.MainActivity;
 import com.example.testsprint0projbio.R;
+import com.example.testsprint0projbio.api.NodeService;
+import com.example.testsprint0projbio.api.OzoneApiClient;
+import com.example.testsprint0projbio.pojo.Node;
 import com.example.testsprint0projbio.pojo.TramaIBeacon;
 import com.example.testsprint0projbio.utility.BluetoothNodeManager;
 import com.example.testsprint0projbio.utility.QRCodeService;
 import com.example.testsprint0projbio.utility.Utilidades;
 
-import java.io.Console;
-import java.util.Arrays;
+import okhttp3.Response;
+import retrofit2.Call;
+import retrofit2.Callback;
 
-public class EscanearQr extends AppCompatActivity {
+public class EscanearQrActivity extends AppCompatActivity {
 
     private QRCodeService qrCodeService;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +38,7 @@ public class EscanearQr extends AppCompatActivity {
         //Boton iniciar escaner qr
         Button iniciarEscaner = findViewById(R.id.enlazarSensor);
         iniciarEscaner.setOnClickListener(v -> {
-            qrCodeService = new QRCodeService(EscanearQr.this);
+            qrCodeService = new QRCodeService(EscanearQrActivity.this);
             // Inicia el escaner QR
             qrCodeService.startQRCodeScanner();
 
@@ -59,15 +65,35 @@ public class EscanearQr extends AppCompatActivity {
                     @Override
                     public void onDeviceFound(TramaIBeacon device) {
                         Log.d(TAG, "onDeviceFound: Scan success");
-                        Toast.makeText( getApplicationContext(), "Dispositivo encontrado " + Utilidades.bytesToString(device.getUUID()), Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Dispositivo encontrado " + Utilidades.bytesToString(device.getUUID()), Toast.LENGTH_LONG).show();
                         Log.d(TAG, "onDeviceFound: Device found" + device);
                         //TODO: Enlazar sensor
-                        Log.d(TAG, "onDeviceFound: initiate Intent");
-                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                        Log.d(TAG, "onDeviceFound: Stop Scan");
-                        bluetoothManager.stopScanning();
-                        Log.d(TAG, "onDeviceFound: Start Activity");
-                        startActivity(intent);
+                        Log.d(TAG, "onDeviceFound: initiate add Node");
+                        OzoneApiClient.getInstance().createService(NodeService.class).createNode(new Node(Utilidades.bytesToString(device.getUUID())))
+                                .enqueue(new Callback<Response>() {
+
+                                    @Override
+                                    public void onResponse(@NonNull Call<Response> call, @NonNull retrofit2.Response<Response> response) {
+                                        // Handle the response
+                                        if (response.isSuccessful()) {
+                                            Toast.makeText(getApplicationContext(), "Dispositivo añadido", Toast.LENGTH_LONG).show();
+                                            Intent intent = new Intent(EscanearQrActivity.this, MainActivity.class);
+                                            startActivity(intent);
+
+                                        } else if (response.code() == 400) {
+                                            Toast.makeText(getApplicationContext(), "Datos incorrectos", Toast.LENGTH_LONG).show();
+                                        } else {
+                                            Toast.makeText(getApplicationContext(), "Dispositivo no añadido, error servidor", Toast.LENGTH_LONG).show();
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onFailure(@NonNull Call<Response> call, @NonNull Throwable t) {
+                                        Toast.makeText(getApplicationContext(), "Dispositivo no añadido, error servidor", Toast.LENGTH_LONG).show();
+                                    }
+                                });
+
+
                     }
 
                     @Override
@@ -91,14 +117,12 @@ public class EscanearQr extends AppCompatActivity {
     }
 
 
-
-    private String getQruuid (String qrCodeContent) {
-        if(qrCodeContent.length() != 16){
+    private String getQruuid(String qrCodeContent) {
+        if (qrCodeContent.length() != 16) {
             throw new IllegalArgumentException("El contenido QR debe tener una longitud de 16 caracteres");
         }
         return qrCodeContent;
     }
-
 
 
 }

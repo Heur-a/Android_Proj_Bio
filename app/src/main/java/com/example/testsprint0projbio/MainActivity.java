@@ -34,7 +34,7 @@ import androidx.work.OneTimeWorkRequest;
 import androidx.work.WorkManager;
 
 
-import com.example.testsprint0projbio.Activities.EscanearQr;
+import com.example.testsprint0projbio.Activities.EscanearQrActivity;
 import com.example.testsprint0projbio.api.PeticionarioRESTWorker;
 import com.example.testsprint0projbio.Activities.LoginActivity;
 import com.example.testsprint0projbio.utility.Utilidades;
@@ -468,7 +468,7 @@ public class MainActivity extends AppCompatActivity {
         //qr ahora va a activity qr (temporal)
         Button buttonQR = findViewById(R.id.button_qr);
         buttonQR.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, EscanearQr.class);
+            Intent intent = new Intent(MainActivity.this, EscanearQrActivity.class);
             startActivity(intent);
         });
 

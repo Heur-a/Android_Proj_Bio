@@ -21,7 +21,6 @@ import androidx.work.WorkManager;
 import androidx.work.Worker;
 import androidx.work.WorkerParameters;
 
-import com.example.testsprint0projbio.mock.HttpConnectionFactory;
 import com.example.testsprint0projbio.pojo.Medicion;
 import com.example.testsprint0projbio.pojo.TramaIBeacon;
 import com.example.testsprint0projbio.utility.Utilidades;

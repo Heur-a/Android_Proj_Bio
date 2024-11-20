@@ -6,9 +6,10 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class OzoneApiClient {
-    private static final String BASE_URL = "http://192.168.200.90";
+    private static final String BASE_URL = "http://192.168.168.90";
     private static OzoneApiClient instance;
     private final Retrofit retrofit;
+
 
     private OzoneApiClient() {
         OkHttpClient client = new OkHttpClient.Builder()

@@ -47,7 +47,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.EscanearQr"/>
+        <activity android:name=".Activities.EscanearQrActivity"/>
         <activity android:name=".Activities.LoginActivity"/>
         <activity android:name=".Activities.PrincipalActivity"/>
 
