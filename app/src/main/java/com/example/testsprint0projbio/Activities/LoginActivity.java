@@ -53,7 +53,7 @@ public class LoginActivity extends AppCompatActivity {
             email = email.trim();
 
             // Enviar email y password al servidor
-            OzoneApiClient.getInstance().createService(AuthService.class).login(new UserLogin(email, password))
+            OzoneApiClient.getInstance(this).createService(AuthService.class).login(new UserLogin(email, password))
                     .enqueue(new Callback<ResponseBody>() {
                         @Override
                         public void onResponse(@NonNull Call<ResponseBody> call, @NonNull Response<ResponseBody> response) {

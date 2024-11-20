@@ -69,7 +69,7 @@ public class EscanearQrActivity extends AppCompatActivity {
                         Log.d(TAG, "onDeviceFound: Device found" + device);
                         //TODO: Enlazar sensor
                         Log.d(TAG, "onDeviceFound: initiate add Node");
-                        OzoneApiClient.getInstance().createService(NodeService.class).createNode(new Node(Utilidades.bytesToString(device.getUUID())))
+                        OzoneApiClient.getInstance(getApplicationContext()).createService(NodeService.class).createNode(new Node(Utilidades.bytesToString(device.getUUID())))
                                 .enqueue(new Callback<Response>() {
 
                                     @Override

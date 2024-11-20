@@ -12,10 +12,10 @@ public class CookieManager {
                 .putString("SessionCookie", sessionCookie)
                 .apply();
     }
+
+    // Recuperar la cookie des de SharedPreferences
     static public String getSessionCookie(Context context) {
         return context.getSharedPreferences("UserSession", MODE_PRIVATE)
                 .getString("SessionCookie", null);
     }
-
-
 }
