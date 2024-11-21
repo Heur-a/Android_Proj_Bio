@@ -193,7 +193,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.01"
-        app:srcCompat="@drawable/ondas_sonoras_de_megafono__3_" />
+        app:srcCompat="@drawable/ondas_sonoras_de_megafono__3_"
+        android:contentDescription="Boton para ir a la pagina de anuncios"/>
 
     <ImageButton
         android:id="@+id/iconGrafica"
@@ -208,13 +209,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.993"
-        app:srcCompat="@drawable/estadisticas" />
+        app:srcCompat="@drawable/estadisticas"
+        android:contentDescription="Boton para ir a la pagina de graficas"/>
 
     <ImageButton
+        android:id="@+id/iconoMap"
         android:layout_width="61dp"
         android:layout_height="66dp"
         android:adjustViewBounds="true"
         android:backgroundTint="@color/verdeOscuro"
+        android:contentDescription="Boton para ir a la pagina de mapa"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -237,7 +241,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.993"
-        app:srcCompat="@drawable/directorio" />
+        app:srcCompat="@drawable/directorio"
+        android:contentDescription="Boton para ir a la pagina de "/>
 
     <ImageButton
         android:id="@+id/IconHome"
@@ -252,7 +257,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.993"
-        app:srcCompat="@drawable/casa_en_blanco" />
+        app:srcCompat="@drawable/casa_en_blanco"
+        />
 
     <ImageButton
         android:id="@+id/iconAjustess"
@@ -267,7 +273,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.993"
-        app:srcCompat="@drawable/alt_administrador" />
+        app:srcCompat="@drawable/alt_administrador"
+        android:contentDescription="Boton para ir a la pagina de ajustes usuario"/>
 
     <ImageButton
         android:id="@+id/logo"
@@ -280,7 +287,8 @@
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/logotipo_modoclaro" />
+        app:srcCompat="@drawable/logotipo_modoclaro"
+        android:contentDescription="Boton para ir a la pagina de inicio"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
