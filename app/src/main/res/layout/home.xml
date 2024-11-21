@@ -10,6 +10,7 @@
         android:id="@+id/iconanuncio2"
         android:layout_width="61dp"
         android:layout_height="66dp"
+        android:layout_marginTop="5dp"
         android:adjustViewBounds="true"
         android:backgroundTint="@color/verdeOscuro"
         android:scaleType="centerInside"
@@ -19,7 +20,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.01"
-        app:srcCompat="@drawable/ondas_sonoras_de_megafono__3_" />
+        app:srcCompat="@drawable/ondas_sonoras_de_megafono__3_"
+        android:contentDescription="Boton para ir a pagina de anuncios"/>
 
     <ImageButton
         android:id="@+id/iconGrafica3"
@@ -34,10 +36,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.993"
-        app:srcCompat="@drawable/estadisticas" />
+        app:srcCompat="@drawable/estadisticas"
+        android:contentDescription="Boton para ir a pagina de graficas" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/iconoMap"
         android:layout_width="61dp"
         android:layout_height="66dp"
         android:adjustViewBounds="true"
@@ -49,7 +52,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.993"
-        app:srcCompat="@drawable/ubicacion_de_la_capa_terrestre" />
+        app:srcCompat="@drawable/ubicacion_de_la_capa_terrestre"
+        android:contentDescription="Boton para ir a pagina de mapa"/>
 
     <ImageButton
         android:id="@+id/iconagenda3"
@@ -64,7 +68,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.993"
-        app:srcCompat="@drawable/directorio" />
+        app:srcCompat="@drawable/directorio"
+        android:contentDescription="Boton para ir a pagina de  "/>
 
     <ImageButton
         android:id="@+id/iconHome2"
@@ -94,7 +99,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.993"
-        app:srcCompat="@drawable/alt_administrador" />
+        app:srcCompat="@drawable/alt_administrador"
+        android:contentDescription="Boton para ir a pagina de editar usuario"/>
 
     <ImageButton
         android:id="@+id/logo3"
@@ -107,7 +113,8 @@
         android:scaleType="centerInside"
         app:layout_constraintBottom_toTopOf="@+id/textView5"
         app:layout_constraintEnd_toStartOf="@+id/iconanuncio2"
-        app:srcCompat="@drawable/logotipo_modoclaro" />
+        app:srcCompat="@drawable/logotipo_modoclaro"
+        android:contentDescription="Boton para ir a pagina de inicio"/>
 
     <TextView
         android:id="@+id/textView5"
@@ -349,5 +356,6 @@
         app:layout_constraintBottom_toTopOf="@+id/textView18"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.565"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:contentDescription="mapa"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

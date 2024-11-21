@@ -50,6 +50,7 @@ dependencies {
     implementation(libs.play.services.maps)
     implementation(libs.androidx.navigation.fragment)
     implementation(libs.androidx.navigation.ui)
+    implementation(libs.activity)
     testImplementation("junit:junit:4.13.2")
     testImplementation(libs.androidx.junit)
     testImplementation(libs.androidx.espresso.core)

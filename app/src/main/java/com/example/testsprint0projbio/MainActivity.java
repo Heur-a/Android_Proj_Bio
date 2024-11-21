@@ -23,6 +23,7 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,6 +38,7 @@ import androidx.work.WorkManager;
 
 
 import com.example.testsprint0projbio.Activities.EscanearQrActivity;
+import com.example.testsprint0projbio.Activities.HomeActivity;
 import com.example.testsprint0projbio.api.PeticionarioRESTWorker;
 import com.example.testsprint0projbio.Activities.LoginActivity;
 import com.example.testsprint0projbio.utility.BiometricUtil;
@@ -517,6 +519,18 @@ public class MainActivity extends AppCompatActivity {
         //SET SCANNER
         BluetoothAdapter elAdaptadorBT = BluetoothAdapter.getDefaultAdapter();
         this.elEscanner = elAdaptadorBT.getBluetoothLeScanner();
+
+        //BOTONES
+
+        // Encuentra el botón
+        ImageButton logoButton = findViewById(R.id.logo);
+
+        // Configura el listener
+        logoButton.setOnClickListener(v -> {
+            // Inicia la actividad HomeActivity
+            Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+            startActivity(intent);
+        });
 
     } // ()
 
