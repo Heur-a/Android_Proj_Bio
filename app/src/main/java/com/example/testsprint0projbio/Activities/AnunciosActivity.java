@@ -70,8 +70,5 @@ public class AnunciosActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-
-
-
     }
 }
