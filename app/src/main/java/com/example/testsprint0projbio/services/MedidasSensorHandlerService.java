@@ -1,13 +1,16 @@
 package com.example.testsprint0projbio.services;
 
 import android.annotation.SuppressLint;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.Service;
 import android.bluetooth.le.ScanCallback;
 import android.bluetooth.le.ScanResult;
-import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ServiceInfo;
 import android.location.Location;
-import android.location.LocationManager;
 import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
@@ -16,7 +19,12 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import androidx.core.app.NotificationCompat;
+import androidx.core.content.ContextCompat;
 
+import com.example.testsprint0projbio.Activities.HomeActivity;
+import com.example.testsprint0projbio.MainActivity;
+import com.example.testsprint0projbio.R;
 import com.example.testsprint0projbio.api.LocalStorageManager;
 import com.example.testsprint0projbio.api.MedicionService;
 import com.example.testsprint0projbio.api.NodeService;
@@ -27,6 +35,8 @@ import com.example.testsprint0projbio.pojo.NodeResponse;
 import com.example.testsprint0projbio.pojo.TramaIBeacon;
 import com.example.testsprint0projbio.utility.BluetoothNodeManager;
 import com.example.testsprint0projbio.utility.Utilidades;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
 
 import java.util.Objects;
 
@@ -44,6 +54,10 @@ public class MedidasSensorHandlerService extends Service {
 
     private static final String TAG = "BluetoothScanService"; ///< Log tag
     private static final long SCAN_PERIOD = 10000; ///< Scan period in milliseconds
+    private static final long SERVICE_RESTART_DELAY = 10 * 60 * 1000; ///< Delay before restarting the service in milliseconds
+    public static final int NOTIFICATION_ID = 1;
+    public static final String NOTIFICATION_CHANNEL_ID = "OZONE_NODE_MEASUREMENT_MANAGER";
+    public static final String NOTIFICATION_CHANNEL_NAME = "Ozone Node Measurement Manager";
     private MedicionService medicionService;
 
     private BluetoothNodeManager bluetoothNodeManager; ///< Manages Bluetooth scanning
@@ -55,6 +69,9 @@ public class MedidasSensorHandlerService extends Service {
     public void onCreate() {
         super.onCreate();
         Log.d(TAG, "Service created.");
+
+        // Create notification channel
+        createNotificationChannel();
 
         // Inicialitza el BluetoothNodeManager i LocalStorageManager
         bluetoothNodeManager = new BluetoothNodeManager(this);
@@ -75,14 +92,37 @@ public class MedidasSensorHandlerService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.d(TAG, "Service started.");
+
+        Intent notificationIntent = new Intent(this, HomeActivity.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this,
+                0, notificationIntent, PendingIntent.FLAG_IMMUTABLE);
+        // Crea una notificació
+        Notification notification = new NotificationCompat.Builder(this, NOTIFICATION_CHANNEL_ID)
+                .setContentTitle("Manager Sensor")
+                .setContentText("Ozone está recabando medidas del sensor en segundo plano")
+                .setSmallIcon(R.drawable.logotipo_modooscuro)
+                .setContentIntent(pendingIntent)
+                .setOngoing(true)
+                .build();
+
+        // Inicia el servei en primer pla
+        startForeground(
+                NOTIFICATION_ID,
+                notification,
+                ServiceInfo.FOREGROUND_SERVICE_TYPE_CONNECTED_DEVICE
+                        | ServiceInfo.FOREGROUND_SERVICE_TYPE_LOCATION
+                        |ServiceInfo.FOREGROUND_SERVICE_TYPE_DATA_SYNC );
+
         checkOrFetchNode();
         return START_STICKY;
     }
+
 
     @Override
     public void onDestroy() {
         super.onDestroy();
         bluetoothNodeManager.stopScanning();
+        scheduleServiceRestart();
         Log.d(TAG, "Service destroyed. Scanning stopped.");
     }
 
@@ -225,15 +265,45 @@ public class MedidasSensorHandlerService extends Service {
         });
     }
 
-    @SuppressLint("MissingPermission") // Assegura't de gestionar permisos abans
+    @SuppressLint("MissingPermission")
     private Location getCurrentLocation() {
-        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        if (locationManager != null) {
-            return locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-        } else {
-            Log.w(TAG, "LocationManager is null.");
-            return null;
+        final Location[] currentLocation = {null};
+        FusedLocationProviderClient locationProvider = LocationServices.getFusedLocationProviderClient(this);
+
+        locationProvider.getLastLocation().addOnSuccessListener(location -> {
+            if (location != null) {
+                currentLocation[0] = location;
+            } else {
+                Log.w(TAG, "No valid location found.");
+            }
+        }).addOnFailureListener(e -> Log.e(TAG, "Error fetching location: " + e.getMessage()));
+
+        return currentLocation[0];
+    }
+
+    private void createNotificationChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel(
+                    NOTIFICATION_CHANNEL_ID,
+                    NOTIFICATION_CHANNEL_NAME,
+                    NotificationManager.IMPORTANCE_DEFAULT
+            );
+            NotificationManager manager = getSystemService(NotificationManager.class);
+            if (manager != null) {
+                manager.createNotificationChannel(channel);
+            }
         }
     }
+
+    private void scheduleServiceRestart() {
+        // Use a Handler to restart the service after 10 minutes
+        handler.postDelayed(() -> {
+            // Restart the service
+            Intent serviceIntent = new Intent(MedidasSensorHandlerService.this, MedidasSensorHandlerService.class);
+            ContextCompat.startForegroundService(MedidasSensorHandlerService.this, serviceIntent);
+        }, SERVICE_RESTART_DELAY); // Restart every 10 minutes (600,000 ms)
+    }
+
+
 }
 

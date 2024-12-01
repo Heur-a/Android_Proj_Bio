@@ -10,6 +10,10 @@
     <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+
 
     <uses-feature
         android:name="android.hardware.camera"
@@ -56,7 +60,8 @@
         </activity>
         <activity android:name=".Activities.EscanearQrActivity" />
         <activity android:name=".Activities.LoginActivity" />
-        <service android:name=".services.MedidasSensorHandlerService"/>
+        <service android:name=".services.MedidasSensorHandlerService"
+                    android:foregroundServiceType="dataSync|location|connectedDevice"/>
     </application>
 
 </manifest>
