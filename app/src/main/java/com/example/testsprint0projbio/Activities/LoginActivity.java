@@ -138,7 +138,7 @@ public class LoginActivity extends AppCompatActivity {
                         }
 
                         //No associated Node
-                        else if (response.code() == 401) {
+                        else if (response.code() == 401 || response.code() == 400) {
 
                             //we go to qr activity to add one
                             startActivity(new Intent(LoginActivity.this, EscanearQrActivity.class));

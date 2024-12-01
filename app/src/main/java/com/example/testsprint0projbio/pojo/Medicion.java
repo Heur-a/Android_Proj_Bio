@@ -1,5 +1,5 @@
 /**
- * @file Medicion.java
+ * @file Medida.java
  * @brief Class representing a measurement object.
  *
  * This class models a measurement including the value, location, gas type,
@@ -8,133 +8,185 @@
 
 package com.example.testsprint0projbio.pojo;
 
-import androidx.annotation.NonNull;
+import static android.content.ContentValues.TAG;
 
-import com.google.gson.JsonObject;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
+import android.location.Location;
+import android.util.Log;
 
 /**
- * @class Medicion
- * @brief Represents a measurement with details such as value, location, and gas type.
- *
- * This class contains attributes for storing the measurement value, the location
- * where it was taken, the type of gas, and the timestamp of the measurement.
+ * Represents a measurement with various attributes such as value, location, gas ID, and UUID.
  */
 public class Medicion {
-    private double medida;      ///< Measurement value
-    private String lugar;       ///< Location of the measurement
-    private String tipo_gas;    ///< Type of gas being measured
-    private final String hora;   ///< Time of the measurement in String format
 
     /**
-     * @brief Constructor for creating a measurement object.
-     * @param medida The value of the measurement.
-     * @param lugar The location where the measurement was taken.
-     * @param tipo_gas The type of gas being measured.
+     * The measured value.
      */
-    public Medicion(double medida, String lugar, String tipo_gas) {
-        this.medida = medida;
-        this.lugar = lugar;
-        this.tipo_gas = tipo_gas;
-
-        // Formatting the time as a String in the desired format
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
-        this.hora = sdf.format(new Date()); // Assigning the current time in the correct format
-    }
-
-    // Getters
+    private float value;
 
     /**
-     * @brief Gets the measurement value.
-     * @return The measurement value.
+     * The X-coordinate of the location where the measurement was taken.
      */
-    public double getMedida() {
-        return medida;
-    }
+    private float LocX;
 
     /**
-     * @brief Gets the location of the measurement.
-     * @return The location.
+     * The Y-coordinate of the location where the measurement was taken.
      */
-    public String getLugar() {
-        return lugar;
+    private float LocY;
+
+    /**
+     * The identifier for the type of gas measured.
+     */
+    private long gasId;
+
+    /**
+     * The unique identifier for this measurement.
+     */
+    private String uuid;
+
+    /**
+     * Default constructor.
+     * Initializes a Medida object with default values.
+     */
+    public Medicion() {
     }
 
     /**
-     * @brief Gets the type of gas being measured.
-     * @return The type of gas.
+     * Constructs a Medida object with specified values.
+     *
+     * @param value the measured value.
+     * @param locX  the X-coordinate of the location.
+     * @param locY  the Y-coordinate of the location.
+     * @param gasId the gas type identifier.
+     * @param uuid  the unique identifier for this measurement.
      */
-    public String getTipo_gas() {
-        return tipo_gas;
+    public Medicion(float value, float locX, float locY, long gasId, String uuid) {
+        this.value = value;
+        this.LocX = locX;
+        this.LocY = locY;
+        this.gasId = gasId;
+        this.uuid = uuid;
+    }
+
+    public Medicion (Location location, float value, long gasId, String uuid) {
+
+        if (location != null) {
+            this.LocX = ((float) location.getLongitude());
+            this.LocY = ((float) location.getLatitude());
+        } else {
+            Log.w(TAG, "Current location is null. Using default values.");
+            this.LocX = (0.0f); // Valor per defecte
+            this.LocY = (0.0f); // Valor per defecte
+        }
+
+        this.value = value;
+        this.gasId = gasId;
+        this.uuid = uuid;
     }
 
     /**
-     * @brief Gets the time of the measurement.
-     * @return The time as a String.
+     * Gets the measured value.
+     *
+     * @return the measured value.
      */
-    public String getHora() {
-        return hora; // Time is stored as a String
-    }
-
-    // Setters
-
-    /**
-     * @brief Sets the measurement value.
-     * @param medida The new measurement value.
-     */
-    public void setMedida(double medida) {
-        this.medida = medida;
+    public float getValue() {
+        return value;
     }
 
     /**
-     * @brief Sets the location of the measurement.
-     * @param lugar The new location.
+     * Sets the measured value.
+     *
+     * @param value the measured value to set.
      */
-    public void setLugar(String lugar) {
-        this.lugar = lugar;
+    public void setValue(float value) {
+        this.value = value;
     }
 
     /**
-     * @brief Sets the type of gas being measured.
-     * @param tipo_gas The new type of gas.
+     * Gets the X-coordinate of the location.
+     *
+     * @return the X-coordinate of the location.
      */
-    public void setTipo_gas(String tipo_gas) {
-        this.tipo_gas = tipo_gas;
-    }
-
-    // No setter needed for 'hora', as it is automatically assigned when the object is created
-
-    /**
-     * @brief Converts the object to a JSON string.
-     * @return A JSON representation of the object as a String.
-     */
-    public String toJson() {
-        JsonObject jsonObject = new JsonObject();
-
-        // Adding fields in the desired order
-        jsonObject.addProperty("medida", medida);
-        jsonObject.addProperty("lugar", lugar);
-        jsonObject.addProperty("tipo_gas", tipo_gas); // Name of the field in JSON
-        jsonObject.addProperty("hora", hora);
-
-        return jsonObject.toString(); // Returns the JSON as a string
+    public float getLocX() {
+        return LocX;
     }
 
     /**
-     * @brief Converts the object to a String representation.
-     * @return A String representation of the Medicion object.
+     * Sets the X-coordinate of the location.
+     *
+     * @param locX the X-coordinate to set.
      */
-    @NonNull
+    public void setLocX(float locX) {
+        this.LocX = locX;
+    }
+
+    /**
+     * Gets the Y-coordinate of the location.
+     *
+     * @return the Y-coordinate of the location.
+     */
+    public float getLocY() {
+        return LocY;
+    }
+
+    /**
+     * Sets the Y-coordinate of the location.
+     *
+     * @param locY the Y-coordinate to set.
+     */
+    public void setLocY(float locY) {
+        this.LocY = locY;
+    }
+
+    /**
+     * Gets the gas type identifier.
+     *
+     * @return the gas type identifier.
+     */
+    public long getGasId() {
+        return gasId;
+    }
+
+    /**
+     * Sets the gas type identifier.
+     *
+     * @param gasId the gas type identifier to set.
+     */
+    public void setGasId(long gasId) {
+        this.gasId = gasId;
+    }
+
+    /**
+     * Gets the unique identifier for this measurement.
+     *
+     * @return the unique identifier (UUID).
+     */
+    public String getUuid() {
+        return uuid;
+    }
+
+    /**
+     * Sets the unique identifier for this measurement.
+     *
+     * @param uuid the unique identifier to set.
+     */
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
+    }
+
+    /**
+     * Provides a string representation of the Medida object.
+     *
+     * @return a string representing the Medida object.
+     */
     @Override
     public String toString() {
-        return "Medicion{" +
-                "medida=" + medida +
-                ", lugar='" + lugar + '\'' +
-                ", tipoGas='" + tipo_gas + '\'' +
-                ", hora='" + hora + '\'' + // Display as String
+        return "Medida{" +
+                "value=" + value +
+                ", locX=" + LocX +
+                ", locY=" + LocY +
+                ", gasId=" + gasId +
+                ", uuid='" + uuid + '\'' +
                 '}';
     }
 }
+
