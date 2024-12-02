@@ -11,6 +11,7 @@ import android.bluetooth.le.ScanResult;
 import android.content.Intent;
 import android.content.pm.ServiceInfo;
 import android.location.Location;
+import android.location.LocationManager;
 import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
@@ -23,7 +24,6 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
 
 import com.example.testsprint0projbio.Activities.HomeActivity;
-import com.example.testsprint0projbio.MainActivity;
 import com.example.testsprint0projbio.R;
 import com.example.testsprint0projbio.api.LocalStorageManager;
 import com.example.testsprint0projbio.api.MedicionService;
@@ -35,8 +35,6 @@ import com.example.testsprint0projbio.pojo.NodeResponse;
 import com.example.testsprint0projbio.pojo.TramaIBeacon;
 import com.example.testsprint0projbio.utility.BluetoothNodeManager;
 import com.example.testsprint0projbio.utility.Utilidades;
-import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationServices;
 
 import java.util.Objects;
 
@@ -267,18 +265,14 @@ public class MedidasSensorHandlerService extends Service {
 
     @SuppressLint("MissingPermission")
     private Location getCurrentLocation() {
-        final Location[] currentLocation = {null};
-        FusedLocationProviderClient locationProvider = LocationServices.getFusedLocationProviderClient(this);
+        LocationManager locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
 
-        locationProvider.getLastLocation().addOnSuccessListener(location -> {
-            if (location != null) {
-                currentLocation[0] = location;
-            } else {
-                Log.w(TAG, "No valid location found.");
-            }
-        }).addOnFailureListener(e -> Log.e(TAG, "Error fetching location: " + e.getMessage()));
+        Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        if (location == null) {
+            location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+        }
+        return location;
 
-        return currentLocation[0];
     }
 
     private void createNotificationChannel() {

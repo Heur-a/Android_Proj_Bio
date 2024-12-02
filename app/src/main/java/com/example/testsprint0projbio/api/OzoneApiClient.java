@@ -2,6 +2,8 @@ package com.example.testsprint0projbio.api;
 
 import android.content.Context;
 
+import androidx.annotation.NonNull;
+
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -13,13 +15,14 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import java.io.IOException;
 
 public class OzoneApiClient {
-    private static final String BASE_URL = "http://192.168.1.103";
+    private static final String BASE_URL = "http://192.168.168.90";
     private static OzoneApiClient instance;
     private final Retrofit retrofit;
 
     private OzoneApiClient(Context context) {
         // Interceptor per afegir i guardar cookies
         Interceptor cookieInterceptor = new Interceptor() {
+            @NonNull
             @Override
             public Response intercept(Chain chain) throws IOException {
                 Request originalRequest = chain.request();
