@@ -16,8 +16,14 @@ import com.example.testsprint0projbio.MainActivity;
 import com.example.testsprint0projbio.R;
 import com.example.testsprint0projbio.api.AuthService;
 import com.example.testsprint0projbio.api.CookieManager;
+import com.example.testsprint0projbio.api.LocalStorageManager;
+import com.example.testsprint0projbio.api.NodeService;
 import com.example.testsprint0projbio.api.OzoneApiClient;
+import com.example.testsprint0projbio.pojo.Node;
+import com.example.testsprint0projbio.pojo.NodeResponse;
 import com.example.testsprint0projbio.pojo.UserLogin;
+
+import java.io.IOException;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -28,11 +34,15 @@ public class LoginActivity extends AppCompatActivity {
 
     public String email;
     public String password;
+    private LocalStorageManager localStorageManager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.log_in);  // Carga el layout que quieres mostrar
+
+        localStorageManager = new LocalStorageManager(this);
 
         TextView emailInput = findViewById(R.id.correoInput);
         TextView passwordInput = findViewById(R.id.contrasenyaInput);
@@ -67,14 +77,15 @@ public class LoginActivity extends AppCompatActivity {
                                         // Emmagatzemar la cookie de sessió
                                         String sessionCookie = response.headers().get("Set-Cookie");
                                         if (sessionCookie != null) {
-                                            CookieManager.saveSessionCookie(sessionCookie,getApplicationContext()); // Guardar a SharedPreferences
+                                            CookieManager.saveSessionCookie(sessionCookie, getApplicationContext()); // Guardar a SharedPreferences
                                             Log.d(TAG, "onResponse: Session Cookie " + sessionCookie);
                                         }
 
-                                        Toast.makeText(LoginActivity.this,"Sesión iniciada correctamente",Toast.LENGTH_SHORT).show();
-                                        // Cambiar de actividad si el login es exitoso
-                                        Intent intent = new Intent(LoginActivity.this, EscanearQrActivity.class);
-                                        startActivity(intent);
+                                        Toast.makeText(LoginActivity.this, "Sesión iniciada correctamente", Toast.LENGTH_SHORT).show();
+
+
+                                        checkNodeExistsDatabase();
+
                                     } else {
                                         Log.e("Login", "Respuesta inesperada: " + responseBody);
                                         Toast.makeText(LoginActivity.this, "Error de login", Toast.LENGTH_SHORT).show();
@@ -96,6 +107,58 @@ public class LoginActivity extends AppCompatActivity {
                         }
                     });
         });
+    }
+
+    /**
+     * @function checkNodeExistsDatabase
+     * @brief Checks if user already has a node regsitered
+     * @returns boolean
+     */
+    boolean checkNodeExistsDatabase() {
+
+        //use api client
+        OzoneApiClient.getInstance(this)
+                .createService(NodeService.class)
+                .getNodeById()
+                .enqueue(new Callback<NodeResponse>() {
+                    @Override
+                    public void onResponse(Call<NodeResponse> call, Response<NodeResponse> response) {
+                        if (response.isSuccessful() && response.body() != null) {
+                            // Obté la UUID des de la resposta
+                            String uuid = response.body().getUuid();
+
+                            // Crea un objecte Node amb la UUID
+                            Node node = new Node(uuid);
+
+                            // Guarda el Node a l'emmagatzematge local
+                            localStorageManager.saveNode(node);
+
+                            startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                            finish();
+                        }
+
+                        //No associated Node
+                        else if (response.code() == 401 || response.code() == 400) {
+
+                            //we go to qr activity to add one
+                            startActivity(new Intent(LoginActivity.this, EscanearQrActivity.class));
+                            finish();
+
+                        } else {
+                            Log.e("API_ERROR", "Error code: " + response.code());
+                            Toast.makeText(LoginActivity.this, "No se pueden obtener datos del nodo", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<NodeResponse> call, Throwable t) {
+                        Log.e("API_ERROR", "Request failed", t);
+                    }
+                });
+
+
+        return false;
+
     }
 
 }

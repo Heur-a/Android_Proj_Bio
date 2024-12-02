@@ -23,7 +23,6 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,20 +31,14 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.biometric.BiometricPrompt;
 import androidx.core.app.ActivityCompat;
-import androidx.work.Data;
-import androidx.work.OneTimeWorkRequest;
-import androidx.work.WorkManager;
 
 
 import com.example.testsprint0projbio.Activities.EscanearQrActivity;
-import com.example.testsprint0projbio.Activities.HomeActivity;
-import com.example.testsprint0projbio.api.PeticionarioRESTWorker;
 import com.example.testsprint0projbio.Activities.LoginActivity;
 import com.example.testsprint0projbio.utility.BiometricUtil;
 import com.example.testsprint0projbio.utility.Utilidades;
 import com.example.testsprint0projbio.Activities.PrincipalActivity;
 import com.example.testsprint0projbio.pojo.TramaIBeacon;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
@@ -382,71 +375,14 @@ public class MainActivity extends AppCompatActivity {
 
     // --------------------------------------------------------------
 
-    /**
-     * @param v The View that was clicked, typically the button.
-     * @brief Handles the button click event for sending a test POST request.
-     * <p>
-     * This method is called when the button for sending a test POST request is pressed.
-     * It logs the button press event and invokes the enviarPostPrueba() method
-     * to initiate the sending of the test data.
-     */
     // --------------------------------------------------------------
-    public void botonEnviarPostPrueba(View v) {
-        Log.d(ETIQUETA_LOG, " boton Enviar Post Pulsado");
-        this.enviarPostPrueba();
-    }
 
-    //----------------------------------------------------------------
-    //----------------------------------------------------------------
-
-    public void botonEnviarLastMajor(View v) {
-        Log.d(ETIQUETA_LOG, " boton Enviar Last Major Pulsado");
-        this.enviarLastMajor();
-    }
 
     //---------------------------------------------------------------
     //---------------------------------------------------------------
 
-    /**
-     * @brief Initiates the process of sending a test POST request.
-     * <p>
-     * This private method is called to start the POST request sequence.
-     * It invokes the POST_TEST_200() method, which constructs the request
-     * and sends it to the specified URL.
-     */
-    private void enviarPostPrueba() {
-        POST_TEST_200();
-    }
 
-    // --------------------------------------------------------------
 
-    /**
-     * @brief Constructs and enqueues a OneTimeWorkRequest for sending test data.
-     * <p>
-     * This private method builds the input data required for the POST request,
-     * including the HTTP method, URL, and body containing the measurement details.
-     * It then creates a OneTimeWorkRequest and enqueues it with the WorkManager
-     * to perform the network operation asynchronously.
-     */
-    private void POST_TEST_200() {
-        Data inputData = new Data.Builder()
-                .putString(PeticionarioRESTWorker.KEY_METHOD, "POST")
-                .putString(PeticionarioRESTWorker.KEY_URL, "http://172.20.10.2:3000/mediciones")
-                .putString(PeticionarioRESTWorker.KEY_BODY, "{ \"medida\": 50.5, \"lugar\": \"zonaelena\", \"tipo_gas\": \"CO\", \"hora\": \"2024-09-26 11:00:00\" }")
-                .build();
-        // Start the Worker to make the request
-        OneTimeWorkRequest workRequest = new OneTimeWorkRequest.Builder(PeticionarioRESTWorker.class)
-                .setInputData(inputData)
-                .build();
-
-        WorkManager.getInstance(this).enqueue(workRequest);
-    }
-
-    //--------------------------------------------------------------
-    //--------------------------------------------------------------
-    private void enviarLastMajor() {
-        PeticionarioRESTWorker.POST(tib, this);
-    }
 
     /**
      * @param savedInstanceState Bundle object containing activity state.
@@ -513,24 +449,10 @@ public class MainActivity extends AppCompatActivity {
         enviarPostPrueba = findViewById(R.id.enviarPostPrueba);
         EncenderEnvioPost = findViewById(R.id.ToggleEnviarPost);
 
-        enviarPostPrueba.setOnClickListener(this::botonEnviarPostPrueba);
-        EncenderEnvioPost.setOnClickListener(this::botonEnviarLastMajor);
-
         //SET SCANNER
         BluetoothAdapter elAdaptadorBT = BluetoothAdapter.getDefaultAdapter();
         this.elEscanner = elAdaptadorBT.getBluetoothLeScanner();
 
-        //BOTONES
-
-        // Encuentra el botón
-        ImageButton logoButton = findViewById(R.id.logo);
-
-        // Configura el listener
-        logoButton.setOnClickListener(v -> {
-            // Inicia la actividad HomeActivity
-            Intent intent = new Intent(MainActivity.this, HomeActivity.class);
-            startActivity(intent);
-        });
 
     } // ()
 
