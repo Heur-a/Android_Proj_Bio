@@ -13,6 +13,7 @@
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
     <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
 
 
     <uses-feature
@@ -60,6 +61,7 @@
         </activity>
         <activity android:name=".Activities.EscanearQrActivity" />
         <activity android:name=".Activities.LoginActivity" />
+        <activity android:name=".Activities.GraficaActivity" />
         <service android:name=".services.MedidasSensorHandlerService"
                     android:foregroundServiceType="dataSync|location|connectedDevice"/>
     </application>
