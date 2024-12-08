@@ -132,14 +132,14 @@
         app:layout_constraintVertical_bias="0.87" />
 
     <Button
-        android:id="@+id/boton2"
+        android:id="@+id/updateGoalButton"
         android:layout_width="128dp"
         android:layout_height="42dp"
         android:layout_centerInParent="true"
         android:layout_marginStart="64dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="64dp"
         android:layout_marginEnd="24dp"
-        android:layout_marginBottom="168dp"
+        android:layout_marginBottom="138dp"
         android:background="@drawable/boton"
         android:text="Cambiar Objetivo Diario"
         android:textAllCaps="false"
@@ -260,11 +260,11 @@
         app:layout_constraintVertical_bias="0.65999997" />
 
     <TextView
-        android:id="@+id/textView30"
+        android:id="@+id/stepsTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
-        android:text="1812"
+        android:text="0"
         android:textColor="@color/gris"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -275,11 +275,11 @@
         app:layout_constraintVertical_bias="0.686" />
 
     <TextView
-        android:id="@+id/textView31"
+        android:id="@+id/distanceTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
-        android:text="1,00 km"
+        android:text="0,00 km"
         android:textColor="@color/gris"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -306,11 +306,11 @@
         app:layout_constraintVertical_bias="0.66" />
 
     <TextView
-        android:id="@+id/textView32"
+        android:id="@+id/goalTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
-        android:text="6,00 km"
+        android:text="0,00 km"
         android:textColor="@color/gris"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -319,6 +319,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.685" />
+
+    <EditText
+        android:id="@+id/goalInputEditText"
+        android:layout_width="173dp"
+        android:layout_height="46dp"
+        android:hint="Ingresa tu objetivo de pasos"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@+id/updateGoalButton"
+        app:layout_constraintStart_toStartOf="@+id/updateGoalButton"
+        app:layout_constraintTop_toBottomOf="@+id/goalTextView" />
 
     <TextView
         android:id="@+id/textView29"

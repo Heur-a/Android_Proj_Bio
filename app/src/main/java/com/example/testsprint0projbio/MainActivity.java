@@ -86,7 +86,6 @@ public class MainActivity extends AppCompatActivity {
 
     private String qrResult;
 
-
     // --------------------------------------------------------------
     // --------------------------------------------------------------
 
@@ -452,9 +451,8 @@ public class MainActivity extends AppCompatActivity {
         //SET SCANNER
         BluetoothAdapter elAdaptadorBT = BluetoothAdapter.getDefaultAdapter();
         this.elEscanner = elAdaptadorBT.getBluetoothLeScanner();
-
-
     } // ()
+
 
 
 
