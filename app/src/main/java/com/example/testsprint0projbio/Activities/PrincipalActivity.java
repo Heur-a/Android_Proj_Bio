@@ -60,13 +60,6 @@ public class PrincipalActivity extends AppCompatActivity {
             finish();
         });
 
-        // Set up "botonGrafica" to go to GraficaActivity
-        Button botonGrafica = findViewById(R.id.botonGrafica); // Ensure this ID matches the one in your XML
-        botonGrafica.setOnClickListener(v -> {
-            // Redirect to GraficaActivity
-            startActivity(new Intent(PrincipalActivity.this, GraficaActivity.class));
-        });
-
     }
 
 

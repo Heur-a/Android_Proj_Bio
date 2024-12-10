@@ -68,6 +68,10 @@
         <activity android:name=".Activities.GraficaActivity" />
         <service android:name=".services.MedidasSensorHandlerService"
                     android:foregroundServiceType="dataSync|location|connectedDevice"/>
+
+        <service android:name=".services.DistanciaService"
+            android:foregroundServiceType="dataSync|location|connectedDevice"
+            />
     </application>
 
 </manifest>

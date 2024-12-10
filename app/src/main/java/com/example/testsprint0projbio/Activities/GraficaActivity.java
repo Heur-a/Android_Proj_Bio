@@ -5,8 +5,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.apellido.disss.StepCounterManager;
 import com.example.testsprint0projbio.R;
+import com.example.testsprint0projbio.utility.StepCounterManager;
 
 public class GraficaActivity extends AppCompatActivity {
 

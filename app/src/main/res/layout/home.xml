@@ -24,7 +24,7 @@
         android:contentDescription="Boton para ir a pagina de anuncios"/>
 
     <ImageButton
-        android:id="@+id/iconGrafica3"
+        android:id="@+id/botonGrafica"
         android:layout_width="61dp"
         android:layout_height="66dp"
         android:adjustViewBounds="true"
