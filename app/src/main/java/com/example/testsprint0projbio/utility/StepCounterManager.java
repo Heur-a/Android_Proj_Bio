@@ -1,100 +1,122 @@
 package com.example.testsprint0projbio.utility;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class StepCounterManager implements SensorEventListener {
 
-    private Context context;
-    private TextView stepsTextView;
-    private TextView distanceTextView;
-    private TextView goalTextView;
-    private SensorManager sensorManager;
-    private Sensor stepCounter;
-    private int totalSteps = 0;
-    private int previousSteps = 0;
-    private double distanceCovered = 0.0;
-    private int currentSteps = 0;
-    private int targetSteps = 10000;  // Objetivo de pasos predeterminado
-    public boolean isSensorAvailable;
+    private final Context context;
+    private final SensorManager sensorManager;
+    private final Sensor stepSensor;
+    private final SharedPreferences sharedPreferences;
+    private TextView stepsTextView, distanceTextView, goalTextView;
 
-    // Constructor actualizado
+    private static final float STEP_LENGTH_METERS = 0.75f; // Longitud promedio de un paso en metros
+
     public StepCounterManager(Context context, TextView stepsTextView, TextView distanceTextView, TextView goalTextView) {
         this.context = context;
         this.stepsTextView = stepsTextView;
         this.distanceTextView = distanceTextView;
         this.goalTextView = goalTextView;
-        this.sensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
-        this.stepCounter = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
-        this.isSensorAvailable = stepCounter != null;
+
+        sensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
+        stepSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
+        sharedPreferences = context.getSharedPreferences("StepData", Context.MODE_PRIVATE);
+
+        loadGoal();
     }
 
-    // Método para registrar el sensor
+    private void loadGoal() {
+        // Lee el objetivo guardado en SharedPreferences
+        int savedGoal = sharedPreferences.getInt("goal", 0);  // Valor predeterminado es 0 si no está guardado
+
+        // Si el objetivo es mayor que 0, lo mostramos en la interfaz
+        if (savedGoal > 0 && goalTextView != null) {
+            goalTextView.setText(savedGoal + " pasos");
+        }
+    }
+
     public void registerSensorListener() {
-        if (isSensorAvailable) {
-            sensorManager.registerListener(this, stepCounter, SensorManager.SENSOR_DELAY_UI);
-        } else {
-            stepsTextView.setText("Sensor no disponible");
+        if (stepSensor != null) {
+            sensorManager.registerListener(this, stepSensor, SensorManager.SENSOR_DELAY_UI);
         }
     }
 
-    // Método para desregistrar el sensor
     public void unregisterSensorListener() {
-        if (isSensorAvailable) {
-            sensorManager.unregisterListener(this);
-        }
-    }
-
-    // Método para establecer el objetivo de pasos
-    public void setTargetSteps(int target) {
-        this.targetSteps = target;
-        goalTextView.setText("Objetivo: " + targetSteps + " pasos");
-    }
-
-    // Método para obtener los pasos actuales
-    public int getCurrentSteps() {
-        return currentSteps;
+        sensorManager.unregisterListener(this);
     }
 
     @Override
     public void onSensorChanged(SensorEvent event) {
-        if (event != null && event.sensor.getType() == Sensor.TYPE_STEP_COUNTER) {
-            if (totalSteps == 0) {
-                totalSteps = (int) event.values[0];
-            }
-
-            currentSteps = (int) event.values[0] - totalSteps + previousSteps;
-            distanceCovered = currentSteps * 0.78; // Longitud promedio de zancada (0.78 m)
-
-            stepsTextView.setText("Pasos: " + currentSteps);
-            distanceTextView.setText(String.format("Distancia: %.2f m", distanceCovered));
-
-            // Verifica si se ha alcanzado el objetivo de pasos
-            if (currentSteps >= targetSteps) {
-                goalTextView.setText("¡Objetivo alcanzado!");
-            } else {
-                goalTextView.setText("Objetivo: " + targetSteps + " pasos");
-            }
+        if (event.sensor.getType() == Sensor.TYPE_STEP_COUNTER) {
+            int totalSteps = (int) event.values[0];
+            saveStepData(totalSteps);
+            updateUI(totalSteps);
         }
     }
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
-        // No se requiere implementar
     }
 
-    // Método para actualizar el objetivo desde un EditText
-    public void updateTargetFromInput(EditText goalInputEditText) {
-        try {
-            int newTarget = Integer.parseInt(goalInputEditText.getText().toString());
-            setTargetSteps(newTarget);
-        } catch (NumberFormatException e) {
-            goalInputEditText.setError("Por favor ingresa un número válido");
+    private void saveStepData(int totalSteps) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt("steps", totalSteps);
+        editor.putFloat("distance", totalSteps * STEP_LENGTH_METERS);
+        editor.apply();
+    }
+
+    private void updateUI(int totalSteps) {
+        if (stepsTextView != null) {
+            stepsTextView.setText(String.valueOf(totalSteps));
+        }
+        if (distanceTextView != null) {
+            float distance = totalSteps * STEP_LENGTH_METERS;
+            distanceTextView.setText(String.format("%.2f m", distance));
         }
     }
+
+    public void updateTargetFromInput(EditText goalInputEditText) {
+        // Obtiene el valor ingresado por el usuario
+        String inputText = goalInputEditText.getText().toString().trim();
+
+        // Validamos que el input no esté vacío y sea un número
+        if (!inputText.isEmpty()) {
+            try {
+                // Convertimos el valor a un número (en este caso, pasos)
+                int newGoal = Integer.parseInt(inputText);
+
+                // Actualizamos el TextView con el nuevo objetivo
+                goalTextView.setText(newGoal + " pasos");
+
+                // Guarda el objetivo actualizado en SharedPreferences si es necesario
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putInt("goal", newGoal);
+                editor.apply();
+
+            } catch (NumberFormatException e) {
+                // Si la conversión falla (no es un número válido)
+                Toast.makeText(context, "Por favor ingrese un número válido.", Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            Toast.makeText(context, "El objetivo no puede estar vacío.", Toast.LENGTH_SHORT).show();
+        }
+    }
+    public int getTotalSteps() {
+        return sharedPreferences.getInt("steps", 0);  // Devuelve el número de pasos almacenados
+    }
+
+    public int getGoal() {
+        return sharedPreferences.getInt("goal", 0);  // Devuelve el objetivo almacenado
+    }
+
+
 }
