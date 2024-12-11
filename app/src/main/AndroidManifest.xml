@@ -18,6 +18,7 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
 
     <uses-feature
@@ -67,7 +68,7 @@
         <activity android:name=".Activities.LoginActivity" />
         <activity android:name=".Activities.GraficaActivity" />
         <service android:name=".services.MedidasSensorHandlerService"
-                    android:foregroundServiceType="dataSync|location|connectedDevice"/>
+            android:foregroundServiceType="dataSync|location|connectedDevice"/>
 
         <service android:name=".services.DistanciaService"
             android:foregroundServiceType="dataSync|location|connectedDevice"

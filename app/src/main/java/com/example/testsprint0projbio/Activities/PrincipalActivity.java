@@ -3,6 +3,7 @@ package com.example.testsprint0projbio.Activities;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +18,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.example.testsprint0projbio.R;
+import com.example.testsprint0projbio.services.DistanciaService;
 import com.example.testsprint0projbio.utility.BiometricUtil;
 
 public class PrincipalActivity extends AppCompatActivity {
@@ -60,8 +62,11 @@ public class PrincipalActivity extends AppCompatActivity {
             finish();
         });
 
+        // Inicia el servicio en primer plano
+        Intent serviceIntent = new Intent(this, DistanciaService.class);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            startForegroundService(serviceIntent);
+        }
+
     }
-
-
-
 }
