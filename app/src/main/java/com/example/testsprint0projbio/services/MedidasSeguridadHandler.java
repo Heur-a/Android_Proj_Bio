@@ -21,8 +21,8 @@ public class MedidasSeguridadHandler {
     private static final String TAG = "MedidasSeguridadHandler";
 
     // Valores de límites
-    private static final int LIMITE_PRECAUCION = 50;
-    private static final int LIMITE_PELIGRO = 100;
+    private static final int LIMITE_PRECAUCION = 20;
+    private static final int LIMITE_PELIGRO = 40;
 
     // Constantes de tiempo
     private static final long INTERVALO_PRECAUCION = 10 * 60 * 1000; // 10 minutos
