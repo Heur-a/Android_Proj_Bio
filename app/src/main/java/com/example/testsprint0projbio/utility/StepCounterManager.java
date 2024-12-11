@@ -6,6 +6,8 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +30,18 @@ public class StepCounterManager implements SensorEventListener {
         sensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
         stepSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
         sharedPreferences = context.getSharedPreferences("StepData", Context.MODE_PRIVATE);
+
+        loadGoal();
+    }
+
+    private void loadGoal() {
+        // Lee el objetivo guardado en SharedPreferences
+        int savedGoal = sharedPreferences.getInt("goal", 0);  // Valor predeterminado es 0 si no está guardado
+
+        // Si el objetivo es mayor que 0, lo mostramos en la interfaz
+        if (savedGoal > 0 && goalTextView != null) {
+            goalTextView.setText(savedGoal + " pasos");
+        }
     }
 
     public void registerSensorListener() {
@@ -70,37 +84,39 @@ public class StepCounterManager implements SensorEventListener {
         }
     }
 
-    public void updateTargetFromInput(TextView goalInputEditText, TextView goalTextView) {
-        // Obtén el texto ingresado en el TextView de entrada
-        String goalInputText = goalInputEditText.getText().toString();
+    public void updateTargetFromInput(EditText goalInputEditText) {
+        // Obtiene el valor ingresado por el usuario
+        String inputText = goalInputEditText.getText().toString().trim();
 
-        // Verifica que el texto no esté vacío
-        if (goalInputText.isEmpty()) {
-            goalInputEditText.setError("El objetivo no puede estar vacío");
-            return;
-        }
+        // Validamos que el input no esté vacío y sea un número
+        if (!inputText.isEmpty()) {
+            try {
+                // Convertimos el valor a un número (en este caso, pasos)
+                int newGoal = Integer.parseInt(inputText);
 
-        try {
-            // Convierte el texto a un número entero
-            int newGoal = Integer.parseInt(goalInputText);
+                // Actualizamos el TextView con el nuevo objetivo
+                goalTextView.setText(newGoal + " pasos");
 
-            // Verifica que el número sea positivo
-            if (newGoal <= 0) {
-                goalInputEditText.setError("El objetivo debe ser un número mayor a cero");
-                return;
+                // Guarda el objetivo actualizado en SharedPreferences si es necesario
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putInt("goal", newGoal);
+                editor.apply();
+
+            } catch (NumberFormatException e) {
+                // Si la conversión falla (no es un número válido)
+                Toast.makeText(context, "Por favor ingrese un número válido.", Toast.LENGTH_SHORT).show();
             }
-
-            // Actualiza el TextView goalTextView con el nuevo objetivo
-            goalTextView.setText(String.valueOf(newGoal));
-
-            // Muestra un mensaje de éxito (opcional)
-            Toast.makeText(goalInputEditText.getContext(), "Objetivo actualizado a: " + newGoal, Toast.LENGTH_SHORT).show();
-        } catch (NumberFormatException e) {
-            // Muestra un error si el formato no es un número válido
-            goalInputEditText.setError("Por favor, ingresa un número válido");
+        } else {
+            Toast.makeText(context, "El objetivo no puede estar vacío.", Toast.LENGTH_SHORT).show();
         }
     }
-
-    public void setDailyStepGoal(int newGoal) {
+    public int getTotalSteps() {
+        return sharedPreferences.getInt("steps", 0);  // Devuelve el número de pasos almacenados
     }
+
+    public int getGoal() {
+        return sharedPreferences.getInt("goal", 0);  // Devuelve el objetivo almacenado
+    }
+
+
 }
