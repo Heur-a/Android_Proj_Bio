@@ -1,26 +1,34 @@
 package com.example.testsprint0projbio.Activities;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.biometric.BiometricPrompt;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.example.testsprint0projbio.R;
+import com.example.testsprint0projbio.services.DistanciaService;
 import com.example.testsprint0projbio.utility.BiometricUtil;
 
 public class PrincipalActivity extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.bienvenida);// Carga el layout que quieres mostrar
+        setContentView(R.layout.bienvenida); // Carga el layout que quieres mostrar
 
-        //huella biométrica
-        // Verificar soporte biométrico
-        // Requerir autenticación biométrica antes de continuar
+        // Verificación biométrica
         if (BiometricUtil.isBiometricAvailable(this)) {
             BiometricUtil.attemptBiometricAuthWithBlock(this, new BiometricPrompt.AuthenticationCallback() {
                 @Override
@@ -46,12 +54,19 @@ public class PrincipalActivity extends AppCompatActivity {
             finish(); // Cierra la actividad si no hay autenticación disponible
         }
 
+        // Set up "botonIniciar" to go to LoginActivity
         Button login = findViewById(R.id.botonIniciar);
         login.setOnClickListener(v -> {
             // Iniciar sesión
             startActivity(new Intent(PrincipalActivity.this, LoginActivity.class));
             finish();
         });
+
+        // Inicia el servicio en primer plano
+        Intent serviceIntent = new Intent(this, DistanciaService.class);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            startForegroundService(serviceIntent);
+        }
 
     }
 }

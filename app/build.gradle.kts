@@ -77,6 +77,8 @@ dependencies {
     //implementacion huella biometrica
     implementation ("androidx.biometric:biometric:1.1.0")
 
+    // MPAndroidChart para gráficos circulares
+    implementation ("com.github.PhilJay:MPAndroidChart:v3.1.0")
 }
 
 

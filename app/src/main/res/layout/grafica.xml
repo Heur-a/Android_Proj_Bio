@@ -131,26 +131,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.87" />
 
-    <Button
-        android:id="@+id/boton2"
-        android:layout_width="128dp"
-        android:layout_height="42dp"
-        android:layout_centerInParent="true"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="168dp"
-        android:background="@drawable/boton"
-        android:text="Cambiar Objetivo Diario"
-        android:textAllCaps="false"
-        android:textColorLink="@color/verdeOscuro"
-        android:textSize="10sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/contraseñaInput" />
-
     <TextView
         android:id="@+id/textView24"
         android:layout_width="wrap_content"
@@ -260,11 +240,11 @@
         app:layout_constraintVertical_bias="0.65999997" />
 
     <TextView
-        android:id="@+id/textView30"
+        android:id="@+id/stepsTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
-        android:text="1812"
+        android:text="0"
         android:textColor="@color/gris"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -275,11 +255,11 @@
         app:layout_constraintVertical_bias="0.686" />
 
     <TextView
-        android:id="@+id/textView31"
+        android:id="@+id/distanceTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
-        android:text="1,00 km"
+        android:text="0,00 km"
         android:textColor="@color/gris"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -306,11 +286,11 @@
         app:layout_constraintVertical_bias="0.66" />
 
     <TextView
-        android:id="@+id/textView32"
+        android:id="@+id/goalTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
-        android:text="6,00 km"
+        android:text="0 pasos"
         android:textColor="@color/gris"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -319,6 +299,75 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.685" />
+
+    <Button
+        android:id="@+id/updateGoalButton"
+        android:layout_width="139dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/verdeBoton"
+        android:text="Cambiar Objetivo Diario"
+        android:textColor="@color/verdeClaro"
+        app:layout_constraintEnd_toEndOf="@+id/textView33"
+        app:layout_constraintStart_toStartOf="@+id/textView33"
+        app:layout_constraintTop_toBottomOf="@id/goalTextView" />
+
+    <!-- Aquí se agregará el gráfico circular -->
+    <com.github.mikephil.charting.charts.PieChart
+        android:id="@+id/pieChart"
+        android:layout_width="115dp"
+        android:layout_height="136dp"
+        app:layout_constraintBottom_toTopOf="@+id/boton"
+        app:layout_constraintEnd_toStartOf="@+id/updateGoalButton"
+        app:layout_constraintStart_toEndOf="@+id/textView29" />
+
+    <!-- Popup layout (invisible by default) -->
+    <LinearLayout
+        android:id="@+id/popupLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#80000000"
+        android:visibility="gone"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/white"
+            android:padding="16dp">
+
+            <EditText
+                android:id="@+id/goalInputEditText"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:hint="Nuevo objetivo"
+                android:inputType="number" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="end">
+
+                <Button
+                    android:id="@+id/updateGoalPopupButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Actualizar" />
+
+                <Button
+                    android:id="@+id/cancelPopupButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cancelar" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+
 
     <TextView
         android:id="@+id/textView29"

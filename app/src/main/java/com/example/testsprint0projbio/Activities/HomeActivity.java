@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultCallback;
@@ -29,6 +31,13 @@ public class HomeActivity extends AppCompatActivity {
 
         // Check and request POST_NOTIFICATIONS permission
         checkAndRequestNotificationPermission();
+
+        // Set up "botonGrafica" to go to GraficaActivity
+        ImageButton botonGrafica = findViewById(R.id.botonGrafica); // Ensure this ID matches the one in your XML
+        botonGrafica.setOnClickListener(v -> {
+            // Redirect to GraficaActivity
+            startActivity(new Intent(HomeActivity.this, GraficaActivity.class));
+        });
     }
 
     // ActivityResultLauncher to handle the result of permission request
