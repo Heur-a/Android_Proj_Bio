@@ -62,6 +62,8 @@ public class MedidasSensorHandlerService extends Service {
     private Handler handler; ///< Handler for timing tasks
     private LocalStorageManager localStorageManager; ///< Manages app's shared preferences
     private NodeService nodeService; ///< API service for node operations
+    private MedidasSeguridadHandler medidasSeguridadHandler;
+    private SensorLoseHandler sensorLoseHandler;
 
     @Override
     public void onCreate() {
@@ -81,6 +83,10 @@ public class MedidasSensorHandlerService extends Service {
         // Inicialitza NodeService i MedicionHandler usant OzoneApiClient
         nodeService = ozoneApiClient.createService(NodeService.class);
         medicionService = ozoneApiClient.createService(MedicionService.class);
+
+        //Inicialitza notificaciones de medidas y node perdido
+        medidasSeguridadHandler = new MedidasSeguridadHandler(this);
+        sensorLoseHandler = new SensorLoseHandler(this, NOTIFICATION_CHANNEL_ID);
 
         // Inicialitza Handler (si és necessari)
         handler = new Handler();
@@ -230,6 +236,12 @@ public class MedidasSensorHandlerService extends Service {
 
                 // Send data to REST server
                 sendDataToServer(medicion);
+
+                // Check for security measures
+                medidasSeguridadHandler.evaluarMedida(major);
+
+                //Ensure node is not lost
+                sensorLoseHandler.nodeFound();
             }
         } catch (Exception e) {
             Log.e(TAG, "Error processing scan result: " + e.getMessage());
