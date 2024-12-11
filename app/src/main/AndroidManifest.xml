@@ -2,25 +2,31 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <!-- Permisos para Bluetooth -->
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
     <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+
+    <!-- Permisos de ubicación (requeridos para BLE) -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
+
+    <!-- Otros permisos que puedas necesitar -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
     <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
     <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
-
+    <!-- Características de hardware -->
     <uses-feature
         android:name="android.hardware.camera"
         android:required="true" />
@@ -37,42 +43,35 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar"
-        android:usesCleartextTraffic="true"
-        tools:targetApi="31">
-        <activity
-            android:name=".Activities.AnunciosActivity"
-            android:exported="false" />
+        android:usesCleartextTraffic="true">
 
-        <activity
-            android:name=".Activities.HomeActivity"
-            android:exported="false"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
-
-
-
-
-        <meta-data
-            android:name="androidx.work.impl.WorkManagerInitializer"
-            android:value="false" />
-
+        <!-- Actividades de la aplicación -->
         <activity
             android:name=".Activities.PrincipalActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".Activities.EscanearQrActivity" />
         <activity android:name=".Activities.LoginActivity" />
         <activity android:name=".Activities.GraficaActivity" />
+        <activity android:name=".Activities.DistanciaSensorActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Servicios en segundo plano -->
         <service android:name=".services.MedidasSensorHandlerService"
             android:foregroundServiceType="dataSync|location|connectedDevice"/>
 
         <service android:name=".services.DistanciaService"
-            android:foregroundServiceType="dataSync|location|connectedDevice"
-            />
+            android:foregroundServiceType="dataSync|location|connectedDevice"/>
+
     </application>
 
 </manifest>
