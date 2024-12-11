@@ -62,6 +62,7 @@ public class MedidasSensorHandlerService extends Service {
     private Handler handler; ///< Handler for timing tasks
     private LocalStorageManager localStorageManager; ///< Manages app's shared preferences
     private NodeService nodeService; ///< API service for node operations
+    private MedidasSeguridadHandler medidasSeguridadHandler;
 
     @Override
     public void onCreate() {
@@ -81,6 +82,9 @@ public class MedidasSensorHandlerService extends Service {
         // Inicialitza NodeService i MedicionHandler usant OzoneApiClient
         nodeService = ozoneApiClient.createService(NodeService.class);
         medicionService = ozoneApiClient.createService(MedicionService.class);
+
+        //Inicialitza medidasSeguridadHandler
+        medidasSeguridadHandler = new MedidasSeguridadHandler(this);
 
         // Inicialitza Handler (si és necessari)
         handler = new Handler();
@@ -230,6 +234,9 @@ public class MedidasSensorHandlerService extends Service {
 
                 // Send data to REST server
                 sendDataToServer(medicion);
+
+                // Check for security measures
+                medidasSeguridadHandler.evaluarMedida(major);
             }
         } catch (Exception e) {
             Log.e(TAG, "Error processing scan result: " + e.getMessage());
