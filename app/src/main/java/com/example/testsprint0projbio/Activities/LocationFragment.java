@@ -10,29 +10,45 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.Fragment;
 
 import com.example.testsprint0projbio.R;
 
-public class LocationActivity extends AppCompatActivity {
+public class LocationFragment extends Fragment {
 
     private BluetoothAdapter bluetoothAdapter;
     private BluetoothLeScanner bluetoothLeScanner;
     private TextView distanciaTextView;
+    private LocationFragmentListener listener;  // Listener para enviar la distancia
+
+    // Definir la interfaz para la comunicación con la actividad
+    public interface LocationFragmentListener {
+        void onLocationDataChanged(String newLocation);  // Método para recibir los datos
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_location);
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof LocationFragmentListener) {
+            listener = (LocationFragmentListener) context;
+        } else {
+            throw new RuntimeException(context.toString() + " must implement LocationFragmentListener");
+        }
+    }
 
-        // Inicializa el TextView
-        distanciaTextView = findViewById(R.id.distanciaSensorMovil);
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.grafica, container, false);
 
-        // Inicializar Bluetooth
-        BluetoothManager bluetoothManager = (BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE);
+        distanciaTextView = view.findViewById(R.id.distanciaSensorTextView);
+
+        BluetoothManager bluetoothManager = (BluetoothManager) requireContext().getSystemService(Context.BLUETOOTH_SERVICE);
         bluetoothAdapter = bluetoothManager.getAdapter();
 
         if (bluetoothAdapter != null && bluetoothAdapter.isEnabled()) {
@@ -41,17 +57,12 @@ public class LocationActivity extends AppCompatActivity {
         } else {
             Log.e("BLE", "Bluetooth no está habilitado.");
         }
+
+        return view;
     }
 
     private void startScan() {
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_SCAN) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
+        if (ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.BLUETOOTH_SCAN) != PackageManager.PERMISSION_GRANTED) {
             return;
         }
         bluetoothLeScanner.startScan(new ScanCallback() {
@@ -61,16 +72,10 @@ public class LocationActivity extends AppCompatActivity {
 
                 // Obtener el RSSI
                 int rssi = result.getRssi();
-                if (ActivityCompat.checkSelfPermission(LocationActivity.this, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
-                    // TODO: Consider calling
-                    //    ActivityCompat#requestPermissions
-                    // here to request the missing permissions, and then overriding
-                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                    //                                          int[] grantResults)
-                    // to handle the case where the user grants the permission. See the documentation
-                    // for ActivityCompat#requestPermissions for more details.
+                if (ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
                     return;
                 }
+
                 // Filtrar valores de RSSI entre 0 y -65
                 if (rssi > 0 || rssi < -65) {
                     Log.i("BLE", "RSSI fuera de rango: " + rssi);
@@ -81,8 +86,14 @@ public class LocationActivity extends AppCompatActivity {
                 double distance = calculateDistance(rssi, -59); // Ajusta el valor de referencia
 
                 Log.i("BLE", "Dispositivo: " + deviceName + ", RSSI: " + rssi + ", Distancia: " + distance + "m");
+
+                // Enviar la distancia calculada a la actividad a través del listener
+                if (listener != null) {
+                    listener.onLocationDataChanged(String.format("%.2f", distance) + " m");
+                }
+
                 // Mostrar la distancia en el TextView
-                runOnUiThread(() -> distanciaTextView.setText("Distancia: " + String.format("%.2f", distance) + " m"));
+                distanciaTextView.setText(String.format("%.2f", distance) + " m");
             }
         });
     }

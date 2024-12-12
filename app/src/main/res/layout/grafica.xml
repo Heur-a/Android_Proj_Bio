@@ -6,6 +6,21 @@
     android:layout_height="match_parent"
     android:background="@drawable/fondo_graficabien">
 
+    <!-- header -->
+
+    <ImageButton
+        android:id="@+id/logo4"
+        android:layout_width="178dp"
+        android:layout_height="143dp"
+        android:layout_marginEnd="260dp"
+        android:layout_marginBottom="624dp"
+        android:adjustViewBounds="true"
+        android:backgroundTint="#003A5335"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/logotipo_modoclaro" />
+
     <ImageButton
         android:id="@+id/iconanuncio3"
         android:layout_width="61dp"
@@ -20,6 +35,10 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.01"
         app:srcCompat="@drawable/ondas_sonoras_de_megafono__3_" />
+
+    <!-- fin header -->
+
+    <!-- footer -->
 
     <ImageButton
         android:id="@+id/iconGrafica4"
@@ -52,21 +71,6 @@
         app:srcCompat="@drawable/ubicacion_de_la_capa_terrestre" />
 
     <ImageButton
-        android:id="@+id/iconagenda4"
-        android:layout_width="61dp"
-        android:layout_height="66dp"
-        android:adjustViewBounds="true"
-        android:backgroundTint="@color/verdeOscuro"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.75"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.993"
-        app:srcCompat="@drawable/directorio" />
-
-    <ImageButton
         android:id="@+id/iconHome3"
         android:layout_width="61dp"
         android:layout_height="66dp"
@@ -80,6 +84,21 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.993"
         app:srcCompat="@drawable/casa_en_blanco" />
+
+    <ImageButton
+        android:id="@+id/iconagenda4"
+        android:layout_width="61dp"
+        android:layout_height="66dp"
+        android:adjustViewBounds="true"
+        android:backgroundTint="@color/verdeOscuro"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.993"
+        app:srcCompat="@drawable/directorio" />
 
     <ImageButton
         android:id="@+id/iconAjustess3"
@@ -96,18 +115,25 @@
         app:layout_constraintVertical_bias="0.993"
         app:srcCompat="@drawable/alt_administrador" />
 
-    <ImageButton
-        android:id="@+id/logo4"
-        android:layout_width="178dp"
-        android:layout_height="143dp"
-        android:layout_marginEnd="260dp"
-        android:layout_marginBottom="624dp"
-        android:adjustViewBounds="true"
-        android:backgroundTint="#003A5335"
-        android:scaleType="centerInside"
+    <!--finfooter-->
+
+    <!-- GraficaActivity -->
+
+
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Actividad"
+        android:textColor="@color/verdeOscuro"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/logotipo_modoclaro" />
+        app:layout_constraintHorizontal_bias="0.061"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.572" />
 
     <Button
         android:id="@+id/boton"
@@ -132,98 +158,6 @@
         app:layout_constraintVertical_bias="0.87" />
 
     <TextView
-        android:id="@+id/textView24"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:text="Distancia al sensor"
-        android:textColor="#FFFFFF"
-        android:textSize="8sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.804"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.464" />
-
-    <TextView
-        android:id="@+id/textView26"
-        android:layout_width="32dp"
-        android:layout_height="34dp"
-        android:layout_marginTop="5dp"
-        android:gravity="center"
-        android:text="60"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.725"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.493" />
-
-    <TextView
-        android:id="@+id/textView25"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="metros"
-        android:textColor="#FFFFFF"
-        android:textSize="10sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.81"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.497" />
-
-    <TextView
-        android:id="@+id/textView21"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Actividad"
-        android:textColor="@color/verdeOscuro"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.061"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.572" />
-
-    <TextView
-        android:id="@+id/textView27"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ubicación"
-        android:textColor="@color/verdeOscuro"
-        android:textColorLink="@color/verdeOscuro"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.126" />
-
-    <TextView
-        android:id="@+id/textView22"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ubicación del sensor"
-        android:textColor="@color/gris"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.31"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.474" />
-
-    <TextView
         android:id="@+id/textView23"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -238,6 +172,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.65999997" />
+
+
 
     <TextView
         android:id="@+id/stepsTextView"
@@ -286,6 +222,22 @@
         app:layout_constraintVertical_bias="0.66" />
 
     <TextView
+        android:id="@+id/textView29"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="Distancia"
+        android:textColor="@color/gris"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.096"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.72" />
+
+    <TextView
         android:id="@+id/goalTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -311,6 +263,7 @@
         app:layout_constraintEnd_toEndOf="@+id/textView33"
         app:layout_constraintStart_toStartOf="@+id/textView33"
         app:layout_constraintTop_toBottomOf="@id/goalTextView" />
+
 
     <!-- Aquí se agregará el gráfico circular -->
     <com.github.mikephil.charting.charts.PieChart
@@ -368,22 +321,90 @@
     </LinearLayout>
 
 
+    <!-- fin GraficaActivity -->
+
+    <!-- LocationFragment -->
 
     <TextView
-        android:id="@+id/textView29"
+        android:id="@+id/textView27"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        android:text="Distancia"
-        android:textColor="@color/gris"
-        android:textSize="16sp"
+        android:text="Ubicación"
+        android:textColor="@color/verdeOscuro"
+        android:textColorLink="@color/verdeOscuro"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.126" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="Distancia al sensor"
+        android:textColor="#FFFFFF"
+        android:textSize="8sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.096"
+        app:layout_constraintHorizontal_bias="0.804"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.72" />
+        app:layout_constraintVertical_bias="0.464" />
+
+    <TextView
+        android:id="@+id/distanciaSensorTextView"
+        android:layout_width="64dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:text="60"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.725"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.493" />
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="metros"
+        android:textColor="#FFFFFF"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.81"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.497" />
+
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ubicación del sensor"
+        android:textColor="@color/gris"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.31"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.474" />
+
+
 
     <TextView
         android:id="@+id/textView28"
@@ -429,4 +450,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.504"
         app:srcCompat="@drawable/marcadorverdeoscuro" />
+
+    <!-- fin LocationFragment -->
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

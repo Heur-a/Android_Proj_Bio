@@ -1,19 +1,31 @@
 package com.example.testsprint0projbio.Activities;
 
+import android.Manifest;
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothManager;
+import android.bluetooth.le.BluetoothLeScanner;
+import android.bluetooth.le.ScanCallback;
+import android.bluetooth.le.ScanResult;
+import android.content.Context;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+
 import com.example.testsprint0projbio.R;
 import com.example.testsprint0projbio.utility.StepCounterManager;
 import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.utils.ColorTemplate;
-import com.github.mikephil.charting.data.PieDataSet;
-import com.github.mikephil.charting.data.PieData;
 
 import java.util.List;
 
@@ -23,6 +35,7 @@ public class GraficaActivity extends AppCompatActivity {
     private TextView stepsTextView;
     private TextView distanceTextView;
     private TextView goalTextView;
+    private TextView distanciaSensorTextView;
     private EditText goalInputEditText;
     private Button updateGoalButton;
     private LinearLayout popupLayout;
@@ -30,15 +43,19 @@ public class GraficaActivity extends AppCompatActivity {
     private Button cancelPopupButton;
     private PieChart pieChart;
 
+    private BluetoothAdapter bluetoothAdapter;
+    private BluetoothLeScanner bluetoothLeScanner;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.grafica);
 
-        // Obtener las referencias de los TextViews y EditText desde el layout
+        // Inicializar vistas y componentes
         stepsTextView = findViewById(R.id.stepsTextView);
         distanceTextView = findViewById(R.id.distanceTextView);
         goalTextView = findViewById(R.id.goalTextView);
+        distanciaSensorTextView = findViewById(R.id.distanciaSensorTextView);
         goalInputEditText = findViewById(R.id.goalInputEditText);
         updateGoalButton = findViewById(R.id.updateGoalButton);
         popupLayout = findViewById(R.id.popupLayout);
@@ -46,89 +63,119 @@ public class GraficaActivity extends AppCompatActivity {
         cancelPopupButton = findViewById(R.id.cancelPopupButton);
         pieChart = findViewById(R.id.pieChart);
 
-        // Crear el StepCounterManager y pasarle las referencias
         stepCounterManager = new StepCounterManager(this, stepsTextView, distanceTextView, goalTextView);
-
-        // Registrar el sensor cuando la actividad se cree
         stepCounterManager.registerSensorListener();
 
-        // Mostrar el popup cuando se presione el botón de cambiar objetivo
-        updateGoalButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                popupLayout.setVisibility(View.VISIBLE); // Muestra el popup
-            }
+        updateGoalButton.setOnClickListener(v -> popupLayout.setVisibility(View.VISIBLE));
+
+        updateGoalPopupButton.setOnClickListener(v -> {
+            stepCounterManager.updateTargetFromInput(goalInputEditText);
+            popupLayout.setVisibility(View.GONE);
+            updatePieChart();
         });
 
-        // Acción cuando se presiona el botón de "Actualizar"
-        updateGoalPopupButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Llama al método para actualizar el objetivo
-                stepCounterManager.updateTargetFromInput(goalInputEditText); // Llamamos a la lógica para actualizar el objetivo
-                popupLayout.setVisibility(View.GONE); // Cierra el popup
-                updatePieChart(); // Actualiza el gráfico
-            }
-        });
+        cancelPopupButton.setOnClickListener(v -> popupLayout.setVisibility(View.GONE));
 
-        // Acción cuando se presiona el botón de "Cancelar"
-        cancelPopupButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Solo cerramos el popup sin hacer cambios
-                popupLayout.setVisibility(View.GONE); // Cierra el popup
-            }
-        });
-
-        // Actualizar el gráfico al iniciar
         updatePieChart();
+        initializeBluetooth();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        // Desregistrar el sensor cuando la actividad se destruya
         stepCounterManager.unregisterSensorListener();
+        if (bluetoothLeScanner != null) {
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_SCAN) != PackageManager.PERMISSION_GRANTED) {
+                // TODO: Consider calling
+                //    ActivityCompat#requestPermissions
+                // here to request the missing permissions, and then overriding
+                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                //                                          int[] grantResults)
+                // to handle the case where the user grants the permission. See the documentation
+                // for ActivityCompat#requestPermissions for more details.
+                return;
+            }
+            bluetoothLeScanner.stopScan(scanCallback);
+        }
     }
 
     private void updatePieChart() {
-        // Obtén los pasos y el objetivo actualizados desde StepCounterManager
-        int totalSteps = stepCounterManager.getTotalSteps(); // Obtiene los pasos actuales
-        int goal = stepCounterManager.getGoal(); // Obtiene el objetivo guardado
+        int totalSteps = stepCounterManager.getTotalSteps();
+        int goal = stepCounterManager.getGoal();
 
-        // Si no se ha establecido un objetivo, no se muestra el gráfico
         if (goal == 0) {
             goalTextView.setText("Set a goal first");
             return;
         }
 
-        // Verificar si los pasos han superado o igualado el objetivo
         if (totalSteps >= goal) {
             goalTextView.setText("Objetivo Conseguido");
-            totalSteps = goal; // Para asegurarnos de que el gráfico no muestre más de lo necesario
+            totalSteps = goal;
         } else {
             goalTextView.setText(goal + " pasos");
         }
 
-        // Datos para el gráfico circular
         float progress = totalSteps;
-        float remaining = goal - progress;
+        float remaining = Math.max(goal - progress, 0);
 
-        // Si el progreso ya alcanzó o superó el objetivo, no necesitamos mostrar el "remaining"
-        if (remaining < 0) remaining = 0;
-
-        // Crear las entradas para el gráfico
-        PieEntry progressEntry = new PieEntry(progress, "Steps");
-        PieEntry remainingEntry = new PieEntry(remaining, "Remaining");
-
-        // Crear un conjunto de datos para el gráfico circular
-        PieDataSet dataSet = new PieDataSet(List.of(progressEntry, remainingEntry), "");
+        PieDataSet dataSet = new PieDataSet(List.of(
+                new PieEntry(progress, "Steps"),
+                new PieEntry(remaining, "Remaining")
+        ), "");
         dataSet.setColors(ColorTemplate.COLORFUL_COLORS);
 
-        // Crear los datos para el gráfico
         PieData data = new PieData(dataSet);
         pieChart.setData(data);
-        pieChart.invalidate(); // Actualiza el gráfico
+        pieChart.invalidate();
     }
 
+    private void initializeBluetooth() {
+        BluetoothManager bluetoothManager = (BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE);
+        bluetoothAdapter = bluetoothManager != null ? bluetoothManager.getAdapter() : null;
+
+        if (bluetoothAdapter != null && bluetoothAdapter.isEnabled()) {
+            bluetoothLeScanner = bluetoothAdapter.getBluetoothLeScanner();
+            startScan();
+        } else {
+            Log.e("BLE", "Bluetooth no está habilitado.");
+        }
+    }
+
+    private void startScan() {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_SCAN) != PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
+        bluetoothLeScanner.startScan(scanCallback);
+    }
+
+    private final ScanCallback scanCallback = new ScanCallback() {
+        @Override
+        public void onScanResult(int callbackType, ScanResult result) {
+            int rssi = result.getRssi();
+            if (ActivityCompat.checkSelfPermission(GraficaActivity.this, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
+                return;
+            }
+
+            if (rssi > 0 || rssi < -65) {
+                Log.i("BLE", "RSSI fuera de rango: " + rssi);
+                return;
+            }
+
+            double distance = calculateDistance(rssi, -59);
+            String distanceText = String.format("%.2f m", distance);
+            distanciaSensorTextView.setText(distanceText);
+            Log.i("BLE", "Distancia: " + distanceText);
+        }
+    };
+
+    private double calculateDistance(int rssi, int txPower) {
+        if (txPower == 0) return -1.0;
+        double ratio = (double) rssi / txPower;
+        if (ratio < 1.0) {
+            return Math.pow(ratio, 10);
+        } else {
+            double environmentalFactor = 2.0;
+            return Math.pow(10, (txPower - rssi) / (10 * environmentalFactor));
+        }
+    }
 }

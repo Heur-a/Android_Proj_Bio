@@ -39,10 +39,6 @@ public class HomeActivity extends AppCompatActivity {
             startActivity(new Intent(HomeActivity.this, GraficaActivity.class));
         });
 
-        ImageButton iconoMap = findViewById(R.id.iconoMap); // Ensure this ID matches the one in your XML
-        iconoMap.setOnClickListener(v -> {
-            startActivity(new Intent(HomeActivity.this, LocationActivity.class));
-        });
     }
 
     // ActivityResultLauncher to handle the result of permission request
