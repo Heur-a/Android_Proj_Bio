@@ -71,6 +71,12 @@ public class LocationActivity extends AppCompatActivity {
                     // for ActivityCompat#requestPermissions for more details.
                     return;
                 }
+                // Filtrar valores de RSSI entre 0 y -65
+                if (rssi > 0 || rssi < -65) {
+                    Log.i("BLE", "RSSI fuera de rango: " + rssi);
+                    return; // Ignorar este resultado
+                }
+
                 String deviceName = result.getDevice().getName();
                 double distance = calculateDistance(rssi, -59); // Ajusta el valor de referencia
 
@@ -81,16 +87,21 @@ public class LocationActivity extends AppCompatActivity {
         });
     }
 
+    // Método robusto y preciso para calcular la distancia
     private double calculateDistance(int rssi, int txPower) {
-        if (rssi == 0) {
+        if (txPower == 0) {
             return -1.0; // No se puede calcular la distancia
         }
-        double ratio = rssi * 1.0 / txPower;
+        // Calcular la distancia basada en RSSI y Tx Power calibrado
+        double distance;
+        double ratio = (double) rssi / txPower;
         if (ratio < 1.0) {
-            return Math.pow(ratio, 10);
+            distance = Math.pow(ratio, 10);
         } else {
-            double n = 2.0; // Factor de propagación ambiental
-            return (0.89976) * Math.pow(ratio, 7.7095) + 0.111;
+            double environmentalFactor = 2.0; // Ajustable según el entorno
+            distance = Math.pow(10, (txPower - rssi) / (10 * environmentalFactor));
         }
+        // Limitar la distancia a dos decimales
+        return Math.round(distance * 100.0) / 100.0;
     }
 }
