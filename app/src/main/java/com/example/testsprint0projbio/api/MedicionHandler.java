@@ -53,10 +53,15 @@ public class MedicionHandler {
         });
     }
 
+    public void getSensorCoordinates(MedicionHandler.MeasurementCallback sensorCallback) {
+    }
+
     /**
      * Interfície per gestionar el resultat de l'enviament.
      */
     public interface MeasurementCallback {
+        void onSuccess(Medicion medicion);
+
         void onSuccess();
 
         void onFailure(Throwable t);
