@@ -6,6 +6,9 @@
     android:layout_height="match_parent"
     android:background="@drawable/fondo_anuncios">
 
+
+
+
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
@@ -213,7 +216,7 @@
         android:contentDescription="Boton para ir a la pagina de graficas"/>
 
     <ImageButton
-        android:id="@+id/iconoMap"
+        android:id="@+id/iconoMap3"
         android:layout_width="61dp"
         android:layout_height="66dp"
         android:adjustViewBounds="true"
@@ -277,7 +280,7 @@
         android:contentDescription="Boton para ir a la pagina de ajustes usuario"/>
 
     <ImageButton
-        android:id="@+id/logo"
+        android:id="@+id/logo5"
         android:layout_width="178dp"
         android:layout_height="143dp"
         android:layout_marginEnd="260dp"
@@ -289,6 +292,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/logotipo_modoclaro"
         android:contentDescription="Boton para ir a la pagina de inicio"/>
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

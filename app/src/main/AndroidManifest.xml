@@ -66,7 +66,7 @@
         </activity>
         <activity android:name=".Activities.EscanearQrActivity" />
         <activity android:name=".Activities.LoginActivity" />
-        <activity android:name=".Activities.GraficaActivity" />
+        <activity android:name=".Activities.UbicacionActivity" />
         <activity android:name=".Activities.LocationActivity" />
         <service android:name=".services.MedidasSensorHandlerService"
             android:foregroundServiceType="dataSync|location|connectedDevice"/>

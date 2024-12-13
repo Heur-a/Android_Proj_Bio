@@ -15,7 +15,7 @@ public class AnunciosActivity extends AppCompatActivity {
         setContentView(R.layout.anuncios); // Usa el diseño anuncios.xml
 
         // LOGO
-        ImageButton logoButton = findViewById(R.id.logo);
+        ImageButton logoButton = findViewById(R.id.logo5);
 
         logoButton.setOnClickListener(v -> {
             Intent intent = new Intent(AnunciosActivity.this, HomeActivity.class);
@@ -34,7 +34,7 @@ public class AnunciosActivity extends AppCompatActivity {
         ImageButton graficaButton = findViewById(R.id.iconGrafica);
 
         graficaButton.setOnClickListener(v -> {
-            Intent intent = new Intent(AnunciosActivity.this, GraficaActivity.class);
+            Intent intent = new Intent(AnunciosActivity.this, UbicacionActivity.class);
             startActivity(intent);
         });
 

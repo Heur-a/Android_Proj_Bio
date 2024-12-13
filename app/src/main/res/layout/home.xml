@@ -6,115 +6,36 @@
     android:layout_height="match_parent"
     android:background="@drawable/fondo_homebien">
 
-    <ImageButton
-        android:id="@+id/iconanuncio2"
-        android:layout_width="61dp"
-        android:layout_height="66dp"
-        android:layout_marginTop="5dp"
-        android:adjustViewBounds="true"
-        android:backgroundTint="@color/verdeOscuro"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toTopOf="@+id/textView5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.977"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.01"
-        app:srcCompat="@drawable/ondas_sonoras_de_megafono__3_"
-        android:contentDescription="Boton para ir a pagina de anuncios"/>
+
+    <!-- header -->
 
     <ImageButton
-        android:id="@+id/botonGrafica"
-        android:layout_width="61dp"
-        android:layout_height="66dp"
-        android:adjustViewBounds="true"
-        android:backgroundTint="@color/verdeOscuro"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.005"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.993"
-        app:srcCompat="@drawable/estadisticas"
-        android:contentDescription="Boton para ir a pagina de graficas" />
-
-    <ImageButton
-        android:id="@+id/iconoMap"
-        android:layout_width="61dp"
-        android:layout_height="66dp"
-        android:adjustViewBounds="true"
-        android:backgroundTint="@color/verdeOscuro"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.262"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.993"
-        app:srcCompat="@drawable/ubicacion_de_la_capa_terrestre"
-        android:contentDescription="Boton para ir a pagina de mapa"/>
-
-    <ImageButton
-        android:id="@+id/iconagenda3"
-        android:layout_width="61dp"
-        android:layout_height="66dp"
-        android:adjustViewBounds="true"
-        android:backgroundTint="@color/verdeOscuro"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.75"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.993"
-        app:srcCompat="@drawable/directorio"
-        android:contentDescription="Boton para ir a pagina de  "/>
-
-    <ImageButton
-        android:id="@+id/iconHome2"
-        android:layout_width="61dp"
-        android:layout_height="66dp"
-        android:layout_marginEnd="172dp"
-        android:adjustViewBounds="true"
-        android:backgroundTint="@color/verdeOscuro"
-        android:contentDescription="Botón de inicio"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.993"
-        app:srcCompat="@drawable/casa_en_blanco" />
-
-    <ImageButton
-        android:id="@+id/iconAjustess2"
-        android:layout_width="61dp"
-        android:layout_height="66dp"
-        android:adjustViewBounds="true"
-        android:backgroundTint="@color/verdeOscuro"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.993"
-        app:srcCompat="@drawable/alt_administrador"
-        android:contentDescription="Boton para ir a pagina de editar usuario"/>
-
-    <ImageButton
-        android:id="@+id/logo3"
-        android:layout_width="130dp"
-        android:layout_height="99dp"
-        android:layout_marginEnd="236dp"
-        android:layout_marginBottom="4dp"
+        android:id="@+id/logo5"
+        android:layout_width="198dp"
+        android:layout_height="140dp"
+        android:layout_marginStart="-32dp"
+        android:layout_marginTop="-32dp"
         android:adjustViewBounds="true"
         android:backgroundTint="#003A5335"
         android:scaleType="centerInside"
-        app:layout_constraintBottom_toTopOf="@+id/textView5"
-        app:layout_constraintEnd_toStartOf="@+id/iconanuncio2"
-        app:srcCompat="@drawable/logotipo_modoclaro"
-        android:contentDescription="Boton para ir a pagina de inicio"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logotipo_modoclaro" />
+
+    <ImageButton
+        android:id="@+id/iconanuncio"
+        android:layout_width="61dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:adjustViewBounds="true"
+        android:backgroundTint="@color/verdeOscuro"
+        android:scaleType="centerInside"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ondas_sonoras_de_megafono__3_"
+        android:contentDescription="Boton para ir a pagina de anuncios"/>
+
 
     <TextView
         android:id="@+id/textView5"
@@ -133,72 +54,68 @@
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
         android:gravity="center"
         android:text="Última medición de\nOzono"
         android:textColor="#FFFFFF"
         android:textSize="14sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textView8"
-        app:layout_constraintStart_toStartOf="@+id/textView8"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <TextView
         android:id="@+id/textView15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="32dp"
         android:gravity="center"
         android:text="Última Ubicación"
         android:textColor="@color/gris"
         android:textSize="34sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/mapView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
     <TextView
         android:id="@+id/textView18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="80dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="40dp"
         android:gravity="center"
         android:text="Alertas"
         android:textColor="@color/gris"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/iconHome2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.118"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mapView" />
 
     <TextView
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="64dp"
         android:gravity="center"
         android:text="Última medición de\nTemeperatura"
         android:textColor="@color/gris"
         android:textSize="14sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textView12"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.636"
-        app:layout_constraintStart_toEndOf="@+id/textView7"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <TextView
         android:id="@+id/textView19"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
         android:gravity="center"
         android:text="Sobre Exposición"
         android:textColor="@color/gris"
         android:textSize="14sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/textView4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
@@ -206,15 +123,13 @@
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
         android:gravity="center"
         android:text="Hace 5 minutos"
         android:textColor="#FFFFFF"
         android:textSize="12sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView15"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintEnd_toEndOf="@+id/textView9"
+        app:layout_constraintStart_toStartOf="@+id/textView8"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <TextView
         android:id="@+id/textView11"
@@ -224,17 +139,16 @@
         android:text="Hace 5 minutos"
         android:textColor="@color/gris"
         android:textSize="12sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView15"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.604"
-        app:layout_constraintStart_toEndOf="@+id/textView10"
-        app:layout_constraintTop_toBottomOf="@+id/textView12"
-        app:layout_constraintVertical_bias="0.064" />
+        app:layout_constraintEnd_toEndOf="@+id/textView13"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/textView12"
+        app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
         android:layout_marginBottom="12dp"
         android:gravity="center"
         android:text="Hace 5 minutos"
@@ -242,23 +156,18 @@
         android:textSize="10sp"
         app:layout_constraintBottom_toTopOf="@+id/textView20"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.821"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/textView18" />
 
     <TextView
         android:id="@+id/textView20"
-        android:layout_width="271dp"
-        android:layout_height="34dp"
-        android:layout_marginBottom="100dp"
+        android:layout_width="344dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="4dp"
         android:text="Lleva demasiado tiempo sobre expuesto a niveles \nmuy altos de ozono."
         android:textColor="@color/gris"
         android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.564"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView19"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintStart_toStartOf="@+id/textView19"
+        app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
     <TextView
         android:id="@+id/textView16"
@@ -268,12 +177,10 @@
         android:text="Hace 5 minutos"
         android:textColor="@color/gris"
         android:textSize="12sp"
-        app:layout_constraintBottom_toTopOf="@+id/mapView"
         app:layout_constraintEnd_toStartOf="@+id/textView17"
         app:layout_constraintHorizontal_bias="0.226"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView15"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
     <TextView
         android:id="@+id/textView17"
@@ -284,78 +191,141 @@
         android:text="Ampliar mapa"
         android:textColor="@color/gris"
         android:textSize="12sp"
-        app:layout_constraintBottom_toTopOf="@+id/mapView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView15"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
         android:gravity="center"
         android:text="ppm"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/textView8"
+        app:layout_constraintEnd_toEndOf="@+id/textView7"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <TextView
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:gravity="center"
         android:text="ºC"
         android:textColor="@color/gris"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.82"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.273" />
+        app:layout_constraintEnd_toEndOf="@+id/textView14"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="49dp"
         android:layout_height="47dp"
+        android:layout_marginStart="16dp"
         android:gravity="center"
         android:text="60"
         android:textColor="#FFFFFF"
         android:textSize="34sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.168"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.247" />
+        app:layout_constraintStart_toStartOf="@+id/textView7"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <TextView
         android:id="@+id/textView12"
         android:layout_width="49dp"
         android:layout_height="47dp"
-        android:layout_marginBottom="512dp"
+        android:layout_marginStart="16dp"
         android:gravity="center"
         android:text="29"
         android:textColor="@color/gris"
         android:textSize="34sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textView13"
-        app:layout_constraintHorizontal_bias="0.975"
-        app:layout_constraintStart_toEndOf="@+id/textView9" />
+        app:layout_constraintStart_toStartOf="@+id/textView14"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
     <com.google.android.gms.maps.MapView
         android:id="@+id/mapView"
         android:layout_width="319dp"
         android:layout_height="173dp"
-        android:layout_marginBottom="44dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView18"
+        android:layout_marginTop="20dp"
+        android:contentDescription="mapa"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.565"
         app:layout_constraintStart_toStartOf="parent"
-        android:contentDescription="mapa"/>
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+
+    <!-- footer -->
+
+    <ImageButton
+        android:id="@+id/iconGrafica"
+        android:layout_width="61dp"
+        android:layout_height="66dp"
+        android:adjustViewBounds="true"
+        android:backgroundTint="@color/verdeOscuro"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.005"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/estadisticas" />
+
+    <ImageButton
+        android:id="@+id/iconoMap2"
+        android:layout_width="61dp"
+        android:layout_height="66dp"
+        android:adjustViewBounds="true"
+        android:backgroundTint="@color/verdeOscuro"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.262"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ubicacion_de_la_capa_terrestre" />
+
+    <ImageButton
+        android:id="@+id/iconHome3"
+        android:layout_width="61dp"
+        android:layout_height="66dp"
+        android:adjustViewBounds="true"
+        android:backgroundTint="@color/verdeOscuro"
+        android:contentDescription="Botón de inicio"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/iconGrafica"
+        app:srcCompat="@drawable/casa_en_blanco" />
+
+    <ImageButton
+        android:id="@+id/iconagenda"
+        android:layout_width="61dp"
+        android:layout_height="66dp"
+        android:adjustViewBounds="true"
+        android:backgroundTint="@color/verdeOscuro"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/directorio" />
+
+    <ImageButton
+        android:id="@+id/iconAjustess"
+        android:layout_width="61dp"
+        android:layout_height="66dp"
+        android:adjustViewBounds="true"
+        android:backgroundTint="@color/verdeOscuro"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/alt_administrador" />
+
+    <!--finfooter-->
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

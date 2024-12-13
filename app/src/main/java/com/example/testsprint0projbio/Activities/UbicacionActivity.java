@@ -8,6 +8,7 @@ import android.bluetooth.le.ScanCallback;
 import android.bluetooth.le.ScanResult;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -25,11 +26,11 @@ import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
-import com.github.mikephil.charting.utils.ColorTemplate;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class GraficaActivity extends AppCompatActivity {
+public class UbicacionActivity extends AppCompatActivity {
 
     private StepCounterManager stepCounterManager;
     private TextView stepsTextView;
@@ -49,7 +50,7 @@ public class GraficaActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.grafica);
+        setContentView(R.layout.ubicacion);
 
         // Inicializar vistas y componentes
         stepsTextView = findViewById(R.id.stepsTextView);
@@ -122,7 +123,14 @@ public class GraficaActivity extends AppCompatActivity {
                 new PieEntry(progress, "Steps"),
                 new PieEntry(remaining, "Remaining")
         ), "");
-        dataSet.setColors(ColorTemplate.COLORFUL_COLORS);
+
+        // Define una lista de colores personalizados
+        ArrayList<Integer> customColors = new ArrayList<>();
+        customColors.add(Color.parseColor("#C0B69F")); // Beige oscuro
+        customColors.add(Color.parseColor("#888888")); // Gris oscuro
+
+// Asigna los colores al conjunto de datos
+        dataSet.setColors(customColors);
 
         PieData data = new PieData(dataSet);
         pieChart.setData(data);
@@ -152,7 +160,7 @@ public class GraficaActivity extends AppCompatActivity {
         @Override
         public void onScanResult(int callbackType, ScanResult result) {
             int rssi = result.getRssi();
-            if (ActivityCompat.checkSelfPermission(GraficaActivity.this, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
+            if (ActivityCompat.checkSelfPermission(UbicacionActivity.this, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
                 return;
             }
 
@@ -163,7 +171,7 @@ public class GraficaActivity extends AppCompatActivity {
 
             double distance = calculateDistance(rssi, -59);
             String distanceText = String.format("%.2f m", distance);
-            distanciaSensorTextView.setText(distanceText);
+            distanciaSensorTextView.setText(distanceText + "m");
             Log.i("BLE", "Distancia: " + distanceText);
         }
     };

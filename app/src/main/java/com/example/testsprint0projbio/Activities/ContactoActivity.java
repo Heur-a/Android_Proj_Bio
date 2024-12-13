@@ -18,12 +18,12 @@ public class ContactoActivity extends AppCompatActivity {
         ImageButton graficaButton = findViewById(R.id.iconGrafica2);
 
         graficaButton.setOnClickListener(v -> {
-            Intent intent = new Intent(ContactoActivity.this, GraficaActivity.class);
+            Intent intent = new Intent(ContactoActivity.this, UbicacionActivity.class);
             startActivity(intent);
         });
 
         // MAPA
-        ImageButton mapaButton = findViewById(R.id.iconoMap2);
+        ImageButton mapaButton = findViewById(R.id.iconoMap);
 
         mapaButton.setOnClickListener(v -> {
             Intent intent = new Intent(ContactoActivity.this, MapaActivity.class);
