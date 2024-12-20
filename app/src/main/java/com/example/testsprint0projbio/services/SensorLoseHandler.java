@@ -119,13 +119,13 @@ public class SensorLoseHandler {
      * Sends a notification to inform the user that the sensor node is lost.
      */
     private void sendLostNodeNotification() {
-        launchNotification("Node Lost", "The sensor node connection is lost. Searching...");
+        launchNotification("Nodo Desconectado", "El sensor se ha desconectado. Revise la batería del dispositivo");
     }
 
     /**
      * Sends a notification to inform the user that the sensor node has been found.
      */
     private void sendFoundNodeNotification() {
-        launchNotification("Node Found", "The sensor node connection has been restored.");
+        launchNotification("Nodo Encontrado", "Se ha restablecido la conexión con el sensor");
     }
 }
