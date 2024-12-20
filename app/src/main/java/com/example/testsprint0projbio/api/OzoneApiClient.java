@@ -15,7 +15,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import java.io.IOException;
 
 public class OzoneApiClient {
-    private static final String BASE_URL = "http://172.20.10.3";
+    private static final String BASE_URL = "http://172.20.10.8";
     private static OzoneApiClient instance;
     private final Retrofit retrofit;
 
