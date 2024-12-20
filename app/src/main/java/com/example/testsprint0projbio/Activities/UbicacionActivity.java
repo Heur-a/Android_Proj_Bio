@@ -222,21 +222,19 @@ public class UbicacionActivity extends AppCompatActivity {
                 return;
             }
 
-            distanciaSensorTextView.setText(rssi);
-/*
             if (rssi > 0 || rssi < -65) {
                 Log.i("BLE", "RSSI fuera de rango: " + rssi);
                 return;
-            }*/
+            }
 
 
-            /*double distance = calculateDistance(rssi, -59);
+            double distance = calculateDistance(rssi, -59);
             String distanceText = String.format("%.2f m", distance);
             distanciaSensorTextView.setText(distanceText + "m");
-            Log.i("BLE", "Distancia: " + distanceText);*/
+            Log.i("BLE", "Distancia: " + distanceText);
         }
     };
-/*
+
     private double calculateDistance(int rssi, int txPower) {
         if (txPower == 0) return -1.0;
         double ratio = (double) rssi / txPower;
@@ -248,6 +246,6 @@ public class UbicacionActivity extends AppCompatActivity {
         }
     }
 
- */
+
 }
 
