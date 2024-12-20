@@ -65,9 +65,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activities.EscanearQrActivity" />
+        <activity android:name=".Activities.AjustesActivity" />
         <activity android:name=".Activities.LoginActivity" />
         <activity android:name=".Activities.UbicacionActivity" />
-        <activity android:name=".Activities.LocationActivity" />
+        <activity android:name=".Activities.MapaActivity" />
+        <activity android:name=".Activities.ContactoActivity" />
         <service android:name=".services.MedidasSensorHandlerService"
             android:foregroundServiceType="dataSync|location|connectedDevice"/>
 

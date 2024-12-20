@@ -10,7 +10,7 @@
     <!-- header -->
 
     <ImageButton
-        android:id="@+id/logo5"
+        android:id="@+id/logoHOME"
         android:layout_width="198dp"
         android:layout_height="140dp"
         android:layout_marginStart="-32dp"
@@ -20,10 +20,11 @@
         android:scaleType="centerInside"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logotipo_modoclaro" />
+        app:srcCompat="@drawable/logotipo_modoclaro"
+        android:contentDescription="logo"/>
 
     <ImageButton
-        android:id="@+id/iconanuncio"
+        android:id="@+id/iconanuncioHOME"
         android:layout_width="61dp"
         android:layout_height="66dp"
         android:layout_marginTop="8dp"
@@ -83,11 +84,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="138dp"
         android:gravity="center"
         android:text="Alertas"
         android:textColor="@color/gris"
-        android:textSize="20sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mapView" />
@@ -97,7 +98,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="64dp"
+        android:layout_marginEnd="30dp"
         android:gravity="center"
         android:text="Última medición de\nTemeperatura"
         android:textColor="@color/gris"
@@ -114,7 +115,7 @@
         android:gravity="center"
         android:text="Sobre Exposición"
         android:textColor="@color/gris"
-        android:textSize="14sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView18" />
@@ -135,6 +136,7 @@
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
         android:gravity="center"
         android:text="Hace 5 minutos"
         android:textColor="@color/gris"
@@ -153,7 +155,7 @@
         android:gravity="center"
         android:text="Hace 5 minutos"
         android:textColor="@color/gris"
-        android:textSize="10sp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/textView20"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView18" />
@@ -165,7 +167,7 @@
         android:layout_marginTop="4dp"
         android:text="Lleva demasiado tiempo sobre expuesto a niveles \nmuy altos de ozono."
         android:textColor="@color/gris"
-        android:textSize="12sp"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@+id/textView19"
         app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
@@ -237,12 +239,13 @@
         android:id="@+id/textView12"
         android:layout_width="49dp"
         android:layout_height="47dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="26dp"
         android:gravity="center"
         android:text="29"
         android:textColor="@color/gris"
         android:textSize="34sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/textView13"
         app:layout_constraintStart_toStartOf="@+id/textView14"
         app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
@@ -261,71 +264,70 @@
     <!-- footer -->
 
     <ImageButton
-        android:id="@+id/iconGrafica"
-        android:layout_width="61dp"
+        android:id="@+id/iconGraficaHOME"
+        android:layout_width="0dp"
         android:layout_height="66dp"
         android:adjustViewBounds="true"
         android:backgroundTint="@color/verdeOscuro"
         android:scaleType="centerInside"
+        android:contentDescription="ICONO GRAFICA"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.005"
+        app:layout_constraintEnd_toStartOf="@+id/iconoMapHOME"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/estadisticas" />
 
     <ImageButton
-        android:id="@+id/iconoMap2"
-        android:layout_width="61dp"
+        android:id="@+id/iconoMapHOME"
+        android:layout_width="0dp"
         android:layout_height="66dp"
         android:adjustViewBounds="true"
         android:backgroundTint="@color/verdeOscuro"
         android:scaleType="centerInside"
+        android:contentDescription="mapa"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.262"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/iconHomeHOME"
+        app:layout_constraintStart_toEndOf="@+id/iconGraficaHOME"
         app:srcCompat="@drawable/ubicacion_de_la_capa_terrestre" />
 
     <ImageButton
-        android:id="@+id/iconHome3"
-        android:layout_width="61dp"
+        android:id="@+id/iconHomeHOME"
+        android:layout_width="0dp"
         android:layout_height="66dp"
         android:adjustViewBounds="true"
         android:backgroundTint="@color/verdeOscuro"
-        android:contentDescription="Botón de inicio"
         android:scaleType="centerInside"
+        android:contentDescription="Botón de inicio"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/iconGrafica"
+        app:layout_constraintEnd_toStartOf="@+id/iconagendaHOME"
+        app:layout_constraintStart_toEndOf="@+id/iconoMapHOME"
         app:srcCompat="@drawable/casa_en_blanco" />
 
     <ImageButton
-        android:id="@+id/iconagenda"
-        android:layout_width="61dp"
+        android:id="@+id/iconagendaHOME"
+        android:layout_width="0dp"
         android:layout_height="66dp"
         android:adjustViewBounds="true"
         android:backgroundTint="@color/verdeOscuro"
         android:scaleType="centerInside"
+        android:contentDescription="agenda"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.75"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/iconAjustessHOME"
+        app:layout_constraintStart_toEndOf="@+id/iconHomeHOME"
         app:srcCompat="@drawable/directorio" />
 
     <ImageButton
-        android:id="@+id/iconAjustess"
-        android:layout_width="61dp"
+        android:id="@+id/iconAjustessHOME"
+        android:layout_width="0dp"
         android:layout_height="66dp"
         android:adjustViewBounds="true"
         android:backgroundTint="@color/verdeOscuro"
         android:scaleType="centerInside"
+        android:contentDescription="ajustes"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/iconagendaHOME"
         app:srcCompat="@drawable/alt_administrador" />
 
-    <!--finfooter-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

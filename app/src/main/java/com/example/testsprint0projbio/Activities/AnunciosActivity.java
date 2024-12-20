@@ -15,7 +15,7 @@ public class AnunciosActivity extends AppCompatActivity {
         setContentView(R.layout.anuncios); // Usa el diseño anuncios.xml
 
         // LOGO
-        ImageButton logoButton = findViewById(R.id.logo5);
+        ImageButton logoButton = findViewById(R.id.logoAnuncios);
 
         logoButton.setOnClickListener(v -> {
             Intent intent = new Intent(AnunciosActivity.this, HomeActivity.class);
@@ -23,7 +23,7 @@ public class AnunciosActivity extends AppCompatActivity {
         });
 
         // ANUNCIOS
-        ImageButton anunciosButton = findViewById(R.id.iconanuncio);
+        ImageButton anunciosButton = findViewById(R.id.iconanuncioUbicacion);
 
         anunciosButton.setOnClickListener(v -> {
             Intent intent = new Intent(AnunciosActivity.this, AnunciosActivity.class);
@@ -31,23 +31,23 @@ public class AnunciosActivity extends AppCompatActivity {
         });
 
         // GRAFICAS
-        ImageButton graficaButton = findViewById(R.id.iconGrafica);
+        ImageButton graficaButton = findViewById(R.id.iconGraficaUbicacion);
 
         graficaButton.setOnClickListener(v -> {
-            Intent intent = new Intent(AnunciosActivity.this, UbicacionActivity.class);
-            startActivity(intent);
-        });
-
-        // MAPA
-        ImageButton mapaButton = findViewById(R.id.iconoMap);
-
-        mapaButton.setOnClickListener(v -> {
             Intent intent = new Intent(AnunciosActivity.this, MapaActivity.class);
             startActivity(intent);
         });
 
+        // MAPA
+        ImageButton mapaButton = findViewById(R.id.iconoMapAnuncios);
+
+        mapaButton.setOnClickListener(v -> {
+            Intent intent = new Intent(AnunciosActivity.this, UbicacionActivity.class);
+            startActivity(intent);
+        });
+
         // CONTACTO
-        ImageButton contactoButton = findViewById(R.id.iconagenda);
+        ImageButton contactoButton = findViewById(R.id.iconagendaUbicacion);
 
         contactoButton.setOnClickListener(v -> {
             Intent intent = new Intent(AnunciosActivity.this, ContactoActivity.class);
@@ -55,7 +55,7 @@ public class AnunciosActivity extends AppCompatActivity {
         });
 
         // Home
-        ImageButton homeButton = findViewById(R.id.IconHome);
+        ImageButton homeButton = findViewById(R.id.IconHomeAnuncios);
 
         homeButton.setOnClickListener(v -> {
             Intent intent = new Intent(AnunciosActivity.this, HomeActivity.class);
@@ -63,7 +63,7 @@ public class AnunciosActivity extends AppCompatActivity {
         });
 
         // PERFIL
-        ImageButton perfilButton = findViewById(R.id.iconAjustess);
+        ImageButton perfilButton = findViewById(R.id.iconAjustessUbicacion);
 
         perfilButton.setOnClickListener(v -> {
             Intent intent = new Intent(AnunciosActivity.this, AjustesActivity.class);

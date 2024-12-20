@@ -28,11 +28,61 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
 
+        // LOGO
+        ImageButton logoButton = findViewById(R.id.logoHOME);
+
+        logoButton.setOnClickListener(v -> {
+            Intent intent = new Intent(HomeActivity.this, HomeActivity.class);
+            startActivity(intent);
+        });
+
+        // ANUNCIOS
+        ImageButton anunciosButton = findViewById(R.id.iconanuncioHOME);
+
+        anunciosButton.setOnClickListener(v -> {
+            Intent intent = new Intent(HomeActivity.this, AnunciosActivity.class);
+            startActivity(intent);
+        });
+
+        // GRAFICAS
+        ImageButton graficaButton = findViewById(R.id.iconGraficaHOME);
+
+        graficaButton.setOnClickListener(v -> {
+            Intent intent = new Intent(HomeActivity.this, MapaActivity.class);
+            startActivity(intent);
+        });
+
+
+
+        // CONTACTO
+        ImageButton contactoButton = findViewById(R.id.iconagendaHOME);
+
+        contactoButton.setOnClickListener(v -> {
+            Intent intent = new Intent(HomeActivity.this, ContactoActivity.class);
+            startActivity(intent);
+        });
+
+        // Home
+        ImageButton homeButton = findViewById(R.id.iconHomeHOME);
+
+        homeButton.setOnClickListener(v -> {
+            Intent intent = new Intent(HomeActivity.this, HomeActivity.class);
+            startActivity(intent);
+        });
+
+        // PERFIL
+        ImageButton perfilButton = findViewById(R.id.iconAjustessHOME);
+
+        perfilButton.setOnClickListener(v -> {
+            Intent intent = new Intent(HomeActivity.this, AjustesActivity.class);
+            startActivity(intent);
+        });
+
         // Check and request POST_NOTIFICATIONS permission
         checkAndRequestNotificationPermission();
 
         // Set up "botonUbi" to go to UbicacionActivity
-        ImageButton botonUbi = findViewById(R.id.iconoMap2); // Ensure this ID matches the one in your XML
+        ImageButton botonUbi = findViewById(R.id.iconoMapHOME); // Ensure this ID matches the one in your XML
         botonUbi.setOnClickListener(v -> {
             // Redirect to UbicacionActivity
             startActivity(new Intent(HomeActivity.this, UbicacionActivity.class));

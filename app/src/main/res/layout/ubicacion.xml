@@ -9,8 +9,9 @@
     <!-- header -->
 
     <ImageButton
-        android:id="@+id/logo5"
+        android:id="@+id/logoGrafica"
         android:layout_width="198dp"
+        android:contentDescription="logo"
         android:layout_height="140dp"
         android:layout_marginStart="-32dp"
         android:layout_marginTop="-32dp"
@@ -22,8 +23,9 @@
         app:srcCompat="@drawable/logotipo_modoclaro" />
 
     <ImageButton
-        android:id="@+id/iconanuncio"
+        android:id="@+id/iconanuncioUbicacion"
         android:layout_width="61dp"
+        android:contentDescription="anuncio"
         android:layout_height="66dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
@@ -39,69 +41,76 @@
     <!-- footer -->
 
     <ImageButton
-        android:id="@+id/iconGrafica"
-        android:layout_width="61dp"
-        android:layout_height="66dp"
-        android:adjustViewBounds="true"
-        android:backgroundTint="@color/verdeOscuro"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.005"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/estadisticas" />
+    android:id="@+id/iconGraficaUbicacion"
+    android:layout_width="0dp"
+    android:layout_height="66dp"
+    android:layout_marginBottom="8dp"
+    android:adjustViewBounds="true"
+    android:backgroundTint="@color/verdeOscuro"
+    android:contentDescription="Botón de estadísticas"
+    android:scaleType="centerInside"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toStartOf="@+id/mapaUbicacion"
+    app:layout_constraintStart_toStartOf="parent"
+    app:srcCompat="@drawable/estadisticas" />
 
     <ImageButton
-        android:id="@+id/iconoMap"
-        android:layout_width="61dp"
+        android:id="@+id/mapaUbicacion"
+        android:layout_width="0dp"
         android:layout_height="66dp"
+        android:layout_marginBottom="8dp"
         android:adjustViewBounds="true"
         android:backgroundTint="@color/verdeOscuro"
+        android:contentDescription="Botón de ubicación"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.262"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/iconHomeUbicacion"
+        app:layout_constraintStart_toEndOf="@+id/iconGraficaUbicacion"
         app:srcCompat="@drawable/ubicacion_de_la_capa_terrestre" />
 
     <ImageButton
-        android:id="@+id/iconHome3"
-        android:layout_width="61dp"
+        android:id="@+id/iconHomeUbicacion"
+        android:layout_width="0dp"
         android:layout_height="66dp"
-        android:layout_marginEnd="172dp"
+        android:layout_marginBottom="8dp"
         android:adjustViewBounds="true"
         android:backgroundTint="@color/verdeOscuro"
         android:contentDescription="Botón de inicio"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/iconagendaUbicacion"
+        app:layout_constraintStart_toEndOf="@+id/mapaUbicacion"
         app:srcCompat="@drawable/casa_en_blanco" />
 
     <ImageButton
-        android:id="@+id/iconagenda"
-        android:layout_width="61dp"
+        android:id="@+id/iconagendaUbicacion"
+        android:layout_width="0dp"
         android:layout_height="66dp"
+        android:layout_marginBottom="8dp"
         android:adjustViewBounds="true"
         android:backgroundTint="@color/verdeOscuro"
+        android:contentDescription="Botón de agenda"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.75"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/iconAjustessUbicacion"
+        app:layout_constraintStart_toEndOf="@+id/iconHomeUbicacion"
         app:srcCompat="@drawable/directorio" />
 
     <ImageButton
-        android:id="@+id/iconAjustess"
-        android:layout_width="61dp"
+        android:id="@+id/iconAjustessUbicacion"
+        android:layout_width="0dp"
         android:layout_height="66dp"
+        android:layout_marginBottom="8dp"
         android:adjustViewBounds="true"
         android:backgroundTint="@color/verdeOscuro"
+        android:contentDescription="Botón de ajustes"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/iconagendaUbicacion"
         app:srcCompat="@drawable/alt_administrador" />
+
+
 
     <!--finfooter-->
 
@@ -176,6 +185,7 @@
 
     <com.google.android.gms.maps.MapView
         android:id="@+id/mapView2"
+        android:contentDescription="mapa"
         android:layout_width="282dp"
         android:layout_height="169dp"
         android:layout_marginTop="16dp"
@@ -219,26 +229,6 @@
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView28" />
-
-    <Button
-        android:id="@+id/boton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_marginStart="64dp"
-        android:layout_marginEnd="64dp"
-        android:layout_marginBottom="80dp"
-        android:background="@drawable/boton"
-        android:backgroundTint="@color/verdeBoton"
-        android:drawableTint="@color/verdeClaro"
-        android:text="Ver Histórico de Datos"
-        android:textAllCaps="false"
-        android:textColorLink="@color/verdeOscuro"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView23"
@@ -316,7 +306,7 @@
     <Button
         android:id="@+id/updateGoalButton"
         android:layout_width="139dp"
-        android:layout_height="47dp"
+        android:layout_height="48dp"
         android:layout_marginTop="8dp"
         android:backgroundTint="@color/verdeBoton"
         android:text="Cambiar Objetivo Diario"
@@ -331,7 +321,6 @@
         android:id="@+id/pieChart"
         android:layout_width="115dp"
         android:layout_height="136dp"
-        app:layout_constraintBottom_toTopOf="@+id/boton"
         app:layout_constraintEnd_toStartOf="@+id/updateGoalButton"
         app:layout_constraintStart_toEndOf="@+id/textView29"
         app:layout_constraintTop_toBottomOf="@+id/textView21" />

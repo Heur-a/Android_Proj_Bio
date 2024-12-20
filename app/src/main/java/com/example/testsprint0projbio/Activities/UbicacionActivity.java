@@ -7,6 +7,7 @@ import android.bluetooth.le.BluetoothLeScanner;
 import android.bluetooth.le.ScanCallback;
 import android.bluetooth.le.ScanResult;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -51,6 +53,62 @@ public class UbicacionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ubicacion);
+
+        // LOGO
+        ImageButton logoButton = findViewById(R.id.logoGrafica);
+
+        logoButton.setOnClickListener(v -> {
+            Intent intent = new Intent(UbicacionActivity.this, HomeActivity.class);
+            startActivity(intent);
+        });
+
+        // ANUNCIOS
+        ImageButton anunciosButton = findViewById(R.id.iconanuncioUbicacion);
+
+        anunciosButton.setOnClickListener(v -> {
+            Intent intent = new Intent(UbicacionActivity.this, AnunciosActivity.class);
+            startActivity(intent);
+        });
+
+        // GRAFICAS
+        ImageButton graficaButton = findViewById(R.id.iconGraficaUbicacion);
+
+        graficaButton.setOnClickListener(v -> {
+            Intent intent = new Intent(UbicacionActivity.this, MapaActivity.class);
+            startActivity(intent);
+        });
+
+        // MAPA
+        ImageButton mapaButton = findViewById(R.id.mapaUbicacion);
+
+        mapaButton.setOnClickListener(v -> {
+            Intent intent = new Intent(UbicacionActivity.this, UbicacionActivity.class);
+            startActivity(intent);
+        });
+
+        // CONTACTO
+        ImageButton contactoButton = findViewById(R.id.iconagendaUbicacion);
+
+        contactoButton.setOnClickListener(v -> {
+            Intent intent = new Intent(UbicacionActivity.this, ContactoActivity.class);
+            startActivity(intent);
+        });
+
+        // Home
+        ImageButton homeButton = findViewById(R.id.iconHomeUbicacion);
+
+        homeButton.setOnClickListener(v -> {
+            Intent intent = new Intent(UbicacionActivity.this, HomeActivity.class);
+            startActivity(intent);
+        });
+
+        // PERFIL
+        ImageButton perfilButton = findViewById(R.id.iconAjustessUbicacion);
+
+        perfilButton.setOnClickListener(v -> {
+            Intent intent = new Intent(UbicacionActivity.this, AjustesActivity.class);
+            startActivity(intent);
+        });
 
         // Inicializar vistas y componentes
         stepsTextView = findViewById(R.id.stepsTextView);

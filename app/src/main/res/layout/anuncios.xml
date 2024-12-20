@@ -7,7 +7,19 @@
     android:background="@drawable/fondo_anuncios">
 
 
-
+    <ImageButton
+        android:id="@+id/logoAnuncios"
+        android:layout_width="198dp"
+        android:layout_height="140dp"
+        android:layout_marginStart="-32dp"
+        android:layout_marginTop="-32dp"
+        android:adjustViewBounds="true"
+        android:backgroundTint="#003A5335"
+        android:contentDescription="logo"
+        android:scaleType="centerInside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logotipo_modoclaro" />
 
     <TextView
         android:id="@+id/textView3"
@@ -184,7 +196,7 @@
         app:srcCompat="@drawable/comida_en_cacerola" />
 
     <ImageButton
-        android:id="@+id/iconanuncio"
+        android:id="@+id/iconanuncioUbicacion"
         android:layout_width="61dp"
         android:layout_height="66dp"
         android:adjustViewBounds="true"
@@ -200,100 +212,79 @@
         android:contentDescription="Boton para ir a la pagina de anuncios"/>
 
     <ImageButton
-        android:id="@+id/iconGrafica"
-        android:layout_width="61dp"
+        android:id="@+id/iconAjustessUbicacion"
+        android:layout_width="0dp"
         android:layout_height="66dp"
+        android:layout_marginBottom="10dp"
         android:adjustViewBounds="true"
         android:backgroundTint="@color/verdeOscuro"
+        android:contentDescription="Botón para ir a la página de ajustes de usuario"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.005"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.993"
-        app:srcCompat="@drawable/estadisticas"
-        android:contentDescription="Boton para ir a la pagina de graficas"/>
+        app:layout_constraintStart_toEndOf="@+id/iconagendaUbicacion"
+        app:layout_constraintTop_toTopOf="@+id/iconagendaUbicacion"
+        app:srcCompat="@drawable/alt_administrador" />
 
     <ImageButton
-        android:id="@+id/iconoMap3"
-        android:layout_width="61dp"
+        android:id="@+id/iconGraficaUbicacion"
+        android:layout_width="0dp"
         android:layout_height="66dp"
+        android:layout_marginBottom="10dp"
         android:adjustViewBounds="true"
         android:backgroundTint="@color/verdeOscuro"
-        android:contentDescription="Boton para ir a la pagina de mapa"
+        android:contentDescription="Botón para ir a la página de gráficas"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.262"
+        app:layout_constraintEnd_toStartOf="@+id/iconoMapAnuncios"
+        app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.993"
+        app:srcCompat="@drawable/estadisticas" />
+
+    <ImageButton
+        android:id="@+id/iconoMapAnuncios"
+        android:layout_width="0dp"
+        android:layout_height="66dp"
+        android:layout_marginBottom="10dp"
+        android:adjustViewBounds="true"
+        android:backgroundTint="@color/verdeOscuro"
+        android:contentDescription="Botón para ir a la página de mapa"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/IconHomeAnuncios"
+        app:layout_constraintStart_toEndOf="@+id/iconGraficaUbicacion"
+        app:layout_constraintTop_toTopOf="@+id/iconGraficaUbicacion"
         app:srcCompat="@drawable/ubicacion_de_la_capa_terrestre" />
 
     <ImageButton
-        android:id="@+id/iconagenda"
-        android:layout_width="61dp"
+        android:id="@+id/IconHomeAnuncios"
+        android:layout_width="0dp"
         android:layout_height="66dp"
+        android:layout_marginBottom="10dp"
         android:adjustViewBounds="true"
         android:backgroundTint="@color/verdeOscuro"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.75"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.993"
-        app:srcCompat="@drawable/directorio"
-        android:contentDescription="Boton para ir a la pagina de "/>
-
-    <ImageButton
-        android:id="@+id/IconHome"
-        android:layout_width="61dp"
-        android:layout_height="66dp"
         android:contentDescription="Botón de inicio"
-        android:layout_marginEnd="172dp"
-        android:adjustViewBounds="true"
-        android:backgroundTint="@color/verdeOscuro"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.993"
-        app:srcCompat="@drawable/casa_en_blanco"
-        />
+        app:layout_constraintEnd_toStartOf="@+id/iconagendaUbicacion"
+        app:layout_constraintStart_toEndOf="@+id/iconoMapAnuncios"
+        app:layout_constraintTop_toTopOf="@+id/iconoMapAnuncios"
+        app:srcCompat="@drawable/casa_en_blanco" />
 
     <ImageButton
-        android:id="@+id/iconAjustess"
-        android:layout_width="61dp"
+        android:id="@+id/iconagendaUbicacion"
+        android:layout_width="0dp"
         android:layout_height="66dp"
+        android:layout_marginBottom="10dp"
         android:adjustViewBounds="true"
         android:backgroundTint="@color/verdeOscuro"
+        android:contentDescription="Botón para ir a la página de agenda"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.993"
-        app:srcCompat="@drawable/alt_administrador"
-        android:contentDescription="Boton para ir a la pagina de ajustes usuario"/>
-
-    <ImageButton
-        android:id="@+id/logo5"
-        android:layout_width="178dp"
-        android:layout_height="143dp"
-        android:layout_marginEnd="260dp"
-        android:layout_marginBottom="624dp"
-        android:adjustViewBounds="true"
-        android:backgroundTint="#003A5335"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/logotipo_modoclaro"
-        android:contentDescription="Boton para ir a la pagina de inicio"/>
-
-
+        app:layout_constraintEnd_toStartOf="@+id/iconAjustessUbicacion"
+        app:layout_constraintStart_toEndOf="@+id/IconHomeAnuncios"
+        app:layout_constraintTop_toTopOf="@+id/IconHomeAnuncios"
+        app:srcCompat="@drawable/directorio" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

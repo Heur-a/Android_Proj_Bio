@@ -9,7 +9,7 @@
         <solid android:color="@color/marron" />
     </shape>
 </item>
-    <item android:top="660dp">
+    <item android:top="740dp">
         <shape android:shape="rectangle">
             <solid android:color="@color/verdeOscuro" />
         </shape>

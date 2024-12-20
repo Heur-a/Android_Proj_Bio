@@ -15,23 +15,23 @@ public class ContactoActivity extends AppCompatActivity {
         setContentView(R.layout.contacto);
 
         // GRAFICAS
-        ImageButton graficaButton = findViewById(R.id.iconGrafica2);
+        ImageButton graficaButton = findViewById(R.id.iconGraficaContacto);
 
         graficaButton.setOnClickListener(v -> {
-            Intent intent = new Intent(ContactoActivity.this, UbicacionActivity.class);
-            startActivity(intent);
-        });
-
-        // MAPA
-        ImageButton mapaButton = findViewById(R.id.iconoMap);
-
-        mapaButton.setOnClickListener(v -> {
             Intent intent = new Intent(ContactoActivity.this, MapaActivity.class);
             startActivity(intent);
         });
 
+        // MAPA
+        ImageButton mapaButton = findViewById(R.id.iconoMapContacto);
+
+        mapaButton.setOnClickListener(v -> {
+            Intent intent = new Intent(ContactoActivity.this, UbicacionActivity.class);
+            startActivity(intent);
+        });
+
         // CONTACTO
-        ImageButton contactoButton = findViewById(R.id.iconAgenda);
+        ImageButton contactoButton = findViewById(R.id.iconAgendaContacto);
 
         contactoButton.setOnClickListener(v -> {
             Intent intent = new Intent(ContactoActivity.this, ContactoActivity.class);
@@ -39,7 +39,7 @@ public class ContactoActivity extends AppCompatActivity {
         });
 
         // Home
-        ImageButton homeButton = findViewById(R.id.iconHome);
+        ImageButton homeButton = findViewById(R.id.iconHomeContacto);
 
         homeButton.setOnClickListener(v -> {
             Intent intent = new Intent(ContactoActivity.this, HomeActivity.class);
@@ -47,7 +47,7 @@ public class ContactoActivity extends AppCompatActivity {
         });
 
         // PERFIL
-        ImageButton perfilButton = findViewById(R.id.iconagenda2);
+        ImageButton perfilButton = findViewById(R.id.iconagenda2Contacto);
 
         perfilButton.setOnClickListener(v -> {
             Intent intent = new Intent(ContactoActivity.this, AjustesActivity.class);
