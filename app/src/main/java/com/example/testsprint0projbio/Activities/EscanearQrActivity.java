@@ -5,7 +5,9 @@ import static android.content.ContentValues.TAG;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -27,12 +29,35 @@ import retrofit2.Callback;
 
 public class EscanearQrActivity extends AppCompatActivity {
 
+    private Button buttonComprobarCodigo;
     private QRCodeService qrCodeService;
+    private EditText editTextCodigo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.enlazar_sensor);  // Carga el layout que quieres mostrar
+        setContentView(R.layout.enlazar_sensor);// Carga el layout que quieres mostrar
+
+        editTextCodigo = findViewById(R.id.codigosensor);
+        buttonComprobarCodigo = findViewById(R.id.sinncodigoboton);
+
+        buttonComprobarCodigo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Obtener el texto ingresado en el EditText
+                String codigoIngresado = editTextCodigo.getText().toString().trim();
+
+                // Comprobar si el código es "true"
+                if ("true".equals(codigoIngresado)) {
+                    // Si es "true", redirigir a la actividad CodigoCorrecto
+                    Intent intent = new Intent(EscanearQrActivity.this, HomeActivity.class);
+                    startActivity(intent);
+                } else {
+                    // Si no es "true", puedes mostrar un mensaje (opcional)
+                    editTextCodigo.setError("Código incorrecto. Inténtalo de nuevo.");
+                }
+            }
+        });
 
         //Boton iniciar escaner qr
         Button iniciarEscaner = findViewById(R.id.enlazarSensor);

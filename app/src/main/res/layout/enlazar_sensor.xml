@@ -8,6 +8,34 @@
     app:circularflow_radiusInDP="30"
     tools:context=".MainActivity">
 
+    <Button
+        android:id="@+id/sinncodigoboton"
+        android:layout_width="166dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="15dp"
+        android:backgroundTint="@color/verdeClaro"
+        android:fontFamily="@font/MontserratMedium"
+        android:text="Comprobar código"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/codigosensor" />
+
+    <EditText
+        android:id="@+id/codigosensor"
+        android:layout_width="264dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="50dp"
+        android:ems="10"
+        android:fontFamily="@font/MontserratMedium"
+        android:gravity="center"
+        android:hint="Código del sensor"
+        android:inputType="text"
+        android:textColorHint="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/texto" />
+
     <ImageView
         android:id="@+id/logoGrafica"
         android:layout_width="300dp"
@@ -91,6 +119,7 @@
         android:id="@+id/enlazarSensor"
         android:layout_width="136dp"
         android:layout_height="133dp"
+        android:layout_marginTop="32dp"
         android:backgroundTint="@color/verdeBoton"
         android:text="[   ]"
         android:textColor="@color/verdeBotonColor"
