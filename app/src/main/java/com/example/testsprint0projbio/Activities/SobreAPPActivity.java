@@ -16,7 +16,7 @@ public class SobreAPPActivity extends AppCompatActivity {
 
 
         // LOGO
-        ImageButton logoButton = findViewById(R.id.logoSobreAPP);
+        ImageButton logoButton = findViewById(R.id.logoWEB);
 
         logoButton.setOnClickListener(v -> {
             Intent intent = new Intent(SobreAPPActivity.this, HomeActivity.class);
@@ -24,7 +24,7 @@ public class SobreAPPActivity extends AppCompatActivity {
         });
 
         // ANUNCIOS
-        ImageButton anunciosButton = findViewById(R.id.iconanuncioSobreAPP);
+        ImageButton anunciosButton = findViewById(R.id.iconanuncioWEB);
 
         anunciosButton.setOnClickListener(v -> {
             Intent intent = new Intent(SobreAPPActivity.this, AnunciosActivity.class);
@@ -32,7 +32,7 @@ public class SobreAPPActivity extends AppCompatActivity {
         });
 
         // GRAFICAS
-        ImageButton graficaButton = findViewById(R.id.iconGraficaSobreAPP);
+        ImageButton graficaButton = findViewById(R.id.iconGraficaWEB);
 
         graficaButton.setOnClickListener(v -> {
             Intent intent = new Intent(SobreAPPActivity.this, MapaActivity.class);
@@ -40,7 +40,7 @@ public class SobreAPPActivity extends AppCompatActivity {
         });
 
         // MAPA
-        ImageButton mapaButton = findViewById(R.id.iconoMapSobreAPP);
+        ImageButton mapaButton = findViewById(R.id.iconoMapWEB);
 
         mapaButton.setOnClickListener(v -> {
             Intent intent = new Intent(SobreAPPActivity.this, UbicacionActivity.class);
@@ -48,7 +48,7 @@ public class SobreAPPActivity extends AppCompatActivity {
         });
 
         // CONTACTO
-        ImageButton contactoButton = findViewById(R.id.iconagendaSobreAPP);
+        ImageButton contactoButton = findViewById(R.id.iconagendaWEB);
 
         contactoButton.setOnClickListener(v -> {
             Intent intent = new Intent(SobreAPPActivity.this, ContactoActivity.class);
@@ -56,7 +56,7 @@ public class SobreAPPActivity extends AppCompatActivity {
         });
 
         // Home
-        ImageButton homeButton = findViewById(R.id.IconHomeSobreAPP);
+        ImageButton homeButton = findViewById(R.id.IconHomeWEB);
 
         homeButton.setOnClickListener(v -> {
             Intent intent = new Intent(SobreAPPActivity.this, HomeActivity.class);
@@ -64,7 +64,7 @@ public class SobreAPPActivity extends AppCompatActivity {
         });
 
         // PERFIL
-        ImageButton perfilButton = findViewById(R.id.iconAjustessSobreAPP);
+        ImageButton perfilButton = findViewById(R.id.iconAjustessWEB);
 
         perfilButton.setOnClickListener(v -> {
             Intent intent = new Intent(SobreAPPActivity.this, SobreAPPActivity.class);

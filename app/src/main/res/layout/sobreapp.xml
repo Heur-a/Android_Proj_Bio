@@ -8,7 +8,7 @@
 
 
     <ImageButton
-        android:id="@+id/logoSobreAPP"
+        android:id="@+id/logoWEB"
         android:layout_width="198dp"
         android:layout_height="140dp"
         android:layout_marginStart="-32dp"
@@ -52,7 +52,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <ImageButton
-        android:id="@+id/iconanuncioSobreAPP"
+        android:id="@+id/iconanuncioWEB"
         android:layout_width="61dp"
         android:layout_height="66dp"
         android:adjustViewBounds="true"
@@ -68,7 +68,7 @@
         android:contentDescription="Boton para ir a la pagina de anuncios"/>
 
     <ImageButton
-        android:id="@+id/iconAjustessSobreAPP"
+        android:id="@+id/iconAjustessWEB"
         android:layout_width="0dp"
         android:layout_height="66dp"
         android:layout_marginBottom="10dp"
@@ -78,12 +78,12 @@
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/iconagendaSobreAPP"
-        app:layout_constraintTop_toTopOf="@+id/iconagendaSobreAPP"
+        app:layout_constraintStart_toEndOf="@+id/iconagendaWEB"
+        app:layout_constraintTop_toTopOf="@+id/iconagendaWEB"
         app:srcCompat="@drawable/alt_administrador" />
 
     <ImageButton
-        android:id="@+id/iconGraficaSobreAPP"
+        android:id="@+id/iconGraficaWEB"
         android:layout_width="0dp"
         android:layout_height="66dp"
         android:layout_marginBottom="10dp"
@@ -92,13 +92,13 @@
         android:contentDescription="Botón para ir a la página de gráficas"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/iconoMapSobreAPP"
+        app:layout_constraintEnd_toStartOf="@+id/iconoMapWEB"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/estadisticas" />
 
     <ImageButton
-        android:id="@+id/iconoMapSobreAPP"
+        android:id="@+id/iconoMapWEB"
         android:layout_width="0dp"
         android:layout_height="66dp"
         android:layout_marginBottom="10dp"
@@ -107,13 +107,13 @@
         android:contentDescription="Botón para ir a la página de mapa"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/IconHomeSobreAPP"
-        app:layout_constraintStart_toEndOf="@+id/iconGraficaSobreAPP"
-        app:layout_constraintTop_toTopOf="@+id/iconGraficaSobreAPP"
+        app:layout_constraintEnd_toStartOf="@+id/IconHomeWEB"
+        app:layout_constraintStart_toEndOf="@+id/iconGraficaWEB"
+        app:layout_constraintTop_toTopOf="@+id/iconGraficaWEB"
         app:srcCompat="@drawable/ubicacion_de_la_capa_terrestre" />
 
     <ImageButton
-        android:id="@+id/IconHomeSobreAPP"
+        android:id="@+id/IconHomeWEB"
         android:layout_width="0dp"
         android:layout_height="66dp"
         android:layout_marginBottom="10dp"
@@ -122,13 +122,13 @@
         android:contentDescription="Botón de inicio"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/iconagendaSobreAPP"
-        app:layout_constraintStart_toEndOf="@+id/iconoMapSobreAPP"
-        app:layout_constraintTop_toTopOf="@+id/iconoMapSobreAPP"
+        app:layout_constraintEnd_toStartOf="@+id/iconagendaWEB"
+        app:layout_constraintStart_toEndOf="@+id/iconoMapWEB"
+        app:layout_constraintTop_toTopOf="@+id/iconoMapWEB"
         app:srcCompat="@drawable/casa_en_blanco" />
 
     <ImageButton
-        android:id="@+id/iconagendaSobreAPP"
+        android:id="@+id/iconagendaWEB"
         android:layout_width="0dp"
         android:layout_height="66dp"
         android:layout_marginBottom="10dp"
@@ -137,9 +137,9 @@
         android:contentDescription="Botón para ir a la página de agenda"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/iconAjustessSobreAPP"
-        app:layout_constraintStart_toEndOf="@+id/IconHomeSobreAPP"
-        app:layout_constraintTop_toTopOf="@+id/IconHomeSobreAPP"
+        app:layout_constraintEnd_toStartOf="@+id/iconAjustessWEB"
+        app:layout_constraintStart_toEndOf="@+id/IconHomeWEB"
+        app:layout_constraintTop_toTopOf="@+id/IconHomeWEB"
         app:srcCompat="@drawable/directorio" />
 
 
