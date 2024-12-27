@@ -24,6 +24,7 @@
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
+        android:fontFamily="@font/PTSerifRegular"
         android:layout_height="wrap_content"
         android:text="Anuncios"
         android:textColor="@color/verdeOscuro"
@@ -39,6 +40,7 @@
         android:id="@+id/desc1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/MontserratMedium"
         android:text="¡Únete a la limpieza de la playa! Lleva tus guantes y &#10;ven a pasar una mañana divertida mientras &#10;cuidamos nuestro mar."
         android:textColor="#6D6D6D"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -65,6 +67,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="¡ Planeta en acción!"
+        android:fontFamily="@font/MontserratMedium"
         android:textColor="#000000"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -77,6 +80,7 @@
     <TextView
         android:id="@+id/fecha1"
         android:layout_width="273dp"
+        android:fontFamily="@font/MontserratMedium"
         android:layout_height="31dp"
         android:text="Sábado, 22 de abril (Día de la Tierra) \na las 10:00 am."
         android:textColor="#6D6D6D"
@@ -105,6 +109,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Día de la Tierra"
+        android:fontFamily="@font/MontserratMedium"
         android:textColor="#000000"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -117,6 +122,7 @@
     <TextView
         android:id="@+id/fecha3"
         android:layout_width="273dp"
+        android:fontFamily="@font/MontserratMedium"
         android:layout_height="31dp"
         android:text="Domingo, 15 de mayo a las 3:00 pm."
         android:textColor="#6D6D6D"
@@ -131,6 +137,7 @@
     <TextView
         android:id="@+id/desc3"
         android:layout_width="wrap_content"
+        android:fontFamily="@font/MontserratMedium"
         android:layout_height="wrap_content"
         android:text="Ven a disfrutar del día de la Tierra. Plantaremos&#10;árboles en el parque para crear un espacio más&#10;verde y lleno de vida. ¡Trae tu pala y tus ganas de&#10;ayudar!
 "
@@ -148,6 +155,7 @@
         android:layout_height="wrap_content"
         android:text="¡Fiesta sostenible!"
         android:textColor="#000000"
+        android:fontFamily="@font/MontserratMedium"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -159,6 +167,7 @@
     <TextView
         android:id="@+id/fecha2"
         android:layout_width="273dp"
+        android:fontFamily="@font/MontserratMedium"
         android:layout_height="31dp"
         android:text="Sábado, 29 de junio a las 10:00 am."
         android:textColor="#6D6D6D"
@@ -173,6 +182,7 @@
     <TextView
         android:id="@+id/desc2"
         android:layout_width="wrap_content"
+        android:fontFamily="@font/MontserratMedium"
         android:layout_height="wrap_content"
         android:text="Disfruta de un concierto al aire libre con tus amigos&#10;mientras aprendemos sobre cómo cuidar el&#10;planeta. Habrá una paella y actividades ecológicas."
         android:textColor="#6D6D6D"

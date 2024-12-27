@@ -25,6 +25,7 @@
         android:textColor="@color/verdeOscuro"
         android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
+        android:fontFamily="@font/PTSerifRegular"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logoGrafica" />
 
@@ -34,6 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="Correo Electrónico*"
+        android:fontFamily="@font/MontserratMedium"
         android:textColor="@color/verdeOscuro"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@+id/correoInput"
@@ -41,6 +43,7 @@
 
     <EditText
         android:id="@+id/correoInput"
+        android:fontFamily="@font/MontserratMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -57,6 +60,7 @@
 
     <TextView
         android:id="@+id/contraseñaLabel"
+        android:fontFamily="@font/MontserratMedium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -68,6 +72,7 @@
 
     <EditText
         android:id="@+id/contrasenyaInput"
+        android:fontFamily="@font/MontserratMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -89,6 +94,7 @@
         android:layout_marginStart="64dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="64dp"
+        android:fontFamily="@font/MontserratMedium"
         android:backgroundTint="@color/verdeBoton"
         android:textColor="@color/white"
         android:text="Iniciar Sesión"
@@ -104,6 +110,7 @@
         android:id="@+id/olvidarContraseña"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/MontserratMedium"
         android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
@@ -119,6 +126,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
+        android:fontFamily="@font/MontserratMedium"
+        android:paintFlags="underline"
         android:layout_marginEnd="32dp"
         android:text="Recuperar Contraseña"
         android:textColor="@color/verdeOscuro"

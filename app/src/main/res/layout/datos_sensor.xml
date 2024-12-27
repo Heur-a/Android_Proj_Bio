@@ -9,6 +9,7 @@
     <Button
         android:id="@+id/boton"
         android:layout_width="wrap_content"
+        android:fontFamily="@font/MontserratMedium"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_marginTop="450dp"
@@ -29,6 +30,7 @@
         android:layout_marginTop="8dp"
         android:text="Datos sensor"
         android:textColor="@color/verdeOscuro"
+        android:fontFamily="@font/PTSerifRegular"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
