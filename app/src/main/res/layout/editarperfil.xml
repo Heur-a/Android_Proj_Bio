@@ -155,9 +155,26 @@
         android:contentDescription="flecha"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="@+id/cambiarcontrasena"
-        app:layout_constraintEnd_toEndOf="@+id/switch1"
-        app:layout_constraintStart_toStartOf="@+id/switch1"
+        app:layout_constraintEnd_toEndOf="@+id/flechaweb"
         app:layout_constraintTop_toTopOf="@+id/cambiarcontrasena"
+        app:srcCompat="@drawable/angulo_pequeno_derecho" />
+
+    <ImageButton
+        android:id="@+id/flechaweb"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="32dp"
+        android:adjustViewBounds="true"
+        android:background="@drawable/boton_redondo"
+        android:clickable="true"
+        android:focusable="true"
+        android:elevation="10dp"
+
+        android:contentDescription="flecha"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toTopOf="@+id/cambiarcontrasena"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/nochedia"
         app:srcCompat="@drawable/angulo_pequeno_derecho" />
 
     <ImageButton
@@ -166,6 +183,9 @@
         android:layout_height="48dp"
         android:adjustViewBounds="true"
         android:background="@drawable/boton_redondo"
+        android:clickable="true"
+        android:focusable="true"
+        android:elevation="10dp"
         android:contentDescription="flecha"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="@+id/idioma"
@@ -179,6 +199,9 @@
     <ImageButton
         android:id="@+id/flechaSobreAPP"
         android:layout_width="48dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:elevation="10dp"
         android:layout_height="48dp"
         android:layout_marginTop="10dp"
         android:adjustViewBounds="true"
@@ -197,6 +220,9 @@
         android:id="@+id/flechaterminos"
         android:layout_width="48dp"
         android:layout_height="48dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:elevation="10dp"
         android:layout_marginTop="16dp"
         android:adjustViewBounds="true"
         android:background="@drawable/boton_redondo"
@@ -213,6 +239,9 @@
         android:id="@+id/privacidadflecha"
         android:layout_width="48dp"
         android:layout_height="48dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:elevation="10dp"
         android:adjustViewBounds="true"
         android:background="@drawable/boton_redondo"
         android:contentDescription="flecha"
@@ -273,7 +302,7 @@
         android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/cambiarcontrasena"
-        app:layout_constraintStart_toStartOf="@+id/modo"
+        app:layout_constraintStart_toStartOf="@+id/web"
         app:layout_constraintTop_toTopOf="@+id/cambiarcontrasena" />
 
     <TextView
@@ -330,27 +359,16 @@
         app:layout_constraintVertical_bias="0.548" />
 
     <TextView
-        android:id="@+id/modo"
+        android:id="@+id/web"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:fontFamily="@font/montserratmedium"
-        android:text="Modo"
+        android:text="Web"
         android:textColor="@color/black"
-        android:textSize="12sp"
+        android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/nochedia"
         app:layout_constraintTop_toTopOf="@+id/nochedia" />
-
-    <TextView
-        android:id="@+id/clarooscuro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Claro y Oscuro"
-        android:textColor="@color/gris"
-        android:fontFamily="@font/montserratmedium"
-        android:textSize="10sp"
-        app:layout_constraintStart_toStartOf="@+id/modo"
-        app:layout_constraintTop_toBottomOf="@+id/modo" />
 
     <TextView
         android:id="@+id/correoUsuario"
@@ -417,19 +435,6 @@
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="@+id/general"
         app:layout_constraintTop_toBottomOf="@+id/general"
-        app:srcCompat="@drawable/noche_dia" />
-
-    <Switch
-        android:id="@+id/switch1"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="20dp"
-        android:text=" "
-        android:thumbTint="@color/verdeOscuro"
-        android:trackTint="@color/verdeClaro"
-        app:layout_constraintBottom_toBottomOf="@+id/nochedia"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/nochedia" />
+        app:srcCompat="@drawable/web" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
