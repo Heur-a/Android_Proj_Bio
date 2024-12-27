@@ -14,7 +14,7 @@ public class WebActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.WEB);
+        setContentView(R.layout.web);
 
         // LOGO
         ImageButton logoButton = findViewById(R.id.logoWEB);
