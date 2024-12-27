@@ -7,6 +7,81 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
+    <string name="privacy_policy">
+    En <b>Ozone</b>, valoramos tu privacidad y nos comprometemos a proteger la información personal que compartes con nosotros. Esta Política de Privacidad explica cómo recopilamos, usamos, protegemos y compartimos tu información cuando utilizas nuestros servicios.\n\n
+    <b>1. Información que recopilamos</b>\n
+    Recopilamos dos tipos de información:\n
+    • <b>Información personal</b>: Datos como tu nombre, dirección de correo electrónico, número de teléfono, dirección postal y otra información que decides proporcionarnos.\n
+    • <b>Información no personal</b>: Datos como la dirección IP, tipo de dispositivo, sistema operativo, ubicación geográfica (si se habilita en tu dispositivo), datos de uso de la aplicación y otra información técnica sobre cómo interactúas con nuestros servicios.\n\n
+
+    <b>2. Cómo utilizamos tu información</b>\n
+    Utilizamos la información recopilada para:\n
+    • Proporcionar, mejorar y personalizar nuestros servicios.\n
+    • Responder a tus consultas, comentarios o solicitudes.\n
+    • Enviar notificaciones y actualizaciones sobre nuestros productos o servicios.\n
+    • Cumplir con obligaciones legales y resolver disputas.\n\n
+
+    <b>3. Protección de tu información</b>\n
+    Implementamos medidas de seguridad razonables para proteger tu información personal contra acceso no autorizado, alteración, divulgación o destrucción. Sin embargo, ten en cuenta que ninguna transmisión de datos por Internet o sistema de almacenamiento electrónico es completamente seguro, y no podemos garantizar una seguridad absoluta.\n\n
+
+    <b>4. Tus derechos</b>\n
+    Dependiendo de tu ubicación, puedes tener derechos sobre tu información personal, incluidos los derechos de acceso, corrección, eliminación y oposición al tratamiento de tus datos. Si deseas ejercer cualquiera de estos derechos, puedes contactarnos a través de los medios proporcionados al final de esta política.\n\n
+
+
+</string>
+
+    <string name="terms_and_conditions">
+    Al acceder o utilizar los servicios de <b>Ozone</b>, aceptas cumplir con los siguientes términos y condiciones. Si no estás de acuerdo con alguno de estos términos, te recomendamos no utilizar nuestros servicios.\n\n
+
+    <b>1. Aceptación de los Términos</b>\n
+    Al utilizar los servicios de Ozone, aceptas estar sujeto a estos Términos y Condiciones, así como a cualquier cambio que pueda ser realizado a los mismos en el futuro. Es tu responsabilidad revisar esta página periódicamente para estar al tanto de cualquier actualización.\n\n
+
+    <b>2. Uso del Servicio</b>\n
+    El servicio de Ozone está destinado únicamente para uso personal y no comercial. Aceptas no utilizar el servicio para fines ilegales o no autorizados, y cumplir con todas las leyes y regulaciones locales aplicables.\n\n
+
+    <b>3. Propiedad Intelectual</b>\n
+    Todos los derechos de propiedad intelectual relacionados con el contenido de los servicios de Ozone, incluidas las marcas comerciales, logotipos, gráficos, y software, son propiedad de Ozone o de sus licenciantes. No se te otorgan derechos sobre el contenido sin el permiso expreso de Ozone.\n\n
+
+    <b>4. Limitación de Responsabilidad</b>\n
+    Ozone no será responsable de ningún daño directo, indirecto, incidental, especial o consecuente que surja del uso de los servicios. El uso de nuestros servicios es bajo tu propio riesgo.\n\n
+
+    <b>5. Modificaciones del Servicio</b>\n
+    Ozone se reserva el derecho de modificar o suspender temporalmente el servicio en cualquier momento sin previo aviso. No seremos responsables de ningún daño resultante de dichos cambios o interrupciones.\n\n
+
+    <b>6. Terminación</b>\n
+    Ozone puede, a su discreción, suspender o terminar tu acceso a los servicios si consideramos que has violado cualquiera de los términos de este acuerdo. Al finalizar, perderás el acceso a tus cuentas y cualquier contenido asociado.\n\n
+
+
+    </string>
+
+    <string name="app_description">
+    <b>Descripción de la Aplicación Ozone</b>\n\n
+    <b>Ozone</b> es una aplicación diseñada para brindarte información relevante sobre el medio ambiente y tu salud. A través de esta app, podrás visualizar datos en tiempo real sobre la calidad del aire, específicamente los niveles de ozono, y controlar tus pasos diarios para fomentar un estilo de vida saludable.\n\n
+
+    <b>1. Anuncios</b>\n
+    La aplicación incluye anuncios que nos permiten mantener el servicio gratuito. Estos anuncios se mostrarán mientras utilizas la app, pero no afectan la funcionalidad de la misma. Apreciamos tu comprensión y apoyo al visualizar los anuncios.\n\n
+
+    <b>2. Información sobre los Próximos Eventos de Medioambiente</b>\n
+    Ozone te mantendrá informado sobre los próximos eventos relacionados con la sostenibilidad y el medioambiente. Podrás ver notificaciones y detalles sobre conferencias, actividades comunitarias y campañas de concienciación que pueden ser de tu interés.\n\n
+
+    <b>3. Gráficas de Medición de Ozono y Temperatura</b>\n
+    La app se conecta a un sensor de ozono y temperatura para mostrarte las mediciones más recientes. Verás una gráfica interactiva que te permitirá visualizar los niveles de ozono y la temperatura del aire en tiempo real, ayudándote a tomar decisiones informadas sobre tu salud y bienestar.\n\n
+
+    <b>4. Gráfica del Nodo Sensor</b>\n
+    Ozone también proporciona una representación visual de los datos recopilados por el nodo sensor. Esto te permitirá observar tendencias, variaciones y patrones en la calidad del aire de tu zona, ayudándote a estar al tanto de las condiciones ambientales.\n\n
+
+    <b>5. Seguimiento de Pasos</b>\n
+    Para promover un estilo de vida activo, la app registra tus pasos diarios. Puedes ver el número de pasos que has dado en el día a través de una interfaz gráfica simple y fácil de entender. Además, puedes establecer un objetivo diario de pasos y modificarlo en cualquier momento según tu preferencia.\n\n
+
+    <b>6. Cambio del Objetivo Diario de Pasos</b>\n
+    Si deseas cambiar tu objetivo diario de pasos, puedes hacerlo directamente desde la configuración de la app. Personaliza tu meta según tu nivel de actividad física y desafíate a mantenerte activo y saludable cada día.\n\n
+
+    Te agradecemos por utilizar <b>Ozone</b> y por ayudarnos a crear un mundo más saludable y sostenible.\n\n
+</string>
+
+
+
+
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
         volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus

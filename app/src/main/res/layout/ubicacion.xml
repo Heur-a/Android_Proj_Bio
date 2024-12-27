@@ -37,7 +37,7 @@
         app:srcCompat="@drawable/logotipo_modoclaro" />
 
     <ImageButton
-        android:id="@+id/iconanuncioUbicacion"
+        android:id="@+id/iconanuncioSobreAPP"
         android:layout_width="61dp"
         android:contentDescription="anuncio"
         android:layout_height="66dp"
@@ -55,7 +55,7 @@
     <!-- footer -->
 
     <ImageButton
-        android:id="@+id/iconGraficaUbicacion"
+        android:id="@+id/iconGraficaSobreAPP"
         android:layout_width="0dp"
         android:layout_height="66dp"
         android:layout_marginBottom="8dp"
@@ -80,7 +80,7 @@
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/iconHomeUbicacion"
-        app:layout_constraintStart_toEndOf="@+id/iconGraficaUbicacion"
+        app:layout_constraintStart_toEndOf="@+id/iconGraficaSobreAPP"
         app:srcCompat="@drawable/ubicacion_de_la_capa_terrestre" />
 
     <ImageButton
@@ -93,12 +93,12 @@
         android:contentDescription="Botón de inicio"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/iconagendaUbicacion"
+        app:layout_constraintEnd_toStartOf="@+id/iconagendaSobreAPP"
         app:layout_constraintStart_toEndOf="@+id/mapaUbicacion"
         app:srcCompat="@drawable/casa_en_blanco" />
 
     <ImageButton
-        android:id="@+id/iconagendaUbicacion"
+        android:id="@+id/iconagendaSobreAPP"
         android:layout_width="0dp"
         android:layout_height="66dp"
         android:layout_marginBottom="8dp"
@@ -107,12 +107,12 @@
         android:contentDescription="Botón de agenda"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/iconAjustessUbicacion"
+        app:layout_constraintEnd_toStartOf="@+id/iconAjustessSobreAPP"
         app:layout_constraintStart_toEndOf="@+id/iconHomeUbicacion"
         app:srcCompat="@drawable/directorio" />
 
     <ImageButton
-        android:id="@+id/iconAjustessUbicacion"
+        android:id="@+id/iconAjustessSobreAPP"
         android:layout_width="0dp"
         android:layout_height="66dp"
         android:layout_marginBottom="8dp"
@@ -122,7 +122,7 @@
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/iconagendaUbicacion"
+        app:layout_constraintStart_toEndOf="@+id/iconagendaSobreAPP"
         app:srcCompat="@drawable/alt_administrador" />
 
 

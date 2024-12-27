@@ -18,10 +18,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.94"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iconAjustessAjustes" />
+        app:layout_constraintTop_toBottomOf="@+id/iconAjustessEditarPerfil" />
 
     <ImageButton
-        android:id="@+id/iconanuncioAjustes"
+        android:id="@+id/iconanuncioEditarPerfil"
         android:contentDescription="anuncios"
         android:layout_width="61dp"
         android:layout_height="66dp"
@@ -30,11 +30,11 @@
         android:backgroundTint="@color/verdeOscuro"
         android:scaleType="centerInside"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/logoAjustes"
+        app:layout_constraintTop_toTopOf="@+id/logoEditarPerfil"
         app:srcCompat="@drawable/ondas_sonoras_de_megafono__3_" />
 
     <ImageButton
-        android:id="@+id/iconGraficaAjustes"
+        android:id="@+id/iconGraficaEditarPerfil"
         android:layout_width="0dp"
         android:layout_height="66dp"
         android:layout_marginBottom="10dp"
@@ -43,12 +43,12 @@
         android:contentDescription="Botón para ir a la página de gráficas"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/mapaAjustes"
+        app:layout_constraintEnd_toStartOf="@+id/mapaEditarPerfil"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/estadisticas" />
 
     <ImageButton
-        android:id="@+id/mapaAjustes"
+        android:id="@+id/mapaEditarPerfil"
         android:layout_width="0dp"
         android:layout_height="66dp"
         android:layout_marginBottom="10dp"
@@ -57,13 +57,13 @@
         android:contentDescription="Botón para ir a la página de mapa"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/iconHomeAjustes"
-        app:layout_constraintStart_toEndOf="@+id/iconGraficaAjustes"
-        app:layout_constraintTop_toTopOf="@+id/iconGraficaAjustes"
+        app:layout_constraintEnd_toStartOf="@+id/iconHomeEditarPerfil"
+        app:layout_constraintStart_toEndOf="@+id/iconGraficaEditarPerfil"
+        app:layout_constraintTop_toTopOf="@+id/iconGraficaEditarPerfil"
         app:srcCompat="@drawable/ubicacion_de_la_capa_terrestre" />
 
     <ImageButton
-        android:id="@+id/iconHomeAjustes"
+        android:id="@+id/iconHomeEditarPerfil"
         android:layout_width="0dp"
         android:layout_height="66dp"
         android:layout_marginBottom="10dp"
@@ -72,13 +72,13 @@
         android:contentDescription="Botón de inicio"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/iconagendaAjustes"
-        app:layout_constraintStart_toEndOf="@+id/mapaAjustes"
-        app:layout_constraintTop_toTopOf="@+id/mapaAjustes"
+        app:layout_constraintEnd_toStartOf="@+id/iconagendaEditarPerfil"
+        app:layout_constraintStart_toEndOf="@+id/mapaEditarPerfil"
+        app:layout_constraintTop_toTopOf="@+id/mapaEditarPerfil"
         app:srcCompat="@drawable/casa_en_blanco" />
 
     <ImageButton
-        android:id="@+id/iconagendaAjustes"
+        android:id="@+id/iconagendaEditarPerfil"
         android:layout_width="0dp"
         android:layout_height="66dp"
         android:layout_marginBottom="10dp"
@@ -87,13 +87,13 @@
         android:contentDescription="Botón para ir a la página de agenda"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/iconAjustessAjustes"
-        app:layout_constraintStart_toEndOf="@+id/iconHomeAjustes"
-        app:layout_constraintTop_toTopOf="@+id/iconHomeAjustes"
+        app:layout_constraintEnd_toStartOf="@+id/iconAjustessEditarPerfil"
+        app:layout_constraintStart_toEndOf="@+id/iconHomeEditarPerfil"
+        app:layout_constraintTop_toTopOf="@+id/iconHomeEditarPerfil"
         app:srcCompat="@drawable/directorio" />
 
     <ImageButton
-        android:id="@+id/iconAjustessAjustes"
+        android:id="@+id/iconAjustessEditarPerfil"
         android:layout_width="0dp"
         android:layout_height="66dp"
         android:layout_marginBottom="10dp"
@@ -103,13 +103,13 @@
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/iconagendaAjustes"
-        app:layout_constraintTop_toTopOf="@+id/iconagendaAjustes"
+        app:layout_constraintStart_toEndOf="@+id/iconagendaEditarPerfil"
+        app:layout_constraintTop_toTopOf="@+id/iconagendaEditarPerfil"
         app:srcCompat="@drawable/alt_administrador" />
 
 
     <ImageButton
-        android:id="@+id/logoAjustes"
+        android:id="@+id/logoEditarPerfil"
         android:layout_width="119dp"
         android:contentDescription="ajustes"
         android:layout_height="79dp"
@@ -177,7 +177,7 @@
         app:srcCompat="@drawable/angulo_pequeno_derecho" />
 
     <ImageButton
-        android:id="@+id/flecha3"
+        android:id="@+id/flechaSobreAPP"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginTop="10dp"
@@ -194,7 +194,7 @@
         app:srcCompat="@drawable/angulo_pequeno_derecho" />
 
     <ImageButton
-        android:id="@+id/flecha4"
+        android:id="@+id/flechaterminos"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
@@ -203,14 +203,14 @@
         android:contentDescription="flecha"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="@+id/terminooooos"
-        app:layout_constraintEnd_toEndOf="@+id/flecha3"
+        app:layout_constraintEnd_toEndOf="@+id/flechaSobreAPP"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/flecha3"
-        app:layout_constraintTop_toBottomOf="@+id/flecha3"
+        app:layout_constraintStart_toStartOf="@+id/flechaSobreAPP"
+        app:layout_constraintTop_toBottomOf="@+id/flechaSobreAPP"
         app:srcCompat="@drawable/angulo_pequeno_derecho" />
 
     <ImageButton
-        android:id="@+id/flecha5"
+        android:id="@+id/privacidadflecha"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:adjustViewBounds="true"
@@ -218,10 +218,10 @@
         android:contentDescription="flecha"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="@+id/textprivacidad"
-        app:layout_constraintEnd_toEndOf="@+id/flecha4"
+        app:layout_constraintEnd_toEndOf="@+id/flechaterminos"
         app:layout_constraintHorizontal_bias="0.533"
-        app:layout_constraintStart_toStartOf="@+id/flecha4"
-        app:layout_constraintTop_toBottomOf="@+id/flecha4"
+        app:layout_constraintStart_toStartOf="@+id/flechaterminos"
+        app:layout_constraintTop_toBottomOf="@+id/flechaterminos"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/angulo_pequeno_derecho" />
 

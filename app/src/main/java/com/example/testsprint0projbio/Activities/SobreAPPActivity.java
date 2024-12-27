@@ -8,17 +8,18 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.testsprint0projbio.R;
 
-public class AnunciosActivity extends AppCompatActivity {
+public class SobreAPPActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.anuncios); // Usa el diseño anuncios.xml
+        setContentView(R.layout.sobreapp);
+
 
         // LOGO
         ImageButton logoButton = findViewById(R.id.logoSobreAPP);
 
         logoButton.setOnClickListener(v -> {
-            Intent intent = new Intent(AnunciosActivity.this, HomeActivity.class);
+            Intent intent = new Intent(SobreAPPActivity.this, HomeActivity.class);
             startActivity(intent);
         });
 
@@ -26,7 +27,7 @@ public class AnunciosActivity extends AppCompatActivity {
         ImageButton anunciosButton = findViewById(R.id.iconanuncioSobreAPP);
 
         anunciosButton.setOnClickListener(v -> {
-            Intent intent = new Intent(AnunciosActivity.this, AnunciosActivity.class);
+            Intent intent = new Intent(SobreAPPActivity.this, AnunciosActivity.class);
             startActivity(intent);
         });
 
@@ -34,7 +35,7 @@ public class AnunciosActivity extends AppCompatActivity {
         ImageButton graficaButton = findViewById(R.id.iconGraficaSobreAPP);
 
         graficaButton.setOnClickListener(v -> {
-            Intent intent = new Intent(AnunciosActivity.this, MapaActivity.class);
+            Intent intent = new Intent(SobreAPPActivity.this, MapaActivity.class);
             startActivity(intent);
         });
 
@@ -42,7 +43,7 @@ public class AnunciosActivity extends AppCompatActivity {
         ImageButton mapaButton = findViewById(R.id.iconoMapSobreAPP);
 
         mapaButton.setOnClickListener(v -> {
-            Intent intent = new Intent(AnunciosActivity.this, UbicacionActivity.class);
+            Intent intent = new Intent(SobreAPPActivity.this, UbicacionActivity.class);
             startActivity(intent);
         });
 
@@ -50,7 +51,7 @@ public class AnunciosActivity extends AppCompatActivity {
         ImageButton contactoButton = findViewById(R.id.iconagendaSobreAPP);
 
         contactoButton.setOnClickListener(v -> {
-            Intent intent = new Intent(AnunciosActivity.this, ContactoActivity.class);
+            Intent intent = new Intent(SobreAPPActivity.this, ContactoActivity.class);
             startActivity(intent);
         });
 
@@ -58,7 +59,7 @@ public class AnunciosActivity extends AppCompatActivity {
         ImageButton homeButton = findViewById(R.id.IconHomeSobreAPP);
 
         homeButton.setOnClickListener(v -> {
-            Intent intent = new Intent(AnunciosActivity.this, HomeActivity.class);
+            Intent intent = new Intent(SobreAPPActivity.this, HomeActivity.class);
             startActivity(intent);
         });
 
@@ -66,9 +67,12 @@ public class AnunciosActivity extends AppCompatActivity {
         ImageButton perfilButton = findViewById(R.id.iconAjustessSobreAPP);
 
         perfilButton.setOnClickListener(v -> {
-            Intent intent = new Intent(AnunciosActivity.this, AjustesActivity.class);
+            Intent intent = new Intent(SobreAPPActivity.this, SobreAPPActivity.class);
             startActivity(intent);
         });
-
     }
 }
+
+
+
+

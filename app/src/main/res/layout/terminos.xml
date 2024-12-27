@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo_anuncios">
+
+
+    <ImageButton
+        android:id="@+id/logoSobreAPP"
+        android:layout_width="198dp"
+        android:layout_height="140dp"
+        android:layout_marginStart="-32dp"
+        android:layout_marginTop="-32dp"
+        android:adjustViewBounds="true"
+        android:backgroundTint="#003A5335"
+        android:contentDescription="logo"
+        android:scaleType="centerInside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logotipo_modoclaro" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/PTSerifRegular"
+        android:text="Terminos y condiciones"
+        android:textColor="@color/verdeOscuro"
+        android:textColorLink="#000000"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.13999999" />
+
+
+    <TextView
+        android:id="@+id/terms_and_conditions"
+        android:layout_width="386dp"
+        android:layout_height="502dp"
+        android:fontFamily="@font/MontserratMedium"
+        android:lineSpacingExtra="6dp"
+        android:padding="16dp"
+        android:text="@string/terms_and_conditions"
+        android:textColor="@android:color/black"
+        android:textSize="7sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <ImageButton
+        android:id="@+id/iconanuncioSobreAPP"
+        android:layout_width="61dp"
+        android:layout_height="66dp"
+        android:adjustViewBounds="true"
+        android:backgroundTint="@color/verdeOscuro"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.977"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.01"
+        app:srcCompat="@drawable/ondas_sonoras_de_megafono__3_"
+        android:contentDescription="Boton para ir a la pagina de anuncios"/>
+
+    <ImageButton
+        android:id="@+id/iconAjustessSobreAPP"
+        android:layout_width="0dp"
+        android:layout_height="66dp"
+        android:layout_marginBottom="10dp"
+        android:adjustViewBounds="true"
+        android:backgroundTint="@color/verdeOscuro"
+        android:contentDescription="Botón para ir a la página de ajustes de usuario"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/iconagendaSobreAPP"
+        app:layout_constraintTop_toTopOf="@+id/iconagendaSobreAPP"
+        app:srcCompat="@drawable/alt_administrador" />
+
+    <ImageButton
+        android:id="@+id/iconGraficaSobreAPP"
+        android:layout_width="0dp"
+        android:layout_height="66dp"
+        android:layout_marginBottom="10dp"
+        android:adjustViewBounds="true"
+        android:backgroundTint="@color/verdeOscuro"
+        android:contentDescription="Botón para ir a la página de gráficas"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/iconoMapSobreAPP"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/estadisticas" />
+
+    <ImageButton
+        android:id="@+id/iconoMapSobreAPP"
+        android:layout_width="0dp"
+        android:layout_height="66dp"
+        android:layout_marginBottom="10dp"
+        android:adjustViewBounds="true"
+        android:backgroundTint="@color/verdeOscuro"
+        android:contentDescription="Botón para ir a la página de mapa"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/IconHomeSobreAPP"
+        app:layout_constraintStart_toEndOf="@+id/iconGraficaSobreAPP"
+        app:layout_constraintTop_toTopOf="@+id/iconGraficaSobreAPP"
+        app:srcCompat="@drawable/ubicacion_de_la_capa_terrestre" />
+
+    <ImageButton
+        android:id="@+id/IconHomeSobreAPP"
+        android:layout_width="0dp"
+        android:layout_height="66dp"
+        android:layout_marginBottom="10dp"
+        android:adjustViewBounds="true"
+        android:backgroundTint="@color/verdeOscuro"
+        android:contentDescription="Botón de inicio"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/iconagendaSobreAPP"
+        app:layout_constraintStart_toEndOf="@+id/iconoMapSobreAPP"
+        app:layout_constraintTop_toTopOf="@+id/iconoMapSobreAPP"
+        app:srcCompat="@drawable/casa_en_blanco" />
+
+    <ImageButton
+        android:id="@+id/iconagendaSobreAPP"
+        android:layout_width="0dp"
+        android:layout_height="66dp"
+        android:layout_marginBottom="10dp"
+        android:adjustViewBounds="true"
+        android:backgroundTint="@color/verdeOscuro"
+        android:contentDescription="Botón para ir a la página de agenda"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/iconAjustessSobreAPP"
+        app:layout_constraintStart_toEndOf="@+id/IconHomeSobreAPP"
+        app:layout_constraintTop_toTopOf="@+id/IconHomeSobreAPP"
+        app:srcCompat="@drawable/directorio" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

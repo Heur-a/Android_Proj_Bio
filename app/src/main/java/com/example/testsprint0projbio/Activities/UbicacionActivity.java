@@ -63,7 +63,7 @@ public class UbicacionActivity extends AppCompatActivity {
         });
 
         // ANUNCIOS
-        ImageButton anunciosButton = findViewById(R.id.iconanuncioUbicacion);
+        ImageButton anunciosButton = findViewById(R.id.iconanuncioSobreAPP);
 
         anunciosButton.setOnClickListener(v -> {
             Intent intent = new Intent(UbicacionActivity.this, AnunciosActivity.class);
@@ -71,7 +71,7 @@ public class UbicacionActivity extends AppCompatActivity {
         });
 
         // GRAFICAS
-        ImageButton graficaButton = findViewById(R.id.iconGraficaUbicacion);
+        ImageButton graficaButton = findViewById(R.id.iconGraficaSobreAPP);
 
         graficaButton.setOnClickListener(v -> {
             Intent intent = new Intent(UbicacionActivity.this, MapaActivity.class);
@@ -87,7 +87,7 @@ public class UbicacionActivity extends AppCompatActivity {
         });
 
         // CONTACTO
-        ImageButton contactoButton = findViewById(R.id.iconagendaUbicacion);
+        ImageButton contactoButton = findViewById(R.id.iconagendaSobreAPP);
 
         contactoButton.setOnClickListener(v -> {
             Intent intent = new Intent(UbicacionActivity.this, ContactoActivity.class);
@@ -103,7 +103,7 @@ public class UbicacionActivity extends AppCompatActivity {
         });
 
         // PERFIL
-        ImageButton perfilButton = findViewById(R.id.iconAjustessUbicacion);
+        ImageButton perfilButton = findViewById(R.id.iconAjustessSobreAPP);
 
         perfilButton.setOnClickListener(v -> {
             Intent intent = new Intent(UbicacionActivity.this, AjustesActivity.class);

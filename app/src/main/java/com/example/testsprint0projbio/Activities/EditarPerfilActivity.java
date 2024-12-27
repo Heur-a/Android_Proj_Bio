@@ -8,17 +8,41 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.testsprint0projbio.R;
 
-public class AjustesActivity extends AppCompatActivity {
+public class EditarPerfilActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.editarperfil);
 
+        // Privacidad
+        ImageButton privacidad = findViewById(R.id.privacidadflecha);
+
+        privacidad.setOnClickListener(v -> {
+            Intent intent = new Intent(EditarPerfilActivity.this, PrivacyActivity.class);
+            startActivity(intent);
+        });
+
+        // Terminos
+        ImageButton terminos = findViewById(R.id.flechaterminos);
+
+        terminos.setOnClickListener(v -> {
+            Intent intent = new Intent(EditarPerfilActivity.this, TerminosActivity.class);
+            startActivity(intent);
+        });
+
+        // Sobre app
+        ImageButton sobreapp = findViewById(R.id.flechaSobreAPP);
+
+        terminos.setOnClickListener(v -> {
+            Intent intent = new Intent(EditarPerfilActivity.this, SobreAPPActivity.class);
+            startActivity(intent);
+        });
+
         // LOGO
         ImageButton logoButton = findViewById(R.id.logoEditarPerfil);
 
         logoButton.setOnClickListener(v -> {
-            Intent intent = new Intent(AjustesActivity.this, HomeActivity.class);
+            Intent intent = new Intent(EditarPerfilActivity.this, HomeActivity.class);
             startActivity(intent);
         });
 
@@ -26,7 +50,7 @@ public class AjustesActivity extends AppCompatActivity {
         ImageButton anunciosButton = findViewById(R.id.iconanuncioEditarPerfil);
 
         anunciosButton.setOnClickListener(v -> {
-            Intent intent = new Intent(AjustesActivity.this, AnunciosActivity.class);
+            Intent intent = new Intent(EditarPerfilActivity.this, AnunciosActivity.class);
             startActivity(intent);
         });
 
@@ -34,7 +58,7 @@ public class AjustesActivity extends AppCompatActivity {
         ImageButton graficaButton = findViewById(R.id.iconGraficaEditarPerfil);
 
         graficaButton.setOnClickListener(v -> {
-            Intent intent = new Intent(AjustesActivity.this, MapaActivity.class);
+            Intent intent = new Intent(EditarPerfilActivity.this, MapaActivity.class);
             startActivity(intent);
         });
 
@@ -42,7 +66,7 @@ public class AjustesActivity extends AppCompatActivity {
         ImageButton mapaButton = findViewById(R.id.mapaEditarPerfil);
 
         mapaButton.setOnClickListener(v -> {
-            Intent intent = new Intent(AjustesActivity.this, UbicacionActivity.class);
+            Intent intent = new Intent(EditarPerfilActivity.this, UbicacionActivity.class);
             startActivity(intent);
         });
 
@@ -50,7 +74,7 @@ public class AjustesActivity extends AppCompatActivity {
         ImageButton contactoButton = findViewById(R.id.iconagendaEditarPerfil);
 
         contactoButton.setOnClickListener(v -> {
-            Intent intent = new Intent(AjustesActivity.this, ContactoActivity.class);
+            Intent intent = new Intent(EditarPerfilActivity.this, ContactoActivity.class);
             startActivity(intent);
         });
 
@@ -58,7 +82,7 @@ public class AjustesActivity extends AppCompatActivity {
         ImageButton homeButton = findViewById(R.id.iconHomeEditarPerfil);
 
         homeButton.setOnClickListener(v -> {
-            Intent intent = new Intent(AjustesActivity.this, HomeActivity.class);
+            Intent intent = new Intent(EditarPerfilActivity.this, HomeActivity.class);
             startActivity(intent);
         });
 
@@ -66,7 +90,7 @@ public class AjustesActivity extends AppCompatActivity {
         ImageButton perfilButton = findViewById(R.id.iconAjustessEditarPerfil);
 
         perfilButton.setOnClickListener(v -> {
-            Intent intent = new Intent(AjustesActivity.this, AjustesActivity.class);
+            Intent intent = new Intent(EditarPerfilActivity.this, EditarPerfilActivity.class);
             startActivity(intent);
         });
     }
