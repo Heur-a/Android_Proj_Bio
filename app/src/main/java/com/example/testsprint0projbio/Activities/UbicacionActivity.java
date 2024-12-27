@@ -227,6 +227,7 @@ public class UbicacionActivity extends AppCompatActivity {
                 return;
             }
 
+
             double distance = calculateDistance(rssi, -59);
             String distanceText = String.format("%.2f m", distance);
             distanciaSensorTextView.setText(distanceText + "m");
@@ -244,4 +245,7 @@ public class UbicacionActivity extends AppCompatActivity {
             return Math.pow(10, (txPower - rssi) / (10 * environmentalFactor));
         }
     }
+
+
 }
+
