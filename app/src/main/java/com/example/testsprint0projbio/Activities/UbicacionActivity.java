@@ -222,30 +222,43 @@ public class UbicacionActivity extends AppCompatActivity {
                 return;
             }
 
-            if (rssi > 0 || rssi < -65) {
+            if (rssi > 0 || rssi < -100) {
                 Log.i("BLE", "RSSI fuera de rango: " + rssi);
                 return;
             }
 
+            int proximityCategory = getProximityCategory(rssi);
+            String proximityText = "";
+            switch (proximityCategory) {
+                case 0:
+                    proximityText = "Cerca";
+                    break;
+                case 1:
+                    proximityText = "Media distancia";
+                    break;
+                case 2:
+                    proximityText = "Lejos";
+                    break;
+            }
 
-            double distance = calculateDistance(rssi, -59);
-            String distanceText = String.format("%.2f m", distance);
-            distanciaSensorTextView.setText(distanceText + "m");
-            Log.i("BLE", "Distancia: " + distanceText);
+            distanciaSensorTextView.setText(proximityText);
+            Log.i("BLE", "Proximidad: " + proximityText + ", RSSI: " + rssi);
         }
     };
 
-    private double calculateDistance(int rssi, int txPower) {
-        if (txPower == 0) return -1.0;
-        double ratio = (double) rssi / txPower;
-        if (ratio < 1.0) {
-            return Math.pow(ratio, 10);
+    /**
+     * Clasifica el RSSI en categorías de proximidad.
+     * @param rssi Valor de la señal RSSI.
+     * @return 0 si está cerca, 1 si está a media distancia, 2 si está lejos.
+     */
+    private int getProximityCategory(int rssi) {
+        if (rssi >= -45) {
+            return 0; // Cerca
+        } else if (rssi >= -75) {
+            return 1; // Media distancia
         } else {
-            double environmentalFactor = 2.0;
-            return Math.pow(10, (txPower - rssi) / (10 * environmentalFactor));
+            return 2; // Lejos
         }
     }
-
-
 }
 
