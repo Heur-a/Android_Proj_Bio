@@ -142,6 +142,7 @@
         android:fontFamily="@font/ptserifregular"
         android:textColorLink="@color/verdeOscuro"
         android:textSize="34sp"
+        android:elevation="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -156,9 +157,10 @@
         android:fontFamily="@font/montserratmedium"
         android:gravity="center"
         android:text="Distancia al sensor"
-        android:textColor="#FFFFFF"
+        android:textColor="#ffffff"
         android:textSize="8sp"
         android:textStyle="bold"
+        android:elevation="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mapView2" />
 
@@ -172,9 +174,21 @@
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:textStyle="bold"
+        android:elevation="5dp"
         app:layout_constraintStart_toStartOf="@+id/textView24"
         app:layout_constraintTop_toBottomOf="@+id/textView24" />
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="100dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="50dp"
+        android:backgroundTint="@color/verdeOscuro"
+        android:text=""
+        android:textColorLink="#FDFDFE"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mapView2" />
 
     <TextView
         android:id="@+id/textView22"
@@ -183,6 +197,7 @@
         android:fontFamily="@font/montserratmedium"
         android:layout_marginStart="16dp"
         android:text="Ubicación del sensor"
+        android:elevation="5dp"
         android:textColor="@color/gris"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView2"
@@ -197,6 +212,7 @@
         android:fontFamily="@font/montserratmedium"
         android:layout_marginStart="16dp"
         android:text="Tu ubicación"
+        android:elevation="5dp"
         android:textColor="@color/gris"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView3"
@@ -205,10 +221,11 @@
 
     <com.google.android.gms.maps.MapView
         android:id="@+id/mapView2"
-        android:contentDescription="mapa"
         android:layout_width="282dp"
         android:layout_height="169dp"
         android:layout_marginTop="16dp"
+        android:contentDescription="mapa"
+        android:elevation="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView27" />
@@ -219,6 +236,7 @@
         android:layout_height="18dp"
         android:layout_marginStart="64dp"
         android:layout_marginTop="8dp"
+        android:elevation="5dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mapView2"
         app:srcCompat="@drawable/marcador" />
@@ -228,14 +246,31 @@
         android:layout_width="15dp"
         android:layout_height="18dp"
         android:layout_marginStart="64dp"
+        android:elevation="5dp"
         android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:srcCompat="@drawable/marcadorverdeoscuro" />
 
+    <Button
+        android:id="@+id/buttonFondoUbi1"
+        android:layout_width="375dp"
+        android:layout_height="250dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/boton_marron"
+        android:text=""
+        android:textColorLink="#FDFDFE"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView27" />
+
     <!-- fin LocationFragment -->
 
     <!-- GraficaActivity -->
+
+
 
 
     <TextView
@@ -248,6 +283,7 @@
         android:textColor="@color/verdeOscuro"
         android:fontFamily="@font/montserratmedium"
         android:textSize="24sp"
+        android:elevation="5dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView28" />
 
@@ -262,6 +298,7 @@
         android:textColor="@color/gris"
         android:textSize="16sp"
         android:textStyle="bold"
+        android:elevation="5dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView21" />
 
@@ -275,6 +312,7 @@
         android:text="0"
         android:textColor="@color/gris"
         android:textSize="14sp"
+        android:elevation="5dp"
         app:layout_constraintStart_toStartOf="@+id/textView23"
         app:layout_constraintTop_toBottomOf="@+id/textView23" />
 
@@ -288,6 +326,7 @@
         android:text="0,00 km"
         android:textColor="@color/gris"
         android:textSize="14sp"
+        android:elevation="5dp"
         app:layout_constraintStart_toStartOf="@+id/textView29"
         app:layout_constraintTop_toBottomOf="@+id/textView29" />
 
@@ -302,6 +341,7 @@
         android:textColor="@color/gris"
         android:textSize="16sp"
         android:textStyle="bold"
+        android:elevation="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView21" />
 
@@ -315,6 +355,7 @@
         android:textColor="@color/gris"
         android:textSize="16sp"
         android:textStyle="bold"
+        android:elevation="5dp"
         app:layout_constraintStart_toStartOf="@+id/stepsTextView"
         app:layout_constraintTop_toBottomOf="@+id/stepsTextView" />
 
@@ -327,6 +368,7 @@
         android:fontFamily="@font/montserratmedium"
         android:textColor="@color/gris"
         android:textSize="14sp"
+        android:elevation="5dp"
         app:layout_constraintStart_toStartOf="@+id/textView33"
         app:layout_constraintTop_toBottomOf="@+id/textView33" />
 
@@ -339,6 +381,7 @@
         android:text="Cambiar Objetivo Diario"
         android:fontFamily="@font/montserratmedium"
         android:textColor="@color/verdeClaro"
+        android:elevation="5dp"
         app:layout_constraintEnd_toEndOf="@+id/textView33"
         app:layout_constraintStart_toStartOf="@+id/textView33"
         app:layout_constraintTop_toBottomOf="@id/goalTextView" />
@@ -347,8 +390,9 @@
     <!-- Aquí se agregará el gráfico circular -->
     <com.github.mikephil.charting.charts.PieChart
         android:id="@+id/pieChart"
-        android:layout_width="115dp"
+        android:layout_width="125dp"
         android:layout_height="136dp"
+        android:elevation="5dp"
         app:layout_constraintEnd_toStartOf="@+id/updateGoalButton"
         app:layout_constraintStart_toEndOf="@+id/textView29"
         app:layout_constraintTop_toBottomOf="@+id/textView21" />
@@ -400,6 +444,21 @@
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
+
+
+    <Button
+        android:id="@+id/buttonFondoUbi2"
+        android:layout_width="375dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/boton_marron"
+        android:text=""
+        android:textColorLink="#FDFDFE"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonFondoUbi1" />
 
 
     <!-- fin GraficaActivity -->

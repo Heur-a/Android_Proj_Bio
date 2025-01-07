@@ -19,7 +19,7 @@
         android:fontFamily="@font/montserratmedium"
         android:text="Enviar"
         android:textAllCaps="false"
-        android:textColor="@color/marron"
+        android:textColor="@color/white"
         android:textColorHint="#2D2F32"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -137,7 +137,7 @@
         android:text="Nombre*"
         android:textColor="@color/verdeOscuro"
         android:textColorLink="@color/verdeOscuro"
-        app:layout_constraintStart_toStartOf="@+id/titulo5"
+        app:layout_constraintStart_toStartOf="@+id/editTextNombre"
         app:layout_constraintTop_toBottomOf="@+id/titulo5" />
 
     <TextView

@@ -10,26 +10,7 @@
         </shape>
     </item>
 
-    <item android:top="140dp" android:bottom="340dp" android:left="10dp" android:right="10dp">
-        <shape android:shape="rectangle">
-            <solid android:color="@color/marron" />
-        </shape>
-    </item>
-
-    <item android:top="330dp" android:bottom="350dp" android:left="260dp" android:right="60dp">
-        <shape android:shape="rectangle">
-            <solid android:color="@color/verdeOscuro" />
-            <corners android:radius="16dp" />
-        </shape>
-    </item>
-
-    <item android:top="440dp" android:bottom="110dp" android:left="10dp" android:right="10dp">
-        <shape android:shape="rectangle">
-            <solid android:color="@color/marron" />
-        </shape>
-    </item>
-
-    <item android:top="750dp">
+    <item android:top="720dp">
         <shape android:shape="rectangle">
             <solid android:color="@color/verdeOscuro" />
         </shape>
