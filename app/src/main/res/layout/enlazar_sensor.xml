@@ -16,7 +16,7 @@
         android:backgroundTint="@color/verdeClaro"
         android:fontFamily="@font/montserratmedium"
         android:text="Comprobar código"
-        android:textColor="#000000"
+        android:textColor="@color/gris"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/codigosensor" />

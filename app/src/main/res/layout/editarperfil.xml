@@ -128,27 +128,27 @@
 
     <ImageView
         android:id="@+id/fotoperfil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:layout_marginTop="90dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@drawable/usuario_foto" />
 
     <ImageButton
         android:id="@+id/lapiz"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:layout_marginStart="104dp"
-        android:layout_marginTop="88dp"
+        android:layout_marginStart="-24dp"
+        android:layout_marginBottom="-12dp"
         android:adjustViewBounds="true"
         android:background="@drawable/boton_redondo_verde"
         android:contentDescription="lapiz"
         android:scaleType="centerInside"
-        app:layout_constraintStart_toStartOf="@+id/fotoperfil"
-        app:layout_constraintTop_toTopOf="@+id/fotoperfil"
+        app:layout_constraintBottom_toBottomOf="@+id/fotoperfil"
+        app:layout_constraintStart_toEndOf="@+id/fotoperfil"
         app:srcCompat="@drawable/lapiz_de_usuario" />
 
     <ImageButton
@@ -158,7 +158,11 @@
         android:layout_marginBottom="8dp"
         android:adjustViewBounds="true"
         android:background="@drawable/boton_redondo"
+        android:clickable="true"
         android:contentDescription="flecha"
+        android:elevation="10dp"
+        android:focusable="true"
+
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="@+id/cambiarcontrasena"
         app:layout_constraintEnd_toEndOf="@+id/flechaweb"
@@ -175,7 +179,6 @@
         android:clickable="true"
         android:focusable="true"
         android:elevation="10dp"
-
         android:contentDescription="flecha"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toTopOf="@+id/cambiarcontrasena"
@@ -260,6 +263,33 @@
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/angulo_pequeno_derecho" />
 
+
+    <Button
+        android:id="@+id/buttonFondoPerfil1"
+        android:layout_width="416dp"
+        android:layout_height="40dp"
+        android:backgroundTint="@color/marronClaro"
+        android:elevation="0dp"
+        android:text=""
+        android:textColorLink="#FDFDFE"
+        app:layout_constraintBottom_toBottomOf="@+id/general"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/general" />
+
+    <Button
+        android:id="@+id/buttonFondoPerfil2"
+        android:layout_width="416dp"
+        android:layout_height="40dp"
+        android:backgroundTint="@color/marronClaro"
+        android:elevation="0dp"
+        android:text=""
+        android:textColorLink="#FDFDFE"
+        app:layout_constraintBottom_toBottomOf="@+id/info"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/info" />
+
     <TextView
         android:id="@+id/nombreUsuario"
         android:layout_width="wrap_content"
@@ -278,9 +308,9 @@
         android:id="@+id/general"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/montserratmedium"
         android:layout_marginStart="28dp"
         android:layout_marginTop="24dp"
+        android:fontFamily="@font/montserratmedium"
         android:text="General"
         android:textColor="@color/gris"
         android:textSize="18sp"

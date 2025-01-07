@@ -189,6 +189,7 @@
         app:layout_constraintStart_toStartOf="@+id/editTextPhone"
         app:layout_constraintTop_toBottomOf="@+id/editTextPhone" />
 
+
     <TextView
         android:id="@+id/descriText"
         android:layout_width="wrap_content"
@@ -289,7 +290,6 @@
         android:fontFamily="@font/montserratmedium"
         android:spinnerMode="dropdown"
         android:entries="@array/asuntos_array"
-        android:textColor="@color/gris"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/asuntoText" />

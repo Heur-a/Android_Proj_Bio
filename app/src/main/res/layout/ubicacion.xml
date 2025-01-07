@@ -125,12 +125,27 @@
         app:layout_constraintStart_toEndOf="@+id/iconagendaWEB"
         app:srcCompat="@drawable/alt_administrador" />
 
-
-
     <!--finfooter-->
 
 
     <!-- LocationFragment -->
+
+
+    <Button
+        android:id="@+id/buttonFondoUbi1"
+        android:layout_width="375dp"
+        android:layout_height="250dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="10dp"
+        android:backgroundTint="@color/marron"
+        android:text=""
+        app:cornerRadius="20dp"
+        android:elevation="0dp"
+        android:textColorLink="#FDFDFE"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView27" />
 
     <TextView
         android:id="@+id/textView27"
@@ -186,6 +201,7 @@
         android:layout_marginEnd="50dp"
         android:backgroundTint="@color/verdeOscuro"
         android:text=""
+        android:elevation="5dp"
         android:textColorLink="#FDFDFE"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mapView2" />
@@ -252,26 +268,24 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:srcCompat="@drawable/marcadorverdeoscuro" />
 
-    <Button
-        android:id="@+id/buttonFondoUbi1"
-        android:layout_width="375dp"
-        android:layout_height="250dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="10dp"
-        android:background="@drawable/boton_marron"
-        android:text=""
-        android:textColorLink="#FDFDFE"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView27" />
-
     <!-- fin LocationFragment -->
 
     <!-- GraficaActivity -->
 
-
-
+    <Button
+        android:id="@+id/buttonFondoUbi2"
+        android:layout_width="375dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="10dp"
+        android:backgroundTint="@color/marron"
+        android:text=""
+        android:textColorLink="#FDFDFE"
+        app:cornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonFondoUbi1" />
 
     <TextView
         android:id="@+id/textView21"
@@ -378,10 +392,11 @@
         android:layout_height="48dp"
         android:layout_marginTop="8dp"
         android:backgroundTint="@color/verdeBoton"
-        android:text="Cambiar Objetivo Diario"
-        android:fontFamily="@font/montserratmedium"
-        android:textColor="@color/verdeClaro"
         android:elevation="5dp"
+        android:fontFamily="@font/montserratmedium"
+        android:text="Cambiar Objetivo Diario"
+        android:textColor="@color/white"
+        android:textSize="10dp"
         app:layout_constraintEnd_toEndOf="@+id/textView33"
         app:layout_constraintStart_toStartOf="@+id/textView33"
         app:layout_constraintTop_toBottomOf="@id/goalTextView" />
@@ -393,6 +408,7 @@
         android:layout_width="125dp"
         android:layout_height="136dp"
         android:elevation="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonFondoUbi2"
         app:layout_constraintEnd_toStartOf="@+id/updateGoalButton"
         app:layout_constraintStart_toEndOf="@+id/textView29"
         app:layout_constraintTop_toBottomOf="@+id/textView21" />
@@ -405,6 +421,7 @@
         android:orientation="vertical"
         android:background="#80000000"
         android:visibility="gone"
+        android:elevation="15dp"
         android:gravity="center">
 
         <LinearLayout
@@ -432,6 +449,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Actualizar"
+                    android:backgroundTint="@color/verdeBoton"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textColorHint="#2D2F32"
                     android:textSize="12sp"/>
 
                 <Button
@@ -439,27 +460,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Cancelar"
+                    android:backgroundTint="@color/verdeBoton"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textColorHint="#2D2F32"
                     android:textSize="12sp"/>
 
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-
-
-    <Button
-        android:id="@+id/buttonFondoUbi2"
-        android:layout_width="375dp"
-        android:layout_height="200dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="10dp"
-        android:background="@drawable/boton_marron"
-        android:text=""
-        android:textColorLink="#FDFDFE"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonFondoUbi1" />
-
 
     <!-- fin GraficaActivity -->
 
