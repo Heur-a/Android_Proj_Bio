@@ -6,6 +6,20 @@
     android:layout_height="match_parent"
     android:background="@drawable/fondo_datos_sensor">
 
+    <ImageButton
+        android:id="@+id/logoGrafica"
+        android:layout_width="198dp"
+        android:layout_height="140dp"
+        android:layout_marginStart="-32dp"
+        android:layout_marginTop="-32dp"
+        android:adjustViewBounds="true"
+        android:backgroundTint="#003A5335"
+        android:contentDescription="logo"
+        android:scaleType="centerInside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logotipo_modoclaro" />
+
     <TextView
         android:id="@+id/textView26"
         android:layout_width="wrap_content"
@@ -23,33 +37,30 @@
     <Button
         android:id="@+id/boton"
         android:layout_width="wrap_content"
-        android:fontFamily="@font/montserratmedium"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_marginTop="450dp"
-        android:layout_marginEnd="64dp"
         android:backgroundTint="@color/verdeBoton"
+        android:fontFamily="@font/montserratmedium"
         android:text="Ver Histórico de Datos"
         android:textAllCaps="false"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/textView34"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textView34"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView34" />
 
     <TextView
         android:id="@+id/textView34"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:fontFamily="@font/ptserifregular"
         android:text="Datos sensor"
         android:textColor="@color/verdeOscuro"
-        android:fontFamily="@font/ptserifregular"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logoGrafica" />
+        tools:layout_editor_absoluteY="90dp" />
 
     <ImageButton
         android:id="@+id/iconanuncioGrafica"
@@ -70,13 +81,14 @@
         android:id="@+id/iconGraficaGrafica"
         android:layout_width="0dp"
         android:layout_height="66dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="5dp"
         android:adjustViewBounds="true"
         android:backgroundTint="@color/verdeOscuro"
         android:contentDescription="Botón de gráficas"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/iconoMapGrafica"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/estadisticas" />
 
@@ -84,68 +96,63 @@
         android:id="@+id/iconoMapGrafica"
         android:layout_width="0dp"
         android:layout_height="66dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="5dp"
         android:adjustViewBounds="true"
         android:backgroundTint="@color/verdeOscuro"
         android:contentDescription="Botón de ubicación"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/iconagendaGrafica"
+        app:layout_constraintEnd_toStartOf="@+id/IconHomeGrafica"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/iconGraficaGrafica"
         app:srcCompat="@drawable/ubicacion_de_la_capa_terrestre" />
 
-    <ImageButton
-        android:id="@+id/iconagendaGrafica"
-        android:layout_width="0dp"
-        android:layout_height="66dp"
-        android:layout_marginBottom="10dp"
-        android:adjustViewBounds="true"
-        android:backgroundTint="@color/verdeOscuro"
-        android:contentDescription="Botón de agenda"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/IconHomeGrafica"
-        app:layout_constraintStart_toEndOf="@+id/iconoMapGrafica"
-        app:srcCompat="@drawable/directorio" />
 
     <ImageButton
         android:id="@+id/IconHomeGrafica"
         android:layout_width="0dp"
         android:layout_height="66dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="5dp"
         android:adjustViewBounds="true"
         android:backgroundTint="@color/verdeOscuro"
         android:contentDescription="Botón de inicio"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/iconAjustessGrafica"
-        app:layout_constraintStart_toEndOf="@+id/iconagendaGrafica"
+
+        app:layout_constraintEnd_toStartOf="@+id/iconagendaGrafica"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/iconoMapGrafica"
         app:srcCompat="@drawable/casa_en_blanco" />
+
+    <ImageButton
+        android:id="@+id/iconagendaGrafica"
+        android:layout_width="0dp"
+        android:layout_height="66dp"
+        android:layout_marginBottom="5dp"
+        android:adjustViewBounds="true"
+        android:backgroundTint="@color/verdeOscuro"
+        android:contentDescription="Botón de agenda"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/iconAjustessGrafica"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/IconHomeGrafica"
+        app:srcCompat="@drawable/directorio" />
 
     <ImageButton
         android:id="@+id/iconAjustessGrafica"
         android:layout_width="0dp"
         android:layout_height="66dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="5dp"
         android:adjustViewBounds="true"
         android:backgroundTint="@color/verdeOscuro"
         android:contentDescription="Botón de ajustes"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/IconHomeGrafica"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/iconagendaGrafica"
         app:srcCompat="@drawable/alt_administrador" />
 
 
-    <ImageButton
-        android:id="@+id/logoGrafica"
-        android:layout_width="124dp"
-        android:layout_height="82dp"
-        android:adjustViewBounds="true"
-        android:backgroundTint="#003A5335"
-        android:contentDescription="Logo de OZONE"
-        android:scaleType="centerInside"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logotipo_modoclaro" />
 </androidx.constraintlayout.widget.ConstraintLayout>
