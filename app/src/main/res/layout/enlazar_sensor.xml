@@ -8,34 +8,6 @@
     app:circularflow_radiusInDP="30"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/sinncodigoboton"
-        android:layout_width="166dp"
-        android:layout_height="59dp"
-        android:layout_marginTop="15dp"
-        android:backgroundTint="@color/verdeClaro"
-        android:fontFamily="@font/montserratmedium"
-        android:text="Comprobar código"
-        android:textColor="#000000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/codigosensor" />
-
-    <EditText
-        android:id="@+id/codigosensor"
-        android:layout_width="264dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="50dp"
-        android:ems="10"
-        android:fontFamily="@font/montserratmedium"
-        android:gravity="center"
-        android:hint="Código del sensor"
-        android:inputType="text"
-        android:textColorHint="#000000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/texto" />
-
     <ImageView
         android:id="@+id/logoGrafica"
         android:layout_width="300dp"
@@ -74,61 +46,65 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titulo" />
 
-    <!--<TextView
-        android:id="@+id/contraseñaLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Introducir código del sensor"
-        android:textColor="@color/verdeOscuro"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/contraseñaInput"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />-->
-
-    <!--<EditText
-        android:id="@+id/contraseñaInput"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="16dp"
-        android:backgroundTint="@color/gris"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:textColor="@color/black"
-        android:textCursorDrawable="@drawable/cursor_color"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />-->
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
-        android:text="O"
-        android:textColor="@color/verdeOscuro"
-        android:textColorLink="#000000"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toTopOf="@+id/contraseñaLabel"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <Button
         android:id="@+id/enlazarSensor"
         android:layout_width="136dp"
         android:layout_height="133dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="12dp"
         android:backgroundTint="@color/verdeBoton"
         android:text="[   ]"
         android:textColor="@color/verdeBotonColor"
         android:textSize="60sp"
         app:circularflow_angles="TRUE"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/texto" />
+
+    <TextView
+        android:id="@+id/texto2"
+        android:layout_width="20dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="2dp"
+        android:fontFamily="@font/montserratmedium"
+        android:text="o"
+        android:textAlignment="center"
+        android:textColor="@color/verdeOscuro"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/enlazarSensor" />
+
+    <EditText
+        android:id="@+id/codigosensor"
+        android:layout_width="264dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="2dp"
+        android:ems="10"
+        android:fontFamily="@font/montserratmedium"
+        android:gravity="center"
+        android:hint="Código del sensor"
+        android:inputType="text"
+        android:backgroundTint="@color/gris"
+        android:textColor="@color/gris"
+        android:textColorHint="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/texto2" />
+
+    <Button
+        android:id="@+id/sinncodigoboton"
+        android:layout_width="166dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="6dp"
+        android:backgroundTint="@color/verdeClaro"
+        android:fontFamily="@font/montserratmedium"
+        android:text="Comprobar código"
+        android:textColor="@color/gris"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/codigosensor" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,38 +6,46 @@
     android:layout_height="match_parent"
     android:background="@drawable/fondo_editarperfil">
 
-    <TextView
-        android:id="@+id/textView31"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="-10dp"
-        android:fontFamily="@font/montserratmedium"
-        android:text="----------"
-        android:textColor="@color/marron"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.94"
+    <!-- header -->
+    <ImageButton
+        android:id="@+id/logoEditarPerfil"
+        android:layout_width="198dp"
+        android:layout_height="140dp"
+        android:layout_marginStart="-32dp"
+        android:layout_marginTop="-32dp"
+        android:adjustViewBounds="true"
+        android:backgroundTint="#003A5335"
+        android:contentDescription="logo"
+        android:scaleType="centerInside"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iconAjustessEditarPerfil" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logotipo_modoclaro" />
 
     <ImageButton
         android:id="@+id/iconanuncioEditarPerfil"
-        android:contentDescription="anuncios"
         android:layout_width="61dp"
         android:layout_height="66dp"
-        android:layout_marginTop="8dp"
         android:adjustViewBounds="true"
         android:backgroundTint="@color/verdeOscuro"
         android:scaleType="centerInside"
+        android:contentDescription="Boton para ir a la pagina de anuncios"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/logoEditarPerfil"
+        app:layout_constraintHorizontal_bias="0.977"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.01"
         app:srcCompat="@drawable/ondas_sonoras_de_megafono__3_" />
+
+    <!-- fin header -->
+
+    <!-- footer -->
 
     <ImageButton
         android:id="@+id/iconGraficaEditarPerfil"
         android:layout_width="0dp"
         android:layout_height="66dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="5dp"
         android:adjustViewBounds="true"
         android:backgroundTint="@color/verdeOscuro"
         android:contentDescription="Botón para ir a la página de gráficas"
@@ -47,11 +55,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/estadisticas" />
 
+
     <ImageButton
         android:id="@+id/mapaEditarPerfil"
         android:layout_width="0dp"
         android:layout_height="66dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="5dp"
         android:adjustViewBounds="true"
         android:backgroundTint="@color/verdeOscuro"
         android:contentDescription="Botón para ir a la página de mapa"
@@ -66,7 +75,7 @@
         android:id="@+id/iconHomeEditarPerfil"
         android:layout_width="0dp"
         android:layout_height="66dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="5dp"
         android:adjustViewBounds="true"
         android:backgroundTint="@color/verdeOscuro"
         android:contentDescription="Botón de inicio"
@@ -81,7 +90,7 @@
         android:id="@+id/iconagendaEditarPerfil"
         android:layout_width="0dp"
         android:layout_height="66dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="5dp"
         android:adjustViewBounds="true"
         android:backgroundTint="@color/verdeOscuro"
         android:contentDescription="Botón para ir a la página de agenda"
@@ -96,7 +105,7 @@
         android:id="@+id/iconAjustessEditarPerfil"
         android:layout_width="0dp"
         android:layout_height="66dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="5dp"
         android:adjustViewBounds="true"
         android:backgroundTint="@color/verdeOscuro"
         android:contentDescription="Botón para ir a la página de ajustes de usuario"
@@ -107,152 +116,78 @@
         app:layout_constraintTop_toTopOf="@+id/iconagendaEditarPerfil"
         app:srcCompat="@drawable/alt_administrador" />
 
-
-    <ImageButton
-        android:id="@+id/logoEditarPerfil"
-        android:layout_width="119dp"
-        android:contentDescription="ajustes"
-        android:layout_height="79dp"
-        android:adjustViewBounds="true"
-        android:backgroundTint="#003A5335"
-        android:scaleType="centerInside"
+    <TextView
+        android:id="@+id/textView40"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-10dp"
+        android:fontFamily="@font/montserratmedium"
+        android:text="----------"
+        android:textColor="@color/marron"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.94"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logotipo_modoclaro" />
+        app:layout_constraintTop_toBottomOf="@+id/iconAjustessEditarPerfil" />
+
+   <!-- fin footer -->
+
+    <!-- fondo -->
+
+    <Button
+        android:id="@+id/buttonFondoPerfil1"
+        android:layout_width="416dp"
+        android:layout_height="40dp"
+        android:backgroundTint="@color/marronClaro"
+        android:elevation="0dp"
+        android:text=""
+        android:textColorLink="#FDFDFE"
+        app:layout_constraintBottom_toBottomOf="@+id/general"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/general" />
+
+    <Button
+        android:id="@+id/buttonFondoPerfil2"
+        android:layout_width="416dp"
+        android:layout_height="40dp"
+        android:backgroundTint="@color/marronClaro"
+        android:elevation="0dp"
+        android:text=""
+        android:textColorLink="#FDFDFE"
+        app:layout_constraintBottom_toBottomOf="@+id/info"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/info" />
+
+    <!-- fin fondo -->
+
+    <!-- principio -->
 
     <ImageView
         android:id="@+id/fotoperfil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:layout_marginTop="90dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@drawable/usuario_foto" />
 
     <ImageButton
         android:id="@+id/lapiz"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:layout_marginStart="104dp"
-        android:layout_marginTop="88dp"
+        android:layout_marginStart="-24dp"
+        android:layout_marginBottom="-12dp"
         android:adjustViewBounds="true"
         android:background="@drawable/boton_redondo_verde"
         android:contentDescription="lapiz"
         android:scaleType="centerInside"
-        app:layout_constraintStart_toStartOf="@+id/fotoperfil"
-        app:layout_constraintTop_toTopOf="@+id/fotoperfil"
+        app:layout_constraintBottom_toBottomOf="@+id/fotoperfil"
+        app:layout_constraintStart_toEndOf="@+id/fotoperfil"
         app:srcCompat="@drawable/lapiz_de_usuario" />
-
-    <ImageButton
-        android:id="@+id/flecha"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginBottom="8dp"
-        android:adjustViewBounds="true"
-        android:background="@drawable/boton_redondo"
-        android:contentDescription="flecha"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="@+id/cambiarcontrasena"
-        app:layout_constraintEnd_toEndOf="@+id/flechaweb"
-        app:layout_constraintTop_toTopOf="@+id/cambiarcontrasena"
-        app:srcCompat="@drawable/angulo_pequeno_derecho" />
-
-    <ImageButton
-        android:id="@+id/flechaweb"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginBottom="32dp"
-        android:adjustViewBounds="true"
-        android:background="@drawable/boton_redondo"
-        android:clickable="true"
-        android:focusable="true"
-        android:elevation="10dp"
-
-        android:contentDescription="flecha"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toTopOf="@+id/cambiarcontrasena"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/nochedia"
-        app:srcCompat="@drawable/angulo_pequeno_derecho" />
-
-    <ImageButton
-        android:id="@+id/flecha2"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:adjustViewBounds="true"
-        android:background="@drawable/boton_redondo"
-        android:clickable="true"
-        android:focusable="true"
-        android:elevation="10dp"
-        android:contentDescription="flecha"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="@+id/idioma"
-        app:layout_constraintEnd_toEndOf="@+id/flecha"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/flecha"
-        app:layout_constraintTop_toTopOf="@+id/idioma"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/angulo_pequeno_derecho" />
-
-    <ImageButton
-        android:id="@+id/flechaSobreAPP"
-        android:layout_width="48dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:elevation="10dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="10dp"
-        android:adjustViewBounds="true"
-        android:background="@drawable/boton_redondo"
-        android:contentDescription="flecha"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="@+id/sobreaplicacion"
-        app:layout_constraintEnd_toEndOf="@+id/flecha2"
-        app:layout_constraintHorizontal_bias="0.781"
-        app:layout_constraintStart_toStartOf="@+id/flecha2"
-        app:layout_constraintTop_toTopOf="@+id/sobreaplicacion"
-        app:layout_constraintVertical_bias="0.554"
-        app:srcCompat="@drawable/angulo_pequeno_derecho" />
-
-    <ImageButton
-        android:id="@+id/flechaterminos"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:elevation="10dp"
-        android:layout_marginTop="16dp"
-        android:adjustViewBounds="true"
-        android:background="@drawable/boton_redondo"
-        android:contentDescription="flecha"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="@+id/terminooooos"
-        app:layout_constraintEnd_toEndOf="@+id/flechaSobreAPP"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/flechaSobreAPP"
-        app:layout_constraintTop_toBottomOf="@+id/flechaSobreAPP"
-        app:srcCompat="@drawable/angulo_pequeno_derecho" />
-
-    <ImageButton
-        android:id="@+id/privacidadflecha"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:elevation="10dp"
-        android:adjustViewBounds="true"
-        android:background="@drawable/boton_redondo"
-        android:contentDescription="flecha"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="@+id/textprivacidad"
-        app:layout_constraintEnd_toEndOf="@+id/flechaterminos"
-        app:layout_constraintHorizontal_bias="0.533"
-        app:layout_constraintStart_toStartOf="@+id/flechaterminos"
-        app:layout_constraintTop_toBottomOf="@+id/flechaterminos"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/angulo_pequeno_derecho" />
 
     <TextView
         android:id="@+id/nombreUsuario"
@@ -269,12 +204,129 @@
         app:layout_constraintTop_toBottomOf="@+id/fotoperfil" />
 
     <TextView
+        android:id="@+id/correoUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="elenaruizblanca@gmail.com"
+        android:fontFamily="@font/montserratmedium"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/nombreUsuario"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="@+id/nombreUsuario"
+        app:layout_constraintTop_toBottomOf="@+id/nombreUsuario" />
+
+    <!-- fin principio -->
+
+    <!-- flechas -->
+
+    <ImageButton
+        android:id="@+id/flechaweb"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="8dp"
+        android:adjustViewBounds="true"
+        android:clickable="true"
+        android:contentDescription="flecha"
+        android:elevation="10dp"
+        android:focusable="true"
+        android:background="@null"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="@+id/web"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/web"
+        app:srcCompat="@drawable/angulo_pequeno_derecho" />
+
+    <ImageButton
+        android:id="@+id/flecha"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:adjustViewBounds="true"
+        android:clickable="true"
+        android:contentDescription="flecha"
+        android:background="@null"
+        android:elevation="10dp"
+        android:focusable="true"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="@+id/cambiocontrasena"
+        app:layout_constraintEnd_toEndOf="@+id/flechaweb"
+        app:layout_constraintTop_toTopOf="@+id/cambiocontrasena"
+        app:srcCompat="@drawable/angulo_pequeno_derecho" />
+
+    <ImageButton
+        android:id="@+id/flecha2"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:adjustViewBounds="true"
+        android:clickable="true"
+        android:contentDescription="flecha"
+        android:elevation="10dp"
+        android:focusable="true"
+        android:background="@null"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="@+id/cambioidioma"
+        app:layout_constraintEnd_toEndOf="@+id/flecha"
+        app:layout_constraintTop_toTopOf="@+id/cambioidioma"
+        app:srcCompat="@drawable/angulo_pequeno_derecho" />
+
+    <ImageButton
+        android:id="@+id/flechaSobreAPP"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:adjustViewBounds="true"
+        android:clickable="true"
+        android:contentDescription="flecha"
+        android:elevation="10dp"
+        android:background="@null"
+        android:focusable="true"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="@+id/sobreaplicacion"
+        app:layout_constraintEnd_toEndOf="@+id/flecha2"
+        app:layout_constraintTop_toTopOf="@+id/sobreaplicacion"
+        app:srcCompat="@drawable/angulo_pequeno_derecho" />
+
+    <ImageButton
+        android:id="@+id/flechaterminos"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:adjustViewBounds="true"
+        android:clickable="true"
+        android:background="@null"
+        android:contentDescription="flecha"
+        android:elevation="10dp"
+        android:focusable="true"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="@+id/terminooooos"
+        app:layout_constraintEnd_toEndOf="@+id/flechaSobreAPP"
+        app:layout_constraintTop_toTopOf="@+id/terminooooos"
+        app:srcCompat="@drawable/angulo_pequeno_derecho" />
+
+    <ImageButton
+        android:id="@+id/privacidadflecha"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:adjustViewBounds="true"
+        android:clickable="true"
+        android:contentDescription="flecha"
+        android:elevation="10dp"
+        android:focusable="true"
+        android:background="@null"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="@+id/textprivacidad"
+        app:layout_constraintEnd_toEndOf="@+id/flechaterminos"
+        app:layout_constraintTop_toTopOf="@+id/textprivacidad"
+        app:srcCompat="@drawable/angulo_pequeno_derecho" />
+
+    <!-- fin flechas -->
+
+    <!-- titulos -->
+    <TextView
         android:id="@+id/general"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/montserratmedium"
         android:layout_marginStart="28dp"
         android:layout_marginTop="24dp"
+        android:fontFamily="@font/montserratmedium"
         android:text="General"
         android:textColor="@color/gris"
         android:textSize="18sp"
@@ -293,70 +345,9 @@
         app:layout_constraintStart_toStartOf="@+id/general"
         app:layout_constraintTop_toBottomOf="@+id/general" />
 
-    <TextView
-        android:id="@+id/cambiocontrasena"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cambiar Contraseña"
-        android:fontFamily="@font/montserratmedium"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/cambiarcontrasena"
-        app:layout_constraintStart_toStartOf="@+id/web"
-        app:layout_constraintTop_toTopOf="@+id/cambiarcontrasena" />
+    <!-- fin titulos -->
 
-    <TextView
-        android:id="@+id/sobreaplicacion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sobre la aplicación"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        android:fontFamily="@font/montserratmedium"
-        app:layout_constraintBottom_toBottomOf="@+id/sobreapp"
-        app:layout_constraintStart_toStartOf="@+id/cambioidioma"
-        app:layout_constraintTop_toTopOf="@+id/sobreapp"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/terminooooos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Términos y condiciones"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        android:fontFamily="@font/montserratmedium"
-        app:layout_constraintBottom_toBottomOf="@+id/terminos"
-        app:layout_constraintStart_toStartOf="@+id/sobreaplicacion"
-        app:layout_constraintTop_toTopOf="@+id/terminos"
-        app:layout_constraintVertical_bias="0.806" />
-
-    <TextView
-        android:id="@+id/textprivacidad"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Política de privacidad"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        android:fontFamily="@font/montserratmedium"
-        app:layout_constraintBottom_toBottomOf="@+id/privacidad"
-        app:layout_constraintStart_toStartOf="@+id/terminooooos"
-        app:layout_constraintTop_toTopOf="@+id/privacidad"
-        app:layout_constraintVertical_bias="0.2" />
-
-    <TextView
-        android:id="@+id/cambioidioma"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/montserratmedium"
-        android:text="Idioma"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/idioma"
-        app:layout_constraintStart_toStartOf="@+id/cambiocontrasena"
-        app:layout_constraintTop_toTopOf="@+id/idioma"
-        app:layout_constraintVertical_bias="0.548" />
+    <!-- textos -->
 
     <TextView
         android:id="@+id/web"
@@ -371,17 +362,72 @@
         app:layout_constraintTop_toTopOf="@+id/nochedia" />
 
     <TextView
-        android:id="@+id/correoUsuario"
+        android:id="@+id/cambiocontrasena"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="elenaruizblanca@gmail.com"
         android:fontFamily="@font/montserratmedium"
+        android:text="Cambiar Contraseña"
         android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/nombreUsuario"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="@+id/nombreUsuario"
-        app:layout_constraintTop_toBottomOf="@+id/nombreUsuario" />
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/web"
+        app:layout_constraintTop_toTopOf="@+id/cambiarcontrasena" />
+
+    <TextView
+        android:id="@+id/cambioidioma"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserratmedium"
+        android:text="Idioma"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/cambiocontrasena"
+        app:layout_constraintTop_toTopOf="@+id/idioma" />
+
+    <TextView
+        android:id="@+id/sobreaplicacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserratmedium"
+        android:text="Sobre la aplicación"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/cambioidioma"
+        app:layout_constraintTop_toTopOf="@+id/sobreapp" />
+
+    <TextView
+        android:id="@+id/terminooooos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserratmedium"
+        android:text="Términos y condiciones"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/sobreaplicacion"
+        app:layout_constraintTop_toTopOf="@+id/terminos" />
+
+    <TextView
+        android:id="@+id/textprivacidad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserratmedium"
+        android:text="Política de privacidad"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/terminooooos"
+        app:layout_constraintTop_toTopOf="@+id/privacidad" />
+
+    <!-- fin textos -->
+
+    <!-- iconos -->
+
+    <ImageView
+        android:id="@+id/nochedia"
+        android:layout_width="33dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="@+id/general"
+        app:layout_constraintTop_toBottomOf="@+id/general"
+        app:srcCompat="@drawable/web" />
 
     <ImageView
         android:id="@+id/cambiarcontrasena"
@@ -428,13 +474,6 @@
         app:layout_constraintTop_toBottomOf="@+id/terminos"
         app:srcCompat="@drawable/escudo_de_usuario" />
 
-    <ImageView
-        android:id="@+id/nochedia"
-        android:layout_width="33dp"
-        android:layout_height="31dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="@+id/general"
-        app:layout_constraintTop_toBottomOf="@+id/general"
-        app:srcCompat="@drawable/web" />
+    <!-- fin iconos -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

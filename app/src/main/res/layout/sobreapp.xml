@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/fondo_anuncios">
 
+    <!-- header -->
 
     <ImageButton
         android:id="@+id/logoWEB"
@@ -20,6 +21,104 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logotipo_modoclaro" />
+
+
+    <ImageButton
+        android:id="@+id/iconanuncioWEB"
+        android:layout_width="61dp"
+        android:layout_height="66dp"
+        android:adjustViewBounds="true"
+        android:backgroundTint="@color/verdeOscuro"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.977"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.01"
+        app:srcCompat="@drawable/ondas_sonoras_de_megafono__3_"
+        android:contentDescription="Boton para ir a la pagina de anuncios"/>
+
+    <!-- fin header -->
+    <!-- footer -->
+
+    <ImageButton
+        android:id="@+id/iconGraficaWEB"
+        android:layout_width="0dp"
+        android:layout_height="66dp"
+        android:layout_marginBottom="5dp"
+        android:adjustViewBounds="true"
+        android:backgroundTint="@color/verdeOscuro"
+        android:contentDescription="Botón para ir a la página de gráficas"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/iconoMapWEB"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/estadisticas" />
+
+    <ImageButton
+        android:id="@+id/iconoMapWEB"
+        android:layout_width="0dp"
+        android:layout_height="66dp"
+        android:layout_marginBottom="5dp"
+        android:adjustViewBounds="true"
+        android:backgroundTint="@color/verdeOscuro"
+        android:contentDescription="Botón para ir a la página de mapa"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/IconHomeWEB"
+        app:layout_constraintStart_toEndOf="@+id/iconGraficaWEB"
+        app:layout_constraintTop_toTopOf="@+id/iconGraficaWEB"
+        app:srcCompat="@drawable/ubicacion_de_la_capa_terrestre" />
+
+    <ImageButton
+        android:id="@+id/IconHomeWEB"
+        android:layout_width="0dp"
+        android:layout_height="66dp"
+        android:layout_marginBottom="5dp"
+        android:adjustViewBounds="true"
+        android:backgroundTint="@color/verdeOscuro"
+        android:contentDescription="Botón de inicio"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/iconagendaWEB"
+        app:layout_constraintStart_toEndOf="@+id/iconoMapWEB"
+        app:layout_constraintTop_toTopOf="@+id/iconoMapWEB"
+        app:srcCompat="@drawable/casa_en_blanco" />
+
+    <ImageButton
+        android:id="@+id/iconagendaWEB"
+        android:layout_width="0dp"
+        android:layout_height="66dp"
+        android:layout_marginBottom="5dp"
+        android:adjustViewBounds="true"
+        android:backgroundTint="@color/verdeOscuro"
+        android:contentDescription="Botón para ir a la página de agenda"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/iconAjustessWEB"
+        app:layout_constraintStart_toEndOf="@+id/IconHomeWEB"
+        app:layout_constraintTop_toTopOf="@+id/IconHomeWEB"
+        app:srcCompat="@drawable/directorio" />
+
+    <ImageButton
+        android:id="@+id/iconAjustessWEB"
+        android:layout_width="0dp"
+        android:layout_height="66dp"
+        android:layout_marginBottom="5dp"
+        android:adjustViewBounds="true"
+        android:backgroundTint="@color/verdeOscuro"
+        android:contentDescription="Botón para ir a la página de ajustes de usuario"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/iconagendaWEB"
+        app:layout_constraintTop_toTopOf="@+id/iconagendaWEB"
+        app:srcCompat="@drawable/alt_administrador" />
+
+    <!-- fin footer -->
+
 
     <TextView
         android:id="@+id/textView3"
@@ -50,97 +149,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-    <ImageButton
-        android:id="@+id/iconanuncioWEB"
-        android:layout_width="61dp"
-        android:layout_height="66dp"
-        android:adjustViewBounds="true"
-        android:backgroundTint="@color/verdeOscuro"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.977"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.01"
-        app:srcCompat="@drawable/ondas_sonoras_de_megafono__3_"
-        android:contentDescription="Boton para ir a la pagina de anuncios"/>
-
-    <ImageButton
-        android:id="@+id/iconAjustessWEB"
-        android:layout_width="0dp"
-        android:layout_height="66dp"
-        android:layout_marginBottom="10dp"
-        android:adjustViewBounds="true"
-        android:backgroundTint="@color/verdeOscuro"
-        android:contentDescription="Botón para ir a la página de ajustes de usuario"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/iconagendaWEB"
-        app:layout_constraintTop_toTopOf="@+id/iconagendaWEB"
-        app:srcCompat="@drawable/alt_administrador" />
-
-    <ImageButton
-        android:id="@+id/iconGraficaWEB"
-        android:layout_width="0dp"
-        android:layout_height="66dp"
-        android:layout_marginBottom="10dp"
-        android:adjustViewBounds="true"
-        android:backgroundTint="@color/verdeOscuro"
-        android:contentDescription="Botón para ir a la página de gráficas"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/iconoMapWEB"
-        app:layout_constraintHorizontal_chainStyle="spread"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/estadisticas" />
-
-    <ImageButton
-        android:id="@+id/iconoMapWEB"
-        android:layout_width="0dp"
-        android:layout_height="66dp"
-        android:layout_marginBottom="10dp"
-        android:adjustViewBounds="true"
-        android:backgroundTint="@color/verdeOscuro"
-        android:contentDescription="Botón para ir a la página de mapa"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/IconHomeWEB"
-        app:layout_constraintStart_toEndOf="@+id/iconGraficaWEB"
-        app:layout_constraintTop_toTopOf="@+id/iconGraficaWEB"
-        app:srcCompat="@drawable/ubicacion_de_la_capa_terrestre" />
-
-    <ImageButton
-        android:id="@+id/IconHomeWEB"
-        android:layout_width="0dp"
-        android:layout_height="66dp"
-        android:layout_marginBottom="10dp"
-        android:adjustViewBounds="true"
-        android:backgroundTint="@color/verdeOscuro"
-        android:contentDescription="Botón de inicio"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/iconagendaWEB"
-        app:layout_constraintStart_toEndOf="@+id/iconoMapWEB"
-        app:layout_constraintTop_toTopOf="@+id/iconoMapWEB"
-        app:srcCompat="@drawable/casa_en_blanco" />
-
-    <ImageButton
-        android:id="@+id/iconagendaWEB"
-        android:layout_width="0dp"
-        android:layout_height="66dp"
-        android:layout_marginBottom="10dp"
-        android:adjustViewBounds="true"
-        android:backgroundTint="@color/verdeOscuro"
-        android:contentDescription="Botón para ir a la página de agenda"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/iconAjustessWEB"
-        app:layout_constraintStart_toEndOf="@+id/IconHomeWEB"
-        app:layout_constraintTop_toTopOf="@+id/IconHomeWEB"
-        app:srcCompat="@drawable/directorio" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

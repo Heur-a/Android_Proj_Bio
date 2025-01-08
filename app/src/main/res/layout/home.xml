@@ -6,21 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/fondo_homebien">
 
-
     <!-- header -->
-
-    <TextView
-        android:id="@+id/textView25"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="-15dp"
-        android:fontFamily="@font/montserratmedium"
-        android:text="----------"
-        android:textColor="@color/marron"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iconHomeHOME" />
 
     <ImageButton
         android:id="@+id/logoHOME"
@@ -30,11 +16,11 @@
         android:layout_marginTop="-32dp"
         android:adjustViewBounds="true"
         android:backgroundTint="#003A5335"
+        android:contentDescription="logo"
         android:scaleType="centerInside"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logotipo_modoclaro"
-        android:contentDescription="logo"/>
+        app:srcCompat="@drawable/logotipo_modoclaro" />
 
     <ImageButton
         android:id="@+id/iconanuncioHOME"
@@ -44,20 +30,168 @@
         android:layout_marginEnd="8dp"
         android:adjustViewBounds="true"
         android:backgroundTint="@color/verdeOscuro"
+        android:contentDescription="Boton para ir a pagina de anuncios"
         android:scaleType="centerInside"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ondas_sonoras_de_megafono__3_"
-        android:contentDescription="Boton para ir a pagina de anuncios"/>
+        app:srcCompat="@drawable/ondas_sonoras_de_megafono__3_" />
 
+    <!-- fin header -->
+
+
+    <!-- footer -->
+
+    <ImageButton
+        android:id="@+id/iconGraficaHOME"
+        android:layout_width="0dp"
+        android:layout_height="66dp"
+        android:layout_marginBottom="5dp"
+        android:adjustViewBounds="true"
+        android:backgroundTint="@color/verdeOscuro"
+        android:contentDescription="ICONO GRAFICA"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/iconoMapHOME"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/estadisticas" />
+
+    <ImageButton
+        android:id="@+id/iconoMapHOME"
+        android:layout_width="0dp"
+        android:layout_height="66dp"
+        android:layout_marginBottom="5dp"
+        android:adjustViewBounds="true"
+        android:backgroundTint="@color/verdeOscuro"
+        android:contentDescription="mapa"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/iconHomeHOME"
+        app:layout_constraintStart_toEndOf="@+id/iconGraficaHOME"
+        app:srcCompat="@drawable/ubicacion_de_la_capa_terrestre" />
+
+    <ImageButton
+        android:id="@+id/iconHomeHOME"
+        android:layout_width="0dp"
+        android:layout_height="66dp"
+        android:layout_marginBottom="5dp"
+        android:adjustViewBounds="true"
+        android:backgroundTint="@color/verdeOscuro"
+        android:contentDescription="Botón de inicio"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/iconagendaHOME"
+        app:layout_constraintStart_toEndOf="@+id/iconoMapHOME"
+        app:srcCompat="@drawable/casa_en_blanco" />
+
+    <ImageButton
+        android:id="@+id/iconagendaHOME"
+        android:layout_width="0dp"
+        android:layout_height="66dp"
+        android:layout_marginBottom="5dp"
+        android:adjustViewBounds="true"
+        android:backgroundTint="@color/verdeOscuro"
+        android:contentDescription="agenda"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/iconAjustessHOME"
+        app:layout_constraintStart_toEndOf="@+id/iconHomeHOME"
+        app:srcCompat="@drawable/directorio" />
+
+    <ImageButton
+        android:id="@+id/iconAjustessHOME"
+        android:layout_width="0dp"
+        android:layout_height="66dp"
+        android:layout_marginBottom="5dp"
+        android:adjustViewBounds="true"
+        android:backgroundTint="@color/verdeOscuro"
+        android:contentDescription="ajustes"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/iconagendaHOME"
+        app:srcCompat="@drawable/alt_administrador" />
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-10dp"
+        android:fontFamily="@font/montserratmedium"
+        android:text="----------"
+        android:textColor="@color/marron"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iconHomeHOME" />
+
+    <!-- fin footer -->
+
+    <!-- fondos -->
+
+    <Button
+        android:id="@+id/buttonFondoHome1"
+        android:layout_width="175dp"
+        android:layout_height="118dp"
+        android:layout_marginStart="10dp"
+        android:backgroundTint="@color/verdeOscuro"
+        android:text=""
+        android:textColorLink="#FDFDFE"
+        app:cornerRadius="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <Button
+        android:id="@+id/buttonFondoHome2"
+        android:layout_width="175dp"
+        android:layout_height="118dp"
+        android:layout_marginEnd="10dp"
+        android:backgroundTint="@color/marron"
+        android:text=""
+        android:textColorLink="#FDFDFE"
+        app:cornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <Button
+        android:id="@+id/buttonFondoHome3"
+        android:layout_width="376dp"
+        android:layout_height="243dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="10dp"
+        android:backgroundTint="@color/marron"
+        android:text=""
+        android:textColorLink="#FDFDFE"
+        app:cornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonFondoHome1" />
+
+    <Button
+        android:id="@+id/buttonFondoHome4"
+        android:layout_width="384dp"
+        android:layout_height="125dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:backgroundTint="#FFEEA1"
+        android:text=""
+        android:textColorLink="#FDFDFE"
+        app:cornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonFondoHome3" />
+
+    <!-- fin fondos -->
+
+    <!-- primera parte -->
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="143dp"
         android:layout_height="41dp"
         android:layout_marginTop="96dp"
-        android:text="Hola, Elena"
         android:fontFamily="@font/ptserifregular"
+        android:text="Hola, Elena"
         android:textColor="@color/verdeOscuro"
         android:textSize="26sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -71,29 +205,175 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
+        android:fontFamily="@font/montserratmedium"
         android:gravity="center"
         android:text="Última medición de\nOzono"
-        android:fontFamily="@font/montserratmedium"
         android:textColor="#FFFFFF"
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="49dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/montserratmedium"
+        android:gravity="center"
+        android:text="60"
+        android:textColor="#FFFFFF"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/textView7"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/montserratmedium"
+        android:gravity="center"
+        android:text="ppm"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView7"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserratmedium"
+        android:gravity="center"
+        android:text="Hace 5 minutos"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView9"
+        app:layout_constraintStart_toStartOf="@+id/textView8"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="30dp"
+        android:fontFamily="@font/montserratmedium"
+        android:gravity="center"
+        android:text="Última medición de\nTemeperatura"
+        android:textColor="@color/gris"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="49dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="26dp"
+        android:fontFamily="@font/montserratmedium"
+        android:gravity="center"
+        android:text="29"
+        android:textColor="@color/gris"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/textView13"
+        app:layout_constraintStart_toStartOf="@+id/textView14"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/montserratmedium"
+        android:gravity="center"
+        android:text="ºC"
+        android:textColor="@color/gris"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView14"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:fontFamily="@font/montserratmedium"
+        android:gravity="center"
+        android:text="Hace 5 minutos"
+        android:textColor="@color/gris"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView13"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/textView12"
+        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+    <!-- fin primera parte -->
+    <!-- segunda parte -->
+
     <TextView
         android:id="@+id/textView15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
+        android:fontFamily="@font/montserratmedium"
         android:gravity="center"
         android:text="Última Ubicación"
-        android:fontFamily="@font/montserratmedium"
         android:textColor="@color/gris"
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserratmedium"
+        android:gravity="center"
+        android:text="Hace 5 minutos"
+        android:textColor="@color/gris"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/textView17"
+        app:layout_constraintHorizontal_bias="0.226"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="44dp"
+        android:fontFamily="@font/montserratmedium"
+        android:gravity="center"
+        android:text="Ampliar mapa"
+        android:textColor="@color/gris"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/mapView"
+        android:layout_width="313dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="20dp"
+        android:contentDescription="mapa"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.565"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+    <!-- fin segunda parte -->
+    <!-- tercera parte -->
 
     <TextView
         android:id="@+id/textView18"
@@ -111,28 +391,13 @@
         app:layout_constraintTop_toBottomOf="@+id/mapView" />
 
     <TextView
-        android:id="@+id/textView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="30dp"
-        android:fontFamily="@font/montserratmedium"
-        android:gravity="center"
-        android:text="Última medición de\nTemeperatura"
-        android:textColor="@color/gris"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
-    <TextView
         android:id="@+id/textView19"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
+        android:fontFamily="@font/montserratmedium"
         android:gravity="center"
         android:text="Sobre Exposición"
-        android:fontFamily="@font/montserratmedium"
         android:textColor="@color/gris"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -140,41 +405,13 @@
         app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
     <TextView
-        android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Hace 5 minutos"
-        android:fontFamily="@font/montserratmedium"
-        android:textColor="#FFFFFF"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="@+id/textView9"
-        app:layout_constraintStart_toStartOf="@+id/textView8"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
-
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:gravity="center"
-        android:fontFamily="@font/montserratmedium"
-        android:text="Hace 5 minutos"
-        android:textColor="@color/gris"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="@+id/textView13"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/textView12"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
-
-    <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="12dp"
-        android:gravity="center"
         android:fontFamily="@font/montserratmedium"
+        android:gravity="center"
         android:text="Hace 5 minutos"
         android:textColor="@color/gris"
         android:textSize="14sp"
@@ -186,177 +423,14 @@
         android:id="@+id/textView20"
         android:layout_width="344dp"
         android:layout_height="33dp"
-        android:fontFamily="@font/montserratmedium"
         android:layout_marginTop="4dp"
+        android:fontFamily="@font/montserratmedium"
         android:text="Lleva demasiado tiempo sobre expuesto a niveles \nmuy altos de ozono."
         android:textColor="@color/gris"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@+id/textView19"
         app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
-    <TextView
-        android:id="@+id/textView16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:fontFamily="@font/montserratmedium"
-        android:text="Hace 5 minutos"
-        android:textColor="@color/gris"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toStartOf="@+id/textView17"
-        app:layout_constraintHorizontal_bias="0.226"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView15" />
-
-    <TextView
-        android:id="@+id/textView17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="44dp"
-        android:gravity="center"
-        android:text="Ampliar mapa"
-        android:textColor="@color/gris"
-        android:fontFamily="@font/montserratmedium"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView15" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:fontFamily="@font/montserratmedium"
-        android:gravity="center"
-        android:text="ppm"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/textView7"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
-
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/montserratmedium"
-        android:layout_marginEnd="8dp"
-        android:gravity="center"
-        android:text="ºC"
-        android:textColor="@color/gris"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/textView14"
-        app:layout_constraintTop_toBottomOf="@+id/textView14" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="49dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="16dp"
-        android:gravity="center"
-        android:text="60"
-        android:fontFamily="@font/montserratmedium"
-        android:textColor="#FFFFFF"
-        android:textSize="34sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/textView7"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
-
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="49dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="26dp"
-        android:gravity="center"
-        android:text="29"
-        android:fontFamily="@font/montserratmedium"
-        android:textColor="@color/gris"
-        android:textSize="34sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/textView13"
-        app:layout_constraintStart_toStartOf="@+id/textView14"
-        app:layout_constraintTop_toBottomOf="@+id/textView14" />
-
-    <com.google.android.gms.maps.MapView
-        android:id="@+id/mapView"
-        android:layout_width="319dp"
-        android:layout_height="173dp"
-        android:layout_marginTop="20dp"
-        android:contentDescription="mapa"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.565"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView15" />
-
-
-    <!-- footer -->
-
-    <ImageButton
-        android:id="@+id/iconGraficaHOME"
-        android:layout_width="0dp"
-        android:layout_height="66dp"
-        android:adjustViewBounds="true"
-        android:backgroundTint="@color/verdeOscuro"
-        android:scaleType="centerInside"
-        android:contentDescription="ICONO GRAFICA"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/iconoMapHOME"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/estadisticas" />
-
-    <ImageButton
-        android:id="@+id/iconoMapHOME"
-        android:layout_width="0dp"
-        android:layout_height="66dp"
-        android:adjustViewBounds="true"
-        android:backgroundTint="@color/verdeOscuro"
-        android:scaleType="centerInside"
-        android:contentDescription="mapa"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/iconHomeHOME"
-        app:layout_constraintStart_toEndOf="@+id/iconGraficaHOME"
-        app:srcCompat="@drawable/ubicacion_de_la_capa_terrestre" />
-
-    <ImageButton
-        android:id="@+id/iconHomeHOME"
-        android:layout_width="0dp"
-        android:layout_height="66dp"
-        android:adjustViewBounds="true"
-        android:backgroundTint="@color/verdeOscuro"
-        android:scaleType="centerInside"
-        android:contentDescription="Botón de inicio"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/iconagendaHOME"
-        app:layout_constraintStart_toEndOf="@+id/iconoMapHOME"
-        app:srcCompat="@drawable/casa_en_blanco" />
-
-    <ImageButton
-        android:id="@+id/iconagendaHOME"
-        android:layout_width="0dp"
-        android:layout_height="66dp"
-        android:adjustViewBounds="true"
-        android:backgroundTint="@color/verdeOscuro"
-        android:scaleType="centerInside"
-        android:contentDescription="agenda"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/iconAjustessHOME"
-        app:layout_constraintStart_toEndOf="@+id/iconHomeHOME"
-        app:srcCompat="@drawable/directorio" />
-
-    <ImageButton
-        android:id="@+id/iconAjustessHOME"
-        android:layout_width="0dp"
-        android:layout_height="66dp"
-        android:adjustViewBounds="true"
-        android:backgroundTint="@color/verdeOscuro"
-        android:scaleType="centerInside"
-        android:contentDescription="ajustes"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/iconagendaHOME"
-        app:srcCompat="@drawable/alt_administrador" />
-
-
+    <!-- fin tercera parte -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
