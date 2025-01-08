@@ -22,7 +22,7 @@ public class EditarPerfilActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-// Términos
+        // Términos
         ImageButton terminos = findViewById(R.id.flechaterminos);
 
         terminos.setOnClickListener(v -> {
@@ -38,7 +38,7 @@ public class EditarPerfilActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-// Web
+        // Web
         ImageButton web = findViewById(R.id.flechaweb);
 
         web.setOnClickListener(v -> {

@@ -6,25 +6,20 @@
     android:layout_height="match_parent"
     android:background="@drawable/fondo_contacto">
 
-
-    <Button
-        android:id="@+id/botonIniciar2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="64dp"
-        android:backgroundTint="@color/verdeBoton"
-        android:fontFamily="@font/montserratmedium"
-        android:text="Enviar"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textColorHint="#2D2F32"
-        android:textSize="18sp"
+    <ImageButton
+        android:id="@+id/logo2"
+        android:layout_width="435dp"
+        android:layout_height="267dp"
+        android:layout_marginTop="-64dp"
+        android:adjustViewBounds="true"
+        android:backgroundTint="#003A5335"
+        android:scaleType="centerInside"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDescri" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logotipo_modoclaro" />
+
+    <!--footer -->
 
     <ImageButton
         android:id="@+id/iconGraficaContacto"
@@ -39,6 +34,7 @@
         app:layout_constraintEnd_toStartOf="@+id/iconoMapContacto"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/estadisticas" />
+
 
     <ImageButton
         android:id="@+id/iconoMapContacto"
@@ -100,6 +96,21 @@
         app:layout_constraintTop_toTopOf="@+id/iconAgendaContacto"
         app:srcCompat="@drawable/alt_administrador" />
 
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-10dp"
+        android:fontFamily="@font/montserratmedium"
+        android:text="----------"
+        android:textColor="@color/marron"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.734"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iconAgendaContacto" />
+
+    <!-- fin footer -->
 
     <TextView
         android:id="@+id/titulo5"
@@ -115,18 +126,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logo2" />
 
-    <ImageButton
-        android:id="@+id/logo2"
-        android:layout_width="435dp"
-        android:layout_height="267dp"
-        android:layout_marginTop="-64dp"
-        android:adjustViewBounds="true"
-        android:backgroundTint="#003A5335"
-        android:scaleType="centerInside"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logotipo_modoclaro" />
+    <!-- Formulario de contacto -->
 
     <TextView
         android:id="@+id/nombreText"
@@ -220,23 +220,6 @@
         app:layout_constraintTop_toBottomOf="@+id/nombreText" />
 
     <EditText
-        android:id="@+id/editTextDescri"
-        android:layout_width="321dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="4dp"
-        android:backgroundTint="#686666"
-        android:ems="10"
-        android:fontFamily="@font/montserratmedium"
-        android:hint="Escriba su mensaje aqui..."
-        android:inputType="text"
-        android:textColor="@color/gris"
-        android:textColorHint="@color/gris"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/descriText" />
-
-    <EditText
         android:id="@+id/editTextApellido"
         android:layout_width="321dp"
         android:layout_height="38dp"
@@ -294,18 +277,42 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/asuntoText" />
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="-10dp"
+    <EditText
+        android:id="@+id/editTextDescri"
+        android:layout_width="321dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="4dp"
+        android:backgroundTint="#686666"
+        android:ems="10"
         android:fontFamily="@font/montserratmedium"
-        android:text="----------"
-        android:textColor="@color/marron"
-        android:textSize="12sp"
+        android:hint="Escriba su mensaje aqui..."
+        android:inputType="text"
+        android:textColor="@color/gris"
+        android:textColorHint="@color/gris"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.734"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iconAgendaContacto" />
+        app:layout_constraintTop_toBottomOf="@+id/descriText" />
+
+    <!-- fin formulario de contacto -->
+
+    <Button
+        android:id="@+id/botonIniciar2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="64dp"
+        android:backgroundTint="@color/verdeBoton"
+        android:fontFamily="@font/montserratmedium"
+        android:text="Enviar"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textColorHint="#2D2F32"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextDescri" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

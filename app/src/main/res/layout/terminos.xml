@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/fondo_anuncios">
 
+    <!-- header -->
 
     <ImageButton
         android:id="@+id/logoWEB"
@@ -20,36 +21,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logotipo_modoclaro" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/ptserifregular"
-        android:text="Terminos y condiciones"
-        android:textColor="@color/verdeOscuro"
-        android:textColorLink="#000000"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.13999999" />
-
-
-    <TextView
-        android:id="@+id/terms_and_conditions"
-        android:layout_width="386dp"
-        android:layout_height="502dp"
-        android:fontFamily="@font/montserratmedium"
-        android:lineSpacingExtra="6dp"
-        android:padding="16dp"
-        android:text="@string/terms_and_conditions"
-        android:textColor="@android:color/black"
-        android:textSize="7sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <ImageButton
         android:id="@+id/iconanuncioWEB"
@@ -67,21 +38,9 @@
         app:srcCompat="@drawable/ondas_sonoras_de_megafono__3_"
         android:contentDescription="Boton para ir a la pagina de anuncios"/>
 
-    <ImageButton
-        android:id="@+id/iconAjustessWEB"
-        android:layout_width="0dp"
-        android:layout_height="66dp"
-        android:layout_marginBottom="5dp"
-        android:adjustViewBounds="true"
-        android:backgroundTint="@color/verdeOscuro"
-        android:contentDescription="Botón para ir a la página de ajustes de usuario"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/iconagendaWEB"
-        app:layout_constraintTop_toTopOf="@+id/iconagendaWEB"
-        app:srcCompat="@drawable/alt_administrador" />
+    <!-- fin header -->
 
+    <!-- footer -->
     <ImageButton
         android:id="@+id/iconGraficaWEB"
         android:layout_width="0dp"
@@ -142,5 +101,50 @@
         app:layout_constraintTop_toTopOf="@+id/IconHomeWEB"
         app:srcCompat="@drawable/directorio" />
 
+    <ImageButton
+        android:id="@+id/iconAjustessWEB"
+        android:layout_width="0dp"
+        android:layout_height="66dp"
+        android:layout_marginBottom="5dp"
+        android:adjustViewBounds="true"
+        android:backgroundTint="@color/verdeOscuro"
+        android:contentDescription="Botón para ir a la página de ajustes de usuario"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/iconagendaWEB"
+        app:layout_constraintTop_toTopOf="@+id/iconagendaWEB"
+        app:srcCompat="@drawable/alt_administrador" />
+    <!-- fin footer -->
+
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/ptserifregular"
+        android:text="Terminos y condiciones"
+        android:textColor="@color/verdeOscuro"
+        android:textColorLink="#000000"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.13999999" />
+
+    <TextView
+        android:id="@+id/terms_and_conditions"
+        android:layout_width="386dp"
+        android:layout_height="502dp"
+        android:fontFamily="@font/montserratmedium"
+        android:lineSpacingExtra="6dp"
+        android:padding="16dp"
+        android:text="@string/terms_and_conditions"
+        android:textColor="@android:color/black"
+        android:textSize="7sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,21 +7,6 @@
     android:background="@drawable/fondo_graficabien">
 
     <!-- header -->
-
-    <TextView
-        android:id="@+id/textView30"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="-10dp"
-        android:fontFamily="@font/montserratmedium"
-        android:text="----------"
-        android:textColor="@color/marron"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.28"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mapaUbicacion" />
-
     <ImageButton
         android:id="@+id/logoGrafica"
         android:layout_width="198dp"
@@ -125,11 +110,24 @@
         app:layout_constraintStart_toEndOf="@+id/iconagendaWEB"
         app:srcCompat="@drawable/alt_administrador" />
 
-    <!--finfooter-->
+    <TextView
+        android:id="@+id/textView30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-10dp"
+        android:fontFamily="@font/montserratmedium"
+        android:text="----------"
+        android:textColor="@color/marron"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.28"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mapaUbicacion" />
+
+    <!--fin footer-->
 
 
     <!-- LocationFragment -->
-
 
     <Button
         android:id="@+id/buttonFondoUbi1"

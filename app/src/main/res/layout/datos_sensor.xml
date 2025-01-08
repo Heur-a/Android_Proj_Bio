@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     android:background="@drawable/fondo_datos_sensor">
 
+    <!-- header -->
+
     <ImageButton
         android:id="@+id/logoGrafica"
         android:layout_width="198dp"
@@ -19,34 +21,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logotipo_modoclaro" />
-
-    <TextView
-        android:id="@+id/textView26"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="-12dp"
-        android:fontFamily="@font/montserratmedium"
-        android:text="----------"
-        android:textColor="@color/marron"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iconGraficaGrafica" />
-
-    <TextView
-        android:id="@+id/textView34"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="90dp"
-        android:fontFamily="@font/ptserifregular"
-        android:text="Datos sensor"
-        android:textColor="@color/verdeOscuro"
-        android:textSize="34sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/iconanuncioGrafica"
@@ -62,6 +36,10 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_default="percent"
         app:srcCompat="@drawable/ondas_sonoras_de_megafono__3_" />
+
+    <!-- fin header -->
+    <!-- footer -->
+
 
     <ImageButton
         android:id="@+id/iconGraficaGrafica"
@@ -104,7 +82,6 @@
         android:contentDescription="Botón de inicio"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
-
         app:layout_constraintEnd_toStartOf="@+id/iconagendaGrafica"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/iconoMapGrafica"
@@ -140,5 +117,34 @@
         app:layout_constraintStart_toEndOf="@+id/iconagendaGrafica"
         app:srcCompat="@drawable/alt_administrador" />
 
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-12dp"
+        android:fontFamily="@font/montserratmedium"
+        android:text="----------"
+        android:textColor="@color/marron"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iconGraficaGrafica" />
+
+    <!-- fin footer -->
+
+    <TextView
+        android:id="@+id/textView34"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="90dp"
+        android:fontFamily="@font/ptserifregular"
+        android:text="Datos sensor"
+        android:textColor="@color/verdeOscuro"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/fondo_anuncios">
 
-
+    <!--header-->
     <ImageButton
         android:id="@+id/logoWEB"
         android:layout_width="198dp"
@@ -20,190 +20,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logotipo_modoclaro" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:fontFamily="@font/ptserifregular"
-        android:layout_height="wrap_content"
-        android:text="Anuncios"
-        android:textColor="@color/verdeOscuro"
-        android:textColorLink="#000000"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.13999999" />
-
-    <TextView
-        android:id="@+id/desc1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/montserratmedium"
-        android:text="¡Únete a la limpieza de la playa! Lleva tus guantes y &#10;ven a pasar una mañana divertida mientras &#10;cuidamos nuestro mar."
-        android:textColor="#6D6D6D"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.404"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.349" />
-
-    <ImageView
-        android:id="@+id/icono1"
-        android:layout_width="57dp"
-        android:layout_height="57dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.098"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.258"
-        app:srcCompat="@drawable/cuerno_de_fiesta" />
-
-    <TextView
-        android:id="@+id/titulo1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="¡ Planeta en acción!"
-        android:fontFamily="@font/montserratmedium"
-        android:textColor="#000000"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.055"
-        app:layout_constraintStart_toEndOf="@+id/icono1"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.238" />
-
-    <TextView
-        android:id="@+id/fecha1"
-        android:layout_width="273dp"
-        android:fontFamily="@font/montserratmedium"
-        android:layout_height="31dp"
-        android:text="Sábado, 22 de abril (Día de la Tierra) \na las 10:00 am."
-        android:textColor="#6D6D6D"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.173"
-        app:layout_constraintStart_toEndOf="@+id/icono1"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.282" />
-
-    <ImageView
-        android:id="@+id/icono3"
-        android:layout_width="57dp"
-        android:layout_height="57dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.098"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.62"
-        app:srcCompat="@drawable/dia_del_calendario" />
-
-    <TextView
-        android:id="@+id/titulo3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Día de la Tierra"
-        android:fontFamily="@font/montserratmedium"
-        android:textColor="#000000"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.059"
-        app:layout_constraintStart_toEndOf="@+id/icono1"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.593" />
-
-    <TextView
-        android:id="@+id/fecha3"
-        android:layout_width="273dp"
-        android:fontFamily="@font/montserratmedium"
-        android:layout_height="31dp"
-        android:text="Domingo, 15 de mayo a las 3:00 pm."
-        android:textColor="#6D6D6D"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.195"
-        app:layout_constraintStart_toEndOf="@+id/icono1"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.647" />
-
-    <TextView
-        android:id="@+id/desc3"
-        android:layout_width="wrap_content"
-        android:fontFamily="@font/montserratmedium"
-        android:layout_height="wrap_content"
-        android:text="Ven a disfrutar del día de la Tierra. Plantaremos&#10;árboles en el parque para crear un espacio más&#10;verde y lleno de vida. ¡Trae tu pala y tus ganas de&#10;ayudar!
-"
-        android:textColor="#6D6D6D"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.349"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.732" />
-
-    <TextView
-        android:id="@+id/titulo2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="¡Fiesta sostenible!"
-        android:textColor="#000000"
-        android:fontFamily="@font/montserratmedium"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.057"
-        app:layout_constraintStart_toEndOf="@+id/icono1"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.419" />
-
-    <TextView
-        android:id="@+id/fecha2"
-        android:layout_width="273dp"
-        android:fontFamily="@font/montserratmedium"
-        android:layout_height="31dp"
-        android:text="Sábado, 29 de junio a las 10:00 am."
-        android:textColor="#6D6D6D"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.173"
-        app:layout_constraintStart_toEndOf="@+id/icono1"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.468" />
-
-    <TextView
-        android:id="@+id/desc2"
-        android:layout_width="wrap_content"
-        android:fontFamily="@font/montserratmedium"
-        android:layout_height="wrap_content"
-        android:text="Disfruta de un concierto al aire libre con tus amigos&#10;mientras aprendemos sobre cómo cuidar el&#10;planeta. Habrá una paella y actividades ecológicas."
-        android:textColor="#6D6D6D"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.411"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.528" />
-
-    <ImageView
-        android:id="@+id/icono2"
-        android:layout_width="57dp"
-        android:layout_height="57dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.098"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.439"
-        app:srcCompat="@drawable/comida_en_cacerola" />
 
     <ImageButton
         android:id="@+id/iconanuncioWEB"
@@ -221,20 +37,8 @@
         app:srcCompat="@drawable/ondas_sonoras_de_megafono__3_"
         android:contentDescription="Boton para ir a la pagina de anuncios"/>
 
-    <ImageButton
-        android:id="@+id/iconAjustessWEB"
-        android:layout_width="0dp"
-        android:layout_height="66dp"
-        android:layout_marginBottom="5dp"
-        android:adjustViewBounds="true"
-        android:backgroundTint="@color/verdeOscuro"
-        android:contentDescription="Botón para ir a la página de ajustes de usuario"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/iconagendaWEB"
-        app:layout_constraintTop_toTopOf="@+id/iconagendaWEB"
-        app:srcCompat="@drawable/alt_administrador" />
+    <!--fin header-->
+    <!--footer-->
 
     <ImageButton
         android:id="@+id/iconGraficaWEB"
@@ -296,5 +100,214 @@
         app:layout_constraintTop_toTopOf="@+id/IconHomeWEB"
         app:srcCompat="@drawable/directorio" />
 
+    <ImageButton
+        android:id="@+id/iconAjustessWEB"
+        android:layout_width="0dp"
+        android:layout_height="66dp"
+        android:layout_marginBottom="5dp"
+        android:adjustViewBounds="true"
+        android:backgroundTint="@color/verdeOscuro"
+        android:contentDescription="Botón para ir a la página de ajustes de usuario"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/iconagendaWEB"
+        app:layout_constraintTop_toTopOf="@+id/iconagendaWEB"
+        app:srcCompat="@drawable/alt_administrador" />
+
+    <!--fin footer-->
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:fontFamily="@font/ptserifregular"
+        android:layout_height="wrap_content"
+        android:text="Anuncios"
+        android:textColor="@color/verdeOscuro"
+        android:textColorLink="#000000"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.13999999" />
+
+    <!-- contenido 1 -->
+
+    <TextView
+        android:id="@+id/titulo1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¡ Planeta en acción!"
+        android:fontFamily="@font/montserratmedium"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.055"
+        app:layout_constraintStart_toEndOf="@+id/icono1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.238" />
+
+    <TextView
+        android:id="@+id/fecha1"
+        android:layout_width="273dp"
+        android:fontFamily="@font/montserratmedium"
+        android:layout_height="31dp"
+        android:text="Sábado, 22 de abril (Día de la Tierra) \na las 10:00 am."
+        android:textColor="#6D6D6D"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.173"
+        app:layout_constraintStart_toEndOf="@+id/icono1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.282" />
+
+    <TextView
+        android:id="@+id/desc1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserratmedium"
+        android:text="¡Únete a la limpieza de la playa! Lleva tus guantes y &#10;ven a pasar una mañana divertida mientras &#10;cuidamos nuestro mar."
+        android:textColor="#6D6D6D"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.404"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.349" />
+
+    <ImageView
+        android:id="@+id/icono1"
+        android:layout_width="57dp"
+        android:layout_height="57dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.098"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.258"
+        app:srcCompat="@drawable/cuerno_de_fiesta" />
+
+    <!-- fin contenido 1-->
+    <!-- contenido 2 -->
+
+    <TextView
+        android:id="@+id/titulo2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¡Fiesta sostenible!"
+        android:textColor="#000000"
+        android:fontFamily="@font/montserratmedium"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.057"
+        app:layout_constraintStart_toEndOf="@+id/icono1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.419" />
+
+    <TextView
+        android:id="@+id/fecha2"
+        android:layout_width="273dp"
+        android:fontFamily="@font/montserratmedium"
+        android:layout_height="31dp"
+        android:text="Sábado, 29 de junio a las 10:00 am."
+        android:textColor="#6D6D6D"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.173"
+        app:layout_constraintStart_toEndOf="@+id/icono1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.468" />
+
+    <TextView
+        android:id="@+id/desc2"
+        android:layout_width="wrap_content"
+        android:fontFamily="@font/montserratmedium"
+        android:layout_height="wrap_content"
+        android:text="Disfruta de un concierto al aire libre con tus amigos&#10;mientras aprendemos sobre cómo cuidar el&#10;planeta. Habrá una paella y actividades ecológicas."
+        android:textColor="#6D6D6D"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.411"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.528" />
+
+    <ImageView
+        android:id="@+id/icono2"
+        android:layout_width="57dp"
+        android:layout_height="57dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.098"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.439"
+        app:srcCompat="@drawable/comida_en_cacerola" />
+
+    <!-- fin contenido 2-->
+    <!-- contenido 3 -->
+
+    <TextView
+        android:id="@+id/titulo3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Día de la Tierra"
+        android:fontFamily="@font/montserratmedium"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.059"
+        app:layout_constraintStart_toEndOf="@+id/icono1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.593" />
+
+    <TextView
+        android:id="@+id/fecha3"
+        android:layout_width="273dp"
+        android:fontFamily="@font/montserratmedium"
+        android:layout_height="31dp"
+        android:text="Domingo, 15 de mayo a las 3:00 pm."
+        android:textColor="#6D6D6D"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.195"
+        app:layout_constraintStart_toEndOf="@+id/icono1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.647" />
+
+    <TextView
+        android:id="@+id/desc3"
+        android:layout_width="wrap_content"
+        android:fontFamily="@font/montserratmedium"
+        android:layout_height="wrap_content"
+        android:text="Ven a disfrutar del día de la Tierra. Plantaremos&#10;árboles en el parque para crear un espacio más&#10;verde y lleno de vida. ¡Trae tu pala y tus ganas de&#10;ayudar!"
+        android:textColor="#6D6D6D"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.349"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.732" />
+
+
+    <ImageView
+        android:id="@+id/icono3"
+        android:layout_width="57dp"
+        android:layout_height="57dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.098"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.62"
+        app:srcCompat="@drawable/dia_del_calendario" />
+    <!-- fin contenido 3-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

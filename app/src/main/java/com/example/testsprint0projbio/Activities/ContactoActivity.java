@@ -59,11 +59,12 @@ public class ContactoActivity extends AppCompatActivity {
                     String selectedAsunto = parent.getItemAtPosition(position).toString();
                     Toast.makeText(ContactoActivity.this, "Seleccionaste: " + selectedAsunto, Toast.LENGTH_SHORT).show();
                 }
+                ((TextView) view).setTextColor(Color.BLACK);
+
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                // Sin acción
             }
         });
 
@@ -106,16 +107,20 @@ public class ContactoActivity extends AppCompatActivity {
             Intent intent = new Intent(ContactoActivity.this, AjustesActivity.class);
             startActivity(intent);
         });
-
         Button enviarButton = findViewById(R.id.botonIniciar2);
         enviarButton.setOnClickListener(v -> {
             String nombre = ((EditText) findViewById(R.id.editTextNombre)).getText().toString();
             String apellido = ((EditText) findViewById(R.id.editTextApellido)).getText().toString();
             String correo = ((EditText) findViewById(R.id.editTextTextEmailAddress)).getText().toString();
+            String telefono = ((EditText) findViewById(R.id.editTextPhone)).getText().toString();
             String asunto = spinner.getSelectedItem().toString();
 
             if (nombre.isEmpty() || apellido.isEmpty() || correo.isEmpty() || spinner.getSelectedItemPosition() == 0) {
                 Toast.makeText(ContactoActivity.this, "Por favor, completa todos los campos obligatorios.", Toast.LENGTH_SHORT).show();
+            } else if (!android.util.Patterns.EMAIL_ADDRESS.matcher(correo).matches()) {
+                Toast.makeText(ContactoActivity.this, "Por favor, introduce un correo válido.", Toast.LENGTH_SHORT).show();
+            } else if (!telefono.isEmpty() && !telefono.matches("\\d{9,15}")) {
+                Toast.makeText(ContactoActivity.this, "Por favor, introduce un número de teléfono válido.", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(ContactoActivity.this, "Formulario enviado con éxito.", Toast.LENGTH_SHORT).show();
                 // Aquí puedes procesar los datos del formulario

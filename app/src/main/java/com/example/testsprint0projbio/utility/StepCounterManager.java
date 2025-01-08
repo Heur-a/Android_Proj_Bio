@@ -80,7 +80,11 @@ public class StepCounterManager implements SensorEventListener {
         }
         if (distanceTextView != null) {
             float distance = totalSteps * STEP_LENGTH_METERS;
-            distanceTextView.setText(String.format("%.2f m", distance));
+            if (distance >= 1 && distance < 1000) {
+                distanceTextView.setText(String.format("%.2f m", distance));
+            } else {
+                distanceTextView.setText(String.format("%.2f km", distance / 1000));
+            }
         }
     }
 
