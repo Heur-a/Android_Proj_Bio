@@ -9,11 +9,12 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 public interface MedicionService extends ApiService {
     @POST("/mediciones")
     Call<ResponseBody> createMeasurement(@Body Medicion measurement);
 
     @GET("/mediciones/diaria")
-    Call<ResponseBody> getDailyMeasurements();
+    Call<ResponseBody> getDailyMeasurements(@Query("date") String date);
 }
