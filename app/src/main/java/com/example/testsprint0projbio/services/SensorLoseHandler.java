@@ -90,9 +90,9 @@ public class SensorLoseHandler {
      * Handles the scenario when the sensor node is found again.
      */
     public void nodeFound() {
+        resetTimer();
         if (isNodeLost) {
             isNodeLost = false;
-            resetTimer();
             sendFoundNodeNotification();
         }
     }

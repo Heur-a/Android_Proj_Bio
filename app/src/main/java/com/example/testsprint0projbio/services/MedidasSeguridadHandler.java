@@ -50,7 +50,8 @@ public class MedidasSeguridadHandler {
 
         if (valorMedida >= LIMITE_PELIGRO) {
             if (ahora - ultimaNotificacionPeligro >= INTERVALO_PELIGRO) {
-                enviarNotificacion("PELIGRO INMINENTE", "¡SALGA DE LA ZONA INMEDIATAMENTE!", 2);
+                enviarNotificacion("PELIGRO", "EL SENSOR HA DETECTADO NIVELES TÓXICOS DE OZONO" +
+                        "\n\rSALGA DE LA ZONA INMEDIATAMENTE", 2);
                 ultimaNotificacionPeligro = ahora;
             }
         } else if (valorMedida >= LIMITE_PRECAUCION) {
