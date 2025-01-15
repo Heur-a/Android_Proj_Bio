@@ -122,7 +122,7 @@ public class LoginActivity extends AppCompatActivity {
                 .getNodeById()
                 .enqueue(new Callback<NodeResponse>() {
                     @Override
-                    public void onResponse(Call<NodeResponse> call, Response<NodeResponse> response) {
+                    public void onResponse(@NonNull Call<NodeResponse> call, @NonNull Response<NodeResponse> response) {
                         if (response.isSuccessful() && response.body() != null) {
                             // Obté la UUID des de la resposta
                             String uuid = response.body().getUuid();
@@ -151,7 +151,7 @@ public class LoginActivity extends AppCompatActivity {
                     }
 
                     @Override
-                    public void onFailure(Call<NodeResponse> call, Throwable t) {
+                    public void onFailure(@NonNull Call<NodeResponse> call, @NonNull Throwable t) {
                         Log.e("API_ERROR", "Request failed", t);
                     }
                 });
