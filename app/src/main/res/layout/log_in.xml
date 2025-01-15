@@ -106,34 +106,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/contrasenyaInput" />
 
-    <TextView
-        android:id="@+id/olvidarContraseña"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/montserratmedium"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="32dp"
-        android:text="¿Has olvidado tu contraseña?"
-        android:textColor="@color/verdeOscuro"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/botonIniciar" />
-
-    <TextView
-        android:id="@+id/recuperarContraseña"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/montserratmedium"
-        android:layout_marginEnd="32dp"
-        android:text="Recuperar Contraseña"
-        android:textColor="@color/verdeOscuro"
-        android:textStyle="bold"
-        android:onClick="onRecuperarContraseñaClick"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/olvidarContraseña" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

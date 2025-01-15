@@ -3,6 +3,7 @@ package com.example.testsprint0projbio.Activities;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.widget.ImageButton;
@@ -17,16 +18,50 @@ import androidx.core.content.ContextCompat;
 
 import com.example.testsprint0projbio.R;
 import com.example.testsprint0projbio.services.MedidasSensorHandlerService;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.maps.model.Marker;
+
+import org.osmdroid.config.Configuration;
+import org.osmdroid.views.MapView;
+import org.osmdroid.util.GeoPoint;
 
 public class HomeActivity extends AppCompatActivity {
-
+    private MapView mapView;
     private static final int REQUEST_CODE = 123; // You can define a custom request code if needed
+    Drawable icon;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
+
+        Configuration.getInstance().setUserAgentValue(getPackageName());
+
+        // Configuración del mapa
+        mapView = findViewById(R.id.mapView);
+        mapView.setMultiTouchControls(true);
+
+        // Establecer una ubicación inicial
+        GeoPoint startPoint = new GeoPoint(38.996076129249644, -0.1656746914044447);
+        mapView.getController().setZoom(15.0);
+        mapView.getController().setCenter(startPoint);
+
+        // Crear un marcador
+        // Obtener la ubicación del usuario y agregar un marcador
+        FusedLocationProviderClient fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+        fusedLocationClient.getLastLocation()
+                .addOnSuccessListener(this, location -> {
+                    if (location != null) {
+                        GeoPoint userLocation = new GeoPoint(location.getLatitude(), location.getLongitude());
+                        org.osmdroid.views.overlay.Marker userMarker = new org.osmdroid.views.overlay.Marker(mapView);
+                        userMarker.setPosition(userLocation);
+                        userMarker.setTitle("Tu ubicación");
+                        mapView.getOverlays().add(userMarker);
+                        mapView.getController().setCenter(userLocation);
+                    }
+                });
 
         // LOGO
         ImageButton logoButton = findViewById(R.id.logoHOME);
@@ -88,6 +123,14 @@ public class HomeActivity extends AppCompatActivity {
             startActivity(new Intent(HomeActivity.this, UbicacionActivity.class));
         });
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mapView != null) {
+            mapView.onDetach();
+        }
     }
 
     // ActivityResultLauncher to handle the result of permission request
