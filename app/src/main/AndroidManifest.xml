@@ -68,7 +68,7 @@
         <activity android:name=".Activities.AjustesActivity" />
         <activity android:name=".Activities.LoginActivity" />
         <activity android:name=".Activities.UbicacionActivity" />
-        <activity android:name=".Activities.MapaActivity" />
+        <activity android:name=".Activities.DatosSensorActivity" />
         <activity android:name=".Activities.ContactoActivity" />
         <activity android:name=".Activities.WebActivity" />
         <activity android:name=".Activities.PrivacyActivity" />

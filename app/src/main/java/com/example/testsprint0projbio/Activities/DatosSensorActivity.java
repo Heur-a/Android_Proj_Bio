@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.testsprint0projbio.R;
 
-public class MapaActivity extends AppCompatActivity {
+public class DatosSensorActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,7 +18,7 @@ public class MapaActivity extends AppCompatActivity {
         ImageButton logoButton = findViewById(R.id.logoGrafica);
 
         logoButton.setOnClickListener(v -> {
-            Intent intent = new Intent(MapaActivity.this, HomeActivity.class);
+            Intent intent = new Intent(DatosSensorActivity.this, HomeActivity.class);
             startActivity(intent);
         });
 
@@ -26,7 +26,7 @@ public class MapaActivity extends AppCompatActivity {
         ImageButton anunciosButton = findViewById(R.id.iconanuncioGrafica);
 
         anunciosButton.setOnClickListener(v -> {
-            Intent intent = new Intent(MapaActivity.this, AnunciosActivity.class);
+            Intent intent = new Intent(DatosSensorActivity.this, AnunciosActivity.class);
             startActivity(intent);
         });
 
@@ -34,7 +34,7 @@ public class MapaActivity extends AppCompatActivity {
         ImageButton graficaButton = findViewById(R.id.iconGraficaGrafica);
 
         graficaButton.setOnClickListener(v -> {
-            Intent intent = new Intent(MapaActivity.this, MapaActivity.class);
+            Intent intent = new Intent(DatosSensorActivity.this, DatosSensorActivity.class);
             startActivity(intent);
         });
 
@@ -42,7 +42,7 @@ public class MapaActivity extends AppCompatActivity {
         ImageButton mapaButton = findViewById(R.id.iconoMapGrafica);
 
         mapaButton.setOnClickListener(v -> {
-            Intent intent = new Intent(MapaActivity.this, UbicacionActivity.class);
+            Intent intent = new Intent(DatosSensorActivity.this, UbicacionActivity.class);
             startActivity(intent);
         });
 
@@ -50,7 +50,7 @@ public class MapaActivity extends AppCompatActivity {
         ImageButton contactoButton = findViewById(R.id.iconagendaGrafica);
 
         contactoButton.setOnClickListener(v -> {
-            Intent intent = new Intent(MapaActivity.this, ContactoActivity.class);
+            Intent intent = new Intent(DatosSensorActivity.this, ContactoActivity.class);
             startActivity(intent);
         });
 
@@ -58,7 +58,7 @@ public class MapaActivity extends AppCompatActivity {
         ImageButton homeButton = findViewById(R.id.IconHomeGrafica);
 
         homeButton.setOnClickListener(v -> {
-            Intent intent = new Intent(MapaActivity.this, HomeActivity.class);
+            Intent intent = new Intent(DatosSensorActivity.this, HomeActivity.class);
             startActivity(intent);
         });
 
@@ -66,7 +66,7 @@ public class MapaActivity extends AppCompatActivity {
         ImageButton perfilButton = findViewById(R.id.iconAjustessGrafica);
 
         perfilButton.setOnClickListener(v -> {
-            Intent intent = new Intent(MapaActivity.this, AjustesActivity.class);
+            Intent intent = new Intent(DatosSensorActivity.this, AjustesActivity.class);
             startActivity(intent);
         });
 

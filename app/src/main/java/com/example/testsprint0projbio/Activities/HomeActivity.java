@@ -48,7 +48,7 @@ public class HomeActivity extends AppCompatActivity {
         ImageButton graficaButton = findViewById(R.id.iconGraficaHOME);
 
         graficaButton.setOnClickListener(v -> {
-            Intent intent = new Intent(HomeActivity.this, MapaActivity.class);
+            Intent intent = new Intent(HomeActivity.this, DatosSensorActivity.class);
             startActivity(intent);
         });
 
