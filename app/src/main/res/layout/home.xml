@@ -343,32 +343,16 @@
         android:text="Hace 5 minutos"
         android:textColor="@color/gris"
         android:textSize="12sp"
-        app:layout_constraintEnd_toStartOf="@+id/textView17"
-        app:layout_constraintHorizontal_bias="0.226"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textView15"
         app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
-    <TextView
-        android:id="@+id/textView17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="44dp"
-        android:fontFamily="@font/montserratmedium"
-        android:gravity="center"
-        android:text="Ampliar mapa"
-        android:textColor="@color/gris"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView15" />
-
-    <com.google.android.gms.maps.MapView
+    <org.osmdroid.views.MapView
         android:id="@+id/mapView"
         android:layout_width="313dp"
         android:layout_height="140dp"
         android:layout_marginTop="20dp"
         android:contentDescription="mapa"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.565"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView15" />
 

@@ -10,6 +10,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -28,6 +29,12 @@ import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
+
+import org.osmdroid.config.Configuration;
+import org.osmdroid.util.GeoPoint;
+import org.osmdroid.views.MapView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,10 +56,57 @@ public class UbicacionActivity extends AppCompatActivity {
     private BluetoothAdapter bluetoothAdapter;
     private BluetoothLeScanner bluetoothLeScanner;
 
+    private MapView mapView;
+    Drawable icon;
+    Button button4;
+    Button button3;
+    Button button2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ubicacion);
+
+        Configuration.getInstance().setUserAgentValue(getPackageName());
+
+        // Configuración del mapa
+        mapView = findViewById(R.id.mapView2);
+        mapView.setMultiTouchControls(true);
+
+        // Establecer una ubicación inicial
+        GeoPoint startPoint = new GeoPoint(38.996076129249644, -0.1656746914044447);
+        mapView.getController().setZoom(15.0);
+        mapView.getController().setCenter(startPoint);
+
+        // Crear un marcador
+        // Obtener la ubicación del usuario y agregar un marcador
+        FusedLocationProviderClient fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        fusedLocationClient.getLastLocation()
+                .addOnSuccessListener(this, location -> {
+                    if (location != null) {
+                        GeoPoint userLocation = new GeoPoint(location.getLatitude(), location.getLongitude());
+                        org.osmdroid.views.overlay.Marker userMarker = new org.osmdroid.views.overlay.Marker(mapView);
+                        userMarker.setPosition(userLocation);
+                        userMarker.setTitle("Tu ubicación");
+                        mapView.getOverlays().add(userMarker);
+                        mapView.getController().setCenter(userLocation);
+                    }
+                });
+
+        button4 = findViewById(R.id.button4);
+        button3 = findViewById(R.id.button3);
+        button2 = findViewById(R.id.button2);
+
 
         // LOGO
         ImageButton logoButton = findViewById(R.id.logoGrafica);
@@ -232,12 +286,21 @@ public class UbicacionActivity extends AppCompatActivity {
             switch (proximityCategory) {
                 case 0:
                     proximityText = "Cerca";
+                    button4.setBackgroundColor(Color.parseColor("#87A08B"));
+                    button3.setBackgroundColor(Color.parseColor("#87A08B"));
+                    button2.setBackgroundColor(Color.parseColor("#87A08B"));
                     break;
                 case 1:
                     proximityText = "Media distancia";
+                    button4.setBackgroundColor(Color.parseColor("#c9b892"));
+                    button3.setBackgroundColor(Color.parseColor("#87A08B"));
+                    button2.setBackgroundColor(Color.parseColor("#87A08B"));
                     break;
                 case 2:
                     proximityText = "Lejos";
+                    button4.setBackgroundColor(Color.parseColor("#c9b892"));
+                    button3.setBackgroundColor(Color.parseColor("#c9b892"));
+                    button2.setBackgroundColor(Color.parseColor("#87A08B"));
                     break;
             }
 

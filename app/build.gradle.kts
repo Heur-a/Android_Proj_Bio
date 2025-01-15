@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
+    alias(libs.plugins.google.android.libraries.mapsplatform.secrets.gradle.plugin)
 }
 
 android {
@@ -79,4 +80,7 @@ dependencies {
 
     // MPAndroidChart para gráficos circulares
     implementation ("com.github.PhilJay:MPAndroidChart:v3.1.0")
+
+    //integracion de la libreria de openstreetmap
+    implementation ("org.osmdroid:osmdroid-android:6.1.12")
 }
