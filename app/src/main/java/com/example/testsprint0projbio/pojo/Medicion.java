@@ -67,6 +67,13 @@ public class Medicion {
         this.uuid = uuid;
     }
 
+    public Medicion(float value, float locX, float locY, long gasId) {
+        this.value = value;
+        LocX = locX;
+        LocY = locY;
+        this.gasId = gasId;
+    }
+
     public Medicion (Location location, float value, long gasId, String uuid) {
 
         if (location != null) {

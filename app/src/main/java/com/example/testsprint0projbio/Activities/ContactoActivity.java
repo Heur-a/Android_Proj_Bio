@@ -72,7 +72,7 @@ public class ContactoActivity extends AppCompatActivity {
         ImageButton graficaButton = findViewById(R.id.iconGraficaContacto);
 
         graficaButton.setOnClickListener(v -> {
-            Intent intent = new Intent(ContactoActivity.this, MapaActivity.class);
+            Intent intent = new Intent(ContactoActivity.this, DatosSensorActivity.class);
             startActivity(intent);
         });
 

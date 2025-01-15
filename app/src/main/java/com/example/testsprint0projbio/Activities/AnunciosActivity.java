@@ -34,7 +34,7 @@ public class AnunciosActivity extends AppCompatActivity {
         ImageButton graficaButton = findViewById(R.id.iconGraficaWEB);
 
         graficaButton.setOnClickListener(v -> {
-            Intent intent = new Intent(AnunciosActivity.this, MapaActivity.class);
+            Intent intent = new Intent(AnunciosActivity.this, DatosSensorActivity.class);
             startActivity(intent);
         });
 

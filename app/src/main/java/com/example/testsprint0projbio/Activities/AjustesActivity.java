@@ -34,7 +34,7 @@ public class AjustesActivity extends AppCompatActivity {
         ImageButton graficaButton = findViewById(R.id.iconGraficaEditarPerfil);
 
         graficaButton.setOnClickListener(v -> {
-            Intent intent = new Intent(AjustesActivity.this, MapaActivity.class);
+            Intent intent = new Intent(AjustesActivity.this, DatosSensorActivity.class);
             startActivity(intent);
         });
 
