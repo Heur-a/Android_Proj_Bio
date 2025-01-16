@@ -67,7 +67,7 @@ public class TerminosActivity extends AppCompatActivity {
         ImageButton perfilButton = findViewById(R.id.iconAjustessWEB);
 
         perfilButton.setOnClickListener(v -> {
-            Intent intent = new Intent(TerminosActivity.this, TerminosActivity.class);
+            Intent intent = new Intent(TerminosActivity.this, AjustesActivity.class);
             startActivity(intent);
         });
     }

@@ -56,7 +56,7 @@ public class PrivacyActivity extends AppCompatActivity {
         });
 
         // Home
-        ImageButton homeButton = findViewById(R.id.iconHomeEditarPerfil);
+        ImageButton homeButton = findViewById(R.id.IconHomeWEB);
 
         homeButton.setOnClickListener(v -> {
             Intent intent = new Intent(PrivacyActivity.this, HomeActivity.class);
@@ -64,10 +64,10 @@ public class PrivacyActivity extends AppCompatActivity {
         });
 
         // PERFIL
-        ImageButton perfilButton = findViewById(R.id.iconagendaWEB);
+        ImageButton perfilButton = findViewById(R.id.iconAjustessWEB);
 
         perfilButton.setOnClickListener(v -> {
-            Intent intent = new Intent(PrivacyActivity.this, PrivacyActivity.class);
+            Intent intent = new Intent(PrivacyActivity.this, AjustesActivity.class);
             startActivity(intent);
         });
     }
