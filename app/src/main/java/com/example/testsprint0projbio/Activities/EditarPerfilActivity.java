@@ -23,7 +23,7 @@ public class EditarPerfilActivity extends AppCompatActivity {
         });
 
         // Términos
-        ImageButton terminos = findViewById(R.id.flechaterminos);
+        ImageButton terminos = findViewById(R.id.flecha);
 
         terminos.setOnClickListener(v -> {
             Intent intent = new Intent(EditarPerfilActivity.this, TerminosActivity.class);
@@ -67,7 +67,7 @@ public class EditarPerfilActivity extends AppCompatActivity {
         ImageButton graficaButton = findViewById(R.id.iconGraficaEditarPerfil);
 
         graficaButton.setOnClickListener(v -> {
-            Intent intent = new Intent(EditarPerfilActivity.this, MapaActivity.class);
+            Intent intent = new Intent(EditarPerfilActivity.this, DatosSensorActivity.class);
             startActivity(intent);
         });
 

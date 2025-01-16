@@ -35,7 +35,7 @@ public class PrivacyActivity extends AppCompatActivity {
         ImageButton graficaButton = findViewById(R.id.iconGraficaWEB);
 
         graficaButton.setOnClickListener(v -> {
-            Intent intent = new Intent(PrivacyActivity.this, MapaActivity.class);
+            Intent intent = new Intent(PrivacyActivity.this, DatosSensorActivity.class);
             startActivity(intent);
         });
 

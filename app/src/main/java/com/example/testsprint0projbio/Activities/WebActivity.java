@@ -36,7 +36,7 @@ public class WebActivity extends AppCompatActivity {
         ImageButton graficaButton = findViewById(R.id.iconGraficaWEB);
 
         graficaButton.setOnClickListener(v -> {
-            Intent intent = new Intent(WebActivity.this, MapaActivity.class);
+            Intent intent = new Intent(WebActivity.this, DatosSensorActivity.class);
             startActivity(intent);
         });
 

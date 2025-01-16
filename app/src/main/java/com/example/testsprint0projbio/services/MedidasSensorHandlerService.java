@@ -229,6 +229,10 @@ public class MedidasSensorHandlerService extends Service {
 
             if (storedUUID != null && storedUUID.equals(detectedUUID)) {
                 Log.d(TAG, "Matching UUID found: " + detectedUUID);
+
+                //Ensure node is not lost
+                sensorLoseHandler.nodeFound();
+
                 //Get location
                 Location location = getCurrentLocation();
                 //Create new Medicion
@@ -240,8 +244,7 @@ public class MedidasSensorHandlerService extends Service {
                 // Check for security measures
                 medidasSeguridadHandler.evaluarMedida(major);
 
-                //Ensure node is not lost
-                sensorLoseHandler.nodeFound();
+
             }
         } catch (Exception e) {
             Log.e(TAG, "Error processing scan result: " + e.getMessage());
