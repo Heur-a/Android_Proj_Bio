@@ -72,6 +72,7 @@
         <activity android:name=".Activities.PrivacyActivity" />
         <activity android:name=".Activities.TerminosActivity" />
         <activity android:name=".Activities.SobreAPPActivity" />
+        <activity android:name=".Activities.DatosMentiraActivity"/>
 
         <service
             android:name=".services.MedidasSensorHandlerService"
@@ -79,6 +80,11 @@
         <service
             android:name=".services.DistanciaService"
             android:foregroundServiceType="dataSync|location|connectedDevice" />
+        <service
+            android:name=".utility.MeasurementService"
+            android:exported="false"
+            android:foregroundServiceType="connectedDevice|location|dataSync" />
+
     </application>
 
 </manifest>

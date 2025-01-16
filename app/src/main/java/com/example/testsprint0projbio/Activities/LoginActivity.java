@@ -55,6 +55,11 @@ public class LoginActivity extends AppCompatActivity {
         TextView emailInput = findViewById(R.id.correoInput);
         TextView passwordInput = findViewById(R.id.contrasenyaInput);
 
+        Button activityFalsaButton = findViewById(R.id.botonSecretoActivityMentira);
+        activityFalsaButton.setOnClickListener( v -> {
+            startActivity(new Intent(LoginActivity.this, DatosMentiraActivity.class));
+            finish();
+        });
         Button loginButton = findViewById(R.id.botonIniciar);
         loginButton.setOnClickListener(v -> {
 
