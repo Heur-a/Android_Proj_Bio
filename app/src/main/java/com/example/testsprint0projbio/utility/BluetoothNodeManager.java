@@ -63,7 +63,6 @@ public class BluetoothNodeManager {
             scanner.startScan(this.scanCallback);
             isScanning = true;
             Log.d(ETIQUETA_LOG, "startScanning(): Escaneo iniciado.");
-            Toast.makeText(context, "Escaneo iniciado.", Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             Log.e(ETIQUETA_LOG, "startScanning(): Error iniciando escaneo:  " + e.getMessage());
         }
