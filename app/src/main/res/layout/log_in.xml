@@ -87,6 +87,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/contraseñaLabel" />
 
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="32dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Ojito"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ojocruzado"
+        app:layout_constraintBottom_toBottomOf="@+id/contrasenyaInput"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/contrasenyaInput" />
+
+
     <Button
         android:id="@+id/botonIniciar"
         android:layout_width="match_parent"

@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/fondo_anuncios">
 
-    <!-- header -->
-
+    <!-- Header -->
     <ImageButton
         android:id="@+id/logoWEB"
         android:layout_width="198dp"
@@ -21,7 +20,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logotipo_modoclaro" />
-
 
     <ImageButton
         android:id="@+id/iconanuncioWEB"
@@ -37,11 +35,49 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.01"
         app:srcCompat="@drawable/ondas_sonoras_de_megafono__3_"
-        android:contentDescription="Boton para ir a la pagina de anuncios"/>
+        android:contentDescription="Boton para ir a la pagina de anuncios" />
 
-    <!-- fin header -->
-    <!-- footer -->
+    <!-- Contenido con ScrollView -->
+    <ScrollView
+        android:id="@+id/scrollContent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/logoWEB"
+        app:layout_constraintBottom_toTopOf="@+id/iconGraficaWEB"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/ptserifregular"
+                android:text="Sobre APP"
+                android:textColor="@color/verdeOscuro"
+                android:textColorLink="#000000"
+                android:textSize="34sp"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:id="@+id/terms_and_conditions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserratmedium"
+                android:lineSpacingExtra="3dp"
+                android:paddingTop="16dp"
+                android:text="@string/app_description"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Footer -->
     <ImageButton
         android:id="@+id/iconGraficaWEB"
         android:layout_width="0dp"
@@ -116,38 +152,5 @@
         app:layout_constraintStart_toEndOf="@+id/iconagendaWEB"
         app:layout_constraintTop_toTopOf="@+id/iconagendaWEB"
         app:srcCompat="@drawable/alt_administrador" />
-
-    <!-- fin footer -->
-
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/ptserifregular"
-        android:text="Sobre APP"
-        android:textColor="@color/verdeOscuro"
-        android:textColorLink="#000000"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.13999999" />
-
-
-    <TextView
-        android:id="@+id/terms_and_conditions"
-        android:layout_width="386dp"
-        android:layout_height="502dp"
-        android:fontFamily="@font/montserratmedium"
-        android:lineSpacingExtra="3dp"
-        android:padding="16dp"
-        android:text="@string/app_description"
-        android:textColor="@android:color/black"
-        android:textSize="7sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

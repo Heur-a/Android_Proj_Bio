@@ -23,14 +23,22 @@ public class EditarPerfilActivity extends AppCompatActivity {
         });
 
         // Términos
-        ImageButton terminos = findViewById(R.id.flecha);
+        ImageButton terminos = findViewById(R.id.privacidadflecha2);
 
         terminos.setOnClickListener(v -> {
             Intent intent = new Intent(EditarPerfilActivity.this, TerminosActivity.class);
             startActivity(intent);
         });
 
-// Sobre App
+        // Sobre Nosotros
+        ImageButton sobrenosotros = findViewById(R.id.flecha2);
+
+        sobrenosotros.setOnClickListener(v -> {
+            Intent intent = new Intent(EditarPerfilActivity.this, SobreAPPActivity.class);
+            startActivity(intent);
+        });
+
+        // Sobre app
         ImageButton sobreapp = findViewById(R.id.flechaSobreAPP);
 
         sobreapp.setOnClickListener(v -> {

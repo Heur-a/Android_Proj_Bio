@@ -26,13 +26,34 @@ public class AjustesActivity extends AppCompatActivity {
         ImageButton flechaButton = findViewById(R.id.flecha);
         flechaButton.setOnClickListener(v -> openWebPage(BASE_URL + "/log-in.html"));
 
-        // FlechaSobreAPP
-        ImageButton flechaSobreAppButton = findViewById(R.id.flechaSobreAPP);
+        // FlechaSobreNosotros
+        ImageButton flechaSobreAppButton = findViewById(R.id.flecha2);
         flechaSobreAppButton.setOnClickListener(v -> openWebPage(BASE_URL + "/acerca_de.html"));
 
-        // PrivacidadFlecha
-        ImageButton privacidadFlechaButton = findViewById(R.id.privacidadflecha);
-        privacidadFlechaButton.setOnClickListener(v -> openWebPage(BASE_URL + "/privacidad.html"));
+        // Privacidad
+        ImageButton privacidad = findViewById(R.id.privacidadflecha);
+
+        privacidad.setOnClickListener(v -> {
+            Intent intent = new Intent(AjustesActivity.this, PrivacyActivity.class);
+            startActivity(intent);
+        });
+
+
+        // Términos
+        ImageButton terminos = findViewById(R.id.privacidadflecha2);
+
+        terminos.setOnClickListener(v -> {
+            Intent intent = new Intent(AjustesActivity.this, TerminosActivity.class);
+            startActivity(intent);
+        });
+
+        // Sobre app
+        ImageButton sobreapp = findViewById(R.id.flechaSobreAPP);
+
+        sobreapp.setOnClickListener(v -> {
+            Intent intent = new Intent(AjustesActivity.this, SobreAPPActivity.class);
+            startActivity(intent);
+        });
 
         // LOGO
         ImageButton logoButton = findViewById(R.id.logoEditarPerfil);

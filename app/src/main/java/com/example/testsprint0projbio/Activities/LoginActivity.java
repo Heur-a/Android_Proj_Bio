@@ -4,8 +4,12 @@ import static android.content.ContentValues.TAG;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,6 +39,10 @@ public class LoginActivity extends AppCompatActivity {
     public String email;
     public String password;
     private LocalStorageManager localStorageManager;
+    private boolean isPasswordVisible = false;
+    private ImageButton imageButton;
+    private EditText passwordField;
+
 
 
     @Override
@@ -106,6 +114,21 @@ public class LoginActivity extends AppCompatActivity {
                             Log.e("Login", "Error: " + t.getMessage());
                         }
                     });
+        });
+
+        imageButton = findViewById(R.id.imageButton);
+        passwordField = findViewById(R.id.contrasenyaInput);
+
+        imageButton.setOnClickListener(v -> {
+            if (isPasswordVisible) {
+                passwordField.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                imageButton.setImageResource(R.drawable.ojocruzado); // Cambia a imagen de "contraseña oculta"
+            } else {
+                passwordField.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                imageButton.setImageResource(R.drawable.ojo); // Cambia a imagen de "contraseña visible"
+            }
+            isPasswordVisible = !isPasswordVisible;
+            passwordField.setSelection(passwordField.getText().length()); // Mueve el cursor al final del texto
         });
     }
 
