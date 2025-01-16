@@ -25,7 +25,7 @@ public class SensorLoseHandler {
     private final String NOTIFICATION_CHANNEL_ID;
 
     /** Threshold time in milliseconds to detect node loss. */
-    private static final long LOST_TIME_THRESHOLD = 1000 * 30; // 30 seconds
+    private static final long LOST_TIME_THRESHOLD = 1000 * 60; // 60 seconds
 
     /** Countdown timer to monitor node connection status. */
     private CountDownTimer countDownTimer;

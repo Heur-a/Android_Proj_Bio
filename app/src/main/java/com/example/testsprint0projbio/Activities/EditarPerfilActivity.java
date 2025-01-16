@@ -23,7 +23,7 @@ public class EditarPerfilActivity extends AppCompatActivity {
         });
 
         // Términos
-        ImageButton terminos = findViewById(R.id.flechaterminos);
+        ImageButton terminos = findViewById(R.id.flecha);
 
         terminos.setOnClickListener(v -> {
             Intent intent = new Intent(EditarPerfilActivity.this, TerminosActivity.class);

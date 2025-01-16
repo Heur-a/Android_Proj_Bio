@@ -286,34 +286,18 @@
         app:srcCompat="@drawable/angulo_pequeno_derecho" />
 
     <ImageButton
-        android:id="@+id/flechaterminos"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:adjustViewBounds="true"
-        android:clickable="true"
-        android:background="@null"
-        android:contentDescription="flecha"
-        android:elevation="10dp"
-        android:focusable="true"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="@+id/terminooooos"
-        app:layout_constraintEnd_toEndOf="@+id/flechaSobreAPP"
-        app:layout_constraintTop_toTopOf="@+id/terminooooos"
-        app:srcCompat="@drawable/angulo_pequeno_derecho" />
-
-    <ImageButton
         android:id="@+id/privacidadflecha"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:adjustViewBounds="true"
+        android:background="@null"
         android:clickable="true"
         android:contentDescription="flecha"
         android:elevation="10dp"
         android:focusable="true"
-        android:background="@null"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="@+id/textprivacidad"
-        app:layout_constraintEnd_toEndOf="@+id/flechaterminos"
+        app:layout_constraintStart_toStartOf="@+id/flechaSobreAPP"
         app:layout_constraintTop_toTopOf="@+id/textprivacidad"
         app:srcCompat="@drawable/angulo_pequeno_derecho" />
 
@@ -395,17 +379,6 @@
         app:layout_constraintTop_toTopOf="@+id/sobreapp" />
 
     <TextView
-        android:id="@+id/terminooooos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/montserratmedium"
-        android:text="Términos y condiciones"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/sobreaplicacion"
-        app:layout_constraintTop_toTopOf="@+id/terminos" />
-
-    <TextView
         android:id="@+id/textprivacidad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -413,7 +386,7 @@
         android:text="Política de privacidad"
         android:textColor="@color/black"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/terminooooos"
+        app:layout_constraintStart_toStartOf="@+id/sobreaplicacion"
         app:layout_constraintTop_toTopOf="@+id/privacidad" />
 
     <!-- fin textos -->
@@ -457,21 +430,12 @@
         app:srcCompat="@drawable/mano_movil" />
 
     <ImageView
-        android:id="@+id/terminos"
+        android:id="@+id/privacidad"
         android:layout_width="33dp"
         android:layout_height="31dp"
         android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="@+id/sobreapp"
         app:layout_constraintTop_toBottomOf="@+id/sobreapp"
-        app:srcCompat="@drawable/informacion_sobre_terminos_y_condiciones" />
-
-    <ImageView
-        android:id="@+id/privacidad"
-        android:layout_width="33dp"
-        android:layout_height="31dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="@+id/terminos"
-        app:layout_constraintTop_toBottomOf="@+id/terminos"
         app:srcCompat="@drawable/escudo_de_usuario" />
 
     <!-- fin iconos -->
